@@ -1,0 +1,16 @@
+@import "../../../../../assets/styles/helpers/variables";
+.bbtn {
+    background-color: #fff;
+    width: 200px;
+    border: 1px solid $secondaryColor;
+    color: $secondaryColor;
+    border-radius: 0px;
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 50px !important;
+}
+
+.page-title{
+    color: #1D4861;
+    font-size: 28px;
+    font-weight: 700;
+  }

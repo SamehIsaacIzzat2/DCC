@@ -1,0 +1,33 @@
+@import "../../../../../../assets/styles/helpers/variables";
+.formAlertMsg {
+  margin-top: 15px;
+  .title {
+    display: flex;
+    color: $secondaryColor;
+    align-items: center;
+    .icon {
+      font-size: 18px;
+      margin-inline-end: 5px;
+    }
+    span {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  .info {
+    font-weight: 400;
+    font-size: 16px;
+    color: #2f3334;
+    line-height: 30px;
+    white-space: pre-wrap
+  }
+}
+
+.middelTitle {
+  color: #1d4861;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 25px;
+}

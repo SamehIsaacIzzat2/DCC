@@ -1,0 +1,46 @@
+<!-- Verify -->
+<section class="verify center">
+
+    <p *ngIf="model.verifyData.title" class="pageTitle">{{model.verifyData.title}}</p>
+  
+    <div class="exp">
+      <span [innerHTML]="model.verifyData.text"></span>
+    </div>
+  
+    <div class="boxing">
+  
+      <!-- Digits -->
+      <div class="digits">
+        <!-- Digit -->
+        <div class="digit" [class.digitActive]="(model.focus==i || model.digits[i])" *ngFor="let d of model.loops; let i = index">
+          <input id="txt_{{i}}_ver{{model.id}}" (focus)="model.digits[i]=''" (keyup)="model.blur(i, $event)" [(ngModel)]="model.digits[i]"
+            maxlength="1" (keydown)="model.setFocus(i)" [placeholder]="model.digits[i]==null?'':'-'" pattern="[0-9]*" />
+        </div>
+      </div>
+  
+      <!-- <div class="verifyNewPersonDetails" >
+        <p *ngIf="model.showTimer" >Resend After</p>
+        <div *ngIf="model.showTimer"  class="circle_progress" >
+          <svg width="105px" height="105px" viewBox="0 0 42 42" class="donut">
+            <circle #c1 class="c1" cx="21" cy="21" r="15.91549430918954" stroke-dasharray="100 0" stroke-dashoffset="100"></circle>
+            <circle #c2 class="c2" cx="21" cy="21" r="15.91549430918954" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+            <g class="chart-text" fill="#6e768a" font="16px">
+              <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" #counterNum class="counterNum">0 </text>
+            </g>
+            <g class="chart-text" fill="#bfc2ce" font="12px">
+              <text x="50%" y="70%" dominant-baseline="middle" text-anchor="middle" class="counterText">SECS</text>
+            </g>
+          </svg>
+        </div>
+        <span *ngIf="!model.showTimer">Didn't recieve the code ? <a (click)="resend()">Resend Again</a></span>
+        <span *ngIf="resent">Verification code has been sent.</span>
+      </div> -->
+
+      <!-- Buttons -->
+      <!-- <div class="buttons">
+        <button class="muted" (click)="model.verify()"> Verify </button>
+      </div> -->
+  
+    </div>
+  
+</section>

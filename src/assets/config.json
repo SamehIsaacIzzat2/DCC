@@ -1,0 +1,4 @@
+{
+    "WEBURL" :"http://localhost:4200" ,
+    "APIURL": "https://bsdccdevapi.azurewebsites.net"
+}

@@ -1,0 +1,51 @@
+<div class="side-filter">
+    <div class="row">
+     <div class="col-sm-10">
+       <div class="side-filter-wrapper">
+         
+         <!-- #first-filter -->
+         <div class="options">
+           <h4 class="my-2">{{'shared.filterData.filterBy' | translate}}:</h4>
+           <label class="option-label">
+             <span>{{'leadsModule.leadsInfo.leadStatus' | translate}}:</span>
+           </label>
+           <div class="checkbox-group my-3">
+              <!-- option-all -->
+              <!-- <div class="checkbox-option">
+               <input type="checkbox" name="first" id="all" (change)="filterReq($event,'0','requeststatus')"/>
+               <label for="all">All</label>
+             </div> -->
+             <div class="checkbox-option" *ngFor="let opt of model.reqStatus;let i = index">
+               <input type="checkbox" name="first" [id]="'opt' + i" (change)="filterReq($event,opt.id,'requeststatus')"/>
+               <label [for]="'opt' + i">{{opt.name}}</label>
+             </div>
+           </div>
+         </div>
+           
+          <!-- #third-filter -->
+          <div class="options">
+           <label class="option-label">
+             <span>{{'shared.generalFeilds.date' | translate}}:</span>
+           </label>
+           <div class="checkbox-group my-3">
+           
+             <div class="checkbox-option" *ngFor="let opt of model.sortType;let i = index">
+               <input type="checkbox" name="first" [id]="'sorttype' + i" (change)="filterReq($event,opt.id,'sortType')"/>
+               <label [for]="'sorttype' + i">{{opt.name}}</label>
+             </div>
+           </div>
+      
+         </div>
+     </div>
+ 
+ 
+    </div>
+ 
+    <div class="col-sm-2">
+     <div class="vertical-line" [ngClass]="{'changeLineHight':verticalLineInDataCase}">
+     </div>
+     </div>
+ 
+    </div>
+   </div>
+ 

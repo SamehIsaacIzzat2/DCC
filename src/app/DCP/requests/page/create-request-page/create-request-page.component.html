@@ -1,0 +1,30 @@
+<div class="create-request my-4">
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [paddingFlag]="true" [bannerMode]="3">
+    </banner>
+  </div> 
+
+  <div class="container">
+    <p class="page-title">{{model.banner.title}}</p>
+    <steeper
+      [steps]="model.steps"
+      (nextStepEvent)="model.nextStep()"
+      (editFormEvent)="model.cencel()"
+      (submitEvent)="model.submit($event)"
+      (cancleEvent)="model.goBackToServices()"
+      [activeStep]="model.activeStep"
+      [createRequestStyleFlag]="true"
+    >
+      <div [ngStyle]="{ display: model.activeStep === 1 ? 'block' : 'none' }">
+        <create-request
+          (setData)="model.setData($event)"
+          (setDetailsData)="model.setDetails($event)"
+          [pageModel]="model"
+        ></create-request>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep === 2 ? 'block' : 'none' }">
+        <app-details [data]="model.Detailsdata"></app-details>
+      </div>
+    </steeper>
+  </div>
+</div>

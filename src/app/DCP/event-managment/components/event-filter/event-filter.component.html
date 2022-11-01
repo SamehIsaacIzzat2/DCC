@@ -1,0 +1,34 @@
+<div class="side-filter">
+    <div class="row">
+     <div class="col-sm-10">
+       <div class="side-filter-wrapper">
+         
+         <!-- #first-filter -->
+         <div class="options">
+          <!-- {{'shared.filterData.quickFind' | translate}} -->
+           <h4 class="my-3">{{"shared.filterData.filterBy" | translate}} :</h4>
+           <label class="option-label">
+             <span>{{'eventsModule.eventsInfo.type' | translate}}</span>
+           </label>
+           <div class="checkbox-group my-3">
+           
+             <div class="checkbox-option" *ngFor="let opt of model.reqStatus;let i = index">
+               <input type="checkbox" name="first" [id]="'opt' + i" (change)="filterReq($event,opt.id,'requeststatus')"/>
+               <label [for]="'opt' + i">{{opt.name}}</label>
+             </div>
+           </div>
+         </div>
+       
+     </div>
+ 
+ 
+    </div>
+ 
+    <div class="col-sm-2">
+     <div class="vertical-line">
+     </div>
+     </div>
+ 
+    </div>
+   </div>
+ 

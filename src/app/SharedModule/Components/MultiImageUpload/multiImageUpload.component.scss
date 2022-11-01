@@ -1,0 +1,123 @@
+.avatar-upload {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .intial-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+  }
+  .hoverable {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    height: 170px;
+    width: 100%;
+    max-width: 300px;
+    background: #f8f8f8;
+    border: 3px dashed #e9e9e9;
+    border-radius: 5px;
+  }
+  .hoverable .hover-text {
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .hoverable .background {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 5px;
+  }
+  .hoverable:hover .hover-text {
+    display: block;
+  }
+  .hoverable:hover .background {
+    display: block;
+  }
+
+  #fileInput {
+    display: none;
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.img-list {
+  display: flex;
+  gap: 10px;
+  margin: 16px;
+  padding-bottom: 16px;
+  overflow-x: auto;
+  .img-container {
+    position: relative;
+    cursor: pointer;
+    .image {
+      width: 100px;
+      height: 100px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+  }
+  .hoverImg {
+    display: none;
+  }
+  .img-container:hover .hoverImg {
+    text-align: center;
+    color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(195 195 195 / 37%);
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}

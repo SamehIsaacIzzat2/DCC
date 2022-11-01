@@ -1,0 +1,56 @@
+@import "../../../../../assets/styles/helpers/variables";
+.result-card{
+    border:1px solid #DDDCEA;
+    border-radius: 4px;
+
+    .header{
+        span{
+            color:#979797;
+            font-size: 14px;
+            font-weight: 400;
+            display: inline-block;
+           
+        }
+    }
+
+    .body{
+        .title{
+            h4{
+                font-size: 16px;
+                font-weight: 700;
+                color:$secondaryColor;
+            }
+            
+        }
+        .data{
+            h4{
+                font-size: 17px;
+                font-weight: 400;
+                color: #000000;
+            }
+        }
+
+    }
+    .footer{
+        display: flex;
+        justify-content: end;
+        @media (max-width:299.9px){
+            justify-content: center;
+        }
+        .action-btn {
+            button{
+                border-radius: 4px;
+                padding: 0.4rem 0.75rem !important;
+            }
+        }
+      
+    }
+
+}
+.Dummy-data{
+    width:50%;
+    color: #94A3B8 !important;
+    font-size: 16px;
+    font-weight: 400;
+    // margin-left:10px !important;
+  }

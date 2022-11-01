@@ -1,0 +1,472 @@
+<div class="container my-5 px-0">
+  <div *ngIf="model.mode === 'form'">
+    <form [formGroup]="model.registerForm">
+      <div class="formContainer">
+        <div class="row mb-30px">
+          <div class="col-12 my-4">
+            <div class="title">
+              <h4 class="title">
+                {{ "registration.registrationForm.personalInfo" | translate }}
+              </h4>
+              <span class="note"
+                >{{ "shared.generalWord.note" | translate }}{{ ":" }}
+                {{
+                  "registration.registrationForm.personalInfoNote" | translate
+                }}</span
+              >
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row">
+              <div class="col-sm-12 col-md-2">
+                <!-- title -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{ "shared.generalFeilds.title" | translate }} *</label
+                    >
+                    <select
+                      [ngClass]="{
+                        ar: langSer.getLangFromLocalStorage() == 'ar'
+                      }"
+                      formControlName="title"
+                      class="form-select"
+                    >
+                      <option
+                        *ngFor="let opt of model.jobTitles; let index = index"
+                        [value]="opt.id"
+                        [attr.selected]="index === 0 ? true : null"
+                      >
+                        {{ opt.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="model.f['title'].touched && model.f['title'].errors"
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['title'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.titleRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <!-- First Name -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "shared.generalFeilds.firstName" | translate
+                      }}
+                      *</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="firstName"
+                      [placeholder]="
+                        model.translate.instant(
+                          'shared.generalFeilds.firstName'
+                        )
+                      "
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      model.f['firstName'].touched &&
+                      model.f['firstName'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['firstName'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.firstNameRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-12">
+                <!-- Last Name -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "shared.generalFeilds.lastName" | translate
+                      }}
+                      *</label
+                    >
+                    <input
+                      formControlName="lastName"
+                      [placeholder]="
+                        model.translate.instant('shared.generalFeilds.lastName')
+                      "
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      model.f['lastName'].touched && model.f['lastName'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['lastName'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.lastNameRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <!-- nationality -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "shared.generalFeilds.nationality" | translate
+                      }}
+                      *</label
+                    >
+                    <select formControlName="nationality" class="form-select">
+                      <option value="">Select Nationality</option>
+                      <option
+                        *ngFor="let option of model.nationalities"
+                        [value]="option.id"
+                      >
+                        {{ option.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      model.f['nationality'].touched &&
+                      model.f['nationality'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['nationality'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.nationalityRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <!-- Email -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{ "shared.generalFeilds.email" | translate }} *</label
+                    >
+                    <input
+                      formControlName="email"
+                      [placeholder]="
+                        model.translate.instant('shared.generalFeilds.email')
+                      "
+                    />
+                  </div>
+                  <div
+                    *ngIf="model.f['email'].touched && model.f['email'].errors"
+                  >
+                    <span
+                      class="form-error mb-2"
+                      *ngIf="model.f['email'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.emailRequired"
+                          | translate
+                      }}
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['email'].errors['pattern']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.emailNotValid"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <!-- Mobile -->
+            <div class="input mb-30px">
+              <label for="mobile">
+                <label class="form-label" for=""
+                  >{{ "shared.generalFeilds.phoneNumber" | translate }} *</label
+                >
+              </label>
+
+              <div
+                dir="ltr"
+                class="input-content mobileFeild inputHasSuffixOrPrefix"
+              >
+                <ngx-intl-tel-input
+                  id="mobileInput"
+                  [preferredCountries]="model.preferredCountries"
+                  [selectFirstCountry]="true"
+                  [separateDialCode]="true"
+                  [enablePlaceholder]="true"
+                  formControlName="phone"
+                  [phoneValidation]="true"
+                  [searchCountryFlag]="true"
+                  [searchCountryField]="[
+                    model.searchCountryField.Iso2,
+                    model.searchCountryField.Name
+                  ]"
+                >
+                </ngx-intl-tel-input>
+              </div>
+
+              <div *ngIf="model.f['phone'].touched && model.f['phone'].errors">
+                <span
+                  class="form-error mb-2"
+                  *ngIf="model.f['phone'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.phoneNumberRequired"
+                      | translate
+                  }}
+                </span>
+                <span
+                  class="form-error"
+                  *ngIf="
+                    model.f['phone'].status == 'INVALID' &&
+                    !model.f['phone'].errors['required']
+                  "
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.phoneNumberNotValid"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 my-4">
+            <div class="optional-part">
+              <div class="title">
+                <h4 class="title">
+                  {{
+                    "registration.registrationForm.identificationInfo"
+                      | translate
+                  }}
+                </h4>
+                <span class="note"
+                  >{{ "shared.generalWord.note" | translate }}{{ ":" }}
+                  {{
+                    "registration.registrationForm.identificationInfoNote"
+                      | translate
+                  }}</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <!-- emiratesId -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{ "shared.generalFeilds.emiratesID" | translate }}
+                      <!-- <span class="disabled">(Optional)</span> -->
+                    </label>
+                    <div class="input">
+                      <input
+                        [placeholder]="
+                          model.translate.instant(
+                            'shared.Placeholders.idNumber'
+                          )
+                        "
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        formControlName="emiratesId"
+                        [(ngModel)]="Idval"
+                        pattern="^784-?[0-9]{4}-?[0-9]{7}-?[0-9]{1}$"
+                        [inputMask]="emiratesIdInputMask"
+                        (focus)="visitFeild(Idval)"
+                        (blur)="checkFeildContent(Idval)"
+                      />
+                      <!-- <span>784</span> -->
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      model.f['emiratesId'].touched &&
+                      model.f['emiratesId'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['emiratesId'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.emiratesIDRequired"
+                          | translate
+                      }}
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['emiratesId'].errors['pattern']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.emiratesIDNotValid"
+                          | translate
+                      }}
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['emiratesId'].errors['minlength']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.emiratesIDNotReachRequirdLength"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Passport Number -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{ "shared.generalFeilds.passportNumber" | translate }}
+                      <!-- <span class="disabled">(Optional)</span> -->
+                    </label>
+                    <input
+                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                      formControlName="passportNumber"
+                      [placeholder]="
+                        model.translate.instant('shared.Placeholders.idNumber')
+                      "
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      model.f['passportNumber'].touched &&
+                      model.f['passportNumber'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['passportNumber'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.passportNumberRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Unified ID  -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{ "shared.generalFeilds.unifiedID" | translate }}
+                      <!-- <span class="disabled">(Optional)</span> -->
+                    </label>
+                    <div class="input">
+                      <input
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        formControlName="unifiedID"
+                        [placeholder]="
+                          model.translate.instant(
+                            'shared.Placeholders.idNumber'
+                          )
+                        "
+                      />
+                      <!-- <span>784</span> -->
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      model.f['unifiedID'].touched &&
+                      model.f['unifiedID'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['unifiedID'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i> Unified ID
+                      is required
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['unifiedID'].errors['minlength'] ||
+                        model.f['unifiedID'].errors['maxlength']
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.unifiedIDRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+        >
+          <div class="normal-register">
+            <button class="btn" (click)="model.register()">
+              {{ "shared.actions.register" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="model.mode === 'success'">
+    <result-card [item]="item"></result-card>
+  </div>
+</div>

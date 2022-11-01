@@ -1,0 +1,237 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Helpers */
+
+//Variables
+@import "assets/styles/helpers/variables";
+
+//Mixins
+@import "assets/styles/helpers/mixins";
+
+/* UI Components */
+//Buttons
+// @import "assets/styles/components/buttons";
+@import "assets/styles/components/form";
+
+// Icons
+@import "./icons.scss";
+
+//date time picker
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+// thin English font
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(./assets/fonts/HelveticaNeue-Thin.otf) format("truetype");
+  font-weight: thin;
+  font-style: normal;
+  font-display: swap;
+}
+//bold English font
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(./assets/fonts/HelveticaNeue-Bold.otf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+//thin English font
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(./assets/fonts/HelveticaNeue.otf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+//Arabic medium font
+@font-face {
+  font-family: "DroidKufi";
+  src: url(./assets/fonts/DroidKufi/DroidKufi-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+//Arabic bold font
+@font-face {
+  font-family: "DroidKufi";
+  src: url(./assets/fonts/DroidKufi/DroidKufi-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+//Arabic medium font
+@font-face {
+  font-family: "DroidKufi";
+  src: url(./assets/fonts/DroidKufi/DroidKufi.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  @include prefixer(box-sizing, border-box, webkit moz o ms);
+  @include rtl_value(font-family, $mainFont, $mainArabicFont);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.disFlex {
+  display: flex;
+}
+.space {
+  flex: 1 1 auto;
+}
+.text-center {
+  text-align: center;
+}
+a,
+a:not([href]):not([tabindex]),
+a:hover,
+a:not([href]):not([tabindex]):hover {
+  text-decoration: none;
+  color: $primaryColor;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+
+// [lang='en'] body, *, a, span, strong, p, h1, h2, h3, h4, h5, h6, .mat-checkbox, .mat-table, .mat-list-item, .mat-form-field { font-family: $mainFont; }
+// [lang='ar'] body, *, a, span, strong, p, h1, h2, h3, h4, h5, h6, .mat-checkbox, .mat-table, .mat-list-item, .mat-form-field { font-family: $mainArabicFont; }
+body,
+*,
+a,
+span,
+strong,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.mat-checkbox,
+.mat-table,
+.mat-list-item,
+.mat-form-field {
+  @include rtl_value(font-family, $mainFont, $mainArabicFont);
+}
+// body, button, a, span, strong, p, h1, h2, h3, h4, h5, h6, .mat-checkbox, .mat-table, .mat-list-item, .mat-form-field, .mat-card, :host .mat-expansion-panel-content { @include rtl_value(font-family, $mainFont, $mainArabicFont);
+
+// Custom Style
+.sidebarModal {
+  position: absolute !important;
+  right: 0;
+  width: 500px;
+  @media (max-width: 1100px) {
+    min-width: 400px !important;
+  }
+  .mat-dialog-container {
+    // background: url(assets/images/sidebarCurve_bg.svg) center center;
+    // background-size: cover;
+    // box-shadow: none;
+  }
+}
+
+.mat-radio-label {
+  white-space: initial !important;
+}
+.mat-date-range-input-mirror {
+  min-width: 50px !important;
+}
+
+:host ::ng-deep .modal {
+  position: unset !important;
+  top: unset !important;
+  left: unset !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+.btn {
+  box-shadow: none !important;
+}
+.white-snackbar {
+  background-color: #f8f8f8;
+  color: #003764;
+}
+.normal-button button {
+  background-color: $secondaryColor;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+}
+
+.ouline-button button {
+  background-color: #f5f5f5;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: $secondaryColor;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+}
+
+.no-value:empty {
+  position: relative;
+  &:after {
+    @include rtl_value(content, "No value", "لا توجد بيانات");
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+span.required {
+  color: #f87171;
+  margin-left: 4px;
+}
+
+.form-select {
+  @include rtl_value(
+    background-position,
+    right 0.75rem center,
+    left 0.75rem center !important
+  );
+}
+
+.material-icons {
+  font-family: "Material Icons" !important;
+}
+
+.ar-flip {
+  @include rtl_value(rotate, unset, 180deg);
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+//table tree global style
+@import "src/assets/styles/components/table-tree";
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/styles/components/form-modal";

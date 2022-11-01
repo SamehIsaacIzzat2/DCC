@@ -1,0 +1,129 @@
+<form-modal [title]="fromTitle" [id]="'addProduct'">
+  <div class="display-contents" modal-content>
+    <div class="modal-body">
+      <form [formGroup]="addProductForm">
+        <div class="row">
+          <!-- Package type -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">{{
+                  "cooModule.invoiceInfo.productType" | translate
+                }}</label>
+                <select
+                  formControlName="typeId"
+                  class="form-select"
+                  [ngStyle]="{
+                    opacity: addProductForm.controls['typeId'].invalid
+                      ? '.5'
+                      : '1'
+                  }"
+                >
+                  <option value="" selected disabled hidden>
+                    {{ "cooModule.invoiceInfo.currency" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let type of packageTypes; index as i"
+                    [value]="type.id"
+                  >
+                    {{ type.packageTypesNameEnglish }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="submitted && f['typeId'].errors">
+                <span class="form-error" *ngIf="f['typeId'].errors['required']">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Size-->
+          <div class="col-md-6 col-sm-12 my-3">
+            <label class="form-label" for="">
+              {{ "cooModule.invoiceInfo.size" | translate }}
+            </label>
+            <div class="row">
+              <!-- L -->
+              <div class="col-4">
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <input type="number" formControlName="L" placeholder="L" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- M -->
+              <div class="col-4">
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <input type="number" formControlName="M" placeholder="M" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- H -->
+              <div class="col-4">
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <input type="number" formControlName="H" placeholder="H" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              *ngIf="
+                submitted && (f['L'].errors || f['M'].errors || f['H'].errors)
+              "
+            >
+              <span class="form-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{ "cooModule.invoiceInfo.requiredField" | translate }}
+              </span>
+            </div>
+          </div>
+
+          <!--Quantity -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">{{
+                  "cooModule.invoiceInfo.quantity" | translate
+                }}</label>
+
+                <input type="number" formControlName="quantity" />
+              </div>
+              <div *ngIf="submitted && f['quantity'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="f['quantity'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--start modal footer -->
+    <div class="modal-footer">
+      <button
+      id="addPachageModal"
+        class="btn btn-outline-success w-25"
+        data-bs-dismiss="modal"
+        (onCancel)="onCancel()"
+      >
+        {{ "shared.generalWord.cancel" | translate }}
+      </button>
+
+      <button class="btn btn-success w-25" (click)="onSubmit()">
+        {{ "shared.generalWord.add" | translate }}
+      </button>
+    </div>
+  </div>
+</form-modal>

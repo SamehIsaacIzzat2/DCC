@@ -1,0 +1,40 @@
+@import "../../../../assets/styles/helpers/variables";
+.row-widget {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px 45px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: 500;
+
+    .title {
+        color: #476e83;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 75px;
+
+        .info,
+        .setting {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            mat-icon {
+                font-size: 21px;
+            }
+        }
+
+        .info {
+            color: #616465;
+        }
+
+        .setting {
+            color: $secondaryColor;
+        }
+
+    }
+}

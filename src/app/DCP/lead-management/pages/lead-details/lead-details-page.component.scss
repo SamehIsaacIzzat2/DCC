@@ -1,0 +1,223 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+// #start step-side style
+.page-title{
+  color: #1D4861;
+  font-size: 28px;
+  font-weight: 700;
+}
+.step-side {
+  .line {
+    width: 3px;
+    height: 25px;
+    background-color: $secondaryColor;
+    border-radius: 2px;
+  }
+
+  margin: 20px 0px;
+
+  .step-one {
+    cursor: pointer;
+  }
+  .my-disable {
+    pointer-events: none !important;
+    cursor: no-drop !important;
+    p {
+      color: #d9d9d9 !important ;
+    }
+  }
+  .step-two {
+    cursor: pointer;
+
+    p {
+      font-size: 18px;
+      // font-weight: 600;
+      cursor: pointer;
+      color: #003764;
+    }
+  }
+
+  .status {
+    p {
+      color: $secondaryColor;
+      font-size: 18px;
+      // font-weight: 600;
+      // margin-left: 10px;
+    }
+    .checkbox-group {
+      .checkbox-option {
+        display: flex;
+        gap: 20px;
+        margin: 10px 0;
+        align-items: center;
+
+        label {
+          position: relative;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 15px;
+        }
+
+        label:before {
+          content: "";
+          border: 1px solid #d9d9d9;
+          padding: 10px;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+          cursor: pointer;
+          @include rtl_value("margin-right", 20px, unset);
+          @include rtl_value("margin-left", unset, 20px);
+        }
+
+        input {
+          padding: 0;
+          height: initial;
+          width: initial;
+          margin-bottom: 0;
+          display: none;
+          cursor: pointer;
+        }
+
+        input:checked + label:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 2px;
+          @include rtl_value(left,9px,unset);
+            @include rtl_value(right,unset,9px);
+          width: 6px;
+          height: 14px;
+          border: solid $secondaryColor;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    // ul {
+    //   li {
+    //     margin: 10px 0px;
+    //     display: flex;
+    //     grid-gap: 20px;
+    //     gap: 20px;
+    //     align-items: center;
+
+    //     input {
+    //       width: 25px !important;
+    //       height: 20px;
+    //       accent-color: #fff;
+    //     }
+
+    //     label {
+    //       color: #2f3334d4;
+    //       font-weight: 500;
+    //       font-size: 15px;
+
+    //     }
+    //   }
+    // }
+  }
+}
+
+// start filter styles
+
+.Filters {
+  margin-top: 50px;
+
+  p {
+    color: $secondaryColor;
+    font-size: 18px;
+    // font-weight: 600;
+  }
+  .input-content {
+    input {
+      width: 80%;
+      padding: 8px !important;
+    }
+
+    select {
+      @include rtl_value("padding-right", 30px !important, unset);
+      @include rtl_value("padding-left", unset, 30px !important);
+    }
+  }
+
+  .normal-button,
+  .ouline-button {
+    width: 90%;
+
+    button:hover {
+      &:active {
+        box-shadow: none !important;
+        outline: none !important;
+      }
+    }
+  }
+  .ouline-button {
+    button {
+      background-color: #fff;
+    }
+  }
+}
+
+// start content-side style
+
+.content-side {
+  @include rtl_value("border-left", 1px solid #dddcea, unset);
+  @include rtl_value("border-right", unset, 1px solid #dddcea);
+
+  margin: 10px 0px;
+}
+
+.request-status {
+  h4 {
+    color: #1d4861;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.request-details {
+  h4 {
+    color: #1d4861;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+p {
+  color: #1d4861;
+  font-size: 18px;
+  font-weight: 400;
+  padding-inline-start: 10px;
+}
+
+p.active {
+  position: relative;
+  font-size: 18px;
+  color: $secondaryColor !important;
+  font-weight: 700;
+  cursor: pointer;
+  // padding-left: 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    @include rtl_value(left,0,unset);
+    @include rtl_value(right,unset,0);
+    top: 0;
+    width: 3px;
+    height: 25px;
+    background-color: $secondaryColor;
+    border-radius: 2px;
+  }
+}
+
+.form-select {
+  padding: 0.45rem 0.75rem !important;
+  width: 80%;
+}
+
+.form-label {
+  font-size: 16px;
+  color: #2f3334;
+  font-weight: 500;
+}

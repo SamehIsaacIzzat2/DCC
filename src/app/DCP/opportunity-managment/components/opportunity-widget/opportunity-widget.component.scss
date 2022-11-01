@@ -1,0 +1,185 @@
+$spanFontSize: 14px;
+$headingFontSize: 17px;
+
+@import "../../../../../assets/styles/helpers/variables";
+
+
+.request-widget {
+    border: 1px solid #DDDCEA;
+    padding: 10px 20px;
+    margin: 20px 0px;
+    cursor: pointer;
+
+
+    &.indetails {
+        background-image: url("../../../../../assets/images/lead-green-widget.svg"), linear-gradient(90.34deg, $secondaryColor 0.25%, #1D4861 99.76%);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+
+        .request-type {
+            .request-title {
+                span {
+                    color: #C7D3B7;
+                }
+
+                h4 {
+                    color: #FFFFFF;
+                    font-size:17px;
+                    font-weight: 500;
+                }
+            }
+
+        }
+
+        .request-status {
+            span {
+                color: #A3A1BB;
+            }
+
+            h4 {
+                span{
+                    color: #FFFFFF;
+                    font-size:17px;
+                    font-weight: 500;
+
+
+
+                }
+            }
+        }
+
+        .request-date {
+            span {
+                color: #A3A1BB;
+            }
+
+            h4 {
+                color: #FFFFFF;
+                font-size:17px;
+                font-weight: 500;
+
+
+            }
+        }
+
+    }
+
+    // start normal request style
+
+    .request-type {
+        .icon {
+            img {
+                width: 22.6px;
+            }
+        }
+
+        .request-title {
+            span {
+                font-size: $spanFontSize;
+                color: #979797;
+
+
+            }
+
+            h4 {
+                font-size: $headingFontSize;
+                color: #003764;
+                margin: 7px 0px;
+                font-weight: 500;
+
+
+
+            }
+        }
+
+    }
+
+    .request-status {
+        span {
+            font-size: $spanFontSize;
+            color: #979797;
+        }
+
+        h4 {
+            font-size: 15px;
+            margin: 7px 0px;
+            color: #2F3334;
+            font-weight: 400;
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .request-date {
+        span {
+            font-size: $spanFontSize;
+            color: #979797;
+        }
+
+        h4 {
+            font-size: 15px;
+            margin: 7px 0px;
+            color: #2F3334;
+            font-weight: 400;
+        }
+
+    }
+}
+
+// .DraftStyle,
+// .closeStyle {
+//     color: #979797;
+// }
+
+// .submitStyle {
+//     color: #003764;
+// }
+
+// .custsubmitStyle {
+//     color: #fff;
+// }
+
+// .responseStyle {
+//     color: #F4CE6C;
+// }
+
+// .progressStyle {
+//     color: #04CE6D;
+// }
+
+//custom style to make widget arrow
+
+.status-part {
+    .request-date {
+        width: 70%;
+
+    }
+
+    .circle-icon {
+        width: 30%;
+
+        .icon-border {
+            width: 29px;
+            height: 29px;
+            margin: 0px auto;
+            border: 1px solid $secondaryColor;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 20px;
+                height: 10px
+            }
+
+        }
+
+
+
+
+    }
+}

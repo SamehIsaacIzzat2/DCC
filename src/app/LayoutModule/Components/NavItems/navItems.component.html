@@ -1,0 +1,8 @@
+<!-- NavItems -->
+<div class="navItems">
+    <ul>
+        <li *ngFor="let item of model.items;let i = index">
+            <navItem *ngIf="item.isActive" [item]="item"></navItem>
+        </li>
+    </ul>
+</div>

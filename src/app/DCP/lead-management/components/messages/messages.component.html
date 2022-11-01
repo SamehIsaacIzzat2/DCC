@@ -1,0 +1,74 @@
+<ng-container *ngIf="!model.loading">
+  <div *ngIf="model.messages && model.messages?.length != 0">
+    <button
+      *ngIf="model.opportunityorlead == 'lead' && model.LeadStatus == '2'"
+      class="new-btn"
+      [routerLink]="['/services', 'leads', 'sendMessage', model.leadId]"
+    >
+      <span>{{ "leadsModule.messages.newMessage" | translate }}</span>
+      <i class="fa-solid fa-plus"></i>
+    </button>
+    <button
+      *ngIf="
+        model.opportunityorlead == 'opportunity' &&
+        model.opportunityStatus == '2'
+      "
+      class="new-btn"
+      [routerLink]="['/services', 'opportunities', 'sendMessage', model.leadId]"
+    >
+      <span>{{ "leadsModule.messages.newMessage" | translate }}</span>
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+
+  <div
+    class="messages my-5"
+    *ngIf="model.messages && model.messages?.length != 0"
+  >
+    <div class="message" *ngFor="let message of model.messages">
+      <div class="title">
+        <h4 class="text">{{ message.title }}</h4>
+        <!-- <span>{{ message.created | date: "dd-MM-yyyy h:mm a" }}</span> -->
+        <span>{{ message.created | customDate: "dd-MM-yyyy h:mm a" }}</span>
+      </div>
+      <div class="description" [innerHTML]="message.description"></div>
+      <p class="created-by">
+        {{ "leadsModule.messages.createdBy" | translate }}:
+        <span *ngIf="message.createdBy">{{ message.createdBy }}</span>
+      </p>
+    </div>
+  </div>
+
+  <no-data
+    [item]="'shared.generalWord.message' | translate"
+    *ngIf="model.messages && model.messages?.length == 0"
+  ></no-data>
+  <div *ngIf="model.messages && model.messages?.length == 0">
+    <button
+      *ngIf="model.opportunityorlead == 'lead' && model.LeadStatus == '2'"
+      class="new-btn center"
+      [routerLink]="['/services', 'leads', 'sendMessage', model.leadId]"
+    >
+      <span>{{ "leadsModule.messages.newMessage" | translate }}</span>
+      <i class="fa-solid fa-plus"></i>
+    </button>
+    <button
+      *ngIf="
+        model.opportunityorlead == 'opportunity' &&
+        model.opportunityStatus == '2'
+      "
+      class="new-btn center"
+      [routerLink]="['/services', 'opportunities', 'sendMessage', model.leadId]"
+    >
+    <span>{{ "leadsModule.messages.newMessage" | translate }}</span>
+    <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+</ng-container>
+
+<!-- skelton loader -->
+<div class="row mt-3" *ngIf="model.loading">
+  <div class="col-12" *ngFor="let x of [1, 2, 3, 4, 5]">
+    <card-loader [height]="60"></card-loader>
+  </div>
+</div>

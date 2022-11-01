@@ -1,0 +1,12 @@
+<div class="attachment-section">
+    <div class="container">
+        <div class="item my-4" >
+            <div class="attachment-title">
+                <h3>{{"memberShipsModule.documents.companyRegistration"|translate}}</h3>
+            </div>
+            <div class="attachment-container" *ngFor="let attachment of model.attachments">
+                <app-file-upload (filesToSend)="model.upload($event)" [description]="'cooModule.detailsData.dragDrop' |translate" [extensions]="attachment.allowedExtenstions?attachment.allowedExtenstionsList:'PDF; DOC; PNG;JPG'" [document]="attachment.documentEnglishName"></app-file-upload>
+            </div>
+        </div>
+    </div>
+</div>

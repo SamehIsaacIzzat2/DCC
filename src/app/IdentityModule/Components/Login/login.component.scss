@@ -1,0 +1,129 @@
+// @import "../../../../assets/styles/components/_form.scss";
+@import "../../../../assets/styles/helpers/variables";
+.page-title{
+    color: #1D4861;
+    font-size: 28px;
+    font-weight: 700;
+  }
+.form-login{
+    box-shadow: 0px 3px 25px 24px rgba(233, 233, 233, 0.2);
+    padding:30px;
+    @media(max-width:767px){
+        width:90% !important;
+    }
+    @media(max-width:576px){
+        width:90% !important;
+    }
+}
+label {
+    color: #2f3334d4;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+input {
+    border-radius: 0px;
+    padding: 0.85rem 0.75rem !important;
+    outline: none;
+    border: 1px solid #DDDCEA;
+}
+
+input:focus {
+    border: 1px solid #DDDCEA;
+    outline: none;
+    box-shadow: none;
+}
+.forget-password span a,
+.havenot-account span a{
+    @media (max-width:992px ){
+        font-size: 14px;
+    }
+    @media (max-width:767px ){
+        font-size: 10px;
+    }
+    @media (max-width:576px ){
+        font-size: 8px;
+    }
+}
+
+.forget-password span a {
+    color: #2F3334;
+
+}
+
+.havenot-account span a {
+    color: #003764;
+    font-weight: bold;
+}
+
+.login-buttons .normal-login button {
+    background-color: $secondaryColor;
+    width: 228.25px;
+    border: 1px solid $secondaryColor;
+    color: #fff;
+    border-radius: 0px;
+    padding: 0.6rem 0.75rem;
+
+}
+
+.login-buttons .UEA-login button {
+    border: 1px solid $secondaryColor;
+    width: 228.25px;
+    background-color: #fff !important;
+}
+
+.login-buttons .UEA-login button span {
+    color: $secondaryColor;
+    font-size: 16px;
+}
+
+.or {
+    color: #979797;
+}
+
+@media screen and (max-width:768px) {
+
+    .forget-password span a,
+    .havenot-account span a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:576px) {
+
+    .forget-password span a,
+    .havenot-account span a {
+        font-size: 10px;
+    }
+
+
+
+}
+
+.input-with-eye {
+    position: relative;
+
+    button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: transparent;
+        &.ar{
+            left:10px;
+            right: auto;
+          }
+
+        svg {
+            color: #003764;
+        }
+    }
+}
+.feildAr{
+    direction: rtl;
+}
+.btn{
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}

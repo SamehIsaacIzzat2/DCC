@@ -1,0 +1,117 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+.event-card {
+  width: 97%;
+  
+  margin: 0px auto;
+  @media (max-width: 567px) {
+    width: 87% !important;
+  }
+  .content {
+    border: 1px solid #dfdfdf;
+  }
+
+  .card-header {
+    background-color: $secondaryColor;
+    border: 1px solid $secondaryColor;
+    padding: 20px 20px 10px 20px;
+    h4 {
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 14px;
+      color: #e4e2e2;
+      margin-bottom: 0px;
+    }
+  }
+
+  .card-body {
+    min-height: 144px !important;
+    .date,
+    .time {
+      display: flex;
+      align-items: center;
+      .data {
+        color: #000000;
+        font-size: 15px;
+        font-weight: 400;
+      }
+      .date-icon,
+      .time-icon {
+        @include rtl_value("margin-right", 5px, unset);
+        @include rtl_value("margin-left", unset, 5px);
+      }
+    }
+    .duration-days {
+      .days {
+        display: flex;
+        align-items: center;
+        .date-icon {
+          @include rtl_value("margin-right", 5px, unset);
+          @include rtl_value("margin-left", unset, 5px);
+        }
+      }
+    }
+    .Location {
+      display: flex;
+      // align-items: center;
+      .date-icon {
+        @include rtl_value("margin-right", 5px, unset);
+        @include rtl_value("margin-left", unset, 5px);
+      }
+      .loc-data {
+        color: #1d4861;
+        font-size: 15px;
+        font-weight: 400;
+        a{
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    //remove bootsrap style
+    background-color: #fff;
+    border: none;
+    .data {
+      width: 60%;
+      .footer-content-result {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    .footer-content {
+      // width:100%;
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 17px;
+        cursor: pointer;
+        &.reject {
+          color: #979797;
+          font-weight: 400;
+        }
+        &.accept {
+          color: $secondaryColor;
+          font-weight: 600;
+        }
+      }
+    }
+    .footer-content-result {
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 17px;
+        color: $secondaryColor;
+        font-weight: 600;
+      }
+    }
+  }
+}

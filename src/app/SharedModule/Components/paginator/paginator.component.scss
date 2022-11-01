@@ -1,0 +1,35 @@
+.pagnition-part {
+  span {
+    img {
+      cursor: pointer;
+      margin: 0px 10px;
+    }
+  }
+
+  .my-pagination {
+    .content {
+      display: flex;
+      justify-content: space-between;
+
+      .digit {
+        margin: 0px 10px;
+      }
+      .numbers {
+        cursor: pointer;
+        color: #003764;
+        font-size: 18px;
+      }
+    }
+
+    .current {
+      font-weight: 500 !important;
+      font-size: 20px !important;
+      transform: none;
+      // color: #003764;
+      // background-color: transparent;
+    }
+  }
+}
+.no-click {
+  cursor: not-allowed;
+}

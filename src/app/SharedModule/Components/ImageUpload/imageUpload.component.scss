@@ -1,0 +1,115 @@
+@import "../../../../assets/styles/helpers/variables";
+
+.avatar-upload {
+  position: relative;
+  width: 100%;
+  @media (max-width:300px){
+    width:90% !important;
+  }
+  height: 100%;
+  display: flex;
+  // justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  // img {
+  //   height: 100%;
+  //   width: 100%;
+  //   object-fit: cover;
+  // }
+
+  .intial-title,
+  .intial-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .intial-image {
+    width: 12%;
+    top: 30%;
+  }
+
+  .uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .intial-title {
+    font-size: 12px;
+    padding: 10px 0px;
+    border: 1px solid $secondaryColor;
+    width: 60%;
+    color: $secondaryColor;
+    top: 58%;
+
+  }
+
+  .hoverable {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    max-height: 350px;
+    min-height: 240px;
+    height: 100%;
+    width: 100%;
+    // max-width: 300px;
+    // background: #f8f8f8;
+    border: 1px solid #DDDCEA;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    transition: all 1s;
+  }
+
+  .hoverable .hover-text {
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 12px;
+    padding: 10px 0px;
+    border: 1px solid $secondaryColor;
+    background-color: $secondaryColor;
+    width: 60%;
+    color: #fff;
+  }
+
+  .hoverable .background {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 5px;
+  }
+
+  .hoverable:hover .hover-text {
+    display: block;
+  }
+
+  .hoverable:hover .background {
+    display: block;
+  }
+
+  #fileInput {
+    display: none;
+  }
+
+  input {
+    display: none;
+  }
+}

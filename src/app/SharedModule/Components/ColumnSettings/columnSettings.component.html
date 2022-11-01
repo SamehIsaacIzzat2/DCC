@@ -1,0 +1,26 @@
+<!-- Column Settings -->
+<div class="columnSettings">
+    <!-- Header -->
+    <div class="header">
+        <strong>Column Settings</strong>
+    </div>
+
+    <!-- Body -->
+    <div class="body" >
+
+        <!-- List -->
+        <mat-grid-list cols="2" rowHeight="40px">
+            <!-- Item -->
+            <mat-grid-tile *ngFor="let item of model.items">
+                <mat-checkbox #item [checked]="true" (change)="model.changeItem($event, item)" [color]="'primary'">
+                   {{item | capitalSentence}}
+                </mat-checkbox>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+       <strong> {{ model.CheckedColumnsCount }} </strong> <span>Column(s) Selected</span>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<!-- Person Info -->
+<div class="personInfo">
+    <div class="personItem" *ngIf="model.data.person.name">
+        <person-item [item]="model.data.person"></person-item>
+    </div>
+    <!-- <p><mat-icon>map</mat-icon> {{model.data.address}}</p> -->
+    <p><mat-icon>phone</mat-icon> {{model.data.mobile}}</p>
+</div>

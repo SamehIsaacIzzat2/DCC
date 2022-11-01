@@ -1,0 +1,93 @@
+<div class="wallet-details">
+  <!-- banner -->
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true">
+    </banner>
+
+    <!-- page content -->
+    <ng-container *ngIf="model.data && model.data.length > 0">
+    <div class="container">
+      <!-- <p class="page-title">{{banner.title}}</p> -->
+      <div class="main-container row">
+        <div class="left-side col-md-3 col-sm-12">
+
+          <!-- filter -->
+          <div class="options">
+            <h4 class="my-2">{{'shared.filterData.filterBy' |translate}}:</h4>
+            <label class="option-label">
+              <span>{{'memberShipsModule.wallet.transactionType' |translate}}:</span>
+            </label>
+            <div class="checkbox-group my-3">
+              <!-- option-all -->
+              <div class="checkbox-option">
+                <input (change)="model.filterTansaction($event ,'0')" type="checkbox" name="first" id="all"  />
+                <label for="all">{{'shared.generalWord.all' | translate}}</label>
+              </div>
+              <div class="checkbox-option" *ngFor="let opt of model.walletTransaationStatus;let i = index">
+                <input (change)="model.filterTansaction($event,opt.id)" type="checkbox" name="first" [id]="'opt' + i"
+                   />
+                <label [for]="'opt' + i">{{opt.name}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side px-0 col-md-9 col-sm-12">
+          <ng-container>
+            <div class="row images">
+              <div class="row">
+                <div *ngFor="let item of model.data" class="col-lg-4 col-md-6 col-sm-12 my-3">
+                  <company-wallet-balance-card (Selected)="model.catchSelectedCompany($event)" [item]="item"></company-wallet-balance-card>
+                </div>
+                
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- skelton loader -->
+
+          <!-- <div class="row" *ngIf="model.loading">
+            <div class="col-6">
+              <card-loader [height]="250"></card-loader>
+            </div>
+          </div> -->
+
+          <div class="request-part mb-4 mt-5 px-0 d-flex justify-content-between align-items-end">
+            <p>{{'memberShipsModule.wallet.transactionList' |translate}}</p>
+            <div class="action-btns">
+              <button  [routerLink]="['/dcc/services/wallets/wallet-refund',model.companyId,model.walletId,model.companyBalance]" class="out-line ">{{'memberShipsModule.wallet.refundWallet' |translate}}</button>
+              <button [routerLink]="['/dcc/services/wallets/wallet-recharge',model.walletId]" class="mx-2">{{'memberShipsModule.wallet.chargeWallet' |translate}}</button>
+            </div>
+           </div>
+
+           <ng-container >
+            <div class="allRequests my-4">
+              <transaction-widget *ngFor="
+                      let item of model.rowData
+                        | paginate: { itemsPerPage: 5, currentPage: model.p }
+                    " [item]="item"></transaction-widget>
+            
+              <no-data [item]="'memberShipsModule.wallet.transaction' |translate"
+                *ngIf="model.rowData && model.rowData.length == 0"></no-data>
+              
+              </div>
+            <div class="col-12" *ngIf="model.rowData.length != 0">
+              <div class="pagination-section d-flex justify-content-center align-items-center">
+                <app-paginator (pageChange)="model.changePage($event)"></app-paginator>
+              </div>
+            </div>
+          </ng-container> 
+
+          <!-- skelton loader -->
+          <!-- <div class="row" *ngIf="model.transactionLoading">
+            <div class="col-12" *ngFor="let x of [1, 2, 3, 4]">
+              <card-loader [height]="70"></card-loader>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    </ng-container>
+    <no-data [item]="'memberShipsModule.wallet.walletDetails' |translate"
+    *ngIf="model.data && model.data.length == 0"></no-data>
+  </div>

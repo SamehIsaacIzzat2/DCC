@@ -1,0 +1,66 @@
+<app-lead-widget *ngIf="model.referralDetails" [status]="'referral-data'" [referral]="model.referralDetails"
+  [showIndetails]="false"></app-lead-widget>
+
+<ng-container *ngIf="!model.loading">
+  <div class="details" *ngIf="model.referralDetails">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="details-item">
+          <h4 class="title">
+            {{ "opportunitiesModule.opportunitiesInfo.referral" | translate }}
+            {{ "shared.generalFeilds.type" | translate }}
+          </h4>
+          <p>{{ model.referralDetails.referralTypeName }}</p>
+        </div>
+      </div>
+      <!-- if this is internal referral  we will show department-->
+      <div class="col-md-6" *ngIf="model.referralDetails.referralTypeName ==='Internal'">
+        <div class="details-item">
+          <h4 class="title">
+            {{ "shared.generalFeilds.department" | translate }}
+          </h4>
+          <p *ngIf="model.referralDetails.department">{{ model.referralDetails.department }}</p>
+          <p  *ngIf="!model.referralDetails.department" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+        </div>
+      </div>
+      <!-- if this is exteranl referral  we will show Exteranl entity-->
+      <div class="col-md-6" *ngIf="model.referralDetails.referralTypeName ==='External'">
+        <div class="details-item">
+          <h4 class="title">
+            {{ "shared.generalFeilds.exteranlType" | translate }}
+          </h4>
+          <p *ngIf="model.referralDetails.external ">{{ model.referralDetails.external }}</p>
+          <p  *ngIf="!model.referralDetails.external" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div>
+
+      <div class="details-item">
+        <h4 class="title">
+          {{ "opportunitiesModule.opportunitiesInfo.referral" | translate }}
+          {{ "shared.generalFeilds.description" | translate }}
+        </h4>
+        <p>{{ model.referralDetails.referralDescription }}</p>
+      </div>
+    </div>
+  </div>
+
+  <no-data [item]="'shared.generalWord.referral' | translate" *ngIf="!model.referralDetails"></no-data>
+</ng-container>
+
+<!-- skelton loader -->
+<div class="row" *ngIf="model.loading">
+  <div class="col-6">
+    <card-loader [height]="70"></card-loader>
+  </div>
+
+  <div class="col-6">
+    <card-loader [height]="70"></card-loader>
+  </div>
+
+  <div class="col-12">
+    <card-loader [height]="70"></card-loader>
+  </div>
+</div>

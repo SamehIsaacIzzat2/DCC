@@ -1,0 +1,29 @@
+@import "../../../../../assets/styles/components/form";
+.shipment-data{
+  margin: 70px 0px;
+
+  .row >div:nth-child(odd){
+    padding-left: unset;
+  }
+  .title {
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2F3334;
+    }
+  }
+
+
+  .radioParnt {
+    &:first-of-type {
+      margin-inline-end: 50px;
+    }
+    input[type="radio"] {
+      width: 23px;
+      margin-inline-end: 7px;
+    }
+    label {
+      cursor: pointer;
+    }
+  }
+}

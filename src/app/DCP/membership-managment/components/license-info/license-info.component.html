@@ -1,0 +1,365 @@
+<div class="container px-0">
+  <div class="information-section">
+    <form [formGroup]="model.licenseForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <ng-container *ngIf="(myCompanies?.length === 0 || !myCompanies) && !loading ">
+            <!-- Issuing Authority  -->
+            <div class="col-md-6 col-sm-12">
+              <!-- nationality -->
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{
+                      "memberShipsModule.license.issuingAuthority" | translate
+                    }}</label
+                  >
+                  <select
+                    formControlName="issueAuthority"
+                    class="form-select"
+                    [ngStyle]="{
+                      opacity: model.licenseForm.controls['issueAuthority']
+                        .invalid
+                        ? '.5'
+                        : '1'
+                    }"
+                  >
+                    <option [value]="null" disabled selected>
+                      {{
+                        "shared.generalWord.select" | translate
+                      }}
+                    </option>
+                    <option
+                      *ngFor="let company of model.authorities"
+                      [value]="company.id"
+                    >
+                      {{ company.name }}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="
+                    (model.submitted || model.f['issueAuthority'].touched) &&
+                    model.f['issueAuthority'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['issueAuthority'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "memberShipsModule.license.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- License Number -->
+            <div class="col-md-6 col-sm-12">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{
+                      "memberShipsModule.license.licenseNumber" | translate
+                    }}</label
+                  >
+                  <input
+                    type="text"
+
+  
+                    formControlName="licenseNumber"
+                    placeholder="{{
+                      'memberShipsModule.license.input' | translate
+                    }}"
+                  />
+                </div>
+                <div
+                  *ngIf="
+                    (model.submitted || model.f['licenseNumber'].touched) &&
+                    model.f['licenseNumber'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['licenseNumber'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "memberShipsModule.license.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+
+
+          <ng-container *ngIf="myCompanies.length !=  0 && !loading ">
+            <!-- Issuing Authority  -->
+            <div class="col-md-6 col-sm-12">
+              <!-- nationality -->
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{
+                      "memberShipsModule.license.selectCompany" | translate
+                    }}</label
+                  >
+                  <select
+                    formControlName="company"
+                    class="form-select"
+                    [ngStyle]="{
+                      opacity: model.licenseForm.controls['issueAuthority']
+                        .invalid
+                        ? '.5'
+                        : '1'
+                    }"
+                    (change)="model.verify('company')"
+                  >
+                    <option [value]="null" disabled selected>
+                      {{
+                        "memberShipsModule.license.selectCompany" | translate
+                      }}
+                    </option>
+                    <option
+                      *ngFor="let company of myCompanies"
+                      [value]="company.id"
+                    >
+                      {{ company.name }}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="
+                    (model.submitted || model.f['issueAuthority'].touched) &&
+                    model.f['issueAuthority'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['issueAuthority'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "memberShipsModule.license.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- License Number -->
+            <div class="col-md-6 col-sm-12">
+              <div class="addCompany">
+                <button (click)="addCompany()">
+                  {{ "memberShipsModule.license.addNewCompany" | translate }}
+                </button>
+              </div>
+            </div>
+          </ng-container>
+
+          <!---------------------------- VERIFY   ------------------------>
+          <div
+            class="verify d-flex justify-content-end"
+            *ngIf="myCompanies.length === 0 && !loading"
+          >
+            <a
+              (click)="model.verify('license')"
+              [ngStyle]="{ color: model.verified ? '#ABABAB' : '#1d4861' }"
+            >
+              {{ "memberShipsModule.license.verify" | translate }}
+            </a>
+          </div>
+          <ng-container *ngIf="model.verified">
+            <div class="verifying">
+              <p class="title">
+                {{ "memberShipsModule.license.pleaseMakeSure" | translate }}
+              </p>
+              <div class="row">
+                <!-- company Name English -->
+                <div class="col-md-6 col-sm-12">
+                  <div class="input mb-30px">
+                    <div class="input-content">
+                      <label class="form-label" for="">
+                        {{
+                          "memberShipsModule.license.companyNameEnglish"
+                            | translate
+                        }}</label
+                      >
+                      <input
+                        type="text"
+                        formControlName="companyEnglishName"
+                        placeholder="{{
+                          'memberShipsModule.license.englishCompanyName'
+                            | translate
+                        }}"
+                      />
+                    </div>
+                    <div
+                      *ngIf="
+                        (model.submitted ||
+                          model.f['companyEnglishName'].touched) &&
+                        model.f['companyEnglishName'].errors
+                      "
+                    >
+                      <span
+                        class="form-error"
+                        *ngIf="model.f['companyEnglishName'].errors['required']"
+                      >
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "memberShipsModule.license.requiredField" | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- company Name Arabic -->
+                <div class="col-md-6 col-sm-12">
+                  <div class="input mb-30px">
+                    <div class="input-content">
+                      <label class="form-label" for="">
+                        {{
+                          "memberShipsModule.license.companyNameArabic"
+                            | translate
+                        }}</label
+                      >
+                      <input
+                        type="text"
+                        formControlName="companyArabicName"
+                        placeholder="اسم الشركة بالعربية"
+                      />
+                    </div>
+                    <div
+                      *ngIf="
+                        (model.submitted ||
+                          model.f['companyArabicName'].touched) &&
+                        model.f['companyArabicName'].errors
+                      "
+                    >
+                      <span
+                        class="form-error"
+                        *ngIf="model.f['companyArabicName'].errors['required']"
+                      >
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "memberShipsModule.license.requiredField" | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- date license expiry date -->
+                <div class="col-md-6 col-sm-12 mt-4">
+                  <div class="input mb-30px">
+                    <div class="input-content">
+                      <label class="form-label" for="">
+                        {{
+                          "memberShipsModule.license.licenseExpirtyDate"
+                            | translate
+                        }}</label
+                      >
+                      <date-time-picker
+                        [placeholder]="
+                          'memberShipsModule.license.inputExpiryDate'
+                            | translate
+                        "
+                        [dpValue]="model.f['licenseExpiryDate'].value"
+                        (date)="model.datePicker($event)"
+                      ></date-time-picker>
+                    </div>
+                    <div
+                      *ngIf="
+                        (model.submitted ||
+                          model.f['licenseExpiryDate'].touched) &&
+                        model.f['licenseExpiryDate'].errors
+                      "
+                    >
+                      <span
+                        class="form-error"
+                        *ngIf="model.f['licenseExpiryDate'].errors['required']"
+                      >
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "memberShipsModule.license.requiredField" | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- membership duration -->
+                <div class="duration col-12">
+                  <h2 class="title">
+                    {{
+                      "memberShipsModule.license.membershipDuration" | translate
+                    }}
+                  </h2>
+                  <p class="description">
+                    {{
+                      "memberShipsModule.license.selectMembershipDuration"
+                        | translate
+                    }}
+                  </p>
+                  <div class="form-group d-flex">
+                    <div class="input radioParnt d-flex">
+                      <input
+                        type="radio"
+                        id="one"
+                        [value]="2"
+                        name="membershipDuration"
+                        formControlName="membershipDuration"
+                      />
+                      <label for="one">
+                        {{
+                          "memberShipsModule.license.sameAsLicenseValidity"
+                            | translate
+                        }}
+                      </label>
+                    </div>
+                    <div class="input radioParnt d-flex" *ngIf="model.isLessThanYear">
+                      <input
+                        type="radio"
+                        id="two"
+                        [value]="1"
+                        name="membershipDuration"
+                        formControlName="membershipDuration"
+                      />
+                      <label for="two">
+                        {{ "memberShipsModule.license.yearly" | translate }}
+                      </label>
+                    </div>
+                    
+                  </div>
+                  <div
+                      *ngIf="
+                        (model.submitted ||
+                          model.f['membershipDuration'].touched) &&
+                        model.f['membershipDuration'].errors
+                      "
+                    >
+                      <span
+                        class="form-error"
+                        *ngIf="model.f['membershipDuration'].errors['required']"
+                      >
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "memberShipsModule.license.requiredField" | translate
+                        }}
+                      </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          
+          <ng-container *ngIf="action=='renew'">
+
+            
+
+          </ng-container>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

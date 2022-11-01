@@ -1,0 +1,199 @@
+<div class="general-comlaint">
+  <div class="general-comlaint-wrapper">
+    <form [formGroup]="model.ComplaintForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <!-- Complaint Type -->
+                <div class="input mb-30px margin-top-sm mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="type"
+                      >{{'complaintsModule.complaintsInfo.type' | translate}} *</label
+                    >
+                    <select
+                      formControlName="complaintType"
+                      class="form-select"
+                      id="type"
+                      (change)="model.handleComplaintType($event)"
+                    >
+                      <option value="null" selected>
+                        {{'shared.generalWord.select' | translate}} {{'complaintsModule.complaintsInfo.type' | translate}}
+                      </option>
+                      <option
+                        *ngFor="let opt of model.complaintTypes"
+                        [value]="opt.id"
+                      >
+                        {{ opt.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      model.submitted &&
+                      (model.f['complaintType'].errors ||
+                        model.f['complaintType'].value == 'null')
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        (model.f['complaintType'].errors &&
+                          model.f['complaintType'].errors['required']) ||
+                        model.f['complaintType'].value == 'null'
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                       {{'shared.generalValidationErrorMessage.complaintRequired' | translate}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-sm-12 col-md-6"
+                *ngIf="model.getServiceComplaint()"
+              >
+                <!-- Service Type -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="req-num"
+                      >{{'reqestModule.requestWidget.requestNumber' | translate}}</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="{{'shared.filterData.searchBy' | translate}} {{'reqestModule.requestWidget.requestNumber' | translate}}"
+                      aria-label="Request Number"
+                      matInput
+                      formControlName="requestNumber"
+                      [matAutocomplete]="req"
+                      id="req-num"
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #req="matAutocomplete"
+                      [displayWith]="displayWith"
+                    >
+                      <mat-option
+                        *ngFor="
+                          let option of model.filteredServicesOptions | async
+                        "
+                        [value]="option"
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </div>
+                  <div
+                    *ngIf="model.submitted && model.f['requestNumber'].errors"
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['requestNumber'].errors['required'] ||
+                        model.f['requestNumber'].errors['incorrect']
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <span *ngIf="model.f['requestNumber'].errors['required']"
+                        >{{'shared.generalValidationErrorMessage.requestNumberRequired' | translate}}</span
+                      >
+                      <span
+                        *ngIf="
+                          model.f['requestNumber'].value &&
+                          model.f['requestNumber'].errors['incorrect']
+                        "
+                        >{{'shared.generalValidationErrorMessage.requestNumberNotValid' | translate}}</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-sm-12 col-md-6"
+                *ngIf="model.getEventsComplaint()"
+              >
+                <!-- Events Type -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="event">{{'eventsModule.event' | translate}}</label>
+                    <input
+                      type="text"
+                      id="event"
+                      placeholder="{{'shared.filterData.searchBy' | translate}} {{'eventsModule.event' | translate}}"
+                      aria-label="Event"
+                      matInput
+                      formControlName="eventName"
+                      [matAutocomplete]="autooo"
+                      multiple
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #autooo="matAutocomplete"
+                      [displayWith]="displayWith"
+                    >
+                      <mat-option
+                        *ngFor="
+                          let option of model.filteredEventsOptions | async
+                        "
+                        [value]="option"
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </div>
+                  <div *ngIf="model.submitted && model.f['eventName'].errors">
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['eventName'].errors['required'] ||
+                        model.f['eventName'].errors['incorrect']
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      <span *ngIf="model.f['eventName'].errors['required']">{{'shared.generalValidationErrorMessage.eventRequired' | translate}}</span>
+                      <span *ngIf="model.f['eventName'].value && model.f['eventName'].errors['incorrect']">{{'shared.generalValidationErrorMessage.eventNotValid' | translate}}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 my-3">
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for="desc"
+                      >{{'shared.generalFeilds.writeDescription' | translate}} *</label
+                    >
+                    <textarea
+                      class="w-100 form-textarea"
+                      formControlName="description"
+                      id="desc"
+                      style="resize: none"
+                    ></textarea>
+                    <div
+                      *ngIf="model.submitted && model.f['description'].errors"
+                    >
+                      <span
+                        class="form-error"
+                        *ngIf="model.f['description'].errors['required']"
+                      >
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{'shared.generalValidationErrorMessage.descriptionRequired' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="save-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+      >
+        <div class="send">
+          <button class="btn" (click)="model.sendComplaint()">{{'shared.actions.submit' | translate}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

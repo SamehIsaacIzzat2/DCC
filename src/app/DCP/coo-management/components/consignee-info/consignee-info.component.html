@@ -1,0 +1,77 @@
+<div class="consignee-info ">
+  <div class="title">
+    <h2>{{'cooModule.detailsData.consigneeDetails' |translate}}</h2>
+  </div>
+
+   <!-- select consignee from existing one -->
+  <form [formGroup]="model.consigneeForm">
+    <div class="formContainer">
+      <div class="row mb-10px">
+        <div class="col-md-6 col-sm-12">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{'cooModule.detailsData.consigneeName' |translate}}</label>
+              <select
+                formControlName="consignee"
+                (change)="model.onConsigneeChange($event)"
+                class="form-select"
+                [ngStyle]="{
+                  opacity: model.consigneeForm.controls['consignee'].invalid
+                    ? '.5'
+                    : '1'
+                }"
+                (change)="model.displayConsigneeDetails()"
+              >
+                <option [value]="null" disabled selected>select</option>
+                <option
+                  *ngFor="let consignee of model.consignees"
+                  [value]="consignee.consigneeId"
+                >
+                  {{ consignee.consigneeFirstname }} {{ consignee.consigneeLastname }}
+                </option>
+              </select>
+            </div>
+            <div *ngIf="model.submitted && model.f['consignee'].errors">
+              <span
+                class="form-error"
+                *ngIf="model.f['consignee'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>
+                this field is requerid
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="add-new-consignee" [ngClass]="{'disabled': model.showConsigneeForm}">
+            <button [disabled]="model.showConsigneeForm" (click)="onAddNewConsigneeClick()">
+              {{'cooModule.detailsData.addConsignee' |translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+   <!-- create new consignee action -->
+
+
+   <!-- display consignee details if we select one consignee from select box -->
+
+   <div class="consignee-details" *ngIf="model.showConsigneeDetails">
+    <div class="title">
+      <h4>{{'cooModule.stepper.consigneeInfo' |translate}} </h4>
+    </div>
+    <generic-display-details [items]="model.ConsigneeDetails"></generic-display-details>
+   </div>
+
+    <!-- create new consignee Form -->
+
+    <div class="create-new-consignee" [ngStyle]="{ display:model.showConsigneeForm ? 'block' : 'none' }">
+      <div class="title">
+        <h4>{{'cooModule.detailsData.newConsigneeInfo' |translate}}  </h4>
+      </div>
+      <add-new-consignee [submitted]="model.submitted"></add-new-consignee>
+    </div>
+
+
+</div>

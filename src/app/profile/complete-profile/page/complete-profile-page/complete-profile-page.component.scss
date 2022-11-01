@@ -1,0 +1,47 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+// custom stepper styling
+:host ::ng-deep .md-stepper-horizontal {
+  gap: 15px !important;
+}
+:host ::ng-deep .md-step-bar-left {
+  width: 110% !important;
+  @media (max-width: 777px) {
+    left: 20px;
+    display: none;
+  }
+}
+
+
+:host ::ng-deep .md-stepper-horizontal .md-step {
+  padding: 24px 10px !important;
+  @media (max-width: 768px) {
+    padding: 24px 10px !important;
+  }
+}
+
+
+  :host ::ng-deep .md-stepper-horizontal {
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+  }
+}
+
+:host ::ng-deep .information-section{
+  @include rtl_value("padding-left",0,unset);
+@include rtl_value("padding-right",unset,0);
+}
+.title {
+  margin: 50px 0 40px;
+  h4 {
+    color: #1D4861;
+    font-size: 1.2em;
+  }
+
+}
+
+.page-title{
+  color: #1D4861;
+  font-size: 28px;
+  font-weight: 700;
+}

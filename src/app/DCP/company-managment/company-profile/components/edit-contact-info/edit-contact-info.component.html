@@ -1,0 +1,199 @@
+<div class="container px-0">
+  <div class="information-section">
+    <form [formGroup]="model.contactInformationForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <!-- Address -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="address">{{"shared.generalFeilds.address" | translate}}</label>
+                <input type="text" formControlName="address" id="address" />
+              </div>
+              <div *ngIf="model.submitted && model.f['address'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['address'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{"shared.generalValidationErrorMessage.requiredAddress" |translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+         
+          <!-- Country -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="country">{{"shared.generalFeilds.country" | translate}}<span class="required"> *</span></label>
+                <select
+                  formControlName="countryId"
+                  class="form-select"
+                  id="country"
+                  #country
+                  (change)="model.getCitiesByCountryId(country.value)"
+                >
+                  <option value="null">{{"shared.generalWord.selectCountry" | translate}}</option>
+                  <option *ngFor="let opt of model.countries" [value]="opt.id" >
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="model.submitted && model.f['countryId'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['countryId'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.requiredCountry" |translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+           <!-- City -->
+           <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="">{{"shared.generalFeilds.city" | translate}}</label>
+                <select formControlName="cityId" class="form-select">
+                  <option value="null">{{"shared.generalWord.selectCity" | translate}}</option>
+                  <option *ngFor="let opt of model.cities" [value]="opt.id">
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="model.submitted && model.f['cityId'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['cityId'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{"shared.generalValidationErrorMessage.requiredCity" |translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Province/State -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="state">{{"shared.generalFeilds.provinceAndState" | translate}}</label>
+                <input type="text" formControlName="provinceState" id="state"/>
+              </div>
+              <div *ngIf="model.submitted && model.f['provinceState'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['provinceState'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{"shared.generalValidationErrorMessage.requiredState" |translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Zip Code -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="zipCode">{{"shared.generalFeilds.zipCode" | translate}}</label>
+                <input type="text" formControlName="zipCode" id="zipCode" />
+              </div>
+              <div *ngIf="model.submitted && model.f['zipCode'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['zipCode'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{"shared.generalFeilds.requiredZIP" | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Email -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="email">{{"shared.generalFeilds.email" | translate}}<span class="required"> *</span></label>
+                <input type="text" formControlName="email" id="email" />
+              </div>
+              <div *ngIf="model.submitted && model.f['email'].errors">
+                <span
+                  class="form-error mb-2"
+                  *ngIf="model.f['email'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.emailRequired" | translate}}
+                </span>
+                <span
+                  class="form-error"
+                  *ngIf="model.f['email'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.emailNotValid" | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Phone Number -->
+          <div class="col-sm-12 col-md-6 my-3">
+            <div class="input mb-30px">
+              <label for="mobile">
+                <label class="form-label" for="">{{"shared.generalFeilds.phoneNumber" | translate}}<span class="required"> *</span></label>
+              </label>
+              <div
+                dir="ltr"
+                class="input-content mobileFeild inputHasSuffixOrPrefix"
+              >
+                <ngx-intl-tel-input
+                  id="mobileInput"
+                  [preferredCountries]="model.preferredCountries"
+                  [selectFirstCountry]="true"
+                  [separateDialCode]="true"
+                  [enablePlaceholder]="false"
+                  formControlName="phoneNumber"
+                  [phoneValidation]="true"
+                  [searchCountryFlag]="true"
+                  [searchCountryField]="[
+                    model.searchCountryField.Iso2,
+                    model.searchCountryField.Name
+                  ]"
+                >
+                </ngx-intl-tel-input>
+                <!-- <div *ngIf="model.submitted && model.f['phoneNumber'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="
+                      model.f['phoneNumber'].status == 'INVALID' &&
+                      !model.f['phoneNumber'].errors['required']
+                    "
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>Phone Number is
+                    not valid
+                  </span>
+                </div> -->
+              </div>
+              <div *ngIf="model.submitted && model.f['phoneNumber'].errors">
+                <span
+                  class="form-error"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <span *ngIf="model.f['phoneNumber'].status == 'INVALID' &&
+                    !model.f['phoneNumber'].errors['required']">{{"shared.generalValidationErrorMessage.phoneNumberNotValid" | translate}}</span>
+                    <span *ngIf="
+                    model.f['phoneNumber'].errors['required']">{{"shared.generalValidationErrorMessage.phoneNumberRequired" | translate}}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <div
+          class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+          *ngIf="!getSteeperState()"
+        >
+          <div class="normal-register">
+            <button class="btn" (click)="model.saveUpdate()">{{"shared.actions.save" | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

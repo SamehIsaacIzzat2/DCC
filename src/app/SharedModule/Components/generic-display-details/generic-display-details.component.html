@@ -1,0 +1,25 @@
+<div class="details-section">
+  <div class="row">
+    <div class="col-md-6 col-sm-12" *ngFor="let item of items">
+      <div class="item my-3">
+        <div class="title">
+          <h3 class="mainTitle">
+            {{ item.title }}
+            <span class="subTitle" *ngIf="item.subTitle"
+              >({{ item.subTitle }} )</span
+            >
+          </h3>
+        </div>
+        <h4 class="data my-3">
+          <span *ngIf="item.data && !isArray(item.data)">{{ item.data }}</span>
+          <div *ngIf="item.data && isArray(item.data)">
+            <span class="bubble" *ngFor="let subItem of item.data">{{ subItem.name }}</span>
+          </div>
+          <span *ngIf="!item.data" class="Dummy-data">
+            {{ "shared.generalWord.noValue" | translate }}
+          </span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

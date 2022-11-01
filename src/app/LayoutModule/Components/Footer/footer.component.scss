@@ -1,0 +1,141 @@
+@import "../../../../assets/styles/components/_form.scss";
+//mixnis
+@import "../../../../assets/styles/helpers/mixins";
+@import "../../../../assets/styles/helpers/variables";
+/* footer style */
+.footer-links {
+    border-top: 1px solid #DDDCEA;
+    border-bottom: 1px solid #DDDCEA;
+    padding: 20px 0px;
+}
+
+/* #first-column */
+.image {
+    width: 201px;
+    height: 66px;
+}
+
+.free-toll {
+    margin-top: 29px;
+}
+
+.free-toll h4 {
+    margin-bottom: 0px;
+
+}
+
+.free-toll p {
+    font-size: 14px;
+    color: #003764;
+    font-weight: 600;
+}
+
+/* #second-column */
+
+.qick-links ul {
+    @include rtl_value("padding-left",0,unset);
+@include rtl_value("padding-right",unset,0);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.qick-links ul li {
+    width: 50%;
+    margin: 3px 0px;
+}
+
+.qick-links ul li a {
+    text-decoration: none;
+    color: #003764;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 20px;
+    color: $secondaryColor;
+    font-weight: 400;
+}
+
+/* #third-column */
+.Social-Media-icon {
+    width: 84%;
+    margin: 45px 0px;
+
+}
+
+.Social-Media-icon .icon {
+    width: 45px;
+    height: 45px;
+    background-color: #003764;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Social-Media-icon .icon svg {
+    color: #FFFFFF;
+}
+
+/* #Forth-column */
+
+.Email-input {
+    margin: 40px 0px 0px;
+}
+
+.Email-input input {
+    border: 1px solid $secondaryColor;
+}
+
+.Email-input input:focus {
+    box-shadow: none;
+}
+
+.Email-input input::placeholder {
+    color: $secondaryColor;
+}
+
+/* copy right section */
+.copy-right {
+    flex-wrap: wrap;
+}
+
+.date:lang(en){
+    flex-wrap: wrap;
+    text-align: right !important;
+}
+
+.date:lang(ar){
+    flex-wrap: wrap;
+    text-align: left !important;
+}
+
+.margin-auto{
+    margin: auto;
+}
+
+.copy-right span , .date span {
+    color: #003764;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px 0px;
+    @media(max-width:767px){
+        font-size: 11px;
+    }
+    @media(max-width:576px){
+        font-size: 10px;
+    }
+}
+.w-90
+{
+    @media (max-width:921.999px){
+        width:90% !important;
+    }
+
+}
+.footer{
+    @media (max-width:420px){
+        display: none;
+    }
+}

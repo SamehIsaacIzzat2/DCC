@@ -1,0 +1,272 @@
+<div class="request-final-details">
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [bannerMode]="3" [paddingFlag]="true">
+    </banner>
+  </div>
+  <div class="container mt-5">
+    <p class="page-title">{{ model.banner.title }}</p>
+    <div class="content">
+      <div class="row justify-content-between">
+        <div class="col-md-3">
+          <div class="step-side">
+            <div class="step-one d-flex">
+              <div class="line" *ngIf="activePage == 1"></div>
+              <p
+                (click)="activePage = 1"
+                [ngClass]="{ active: activePage == 1 }"
+              >
+                {{
+                  "reqestModule.requestDetails.sideNav.bussinessMatchRequest"
+                    | translate
+                }}
+              </p>
+            </div>
+            <div
+              class="step-two d-flex"
+              *ngIf="model.item?.status == 4 || model.item?.status == 5"
+            >
+              <!-- <div class="step-two d-flex"> -->
+
+              <div class="line" *ngIf="activePage == 2"></div>
+              <p
+                (click)="activePage = 2"
+                [ngClass]="{ active: activePage == 2 }"
+              >
+                {{
+                  "reqestModule.requestDetails.sideNav.bussinessMatchResults"
+                    | translate
+                }}
+              </p>
+            </div>
+          </div>
+
+          <!-- <div class="step-side" *ngIf="activePage == 2 && model.item?.statusName == 'In Progress'"> -->
+          <div class="step-side" *ngIf="activePage == 2">
+            <div class="status">
+              <p>{{ "shared.filterData.sortingBy" | translate }}:</p>
+
+              <!-- <li *ngFor="let item of model.status">
+                  <input type="checkbox" value="all" (change)="model.filterReq($event,item)" />
+                  <label>{{item}}</label>
+                </li> -->
+
+              <div class="checkbox-group my-3">
+                <!-- <div class="checkbox-option">
+                    <input type="checkbox" name="first" id="BestMatch" />
+                    <label for="BestMatch">Best Match</label>
+                  </div>
+                  <div class="checkbox-option" >
+                    <input type="checkbox" name="first" id="OpportuinitiesCount" />
+                    <label for="OpportuinitiesCount">Opportuinities Count</label>
+                  </div> -->
+                <div
+                  class="checkbox-option"
+                  *ngFor="let opt of sortBy | async; let i = index"
+                >
+                  <input
+                    [checked]="opt.name == 'Best Match'"
+                    type="checkbox"
+                    name="first"
+                    [id]="'sortType' + i"
+                    (change)="filterReq($event, opt.id, 'sortby')"
+                  />
+                  <label [for]="'sortType' + i">{{ opt.name }}</label>
+                </div>
+              </div>
+              <!-- <div class="checkbox-group my-3">
+                  <div class="checkbox-option">
+                    <input type="checkbox" value="BestMatch"  />
+                    <label>Best Match</label>
+                  </div>
+                  <div class="checkbox-option" >
+                    <input type="checkbox" value="Opportunities" />
+                    <label>Opportuinities Count</label>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+
+          <div
+            class="Filters"
+            *ngIf="activePage == 2"
+            [formGroup]="model.requestData"
+          >
+            <p>{{ "shared.filterData.filterBy" | translate }}:</p>
+            <!-- product filter -->
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">{{
+                  "shared.generalFeilds.product" | translate
+                }}</label>
+                <select
+                  class="form-select"
+                  formControlName="products"
+                  id="products"
+                >
+                  <option value="" selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let option of model.productData; let i = index"
+                    [value]="option.id"
+                    name=""
+                  >
+                    {{ option.name }}
+                  </option>
+                </select>
+
+                <!-- <input type="text" placeholder="Search by name" aria-label="Products" matInput formControlName="products"
+                [matAutocomplete]="auto" multiple />
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="itemDisplayFn">
+                  <mat-option *ngFor="let option of products|async" [value]="option"
+                   >
+                    {{ option.name }}
+                  </mat-option>
+                </mat-autocomplete> -->
+              </div>
+            </div>
+            <!-- product Industry-->
+            <div class="input my-3">
+              <div class="input-content">
+                <label class="form-label" for="">{{
+                  "shared.generalFeilds.industry" | translate
+                }}</label>
+                <select
+                  class="form-select"
+                  formControlName="industries"
+                  id="industries"
+                >
+                  <option value="" selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+
+                  <option
+                    *ngFor="let option of model.industryData; let i = index"
+                    [value]="option.id"
+                    name=""
+                  >
+                    {{ option.name }}
+                  </option>
+                </select>
+
+                <!-- <input type="text" placeholder="Search by Industry" aria-label="Industry" matInput formControlName="industries"
+              [matAutocomplete]="autoInd" multiple />
+              <mat-autocomplete #autoInd="matAutocomplete" [displayWith]="itemDisplayFn">
+                <mat-option *ngFor="let option of industrys|async" [value]="option"
+                 >
+                  {{ option.name }}
+                </mat-option>
+              </mat-autocomplete>
+               -->
+              </div>
+            </div>
+            <!-- product Interests -->
+            <div class="input my-3">
+              <div class="input-content">
+                <label class="form-label" for="">{{
+                  "shared.generalFeilds.activity" | translate
+                }}</label>
+
+                <select
+                  class="form-select"
+                  formControlName="activities"
+                  id="activities"
+                >
+                  <option value="" selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let option of model.activityData; let i = index"
+                    [value]="option.id"
+                    name=""
+                  >
+                    {{ option.name }}
+                  </option>
+                </select>
+                <!-- <input type="text" placeholder="Search by Activity" aria-label="Interest" matInput formControlName="activities"
+              [matAutocomplete]="autoInt" multiple />
+              <mat-autocomplete #autoInt="matAutocomplete" [displayWith]="itemDisplayFn">
+                <mat-option *ngFor="let option of activities|async" [value]="option"
+                 >
+                  {{ option.name }}
+                </mat-option>
+              </mat-autocomplete> -->
+              </div>
+            </div>
+
+            <!-- product Locations -->
+            <div class="input my-3">
+              <div class="input-content">
+                <label class="form-label" for="">{{
+                  "shared.generalFeilds.location" | translate
+                }}</label>
+                <select
+                  class="form-select"
+                  formControlName="locations"
+                  id="locations"
+                >
+                  <option value="" selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let option of model.locationData; let i = index"
+                    [value]="option.id"
+                    name=""
+                  >
+                    {{ option.name }}
+                  </option>
+                </select>
+                <!-- <input type="text" placeholder="Search by Location" aria-label="Location" matInput formControlName="locations"
+              [matAutocomplete]="autoLoc" multiple />
+              <mat-autocomplete #autoLoc="matAutocomplete" [displayWith]="itemDisplayFn">
+                <mat-option *ngFor="let option of locations|async" [value]="option"
+                 >
+                  {{ option.name }}
+                </mat-option>
+              </mat-autocomplete> -->
+              </div>
+            </div>
+
+            <div class="normal-button my-3">
+              <button class="w-100" (click)="model.ApplyFilter(sortBySelected)">
+                {{ "shared.filterData.applyFilter" | translate }}
+              </button>
+            </div>
+            <div class="ouline-button my-3">
+              <button class="w-100" (click)="model.ClearFilter()">
+                {{ "shared.filterData.clear" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 g-0">
+          <div class="content-side px-4">
+            <div class="request-widget">
+              <request-widget [item]="model.item" [status]="2"></request-widget>
+            </div>
+            <div class="content">
+              <ng-container [ngSwitch]="activePage">
+                <ng-template [ngSwitchCase]="1">
+                  <request-final-details
+                    [itemDetails]="model.itemdetails"
+                  ></request-final-details>
+                </ng-template>
+                <!-- <ng-template [ngSwitchCase]="2" *ngIf="model.item?.statusName == 'In Progress'"> -->
+                <ng-template [ngSwitchCase]="2">
+                  <request-actions
+                    *ngIf="model.item.status == 4 || model.item.status == 5"
+                    [requestId]="model.item.requestId"
+                    [requestStatus]="model.item.status"
+                    [requests]="model.companys"
+                    (refreshEvt)="model.refreshActions()"
+                  ></request-actions>
+                </ng-template>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

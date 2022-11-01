@@ -1,0 +1,37 @@
+<div class="pagnition-part my-5 ">
+
+    <pagination-template #p="paginationApi" class="my-pagination" (pageChange)="changePage($event)"
+        (pageBoundsCorrection)="boundCorrection($event)">
+        <div class="content  d-flex  align-items-center">
+            <!-- previous-button  *ngIf="!p.isFirstPage()" [class.disabled]="p.isFirstPage()"-->
+            <span class="pagination-previous" [class.disabled]="p.isFirstPage()" [ngClass]="{'no-click':p.isFirstPage()}">
+                <img *ngIf="this.langSer.getLangFromLocalStorage() !='ar'" (click)="p.previous()"  src="../../../../assets/images/left-arrow.svg" />
+                <img  *ngIf="this.langSer.getLangFromLocalStorage()=='ar'" (click)="p.previous()" src="../../../../assets/images/right-arrow.svg" />
+
+            </span>
+
+            <!-- numbers -->
+            <div class="digit " *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+                <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                    <span class="numbers ">{{ page.label }}</span>
+                </a>
+
+                <div *ngIf="p.getCurrent() === page.value">
+                    <span>{{ page.label }}</span>
+                </div>
+            </div>
+
+            <!-- next-button *ngIf="!p.isLastPage()" [class.disabled]="p.isLastPage()"  -->
+            <span class="pagination-next" [class.disabled]="p.isLastPage()"  [ngClass]="{'no-click':p.isLastPage()}" >
+                <img *ngIf="this.langSer.getLangFromLocalStorage() !='ar'"  (click)="p.next()" src="../../../../assets/images/right-arrow.svg" />
+                <img *ngIf="this.langSer.getLangFromLocalStorage() =='ar'"  (click)="p.next()" src="../../../../assets/images/left-arrow.svg" />
+
+            </span>
+        </div>
+
+
+    </pagination-template>
+
+
+
+</div>

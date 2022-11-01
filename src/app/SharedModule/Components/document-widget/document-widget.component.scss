@@ -1,0 +1,37 @@
+
+
+.documnet-widget {
+    border: 1px solid #DDDCEA;
+    padding: 10px 20px;
+    margin: 20px 0px;
+
+    .document-type {
+        .icon {
+            img {
+                width: 22.6px;
+            }
+        }
+    }
+
+   .document-title {
+    h4{
+        color:#003764;
+        // font-size: 18px;
+        font-size: 16px !important;
+        font-weight: 700;
+    }
+       
+        
+    }
+
+span {
+    font-size:15px;
+    color: #979797;
+}
+h4 {
+    font-size: 14px;
+    color: #2F3334;
+    margin: 7px 0px;
+    font-weight: 400;
+}
+}

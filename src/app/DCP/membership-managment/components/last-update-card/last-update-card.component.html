@@ -1,0 +1,33 @@
+
+<div class="result-card my-4">
+    <div class="container">
+        <!-- card header to Display Date -->
+        <div class="header mt-2">
+            <span>{{item.date |customDate :'M/d/yy, h:mm a'}}</span>
+
+        </div>
+          <!-- card body to Display message for client -->
+        <div class="body mb-3">
+            <div class="title mb-3">
+                <h4>{{'memberShipsModule.memberShiprequestDetails.lastUpdates' |translate}}</h4>
+            </div>
+            <div class="data">
+                <h4 *ngIf="item.message">{{item.message}}</h4>
+                <p *ngIf="!item.message" class="Dummy-data">
+                    {{ "shared.generalWord.noValue" | translate }}
+                  </p>
+            </div>
+
+        </div>
+        <!-- card footer to Display pay button  --> 
+        <div class="footer mt-5 mb-3" *ngIf="requestStatus == '121290002' " >
+            <div class="action-btn  normal-button">
+                <button (click)="payNow()" >
+                  {{'shared.actions.payNow' |translate}}
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

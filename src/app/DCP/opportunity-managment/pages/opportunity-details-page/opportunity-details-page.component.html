@@ -1,0 +1,67 @@
+<div class="request-final-details">
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [bannerMode]="3" [paddingFlag]="true">
+    </banner>
+  </div>
+
+  <div class="container mt-5">
+    <p class="page-title">{{ model.banner.title }}</p>
+    <div class="content">
+      <div class="row justify-content-between">
+        <div class="col-md-3">
+          <div class="step-side">
+            <div class="step-one d-flex">
+              <p
+                [routerLink]="['opportunityinfo']"
+                [routerLinkActive]="'active'"
+              >
+                {{
+                  "opportunitiesModule.opportunitiesInfo.opportunityInformation"
+                    | translate
+                }}
+              </p>
+            </div>
+            <div class="step-two d-flex">
+              <!-- <div class="step-two d-flex"> -->
+
+              <!-- <div class="line" *ngIf="activePage == 2"></div> -->
+              <p
+                [routerLink]="['opportunityreferals']"
+                [routerLinkActive]="'active'"
+              >
+                {{
+                  "opportunitiesModule.opportunitiesInfo.referralsList"
+                    | translate
+                }}
+              </p>
+            </div>
+            <div class="step-two d-flex">
+              <!-- <div class="step-two d-flex"> -->
+
+              <!-- <div class="line" *ngIf="activePage == 3"></div> -->
+              <p [routerLink]="['messages']" [routerLinkActive]="'active'">
+                {{
+                  "opportunitiesModule.opportunitiesInfo.messagesList"
+                    | translate
+                }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 g-0">
+          <div class="content-side px-4">
+            <div class="request-widget">
+              <app-opportunity-widget
+                [item]="model.item"
+              ></app-opportunity-widget>
+            </div>
+            <div class="content">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

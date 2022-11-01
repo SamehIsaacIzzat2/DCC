@@ -1,0 +1,38 @@
+<div class="chat-section my-4">
+    <div class="hint">
+        <p>You have to check agent’s comment </p>
+    </div>
+    <div class="header">
+       <h4>{{'shared.generalWord.results' |translate}}</h4>
+    </div>
+    <div class="chat-messages" *ngIf="chatMessages && chatMessages.length > 0">
+        <div *ngFor="let message of chatMessages" class="message-box-holder">
+            <div *ngIf="message.comment" class="message-box" [ngClass]="message.isAgent ?'message-sender':'message-partner'" >
+                <span *ngIf="message.isAgent">{{message.contactName}}</span>
+                <span *ngIf="!message.isAgent">You</span>
+                <p class="message-content" >{{message.comment}}</p>
+                <span class="date" >{{message.createDate | customDate :"dd-MM-yyyy h:mm a"}}</span>
+
+            </div>
+        </div>
+    </div>
+    <no-data
+    [item]="'shared.generalWord.message' | translate"
+    *ngIf="!chatMessages"
+  ></no-data>
+    <div class="sperate-line">
+    </div>
+    <div class="text-input">
+        <form [formGroup]="model.clientMessages">
+            <input type="text" formControlName="message" [placeholder]="'shared.Placeholders.writeMessageHere'| translate"/>
+
+          </form>
+    </div>
+
+    <div class="action-btn">
+        <div class=" normal-button">
+            <button (click)="model.sendMessage()">{{'shared.actions.submit'|translate}}</button>
+        </div>
+      
+    </div>
+</div>

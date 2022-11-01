@@ -1,0 +1,17 @@
+<div class="create-request my-4">
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [paddingFlag]="true" [bannerMode]="3"> </banner>
+  </div>
+
+  <div class="container">
+    <p class="page-title">{{model.banner.title}}</p>
+    <ng-container [ngSwitch]="(model.isAuthenticated | async)">
+      <ng-template [ngSwitchCase]="false">
+        <general-user-complaint></general-user-complaint>
+      </ng-template>
+      <ng-template [ngSwitchCase]="true">
+        <registered-user-complaint></registered-user-complaint>
+      </ng-template>
+    </ng-container>
+  </div>
+</div>

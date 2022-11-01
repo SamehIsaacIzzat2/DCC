@@ -1,0 +1,15 @@
+@import '../../../../../assets/styles/components/phoneNumberFeildCustomStyle';
+@import "../../../../../assets/styles/components/form";
+.add-new-consignee {
+    .row >div:nth-child(odd){
+        padding-left:unset;
+    }
+    .input{
+        label{
+            margin-bottom: 24px !important;
+        }
+        textarea{
+            padding:1px !important;
+        }
+    }
+}

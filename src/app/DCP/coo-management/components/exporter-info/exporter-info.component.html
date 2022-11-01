@@ -1,0 +1,99 @@
+<div class="exporter-info">
+  <div class="exporter-details">
+    <div class="container">
+      <div class="title">
+        <h4>{{ "cooModule.detailsData.exporterDetails" | translate }}</h4>
+      </div>
+
+      <form [formGroup]="model.userCompanyForm">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <!-- select-company field -->
+            <div class="input mt-3">
+              <div class="input-content">
+                <label class="form-label" for="Interest"
+                  >{{ "shared.generalWord.selectCompany" | translate }}
+                </label>
+                <select
+                  class="w-100 form-select"
+                  formControlName="company"
+                  id="company"
+                  (change)="model.onCompanyChange($event)"
+                >
+                  <option atrr.selected [value]="''">
+                    {{ "cooModule.exporterInfo.selectCompanyName" | translate }}
+                  </option>
+                  <option
+                    *ngFor="
+                      let company of model.usercompanies;
+                      let index = index
+                    "
+                    [value]="company.id"
+                    name=""
+                  >
+                    {{ company.companyNameEnglish }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="model.submitted && model.f['company'].errors">
+              <span
+                class="form-error"
+                *ngIf="model.f['company'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>
+                this field is requerid
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <!-- select-exporter type field -->
+            <div class="input mt-3">
+              <div class="input-content">
+                <label class="form-label" for="Interest"
+                  >{{ "cooModule.exporterInfo.exporterType" | translate }}
+                </label>
+                <select
+                  class="w-100 form-select"
+                  formControlName="exporterType"
+                  id="exporterType"
+                  (change)="model.selectExporterType()"
+                >
+                  <option atrr.selected [value]="''">
+                    {{
+                      "cooModule.exporterInfo.selectExporterType" | translate
+                    }}
+                  </option>
+                  <option
+                    *ngFor="
+                      let exporterType of model.exporterTypes;
+                      let index = index
+                    "
+                    [value]="exporterType.id"
+                    name=""
+                  >
+                    {{ exporterType.exporterTypeNameEnglish }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="model.submitted && model.f['exporterType'].errors">
+              <span
+                class="form-error"
+                *ngIf="model.f['exporterType'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>
+                this field is requerid
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <generic-display-details
+        [items]="model.exporterDetails"
+        class="mb-5"
+      ></generic-display-details>
+    </div>
+  </div>
+</div>

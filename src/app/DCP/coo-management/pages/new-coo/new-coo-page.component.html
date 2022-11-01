@@ -1,0 +1,49 @@
+<div class="create-request my-4">
+  <div class="banner mb-4">
+    <banner
+      [bannerData]="model.banner"
+      [bannerMode]="3"
+      [EditFlag]="true"
+      [paddingFlag]="true"
+    >
+    </banner>
+  </div>
+
+  <div class="container">
+    <p class="page-title">{{ model.banner.title }}</p>
+    <steeper
+      [steps]="model.steps"
+      [submitStep]="6"
+      (nextStepEvent)="model.nextStep()"
+      (backFormEvent)="model.backForm()"
+      [hideCancel]="true"
+      (submitEvent)="model.submit($event)"
+      [activeStep]="model.activeStep"
+      [hideActions]="model.hideActions"
+    >
+      <div [ngStyle]="{ display: model.activeStep == 1 ? 'block' : 'none' }">
+        <exporter-info></exporter-info>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 2 ? 'block' : 'none' }">
+        <consignee-info></consignee-info>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 3 ? 'block' : 'none' }">
+        <invoice-info></invoice-info>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 4 ? 'block' : 'none' }">
+        <shipment-info></shipment-info>
+      </div>
+
+
+      <div [ngStyle]="{ display: model.activeStep == 5 ? 'block' : 'none' }">
+        <attachments></attachments>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 6 ? 'block' : 'none' }">
+        <preview [previewData]="model.previewRequestData"></preview>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 7 ? 'block' : 'none' }">
+        <app-coo-request-result [requestId]="model.requestId"></app-coo-request-result>
+      </div>
+    </steeper>
+  </div>
+</div>

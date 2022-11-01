@@ -1,0 +1,195 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+
+.serDetails {
+  color: #fff;
+
+  &-wrapper {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+      align-items: center;
+
+      a {
+        background-color: lightseagreen;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border: none;
+        padding: 10px 45px;
+      }
+    }
+
+    .line {
+      width: 100%;
+      background-color: #fff;
+      height: 1px;
+      opacity: 0.5;
+      margin-bottom: 40px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+
+      .details {
+        width: 60%;
+
+        .item {
+          display: flex;
+          gap: 10px;
+
+          div h6 {
+            color: #fff;
+          }
+
+          div p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .rating-wrap {
+        width: 30%;
+        pointer-events: none;
+        @media (max-width:422px){
+          width:fit-content;
+        }
+        .actions {
+          div {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            width: max-content;
+            gap: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 25px 0;
+
+            svg {
+              width: 18px;
+            }
+          }
+        }
+
+        .rating-box {
+          border: 1px solid #fff;
+          padding: 20px 40px;
+          @media (max-width:420px){
+            padding:1em;
+          }
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          @include bRadius(5px);
+
+          h6 {
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+
+          .rat-num {
+            align-self: flex-end;
+            @include rtl_value("margin-right", 30px, unset);
+          @include rtl_value("margin-left", unset, 30px);
+            margin-bottom: 0;
+            opacity: 0.7;
+            font-size: 14px;
+            @media (max-width:420px){
+              margin: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .details .item div p {
+  font-size: 14px !important;
+}
+
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 20px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+  margin: 10px 0;
+  @media (max-width:420px){
+    margin: auto auto 10px auto;
+  }
+}
+
+.rating>input {
+  display: none;
+}
+
+.rating>label:before {
+  @include rtl_value("margin-right", 19px, unset);
+          @include rtl_value("margin-left", unset, 19px);
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating>.half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating>label {
+  color: #ddd;
+  float: right;
+  @media (max-width:420px){
+    font-size: 0.5em;
+  }
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating>input:checked~label,
+/* show gold star when clicked */
+.rating:not(:checked)>label:hover,
+/* hover current star */
+.rating:not(:checked)>label:hover~label {
+  color: #bbab59;
+}
+
+/* hover previous stars in list */
+
+.rating>input:checked+label:hover,
+/* hover current star when changing rating */
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+/* lighten current selection */
+.rating>input:checked~label:hover~label {
+  color: #bbab59;
+}
+
+.clear {
+  clear: both;
+}

@@ -1,0 +1,15 @@
+
+
+<div class="wallet-recharge-page">
+    <!-- banner section -->
+    <div class="banner mb-4">
+        <banner [bannerData]="banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true">
+        </banner>
+        <div class="content" *ngIf="!resultFlag">
+            <refund-wallet (RefundWallet)="refundWallet()" ></refund-wallet>
+        </div>
+
+        <div class="result" *ngIf="resultFlag">
+            <result-card [item]="item" [showRate]="false"></result-card>
+        </div>
+    </div>

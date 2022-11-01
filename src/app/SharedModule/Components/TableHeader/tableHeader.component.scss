@@ -1,0 +1,45 @@
+// Mixins
+@import "../../../../assets/styles/helpers/mixins";
+
+// Buttons
+@import "../../../../assets/styles/components/buttons";
+
+.tableHeader {
+  background: #fff;
+  min-height: 51px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 20px;
+  @include prefixer(
+    box-shadow,
+    0 3px 6px 0 rgba(0, 0, 0, 0.04),
+    webkit moz o ms
+  );
+  @media (max-width: 767px) {
+    flex-direction: column;
+    span {
+      padding-top: 10px;
+    }
+  }
+  .text {
+    color: #121b2d;
+    @include font(14px, 600);
+  }
+  .buttons {
+    button {
+      // @include rtl_value(float, left, right);
+      float: left;
+    }
+  }
+  mat-icon {
+    color: #bfc2ce;
+    font-size: 21px;
+    cursor: pointer;
+    padding: 0 15px;
+  }
+  button {
+    @include rtl_value("margin-left", 20px, unset);
+    @include rtl_value("margin-right", unset, 20px);
+  }
+}

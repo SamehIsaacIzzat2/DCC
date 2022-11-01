@@ -1,0 +1,18 @@
+<div class="satatus-card" [ngClass]="{last: isLast ,customForLead:leadStatusStyleFlag}">
+    <div class="status-date" *ngIf="item.title === 'Draft' ">{{createdDate |customDate:'shortDate'}}</div>
+    <div class="content d-flex aligin-items-center" [ngClass]="{aliginWord:item.title !== 'Draft' && requestDetailsFlage}">
+        <div class="icon inactive" [class.active]="item.title === requestStatus ">
+            <img *ngIf="item.title === requestStatus" src="assets/images/actualStep.svg" />
+        </div>
+        <div class="icon inactive" [class.active]="item.title === requestStatus ">
+            <img *ngIf="isPassedStep" src="assets/images/rightMark.svg" />
+        </div>
+
+        <div class="icon inactive">
+            <img *ngIf="item.title !== requestStatus && !isPassedStep" src="assets/images/inactiveRequestSatuts.svg" />
+        </div>
+        <div class="title" [ngClass]="{customForLead:leadStatusStyleFlag}">
+            <h3 [ngClass]="{'inactive':item.title !== requestStatus }">{{item.title}}</h3>
+        </div>
+    </div>
+</div>

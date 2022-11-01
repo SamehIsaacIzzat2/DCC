@@ -1,0 +1,161 @@
+<div class="container px-0">
+  <div class="information-section">
+    <form [formGroup]="model.communicationInformationForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <!-- Email Receiver Feild -->
+          <div class="col-md-6 col-sm-12">
+              <div class="input my-3">
+                <div class="input-content">
+                  <label class="form-label" for="emailReceivers"
+                    >{{"companyModule.communicationInformation.emailReceiver" | translate}}<span class="required-star">*</span></label
+                  >
+                  <input
+                    id="emailReceivers"
+                    type="text"
+                    [placeholder]="('shared.Placeholders.SearchByName' | translate)"
+                    aria-label="Email Receivers"
+                    matInput
+                    formControlName="emailReceivers"
+                    [matAutocomplete]="autooo"
+                    #emailReceivers
+                    multiple
+                  />
+                  <mat-autocomplete
+                    autoActiveFirstOption
+                    #autooo="matAutocomplete"
+                  >
+                    <mat-option
+                      *ngFor="let option of model.filteredOptionsEmail | async"
+                      [value]="option.name"
+                      (click)="
+                        model.addOpt(
+                          model.selectedMailRecs,
+                          'industries',
+                          option
+                        )                      "
+                    >
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <div
+                    *ngIf="
+                      model.selectedMailRecs.length === 0 &&
+                      model.f['emailReceivers'].touched
+                    "
+                  >
+                    <span class="form-error">
+                      <i class="fa-solid fa-circle-exclamation"></i> 
+                      {{"companyModule.communicationInformation.emailReceiverValidationError" | translate}}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="selected-items-container"
+                  *ngIf="model.selectedMailRecs.length !== 0"
+                >
+                  <span class="container-title">Selected Industries</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedMailRecs">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(
+                            model.selectedMailRecs,
+                            select
+                          )
+                        "
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- SMS Receiver(s) Feild -->
+            <div class="col-md-6 col-sm-12">
+
+              <div class="input my-3">
+                <div class="input-content">
+                  <label class="form-label" for="smsReceivers"
+                    >{{"companyModule.communicationInformation.SMSReceiver" | translate}}<span class="required-star">*</span></label
+                  >
+                  <input
+                    id="smsReceivers"
+                    type="text"
+                    [placeholder]="('shared.Placeholders.SearchByName' | translate)"
+                    aria-label="SMS Receivers"
+                    matInput
+                    formControlName="smsReceivers"
+                    [matAutocomplete]="autooo"
+                    #smsReceivers
+                    multiple
+                  />
+                  <mat-autocomplete
+                    autoActiveFirstOption
+                    #autooo="matAutocomplete"
+                  >
+                    <mat-option
+                      *ngFor="let option of model.filteredOptionsSMS | async"
+                      [value]="option.name"
+                      (click)="
+                        model.addOpt(
+                          model.selectedSmsRecs,
+                          'industries',
+                          option
+                        );
+                      "
+                    >
+                      {{ option.name }}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <div
+                    *ngIf="
+                      model.selectedSmsRecs.length === 0 &&
+                      model.f['smsReceivers'].touched
+                    "
+                  >
+                    <span class="form-error">
+                      <i class="fa-solid fa-circle-exclamation"></i> 
+                      {{"companyModule.communicationInformation.SMSReceiverValidationError" | translate}}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="selected-items-container"
+                  *ngIf="model.selectedSmsRecs.length !== 0"
+                >
+                  <span class="container-title">Selected Industries</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedSmsRecs">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(
+                            model.selectedSmsRecs,
+                            select
+                          )
+                        "
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <div
+          class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+          *ngIf="!getSteeperState()"
+        >
+          <div class="normal-register">
+            <button class="btn" (click)="model.saveUpdate()">{{"shared.actions.save" | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

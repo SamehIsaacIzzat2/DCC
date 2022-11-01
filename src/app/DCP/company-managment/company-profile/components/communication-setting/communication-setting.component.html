@@ -1,0 +1,48 @@
+<div class="information-section general-information-section">
+  <div class="row">
+    <!--  title And Edit Button -->
+    <div class="header col-12">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="title">
+            <h4>{{"companyModule.communicationInformation.title" | translate}}</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="edit-btn">
+            <div
+              class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end"
+            >
+              <div class="normal-information">
+                <button
+                  [routerLink]="['edit']"
+                  class="btn"
+                  *ngIf="getViewAndEditState()"
+                >
+                  {{"shared.actions.editInformation" | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- General-information-feilds -->
+  <div class="General-information-content">
+    <div class="row my-5">
+        <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"companyModule.communicationInformation.emailReceiver" | translate}}</div>
+            <div class="data my-4 no-value">{{ communicationData.emailReceivers }}</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"companyModule.communicationInformation.SMSReceiver" | translate}}</div>
+            <div class="data my-4 no-value">{{ communicationData.smsReceivers }}</div>
+          </div>
+        </div>
+
+    </div>
+  </div>

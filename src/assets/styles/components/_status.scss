@@ -1,0 +1,165 @@
+// Variables
+@import "../helpers/variables";
+
+//Mixins
+@import "../helpers/mixins";
+
+span {
+  &.status {
+    padding: 4px 8px;
+    @include bRadius(3px);
+    @include font(10px,500);
+    text-transform: uppercase;
+    color:#fff;
+  }
+  &.new {
+    color: #34ace0;
+    background: rgba(52, 172, 224, 0.1);
+    border: 1px solid #34ace0;
+  }
+  &.bad {
+    color: #d12c2c;
+    background: rgba(209, 44, 44, 0.1);
+    border: 1px solid #d12c2c;
+  }
+  &.good {
+    color: #006266;
+    background: rgba(0, 98, 102, 0.1);
+    border: 1px solid #006266;
+  }
+  &.awesome {
+    color: #ff9d0f;
+    background: rgba(255, 157, 15, 0.1);
+    border: 1px solid #ff9d0f;
+  }
+  &.waitingVerification, &.waiting {
+    color: #ee5a24;
+    background: rgba(238, 90, 36, 0.1);
+    border: 1px solid #ee5a24;
+  }
+  &.waitingRegistration {
+    color: #ed4c67;
+    background: rgba(237, 76, 103, 0.1);
+    border: 1px solid #ed4c67;
+  }
+  &.pending {
+    color: #ffc42b;
+    background: rgba(255, 196, 43, 0.1);
+    border: 1px solid #ffc42b;
+  }
+  &.passed {
+    color: #121b2d;
+    background: rgba(18, 27, 45, 0.1);
+    border: 1px solid #121b2d;
+  }
+  &.exited {
+    color: #c93e39;
+    background: rgba(201, 62, 57, 0.1);
+    border: 1px solid #c93e39;
+  }
+  &.expired {
+    color: #bfc2ce;
+    background: rgba(191, 194, 206, 0.1);
+    border: 1px solid #bfc2ce;
+  }
+  &.active {
+    color: #b6d828;
+    background: rgba(182, 216, 40, 0.1);
+    border: 1px solid #b6d828;
+  }
+  &.notActive {
+    color: #434343;
+    background: rgba(67, 67, 67, 0.1);
+    border: 1px solid #434343;
+  }
+  &.inProgress {
+    color: #ff9d0f;
+    background: rgba(255, 157, 15, 0.1);
+    border: 1px solid #ff9d0f;
+  }
+  &.accepted {
+    color: #23ae3a;
+    background: rgba(35, 174, 58, 0.1);
+    border: 1px solid #23ae3a;
+  }
+  &.declined {
+    color: #ce2800;
+    background: rgba(206, 40, 0, 0.1);
+    border: 1px solid #ce2800;
+  }
+  &.cancelled {
+    color: #ce0000;
+    background: rgba(206, 0, 0, 0.1);
+    border: 1px solid #ce0000;
+  }
+  &.registered {
+    color: #009432;
+    background: rgba(0, 148, 50, 0.1);
+    border: 1px solid #009432;
+  }
+  &.verified {
+    color: #006266;
+    background: rgba(0, 98, 102, 0.1);
+    border: 1px solid #006266;
+  }
+  &.notVerified {
+    color: #b33939;
+    background: rgba(179, 57, 57, 0.1);
+    border: 1px solid #b33939;
+  }
+  &.delivered {
+    color: #a3cb38;
+    background: rgba(163, 203, 56, 0.1);
+    border: 1px solid #a3cb38;
+  }
+  &.scheduled {
+    color: #227093;
+    background: rgba(34, 112, 147, 0.1);
+    border: 1px solid #227093;
+  }
+  &.suspended {
+    color: #ef0000;
+    background: rgba(239, 0, 0, 0.1);
+    border: 1px solid #ef0000;
+  }
+  &.paired {
+    color: #009432;
+    background: rgba(0, 148, 50, 0.1);
+    border: 1px solid #009432;
+  }
+  &.blocked {
+    color: #9a0000;
+    background: rgba(154, 0, 0, 0.1);
+    border: 1px solid #9a0000;
+  }
+  &.success {
+    color: #00d521;
+    background: rgba(0, 213, 33, 0.1);
+    border: 1px solid #00d521;
+  }
+  &.fail {
+    color: #ff2121;
+    background: rgba(255, 33, 33, 0.1);
+    border: 1px solid #ff2121;
+  }
+  &.closed {
+    color: #909090;
+    background: rgba(144, 144, 144, 0.1);
+    border: 1px solid #909090;
+  }
+  &.assigned {
+    color: #2185d0;
+    background: rgba(33, 133, 208, 0.1);
+    border: 1px solid #2185d0;
+  }
+  &.invitation {
+    color: #d85366;
+    background: #ffd8de;
+    border: 1px solid #d85366;
+  }
+  &.exception {
+    color: #2185d0;
+    background: rgba(33, 133, 208, 0.1);
+    border: 1px solid #2185d0;
+  }
+}

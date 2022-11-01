@@ -1,0 +1,63 @@
+<div class="document-details">
+    <!-- banner -->
+    <div class="banner mb-4">
+      <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true">
+      </banner>
+  
+      <!-- page content -->
+      <div class="container">
+        <!-- <p class="page-title">{{banner.title}}</p> -->
+        <div class="main-container row">
+          <div class="left-side col-md-3 col-sm-12">
+  
+            <!-- filter -->
+            <div class="options">
+              <h4 class="my-2">{{'shared.filterData.filterBy' |translate}}:</h4>
+              <label class="option-label">
+                <span>{{'shared.comapnyInfo.companyName' |translate}}:</span>
+              </label>
+              <div class="checkbox-group my-3">
+                <!-- option-all -->
+                <div class="checkbox-option">
+                  <input (change)="model.filterDocumentList($event,'0')" type="checkbox" name="first" id="all"  />
+                  <label for="all">{{'shared.generalWord.all' | translate}}</label>
+                </div>
+                <div class="checkbox-option" *ngFor="let opt of model.membershipActiveCompanies;let i = index">
+                  <input (change)="model.filterDocumentList($event,opt.id)" type="checkbox" name="first" [id]="'opt' + i" [value]="opt.id"
+                     />
+                  <label [for]="'opt' + i">{{opt.companyNameEnglish}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="right-side px-0 col-md-9 col-sm-12">
+           
+             <ng-container *ngIf="!model.loading" >
+              <div class="allRequests my-4">
+                <div *ngFor="let item of model.displayedData | paginate: { itemsPerPage: 5, currentPage: model.p }">
+                  <document-widget [item]="item"></document-widget>
+                </div>
+                
+  
+                <no-data [item]="'memberShipsModule.documents.documents' |translate"
+                  *ngIf="model.rowData && model.rowData.length == 0"></no-data>
+               
+                </div>
+              <div class="col-12" *ngIf="model.rowData.length != 0">
+                <div class="pagination-section d-flex justify-content-center align-items-center">
+                  <app-paginator (pageChange)="model.changePage($event)"></app-paginator>
+                </div>
+              </div>
+            </ng-container> 
+  
+            <!-- skelton loader -->
+            <div class="row" *ngIf="model.loading">
+              <div class="col-12" *ngFor="let x of [1, 2, 3, 4]">
+                <card-loader [height]="70"></card-loader>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,97 @@
+<div class="request-action-details">
+  <div class="container">
+    <div class="content">
+      <div>
+        <div class="col-md-12 g-0">
+          <div class="content-side">
+            <div class="request-status my-2">
+              <h4>
+                {{
+                  "reqestModule.requestDetails.sideNav.bussinessMatchResults"
+                    | translate
+                }}
+              </h4>
+              <ng-container *ngIf="!loading">
+                <div
+                  class="action-result my-3"
+                  *ngIf="requests.length > 0 && showCompanys"
+                >
+                  <div
+                    *ngFor="
+                      let item of requests
+                        | paginate: { itemsPerPage: 5, currentPage: p }
+                    "
+                  >
+                    <request-action-result
+                      [requestId]="requestId"
+                      [requestState]="requestStatus"
+                      [actionStatus]="
+                        item.statusName == 'Required Action'
+                          ? 1
+                          : item.statusName == 'Waiting Reply'
+                          ? 2
+                          : 3
+                      "
+                      [item]="item"
+                      (refreshBtn)="refresh()"
+                      (showCompanyDetails)="showDetailsCompany(item.id)"
+                      (selectunselectCompany)="
+                        selectcompanyanddeselect($event, item)
+                      "
+                    ></request-action-result>
+                  </div>
+                </div>
+                <div class="action-result my-3" *ngIf="requests.length == 0">
+                  <no-data
+                    [item]="'shared.generalWord.request' | translate"
+                  ></no-data>
+                </div>
+                <div class="row" *ngIf="showCompanys">
+                  <div class="col-12" *ngIf="requests.length != 0">
+                    <div
+                      class="pagination-section d-flex justify-content-center align-items-center"
+                    >
+                      <app-paginator
+                        (pageChange)="changePage($event)"
+                        [isCompanyPager]="true"
+                      ></app-paginator>
+                    </div>
+                  </div>
+                  <div class="col-6"></div>
+                  <div
+                    class="mt-4 col-md-12 row justify-content-end"
+                    *ngIf="requestStatus != 5"
+                  >
+                    <button
+                      (click)="CloseRequest()"
+                      style="background: white; color: yellowgreen"
+                    >
+                      {{
+                        "reqestModule.requestDetails.requestActionResult.closeReqest"
+                          | translate
+                      }}
+                    </button>
+                    <button (click)="doinitiate()" *ngIf="requests.length > 0">
+                      {{
+                        "reqestModule.requestDetails.requestActionResult.InitateLead"
+                          | translate
+                      }}
+                    </button>
+                  </div>
+                </div>
+                <!-- <request-details *ngIf="!showCompanys" [itemcompany]="item"></request-details> -->
+              </ng-container>
+
+              <!-- skelton loader -->
+              <div class="row" *ngIf="loading">
+                <div class="col-12" *ngFor="let x of [1, 2, 3]">
+                  <card-loader [height]="250"></card-loader>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

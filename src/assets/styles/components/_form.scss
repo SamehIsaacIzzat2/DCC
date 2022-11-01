@@ -1,0 +1,246 @@
+@import "../../../assets/styles/helpers/variables";
+
+label {
+  color: #2f3334d4;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+input {
+  border-radius: 0px;
+  padding: 0.85rem 0.75rem !important;
+  outline: none;
+  border: 1px solid #dddcea;
+  width: 100%;
+}
+
+textarea {
+  border-radius: 0px;
+  padding: 0.35rem 0.75rem !important;
+  outline: none;
+  border: 1px solid #dddcea;
+  width: 100%;
+  resize: none !important;
+  height: 75px;
+}
+
+input:focus,
+select:focus {
+    border: 1px solid $secondaryColor !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.forget-password span a {
+  color: #2f3334;
+}
+
+.havenot-account span a {
+  color: #003764;
+  font-weight: bold;
+}
+
+.login-buttons .normal-login button {
+  background-color: $secondaryColor;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+}
+
+.login-buttons .UEA-login button {
+  border: 1px solid $secondaryColor;
+  width: 228.25px;
+}
+
+.login-buttons .UEA-login button span {
+  color: $secondaryColor;
+  font-size: 16px;
+}
+
+.or {
+  color: #979797;
+}
+
+.form-select {
+  border-radius: 0px;
+  padding: 0.85rem 0.75rem !important;
+  outline: none;
+  border: 1px solid #dddcea;
+
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 14px;
+  color: #2f3334;
+
+  .required-star {
+    color: #2f3334;
+    margin-inline-start: 5px;
+    line-height: initial;
+    font-size: 16px;
+  }
+
+  .disabled {
+    margin-inline-start: 5px;
+    font-size: 15px;
+    color: #dddcea;
+  }
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 14px;
+  color: #f87171;
+  margin-top: 8px;
+
+  svg {
+    color: #f87171;
+    font-size: 18px;
+    margin-inline-end: 10px;
+  }
+}
+
+.form-group:has(.form-error),
+.input-content:has(.form-error) {
+  .form-textarea,
+  input,
+  select,
+  .iti {
+    border-color: #f87171 !important;
+  }
+}
+
+.form-textarea {
+  border-radius: 0px;
+  padding: 0.85rem 0.75rem !important;
+  outline: none;
+  border: 1px solid #dddcea;
+  width: 100%;
+}
+
+.form-textarea:focus {
+  border-color: $secondaryColor;
+}
+
+// // Variables
+// @import "../../../assets/styles/helpers/variables";
+
+// // Mixins
+// @import "../../../assets/styles/helpers/mixins";
+
+// .inputs {
+//    // overflow: auto;
+//     //min-width: 400px;
+//     .input {
+//        width: 100%;
+//         margin-bottom: 20px;
+//         position: relative;
+//         .input-content {
+//             background: #fff;
+//             @include bRadius(50px);
+//             @include prefixer(box-shadow, 2px 3px 10px 0px rgba(0,0,0,0.1), webkit moz o ms);
+//             margin-bottom: 10px;
+//             height: 40px;
+//             display: flex;
+//             align-items: center;
+//             padding: 0 10px;
+//             span {
+//                 @include font(13px, 500);
+//             }
+//             &.inputHasSuffixAndPrefix {
+//                 overflow: auto;
+//                 input {
+//                     float: left;
+//                     width: 76%;
+//                 }
+//                 .suffix, .prefix {
+//                     float: left;
+//                     width: 12%;
+//                     text-align: center;
+//                 }
+//             }
+//             &.inputHasSuffixOrPrefix {
+//                 overflow: auto;
+//                 input {
+//                     float: left;
+//                     width: 70%;
+//                 }
+//                 .suffix, .prefix {
+//                     float: left;
+//                     width: 15%;
+//                     text-align: center;
+//                 }
+//             }
+//         }
+//         select {
+//             border: 0;
+//             outline: 0;
+//             background: #fff;
+//             padding: 0 5px;
+//             width: 100%;
+//         }
+//         input {
+//             border: 0;
+//             outline: 0;
+//             background: #fff;
+//             padding: 0 5px;
+//             width: 100%;
+//         }
+//         .error {
+//             margin: 0 5px;
+//             width: 100%;
+//             span {
+//                 // color: #f44336;
+//                 color: #d12c2c;
+//                 @include font(12px, 400);
+//             }
+//         }
+//     }
+// }
+
+// // Custom
+// .mat-form-field-wrapper {
+//     padding-bottom: 0;
+// }
+// .mat-form-field-infix {
+//     padding: 0.25em 0;
+// }
+// input:-webkit-autofill {
+//     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+// }
+// ::ng-deep .mat-radio-button .mat-radio-ripple {
+//     left: calc(50% - 15px) !important;
+//     top: calc(50% - 15px) !important;
+//     height: 30px !important;
+//     width: 30px !important;
+// }
+// ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle,
+// ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+// ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+// ::ng-deep .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+//     background: $secondaryColor !important;
+// }
+
+// ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+//     border-color: $secondaryColor !important;
+// }

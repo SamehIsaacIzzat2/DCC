@@ -1,0 +1,68 @@
+<!-- <div class="side-filter">
+  <div class="side-filter-wrapper">
+    <div class="options">
+      <label class="option-label">
+        <span>I am a...</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </label>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" name="first" id="opt1" />
+          <label for="opt1">Businessman</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" name="first" id="opt2" />
+          <label for="opt2">Existing member</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" name="first" id="opt3" />
+          <label for="opt3">Guest</label>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="options">
+      <label class="option-label">
+        <span>Get services about...</span>
+        <i class="fa-solid fa-angle-down"></i>
+      </label>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" name="first" id="opt1" />
+          <label for="opt1">Certififcate/documents</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" name="first" id="opt2" />
+          <label for="opt2">Business support</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" name="first" id="opt3" />
+          <label for="opt3">Business protection</label>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+  </div>
+</div> -->
+
+<div class="filter-side">
+
+  <h4 class="filter-title my-2">{{"shared.filterData.filterBy" | translate}} :</h4>
+  <!-- #second-filter -->
+  <div class="options">
+    <label class="option-label">
+      <span>{{"shared.filterData.serviceType" | translate}}</span>
+    </label>
+    <div class="checkbox-group my-3">
+      <div class="checkbox-option">
+        <input type="checkbox" name="first" id="all" />
+        <label for="all">{{'shared.generalWord.all' | translate}}</label>
+      </div>
+      <div class="checkbox-option" *ngFor="let opt of model.serviceType;let i = index">
+        <input type="checkbox" name="first" [id]="'opttype' + i" />
+        <label [for]="'opttype' + i">{{opt.name}}</label>
+      </div>
+    </div>
+  </div>
+
+</div>

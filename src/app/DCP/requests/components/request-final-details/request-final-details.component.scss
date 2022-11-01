@@ -1,0 +1,76 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+// #start step-side style
+.step-side {
+  margin: 20px 0px;
+
+  .step-one {
+    cursor: pointer;
+
+    .line {
+      width: 3px;
+      height: 25px;
+      background-color: $secondaryColor;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 18px;
+      color: $secondaryColor;
+      font-weight: 600;
+      @include rtl_value("margin-left", 10px, unset);
+      @include rtl_value("margin-right", unset, 10px);
+      cursor: pointer;
+    }
+  }
+
+  .step-two {
+    cursor: pointer;
+
+    p {
+      color: #1d4861;
+      font-size: 18px;
+      font-weight: 600;
+      @include rtl_value("margin-left", 10px, unset);
+      @include rtl_value("margin-right", unset, 10px);
+      cursor: pointer;
+    }
+  }
+}
+
+// start content-side style
+
+.request-status {
+  h4 {
+    color: #1d4861;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.request-details {
+  h4 {
+    color: #1d4861;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.cards {
+  @media (max-width: 767px) {
+    justify-content: center !important;
+
+    div {
+      width: auto !important;
+      max-width: auto !important;
+    }
+  }
+}
+
+.Dummy-data {
+  color: #94a3b8 !important;
+  font-size: 16px;
+  font-weight: 400;
+  @include rtl_value("margin-left", 20px !important, unset);
+  @include rtl_value("margin-right", unset, 20px !important);
+}

@@ -1,0 +1,150 @@
+<!-- tree of items  -->
+<div class="PACKAGE" *ngFor="let item of data; index as index">
+  <div class="tree">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <div class="table-item">
+              <span class="title">HS-Code</span>
+              <span class="text activeColor">{{ item.code }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Name (English)</span>
+              <span class="text">{{ item.enName }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Name (Arabic)</span>
+              <span class="text">{{ item.arName }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Country of Origin</span>
+              <span class="text">{{ item.country }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Process Type & Country</span>
+              <span class="text">{{ item.processTypeCountry }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Quantity</span>
+              <span class="text">{{ item.quantity }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Unit Price</span>
+              <span class="text">{{ item.price }}</span>
+            </div>
+          </th>
+
+          <th>
+            <div class="table-item">
+              <span class="title">Total Price</span>
+              <span class="text">{{ item.totalPrice }}</span>
+            </div>
+          </th>
+
+          <th *ngIf="!previewMode" class="close d-flex align-content-center">
+            <div class="icon-parent">
+              <i class="icon fa-regular fa-circle-xmark"></i>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="item.packages">
+        <tr *ngFor="let item of item.packages; index as i">
+          <td>
+            <div class="package">
+              <span class="title"
+                >{{ "cooModule.invoiceList.package" | translate }}
+                {{ i + 1 }}</span
+              >
+            </div>
+          </td>
+
+          <td>
+            <div class="table-item">
+              <span class="title">Type</span>
+              <span class="text">{{ item?.typeName }}</span>
+            </div>
+          </td>
+
+          <td>
+            <div class="table-item">
+              <span class="title">Size</span>
+              <span class="text">{{ item.size }}</span>
+            </div>
+          </td>
+
+          <!-- <td>
+            <div class="table-item">
+              <span class="title">Weight</span>
+              <span class="text">{{ item.weight }}</span>
+            </div>
+          </td>
+
+          <td>
+            <div class="table-item">
+              <span class="title">Count</span>
+              <span class="text">{{ item.count }}</span>
+            </div>
+          </td> -->
+
+          <td>
+            <div class="table-item">
+              <span class="title">Quantity</span>
+              <span class="text">{{ item.quantity }}</span>
+            </div>
+          </td>
+
+          <td>
+            <div *ngIf="!previewMode" class="actions">
+              <button
+                (click)="onDeleteProduct(index, i)"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteConfirmationPopUp"
+              >
+                <i class="icon fa fa-trash"></i>
+              </button>
+              <button><i class="icon fa fa-pencil"></i></button>
+            </div>
+
+            <delete-confirmation-popup
+              (Delete)="confirmDelete()"
+              popUpId="deleteConfirmationPopUp"
+            ></delete-confirmation-popup>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- below the tree -->
+  <div class="below-tree-table" *ngIf="!previewMode">
+    <div class="alert">
+      <i class="icon fa fa-circle-info"></i>
+      <span> {{ "cooModule.invoiceList.totalQuantity" | translate }}</span>
+    </div>
+    <div class="add-new" >
+      <i class="icon fa-sharp fa-solid fa-circle-plus"></i>
+      <button (click)="addPackage(index)">
+        {{ "cooModule.invoiceList.addPackage" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

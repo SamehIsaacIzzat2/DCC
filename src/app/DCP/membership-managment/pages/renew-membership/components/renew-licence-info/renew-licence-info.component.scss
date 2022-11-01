@@ -1,0 +1,62 @@
+.verify {
+    margin-top: 30px;
+    a {
+      text-decoration: underline;
+      color: #A73439;
+      font-weight: 500;
+      font-size: 20px;
+      text-transform: capitalize;
+    }
+  }
+  
+  .verifying {
+    .title {
+      font-weight: 700;
+      font-size: 18px;
+      margin: 25px 0;
+    }
+  }
+  
+  .radioParnt {
+    &:first-of-type {
+      margin-inline-end: 50px;
+    }
+    input[type="radio"] {
+      width: 23px;
+      margin-inline-end: 7px;
+    }
+    label {
+      cursor: pointer;
+    }
+  }
+  
+  .duration {
+    .title {
+      margin: 25px 0 12px;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1d4861;
+    }
+    .description {
+      color: #928e8e;
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+  
+  // input[type="radio"] {
+  //   accent-color: #A73439;
+  // }
+  .addCompany{
+  margin-top:31px;
+    button{
+          background-color: #A73439;
+      border:none !important;
+      outline:none !important;
+      width: 228.25px;
+      color: #fff;
+      padding: 10px 25px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }

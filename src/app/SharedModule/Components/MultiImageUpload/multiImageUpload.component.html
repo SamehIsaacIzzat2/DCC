@@ -1,0 +1,34 @@
+<div class="container">
+  <p class="note">
+    <strong>Note: </strong>You can upload 2 images at least and
+    {{ fixedFilesToSelect }} at most
+  </p>
+
+  <div class="avatar-upload">
+    <label class="hoverable" for="fileInput">
+      <!-- <div class="hover-text">
+        Maximun number of images is {{ fixedFilesToSelect }}
+      </div> -->
+      <div class="intial-title">
+        {{ title }}
+      </div>
+      <div class="background"></div>
+    </label>
+    <input
+      id="fileInput"
+      multiple
+      type="file"
+      accept=".png"
+      (change)="uploadFile($event)"
+      (click)="resetInputValue($event)"
+    />
+  </div>
+  <div class="img-list" *ngIf="imagesUrl">
+    <div class="img-container" *ngFor="let img of imagesUrl">
+      <div class="image"><img [src]="img" /></div>
+      <div class="hoverImg">
+        <mat-icon (click)="removeImg(img)">close</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

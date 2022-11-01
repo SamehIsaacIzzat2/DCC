@@ -1,0 +1,31 @@
+//mixins
+@import "../../../../assets/styles/helpers/mixins";
+.item {
+  // background-color: #fff;
+  .header {
+    display: flex;
+    gap: 40px;
+
+    .title-icon {
+      color: $secondaryColor;
+    }
+
+    .title {
+      color: #476e83;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .icon {
+      color: #476e83;
+      @include rtl_value("margin-left", auto, unset);
+      @include rtl_value("margin-right", unset, auto);
+      cursor: pointer;
+    }
+  }
+
+  .body {
+    padding: 30px 65px;
+    color: #616465;
+  }
+}

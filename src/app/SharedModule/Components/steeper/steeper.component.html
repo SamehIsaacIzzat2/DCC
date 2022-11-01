@@ -1,0 +1,62 @@
+<div class="steeper container">
+  <div class="md-stepper-horizontal orange bg-gery">
+    <div
+      class="md-step"
+      *ngFor="let step of steps; let i = index"
+      [ngClass]="{ active: i + 1 == activeStep, pastStep: i + 1 < activeStep }"
+      [ngStyle]="{ width: 'calc(100% / ' + steps.length + ')' }"
+    >
+      <div class="md-step-circle inactive">
+        <span>{{ i + 1 }}</span>
+      </div>
+      <div class="md-step-title inactive">{{ step.stepTitle }}</div>
+
+      <div class="md-step-bar-left"></div>
+    </div>
+    <p class="active-title">{{getActiveStepTitle()}}</p>
+  </div>
+
+  <div class="step-content">
+    <!--dynamic content form parent -->
+    <ng-content></ng-content>
+  </div>
+  <div class="controls" *ngIf="!hideActions">
+    <div>
+      <button
+        class="btn cancel"
+        (click)="backForm()"
+        *ngIf="activeStep !== 1"
+      >
+        {{ "shared.actions.previous" | translate }}
+      </button>
+    </div>
+    <div class="actions">
+      <button class="btn cancel"
+         class="btn next"
+         *ngIf="(activeStep == steps.length) || (activeStep == submitStep)" (click)="submit(true)">
+        <!-- *ngIf="activeStep == steps.length && !hideCancel" -->
+        {{ "shared.actions.draft" | translate }}
+      </button>
+      <button class="btn cancel"  *ngIf="!hideCancel"  (click)="cancle()">
+
+        <!-- *ngIf="activeStep == steps.length && !hideCancel" -->
+        {{'shared.actions.cancle' |translate}}
+      </button>
+
+      <button
+        class="btn next"
+        *ngIf="(activeStep == steps.length) || (activeStep == submitStep)"
+        (click)="submit(false)"
+      >
+        {{ "shared.actions.submit" | translate }}
+      </button>
+      <button
+        class="btn next"
+        *ngIf="activeStep != steps.length && activeStep != submitStep"
+        (click)="nextStep()"
+      >
+        {{ "shared.actions.next" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

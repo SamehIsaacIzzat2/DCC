@@ -1,0 +1,151 @@
+.chat-section {
+    .hint{
+        p{
+            font-size:12px;
+            font-weight: 400;
+        }
+    }
+    .header {
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1D4861;
+        }
+    }
+
+    .chat-messages {
+        max-height:60vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right:30px;
+        padding-left:10px;
+        .message-box-holder {
+            width: 100%;
+            margin: 0 0 15px;
+            display: flex;
+            flex-flow: column;
+            // align-items: flex-end;
+
+            .message-box {
+                padding: 15px 24px 5px;
+                border-radius: 6px 0 6px 0;
+                position: relative;
+                border-radius: 15px;
+                color: #6c6c6c;
+                font-size: 12px;
+                margin-bottom: 10px;
+
+                &.message-sender {
+                    background-color: #F8F8F8;
+                    border: 2px solid rgba(248, 248, 248, 1);
+
+                    // align-self: flex-start;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: -27px;
+                        left: -24px;
+                        width: 50px;
+                        height: 50px;
+                        background: url("../../../../assets/images/AgentArrow.svg") no-repeat;
+                        background-size: contain;
+                    }
+                }
+
+                &.message-partner {
+                    background-color: #ECF4FA;
+                    border: 2px solid rgba(236, 244, 250, 1);
+                    align-self: flex-end;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -19px;
+                        right: -26px;
+                        width: 50px;
+                        height: 50px;
+                        background: url("../../../../assets/images/clientArrow.svg") no-repeat;
+                        background-size: contain;
+                    }
+
+                }
+
+                .message-content {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #2F3334;
+                }
+
+                span {
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #003764;
+                    margin: 0px 0px 10px 0px;
+                }
+
+                .date {
+                    display: inline-block;
+                    color: #9C9C9C;
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin: 5px 0px
+                }
+            }
+        }
+    }
+
+    .sperate-line {
+        border-top: 1px solid #CECECE;
+        height: 0px;
+    }
+
+    .text-input {
+        input {
+            border: none;
+            box-shadow: none;
+            outline: none;
+            &:focus{
+                border:none !important;
+            }
+
+            &::placeholder {
+                color: #ABABAB;
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+
+    }
+
+    .action-btn {
+        display: flex;
+        justify-content: end;
+
+        @media (max-width:300px) {
+            justify-content: center;
+        }
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius:5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

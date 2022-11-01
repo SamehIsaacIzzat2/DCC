@@ -1,0 +1,262 @@
+<div class="shipment-data">
+
+  <div class="title">
+    <h4>{{ "cooModule.shipmentInfo.shipmentInfo" | translate }}</h4>
+  </div>
+  <div class="container">
+    <form [formGroup]="model.shipmentForm">
+      <div class="row">
+        <!--Transportation mode -->
+        <div class="col-md-6 col-sm-12 my-3">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{
+                "cooModule.detailsData.transportationMode" | translate
+              }}</label>
+              <select
+                formControlName="transportationModeId"
+                class="form-select"
+              >
+              <option [value]="''" selected disabled hidden >
+                {{ "cooModule.shipmentInfo.selectTransportationMode" | translate }}
+              </option>
+                <option
+                  *ngFor="
+                    let opt of model.transportationModes;
+                    let index = index
+                  "
+                  [value]="opt.id"
+                >
+                  {{ opt.name }}
+                </option>
+              </select>
+            </div>
+            <div
+              *ngIf="model.submitted && model.f['transportationModeId'].errors"
+            >
+              <span
+                class="form-error"
+                *ngIf="model.f['transportationModeId'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{ "cooModule.shipmentInfo.requiredField" | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6"></div>
+        <!--Exporter type -->
+        <!-- <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.exporterType' |translate}}</label>
+                            <select formControlName="exporterTypeId" class="form-select">
+                                <option *ngFor="let opt of model.exporterTypes;let index = index" [value]="opt.id"
+                                    [attr.selected]="index === 0 ? true : null">
+                                    {{ opt.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="model.submitted && model.f['exporterTypeId'].errors">
+                            <span class="form-error" *ngIf="model.f['exporterTypeId'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                exporter Type  is required
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+        <!--Exit point  -->
+        <div class="col-md-6 col-sm-12 my-3">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{
+                "cooModule.detailsData.exitPoint" | translate
+              }}</label>
+              <select formControlName="exitPointId" class="form-select">
+                <option [value]="''" selected disabled hidden>
+                  {{ "cooModule.shipmentInfo.selectExitPoint" | translate }}
+                </option>
+                <option
+                  *ngFor="let opt of model.exitPoints; let index = index"
+                  [value]="opt.id"
+                >
+                  {{ opt.existPointsNameEnglish }}
+                </option>
+              </select>
+            </div>
+            <div *ngIf="model.submitted && model.f['exitPointId'].errors">
+              <span
+                class="form-error"
+                *ngIf="model.f['exitPointId'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{ "cooModule.shipmentInfo.requiredField" | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- discharge PortId  -->
+        <div class="col-md-6 col-sm-12 my-3">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{
+                "cooModule.detailsData.portofDischarge" | translate
+              }}</label>
+              <select formControlName="dischargePortId" class="form-select">
+                <option [value]="''" selected disabled hidden >
+                  {{ "cooModule.shipmentInfo.selectPortofDischarge" | translate }}
+                </option>
+                <option
+                  *ngFor="let opt of model.dischargePorts; let index = index"
+                  [value]="opt.id"
+                >
+                  {{ opt.packageTypesNameEnglish }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- Expected Departure -->
+        <div class="col-md-6 col-sm-12 my-3">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{
+                "cooModule.detailsData.expectedDeparture" | translate
+              }}</label>
+              <date-time-picker
+                [placeholder]="
+                  'cooModule.detailsData.expectedDeparture' | translate
+                "
+                (date)="model.datePicker($event)"
+              ></date-time-picker>
+            </div>
+          </div>
+        </div>
+        <!-- Final Destination   -->
+        <div class="col-md-6 col-sm-12 my-3">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{
+                "cooModule.detailsData.finalDestination" | translate
+              }}</label>
+              <div class="row">
+                  <!-- country -->
+                  <div class="col-md-6 col-sm-12">
+                    <div >
+                             <select formControlName="destinationCountryId" class="form-select"
+                                (change)="model.selectRelatedCities($event.target)">
+                                <option [value]="''">{{'shared.generalWord.selectCountry' |translate}}</option>
+                                <option *ngFor="let opt of model.allCountries" [value]="opt.id">
+                                    {{ opt.name }}
+                                </option>
+                            </select>
+
+                        <div *ngIf="model.submitted && model.f['destinationCountryId'].errors">
+                            <span class="form-error" *ngIf="model.f['destinationCountryId'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{'shared.generalValidationErrorMessage.requiredCountry' |translate}}
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- city -->
+                <div class="col-md-6 col-sm-12">
+                    <div class="">
+                             <select formControlName="destinationCityId" class="form-select">
+                                <option [value]="''">{{'shared.generalWord.selectCity' |translate}}</option>
+                                <option *ngFor="let opt of model.allCities" [value]="opt.id">
+                                    {{ opt.name }}
+                                </option>
+                            </select>
+                        <div *ngIf="model.submitted && model.f['destinationCityId'].errors">
+                            <span class="form-error" *ngIf="model.f['destinationCityId'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{'shared.generalValidationErrorMessage.requiredCity' |translate}}
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div *ngIf="model.submitted && model.f['destinationId'].errors">
+            <span
+              class="form-error"
+              *ngIf="model.f['destinationId'].errors['required']"
+            >
+              <i class="fa-solid fa-circle-exclamation"></i>
+              {{ "cooModule.shipmentInfo.requiredField" | translate }}
+            </span>
+          </div> -->
+        </div>
+
+        <!-- Additional details -->
+        <div class="col-md-12 col-sm-12 my-3">
+          <div class="form-group">
+            <label class="form-label" for=""
+              >{{ "cooModule.detailsData.additionalDetails" | translate }} ({{
+                "shared.generalWord.optional" | translate
+              }})
+            </label>
+            <textarea
+              formControlName="addtionalDetails"
+              class="form-textarea"
+              style="resize: none"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Print product in coo -->
+        <div class="col-md-6 col-sm-12 my-3">
+          <div class="input mb-30px">
+            <div class="input-content">
+              <label class="form-label" for="">{{
+                "cooModule.shipmentInfo.printProductsInCOO" | translate
+              }}</label>
+              <div class="form-group d-flex currencies">
+                <div class="input radioParnt d-flex">
+                  <input
+                    type="radio"
+                    id="one"
+                    [value]="'Yes'"
+                    name="printProductsInCOO"
+                    formControlName="printProductsInCOO"
+                  />
+                  <label for="one">
+                    {{ "cooModule.shipmentInfo.yes" | translate }}
+                  </label>
+                </div>
+                <div class="input radioParnt d-flex">
+                  <input
+                    type="radio"
+                    id="two"
+                    [value]="'No'"
+                    name="printProductsInCOO"
+                    formControlName="printProductsInCOO"
+                  />
+                  <label for="two">
+                    {{ "cooModule.shipmentInfo.no" | translate }}
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="model.submitted && model.f['printProductsInCOO'].errors"
+            >
+              <span
+                class="form-error"
+                *ngIf="model.f['printProductsInCOO'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{ "cooModule.shipmentInfo.requiredField" | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

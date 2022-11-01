@@ -1,0 +1,487 @@
+<div class="invoice-info">
+  <div class="container">
+    <!-- start form -->
+    <section class="invoice-form">
+      <form [formGroup]="model.invoiceForm">
+        <!--invoice details-->
+        <section class="invoice-details">
+          <div class="section-title">
+            <p>{{ "cooModule.invoiceInfo.invoiceDetails" | translate }}</p>
+          </div>
+          <div class="row">
+            <!-- Invoice Number -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{ "cooModule.invoiceInfo.invoiceNumber" | translate }}
+                  </label>
+                  <input
+                    type="text"
+                    formControlName="number"
+                    [placeholder]="
+                      'cooModule.invoiceInfo.invoiceNumber' | translate
+                    "
+                  />
+                </div>
+
+                <div *ngIf="model.submitted && model.f['number'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['number'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Invoice Date -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{ "cooModule.invoiceInfo.invoiceDate" | translate }}</label
+                  >
+                  <date-time-picker
+                    [placeholder]="
+                      'cooModule.invoiceInfo.invoiceDate' | translate
+                    "
+                    (date)="model.datePicker($event)"
+                  ></date-time-picker>
+                </div>
+                <div *ngIf="model.submitted && model.f['date'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['date'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['date'].errors['future']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.future" | translate }}
+                  </span>
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['date'].errors['older']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.olderThan180" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!--Invoice Amount -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">{{
+                    "cooModule.invoiceInfo.invoiceAmount" | translate
+                  }}</label>
+                  <!-- invoice amount -->
+                  <input
+                    type="number"
+                    formControlName="amount"
+                    [placeholder]="
+                      'cooModule.invoiceInfo.invoiceAmount' | translate
+                    "
+                  />
+                </div>
+                <div *ngIf="model.submitted && model.f['amount'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['amount'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- select currency -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">{{
+                    "cooModule.invoiceInfo.currency" | translate
+                  }}</label>
+                  <!-- currency -->
+                  <div class="form-group d-flex currencies">
+                    <div class="input radioParnt d-flex">
+                      <input
+                        type="radio"
+                        id="one"
+                        [value]="'AED'"
+                        name="currency"
+                        formControlName="currency"
+                      />
+                      <label for="one">
+                        {{ "cooModule.invoiceInfo.aed" | translate }}
+                      </label>
+                    </div>
+                    <div class="input radioParnt d-flex">
+                      <input
+                        type="radio"
+                        id="two"
+                        [value]="'USD'"
+                        name="currency"
+                        formControlName="currency"
+                      />
+                      <label for="two">
+                        {{ "cooModule.invoiceInfo.usd" | translate }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="model.submitted && model.f['currency'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['currency'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- product details-->
+        <section class="Product-details" formGroupName="products">
+          <div class="section-title">
+            <p>{{ "cooModule.invoiceInfo.productDetails" | translate }}</p>
+          </div>
+          <div class="row">
+            <!-- Product/HS Code -->
+            <div class="col-12 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for=""
+                    >{{ "cooModule.invoiceInfo.hSCode" | translate }}
+                  </label>
+                  <select
+                    formControlName="product"
+                    (change)="model.onHSCodeChange($event)"
+                    class="form-select"
+                    [ngStyle]="{
+                      opacity: model.productsForm['product'].invalid
+                        ? '.5'
+                        : '1'
+                    }"
+                  >
+                    <option [value]="null" selected disabled>
+                      {{ "cooModule.invoiceInfo.selectHSCode" | translate }}
+                    </option>
+                    <option
+                      *ngFor="let hSCode of model.hsCodes; index as i"
+                      [value]="hSCode.id"
+                    >
+                      {{ hSCode.hsCodesNameEnglish }}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="
+                    model.submitted && model.productsForm['product'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.productsForm['product'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- HS Code Details -->
+            <generic-display-details
+              [items]="model.selectedHSCodeDetails"
+            ></generic-display-details>
+
+            <!--Quantity -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="row">
+                <div class="input mb-30px col-md-8">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{
+                      "cooModule.invoiceInfo.quantity" | translate
+                    }}</label>
+
+                    <!-- quantity -->
+                    <div>
+                      <input
+                        type="text"
+                        formControlName="quantity"
+                        [placeholder]="
+                          'cooModule.invoiceInfo.quantity' | translate
+                        "
+                      />
+
+                      <div
+                        *ngIf="
+                          model.submitted &&
+                          model.productsForm['quantity'].errors
+                        "
+                      >
+                        <span
+                          class="form-error"
+                          *ngIf="
+                            model.productsForm['quantity'].errors['required']
+                          "
+                        >
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          {{
+                            "cooModule.invoiceInfo.requiredField" | translate
+                          }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- select unit -->
+                <div class="input mb-30px col-md-4">
+
+                  <div class="input-content">
+                    <label class="form-label" for=""> {{ "cooModule.invoiceInfo.unit" | translate }}</label>
+                    <div>
+                      <select
+                      formControlName="unit"
+                      class="form-select"
+                      [ngStyle]="{
+                        opacity: model.productsForm['unit'].invalid ? '.5' : '1'
+                      }"
+                    >
+                      <option [value]="null" selected disabled hidden>
+                        {{ "cooModule.invoiceInfo.unit" | translate }}
+                      </option>
+                      <option
+                        *ngFor="let type of model.unitsOfMeasuresFiltered; index as i"
+                        [value]="type.id"
+                      >
+                        {{ type.uoWNameEnglish }}
+                      </option>
+                    </select>
+                    <div
+                        *ngIf="
+                          model.submitted &&
+                          model.productsForm['unit'].errors
+                        "
+                      >
+                        <span
+                          class="form-error"
+                          *ngIf="
+                            model.productsForm['unit'].errors['required']
+                          "
+                        >
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          {{
+                            "cooModule.invoiceInfo.requiredField" | translate
+                          }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Unit Price  -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for=""
+                    >{{ "cooModule.invoiceInfo.unitPrice" | translate }}
+                  </label>
+                  <input
+                    type="number"
+                    formControlName="price"
+                    [placeholder]="
+                      'cooModule.invoiceInfo.unitPrice' | translate
+                    "
+                  />
+                </div>
+                <div
+                  *ngIf="model.submitted && model.productsForm['price'].errors"
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.productsForm['price'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Country of Origin -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{ "cooModule.invoiceInfo.country" | translate }}</label
+                  >
+                  <select
+                    formControlName="country"
+                    class="form-select"
+                    [ngStyle]="{
+                      opacity: model.productsForm['country'].invalid
+                        ? '.5'
+                        : '1'
+                    }"
+                  >
+                    <option value="" selected disabled hidden>
+                      {{ "cooModule.invoiceInfo.select" | translate }}
+                    </option>
+                    <option
+                      *ngFor="let country of model.countries; index as i"
+                      [value]="country.id"
+                    >
+                      {{ country.name }}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="
+                    model.submitted && model.productsForm['country'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.productsForm['country'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Process Type -->
+            <div class="col-md-6 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">
+                    {{ "cooModule.invoiceInfo.selectProcessType" | translate }}
+                  </label>
+                  <select
+                    formControlName="process"
+                    class="form-select"
+                    [ngStyle]="{
+                      opacity: model.productsForm['process'].invalid
+                        ? '.5'
+                        : '1'
+                    }"
+                  >
+                    <option [value]="null" selected disabled hidden>
+                      {{ "cooModule.invoiceInfo.select" | translate }}
+                    </option>
+                    <option
+                      *ngFor="let type of model.processTypes; index as i"
+                      [value]="type.id"
+                    >
+                      {{ type.processTypesNameEnglish }}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="
+                    model.submitted && model.productsForm['process'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.productsForm['process'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- comment-->
+            <div class="col-12 col-sm-12 my-3">
+              <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for=""
+                    >{{ "cooModule.invoiceInfo.comments" | translate }}
+                  </label>
+                  <textarea
+                    formControlName="comments"
+                    class="w-100"
+                    [placeholder]="'cooModule.invoiceInfo.comments' | translate"
+                  ></textarea>
+                </div>
+                <div
+                  *ngIf="
+                    model.submitted && model.productsForm['comments'].errors
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.productsForm['comments'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="add-btn d-flex justify-content-end mt-5">
+          <button
+            type="submit"
+            class="btn btn-next"
+            (click)="model.onAddProduct()"
+          >
+            {{ "cooModule.invoiceInfo.addProduct" | translate }}
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- product list -->
+    <section class="products-list">
+      <div class="table-alert d-flex">
+        <i class="icon fa fa-circle-info"></i>
+        <span> {{ "cooModule.invoiceList.alert" | translate }} </span>
+      </div>
+      <div class="table-title d-flex justify-content-between mt-2">
+        <p class="main-title">
+          {{ "cooModule.invoiceList.productList" | translate }}
+        </p>
+        <a class="upload d-flex align-items-center">
+          <i class="icon fa-sharp fa-solid fa-circle-plus"></i>
+          <span> {{ "cooModule.invoiceList.uploadBulk" | translate }} </span>
+          <i class="icon fa fa-circle-info"></i>
+        </a>
+      </div>
+
+      <!-- tree item -->
+      <div class="tree-table-item">
+        <app-tree-table
+          (DeletePackage)="model.deletePackageFromProductPackages($event)"
+          (addNewPackage)="addPackage($event)"
+          [data]="model.submittedProducts"
+        ></app-tree-table>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- add product modal -->
+<app-add-product
+  (productData)="this.model.productData($event)"
+></app-add-product>

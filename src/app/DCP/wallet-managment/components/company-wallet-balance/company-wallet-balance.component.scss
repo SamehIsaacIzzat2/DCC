@@ -1,0 +1,58 @@
+.company-wallet-balance-card {
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 1px solid #DDDCEA;
+        border-radius: 4px;
+        padding: 40px 20px 10px;
+        cursor: pointer;
+
+        &.cardSelected {
+            border: 2px solid #003764;
+            position: relative;
+
+            &:after {
+                content: "";
+                width:0px;
+                height:0px;
+                position: absolute;
+                border-left:10px solid transparent;
+                border-top:8px solid #003764;
+                border-bottom:10px solid transparent;
+                border-right:10px solid transparent;
+                top:101%;
+
+            }
+        }
+
+        .company-name {
+            h4 {
+                color: #003764;
+                font-size: 17px;
+                font-weight: 400;
+            }
+
+        }
+
+        .current-balace {
+
+            .title,
+            .data {
+                p {
+                    color: #979797;
+                    font-size: 17px;
+                    font-weight: 400;
+                    margin-bottom: 0px;
+
+                    &.current-balance {
+                        color: #1D1D1D !important;
+                        font-weight: 700 !important;
+                    }
+                }
+            }
+        }
+
+    }
+}

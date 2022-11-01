@@ -1,0 +1,45 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+//colors
+@import "../../../../../assets/styles/helpers/variables";
+//line comp
+@import "../../../../../assets/styles/components/line";
+//custom list
+@import "../../../../../assets/styles/components/list";
+.page-title{
+  color: #1D4861;
+  font-size: 28px;
+  font-weight: 700;
+}
+.service-details {
+  &-wrapper {
+    ul {
+      list-style: disc;
+      @include rtl_value("padding-left",17px,unset);
+      @include rtl_value("padding-right",unset,17px);
+      padding-left: 17px;
+      .long-text{
+        @media (max-width: 420px) {
+          height: 10em !important;
+        }
+      }
+    }
+    .main-cont {
+      padding: 30px 0;
+      .requires {
+        .item {
+          margin: 25px 0;
+          padding-bottom: 20px;
+          h6 {
+            color: $primaryColor;
+            font-weight: 800;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+    .survey {
+      margin: 50px 0;
+    }
+  }
+}

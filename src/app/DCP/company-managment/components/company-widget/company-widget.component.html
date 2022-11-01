@@ -1,0 +1,60 @@
+<!-- <div class="company-item"> -->
+<div class="company-item" [routerLink]="item.id">
+  <!-- header -->
+  <div class="company-item-header">
+    <!-- <div class="company-image">
+         <img src="../../../../../assets/images/placeholderaimage.svg"/>
+        </div> -->
+    <div class="company-info">
+      <h3>{{ item.entityName }}</h3>
+      <div class="sub-info">
+        <img src="assets/images/parentEntity.svg" />
+        <span>{{ "companyModule.widget.parentEntity" | translate }}</span>
+      </div>
+      <h4 class="no-value">{{ item.parentEntityName }}</h4>
+    </div>
+
+    <!-- <div class="points dropend">
+            <img src="assets/images/threePoints.svg"  class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"/>
+            <ul class="dropdown-menu">
+                <li class="ms-2">
+                  <a >Setting</a>
+                </li>
+              </ul>
+
+        </div> -->
+  </div>
+
+  <!-- body -->
+  <div class="company-item-body">
+    <div class="entity-type">
+      <div class="title">
+        <img src="assets/images/entity.svg" />
+        <span>{{ "companyModule.widget.entityType" | translate }}</span>
+      </div>
+      <div class="data">
+        <span class="no-value">{{ item.entityType }}</span>
+      </div>
+    </div>
+
+    <div class="employees-number">
+      <div class="title">
+        <img src="assets/images/person.svg" />
+        <span>{{ "companyModule.widget.No.Employees" | translate }}</span>
+      </div>
+      <div class="data">
+        <span class="no-value">{{ item.numberofEmployees }}</span>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <div class="company-item-footer">
+    <div class="title">
+      <img src="assets/images/event-locattion.svg" />
+      <span>{{ "companyModule.widget.address" | translate }}</span>
+    </div>
+    <div class="data">
+      <span class="no-value">{{ item.companyAddress }}</span>
+    </div>
+  </div>
+</div>

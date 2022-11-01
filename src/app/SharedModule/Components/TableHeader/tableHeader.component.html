@@ -1,0 +1,19 @@
+<!-- Table Header -->
+<div class="tableHeader">
+  <!-- *ngIf="!model.data.hasTab" -->
+    <span class="text" >{{model.Records}}</span>
+    <span class="space"></span>
+    <!-- Tab -->
+    <div class="buttons tab" *ngIf="model.data.hasTab">
+      <button *ngFor="let item of model.data.tabItems" class="managementActions" [class.active]="item.isActive" [class.notActive]="!item.isActive" (click)="model.tabItemClicked(item)">{{item.tabName}}</button>
+    </div>
+    <mat-icon *ngIf="model.ShowRefresh" matTooltip="Reload data" matTooltipPosition="above" (click)="model.refresh()">refresh</mat-icon>
+    <mat-icon *ngIf="model.ShowExport" matTooltip="Export as Excel" matTooltipPosition="above" (click)="model.export()">cloud_download</mat-icon>
+    <mat-icon *ngIf="model.ShowColumnSettings" matTooltip="Customize your view by Adding/Removing Columns" matTooltipPosition="above" (click)="model.toggleColumnSettings()">more_vert</mat-icon>
+    <button class="primary" *ngIf="model.data.hasActions" (click)="model.add()"> Add New</button>
+</div>
+
+<!-- column settings -->
+<div *ngIf="model.columnSettingsOpened">
+  <ng-content></ng-content>
+</div>

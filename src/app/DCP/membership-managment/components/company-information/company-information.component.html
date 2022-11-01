@@ -1,0 +1,1422 @@
+<div class="general-comlaint">
+  <div class="general-comlaint-wrapper">
+    <div class="title">
+      <h4>{{ "companyModule.profile.generalInfo" | translate }}</h4>
+    </div>
+    <form [formGroup]="model.companyForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <!-- Legal Status -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="legalStatus">{{
+                      "memberShipsModule.companyInformation.legalStatus"
+                        | translate
+                    }}</label>
+                    <select formControlName="legalStatus" class="form-select">
+                      <option
+                        *ngFor="let status of model.legalStatuses"
+                        [value]="status.id"
+                      >
+                        {{ status.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['legalStatus'].touched) &&
+                      model.f['legalStatus'].errors
+                    "
+                  >
+                    <span   
+                      class="form-error"
+                      *ngIf="model.f['legalStatus'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+                <!-- firm type Status -->
+              <div class="col-md-6 col-sm-12">
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{
+                      "memberShipsModule.companyInformation.firmType"
+                        | translate
+                    }}</label>
+                    <div class="radio-group-container">
+                      <div>
+                        <input (change)="model.selectFirmType($event)" type="radio" value="0" formControlName="firmType" /><label>{{
+                          "memberShipsModule.companyInformation.branch"
+                            | translate
+                        }}</label>
+                      </div>
+                      <div>
+                        <input (change)="model.selectFirmType($event)" type="radio" value="1" formControlName="firmType" /><label>{{
+                          "memberShipsModule.companyInformation.parentCompany"
+                            | translate
+                        }}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['firmType'].touched) &&
+                      model.f['firmType'].errors
+                    "
+                  >
+                    <span
+                      class="form-error mb-2"
+                      *ngIf="model.f['firmType'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{
+                        "shared.generalValidationErrorMessage.emailRequired"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6" *ngIf="model.isBranchCompany">
+                <!-- Parent Company -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="parentCompany">{{
+                      "memberShipsModule.companyInformation.parentCompany"
+                        | translate
+                    }}</label>
+                    <select formControlName="parentCompany" class="form-select">
+                      <option
+                        *ngFor="let company of model.myCompanies"
+                        [value]="company.id"
+                      >
+                        {{ company.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['parentCompany'].touched) &&
+                      model.f['parentCompany'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['parentCompany'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Commercial Registration Number -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label
+                      class="form-label"
+                      for="commercialRN"
+
+                      >{{
+                        "memberShipsModule.companyInformation.commercialRegistrationNumber"
+                          | translate
+                      }}</label
+                    >
+                    <input
+                      type="text"
+                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                      formControlName="commercialRN"
+                      id="commercialRN"
+                      max="99999999"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['commercialRN'].touched) &&
+                      model.f['commercialRN'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['commercialRN'].errors[
+                          'required'
+                        ]
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="input mb-30px  mt-3">
+                  <label for="mobile">
+                    <label class="form-label" for=""
+                      >{{ "shared.generalWord.company" | translate }}
+                      {{
+                        "shared.generalFeilds.phoneNumber" | translate
+                      }}</label
+                    >
+                  </label>
+
+                  <div
+                    dir="ltr"
+                    class="input-content mobileFeild inputHasSuffixOrPrefix"
+                  >
+                    <ngx-intl-tel-input
+                      id="mobileInput"
+                      [preferredCountries]="model.preferredCountries"
+                      [selectFirstCountry]="true"
+                      [separateDialCode]="true"
+                      [enablePlaceholder]="false"
+                      formControlName="companyPhonenumber"
+                      [phoneValidation]="true"
+                      [searchCountryFlag]="true"
+                      [searchCountryField]="[
+                        model.searchCountryField.Iso2,
+                        model.searchCountryField.Name
+                      ]"
+                    >
+                    </ngx-intl-tel-input>
+                  </div>
+
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['companyPhonenumber'].touched) &&
+                      model.f['companyPhonenumber'].errors
+                    "
+                  >
+                    <span
+                      class="form-error mb-2"
+                      *ngIf="model.f['companyPhonenumber'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.phoneNumberRequired"
+                          | translate
+                      }}
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['companyPhonenumber'].status == 'INVALID' &&
+                        !model.f['companyPhonenumber'].errors['required']
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{
+                        "shared.generalValidationErrorMessage.phoneNumberNotValid"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Company Email -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="companyEmailAddress"
+                      >{{ "shared.generalWord.company" | translate }}
+                      {{ "shared.generalFeilds.email" | translate }}</label
+                    >
+                    <input
+                      type="text"
+                      formControlName="companyEmailAddress"
+                      id="companyEmailAddress"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['companyEmailAddress'].touched) &&
+                      model.f['companyEmailAddress'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['companyEmailAddress'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Company Nationality -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="companyNationality"
+                      >{{ "shared.generalWord.company" | translate }}
+                      {{
+                        "shared.generalFeilds.nationality" | translate
+                      }}</label
+                    >
+                    <select
+                      formControlName="companyNationality"
+                      class="form-select"
+                    >
+                      <option
+                        *ngFor="let nationality of model.nationalities"
+                        [value]="nationality.id"
+                      >
+                        {{ nationality.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['companyNationality'].touched) &&
+                      model.f['companyNationality'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['companyNationality'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Commercial Registration Type -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="commercialRegisterationtype"
+                      >{{
+                        "memberShipsModule.companyInformation.commercialRegistrationType"
+                          | translate
+                      }}
+                    </label>
+
+                    <select formControlName="commercialRegisterationtype" class="form-select">
+                      <option
+                        *ngFor="let type of model.commercialRegistrationTypes"
+                        [value]="type.id"
+                      >
+                        {{ type.name }}
+                      </option>
+                    </select>
+
+
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['commercialRegisterationtype'].touched) &&
+                      model.f['commercialRegisterationtype'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['commercialRegisterationtype'].errors['required']
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- License Type -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="licenseType">{{
+                      "memberShipsModule.companyInformation.licenseType"
+                        | translate
+                    }}</label>
+                    <select formControlName="licenseType" class="form-select">
+                      <option
+                        *ngFor="let type of model.licenseTypes"
+                        [value]="type.id"
+                      >
+                        {{ type.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['licenseType'].touched) &&
+                      model.f['licenseType'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['licenseType'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Company Nationality -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="licenseCategory">{{
+                      "memberShipsModule.companyInformation.licenseCategory"
+                        | translate
+                    }}</label>
+                    <select
+                      formControlName="licenseCategory"
+                      class="form-select"
+                    >
+                      <option
+                        *ngFor="let category of model.licenseCategories"
+                        [value]="category.id"
+                      >
+                        {{ category.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['licenseCategory'].touched) &&
+                      model.f['licenseCategory'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['licenseCategory'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- License Issue Date -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content datePickerParent">
+                    <label class="form-label" for="licenseIssueDate">{{
+                      "memberShipsModule.companyInformation.licenseIssueDate"
+                        | translate
+                    }}</label>
+
+                    <date-time-picker
+                    [dpValue]="model.f['licenseIssueDate'].value"
+                        [placeholder]="'memberShipsModule.companyInformation.licenseIssueDate'| translate"
+                        (date)="model.datePicker($event)">
+                    </date-time-picker>
+
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['licenseIssueDate'].touched) &&
+                      model.f['licenseIssueDate'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['licenseIssueDate'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- License Nationality -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="licenseNationality">{{
+                      "memberShipsModule.companyInformation.licenseNationality"
+                        | translate
+                    }}</label>
+                    <select
+                      formControlName="licenseNationality"
+                      class="form-select"
+                    >
+                      <option
+                        *ngFor="let nationality of model.licenseNationalities"
+                        [value]="nationality.id"
+                      >
+                        {{ nationality.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['licenseNationality'].touched) &&
+                      model.f['licenseNationality'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['licenseNationality'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Fax Number -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="faxNumber">{{
+                      "memberShipsModule.companyInformation.faxNumber"
+                        | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                      formControlName="faxNumber"
+                      id="faxNumber"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['faxNumber'].touched) &&
+                      model.f['faxNumber'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['faxNumber'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- PO BOX -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="poBox">{{
+                      "memberShipsModule.companyInformation.POBOX" | translate
+                    }}</label>
+                    <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" formControlName="poBox" id="poBox" />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['poBox'].touched) &&
+                      model.f['poBox'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['poBox'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Building Number -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="buildingNumber">{{
+                      "memberShipsModule.companyInformation.buildingNumber"
+                        | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                      formControlName="buildingNumber"
+                      id="buildingNumber"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['buildingNumber'].touched) &&
+                      model.f['buildingNumber'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['buildingNumber'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Street Adress -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="companyStreetAddress">{{
+                      "memberShipsModule.companyInformation.streetAddress"
+                        | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      formControlName="companyStreetAddress"
+                      id="companyStreetAddress"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['companyStreetAddress'].touched) &&
+                      model.f['companyStreetAddress'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['companyStreetAddress'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+             <!-- Issuing Authority -->
+              <!-- <div class="col-sm-12 col-md-6">
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="issuingAuthority">{{
+                      "memberShipsModule.companyInformation.issuingAuthority"
+                        | translate
+                    }}</label>
+                    <select
+                      formControlName="issuingAuthority"
+                      class="form-select"
+                    >
+                      <option
+                        *ngFor="let authority of model.authorities"
+                        [value]="authority.id"
+                      >
+                        {{ authority.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['issuingAuthority'].touched) &&
+                      model.f['issuingAuthority'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['issuingAuthority'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+              <div class="col-sm-12 col-md-6">
+                <!-- Licence Issuer -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="licenseIssuer">{{
+                      "memberShipsModule.companyInformation.licenceIssuer"
+                        | translate
+                    }}</label>
+                    <select formControlName="licenseIssuer" class="form-select">
+                      <option
+                        *ngFor="let Issuer of model.issuers"
+                        [value]="Issuer.id"
+                      >
+                        {{ Issuer.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['licenseIssuer'].touched) &&
+                      model.f['licenseIssuer'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['licenseIssuer'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Makani Number -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="makaniNumber">{{
+                      "memberShipsModule.companyInformation.makaniNumber"
+                        | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                      formControlName="makaniNumber"
+                      id="makaniNumber"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['makaniNumber'].touched) &&
+                      model.f['makaniNumber'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['makaniNumber'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="title">
+                <h4>
+                  {{ "shared.generalWord.company" | translate }}
+                  {{ "shared.generalFeilds.activities" | translate }}
+                </h4>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Activity -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="activity"
+                      >{{ "shared.generalFeilds.activity" | translate }}
+                      {{ "shared.generalFeilds.name" | translate }}</label
+                    >
+
+                    <input
+                      autocomplete="new-activity"
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.searchByName' | translate
+                      "
+                      aria-label="activities"
+                      matInput
+                      formControlName="activities"
+                      [matAutocomplete]="auto"
+                      multiple
+                      #prodValu
+                      (click)="openActivityPanel($event)"
+                      (keyup)="model.onKeyUpHandler(prodValu.value)"
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #auto="matAutocomplete"
+                    >
+                      <mat-option
+                        *ngFor="let option of model.activities"
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(
+                            model.selectedActivities,
+                            'activities',
+                            option
+                          )
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted || model.f['activities'].touched) &&
+                      model.selectedActivities.length == 0
+                    ">
+                    <span class="form-error" >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedActivities.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedActivities"
+                      [itemName]="'Activity'"
+                      [itemNameAr]="'النشاط'"
+                      (onRemoveTag)="
+                        model.removeOpt(
+                          model.selectedActivities,
+                          $event
+                        )
+                      "
+                    ></app-tags>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Special Activity -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="specialActivity"
+                      >{{ "shared.generalWord.special" | translate }}
+                      {{ "shared.generalFeilds.activity" | translate }}</label
+                    >
+
+                    <input
+                      autocomplete="new-special-activity"
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.searchByName' | translate
+                      "
+                      aria-label="specialActivities"
+                      matInput
+                      formControlName="specialActivities"
+                      [matAutocomplete]="autoo"
+                      multiple
+                      #specialProdVal
+                      (click)="openSpecialActivityPanel($event)"
+                      (keyup)="model.onKeyUpHandler(specialProdVal.value)"
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #autoo="matAutocomplete"
+                    >
+                      <mat-option
+                        *ngFor="let option of model.specialActivities"
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(
+                            model.selectedSpecialActivities,
+                            'specialActivities',
+                            option
+                          )
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.submitted ||
+                        model.f['specialActivities'].touched) &&
+                      model.selectedSpecialActivities.length == 0
+                    "
+                  >
+                    <span class="form-error">
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedSpecialActivities.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedSpecialActivities"
+                      [itemName]="'Special Activity'"
+                      [itemNameAr]="'النشاط الخاص'"
+                      (onRemoveTag)="
+                        model.removeOpt(
+                          model.selectedSpecialActivities,
+                          $event
+                        )
+                      "
+                    ></app-tags>
+                  </div>
+                </div>
+              </div>
+              <div class="title">
+                <h4>
+                  {{
+                    "memberShipsModule.companyInformation.partnerInformation"
+                      | translate
+                  }}
+                </h4>
+              </div>
+              <div
+                class="save-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+              >
+                <div class="send">
+                  <button class="btn" (click)="addPartner()">
+                    {{
+                      "memberShipsModule.companyInformation.newPartner"
+                        | translate
+                    }}
+                  </button>
+                </div>
+              </div>
+              <div>
+                <table class="partners-table" *ngIf="model.partners.length > 0">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="table-item"></div>
+                      </th>
+
+                      <th>
+                        <div class="table-item">
+                          <span>{{
+                            "memberShipsModule.companyInformation.typeRelationShip"
+                              | translate
+                          }}</span>
+                        </div>
+                      </th>
+
+                      <th>
+                        <div class="table-item">
+                          <span>{{
+                            "memberShipsModule.companyInformation.ownershipPercent"
+                              | translate
+                          }}</span>
+                        </div>
+                      </th>
+
+                      <th>
+                        <div class="table-item">
+                          <span>{{
+                            "shared.generalFeilds.nationality"
+                              | translate
+                          }}</span>
+                        </div>
+                      </th>
+
+                      <th>
+                        <div class="table-item">
+                          <span>{{
+                            "companyModule.socail.jobTitle" | translate
+                          }}</span>
+                        </div>
+                      </th>
+
+                      <th class="close d-flex align-content-center">
+                        <div class="table-item"></div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let partner of model.partners; index as i">
+                      <td>
+                        <div class="package d-flex">
+                          <i class="fa fa-file partner-icon"></i>
+                          <span class="title partner-name">
+                            {{ partner.partnerNameEnglish }}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="package">
+                          <span>
+                            {{
+                              model.getSelectedRelationship(
+                                partner.typeRelationShip
+                              )
+                            }}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="package">
+                          <span>
+                            {{ partner.ownershipPercent }}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="package">
+                          <span>
+                            {{
+                              model.getSelectedNationality(
+                                partner.nationality
+                              )
+                            }}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="package">
+                          <span>
+                            {{ model.getSelectedJobTitle(partner.jobTitle) }}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="package" (click)="model.removePartner(i)">
+                          <span>
+                            <i class="fa fa-times-circle delete-icon"></i>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<form-modal
+  [title]="
+    'memberShipsModule.companyInformation.partnerInformation' | translate
+  "
+  [id]="'addPartner'"
+>
+  <div class="display-contents" modal-content>
+    <div class="modal-body">
+      <form [formGroup]="model.partnerForm">
+        <div class="row">
+          <!-- Partner Name English -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.companyInformation.partnerName"
+                      | translate
+                  }}
+                  (
+                  {{
+                    "memberShipsModule.companyInformation.english" | translate
+                  }}
+                  )
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="partnerNameEnglish"
+                  id="makaniNumber"
+                  [placeholder]="
+                    'memberShipsModule.companyInformation.partnerName'
+                      | translate
+                  "
+                />
+              </div>
+              <div
+                *ngIf="
+                  (model.partenerSubmitted || model.fPartner['partnerNameEnglish'].touched) && model.fPartner['partnerNameEnglish'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="
+                    model.fPartner['partnerNameEnglish'].errors['required']
+                  "
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partner Name Arabic -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.companyInformation.partnerName"
+                      | translate
+                  }}
+                  (
+                  {{
+                    "memberShipsModule.companyInformation.arabic" | translate
+                  }}
+                  )
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="partnerNameArabic"
+                  id="makaniNumber"
+                  [placeholder]="
+                    'memberShipsModule.companyInformation.partnerNameArabic'
+                      | translate
+                  "
+                />
+              </div>
+              <div
+                *ngIf="
+                (model.partenerSubmitted || model.fPartner['partnerNameArabic'].touched) && model.fPartner['partnerNameArabic'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['partnerNameArabic'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Type Relationship -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.companyInformation.typeRelationShip"
+                      | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <select
+                  formControlName="typeRelationShip"
+                  class="form-select"
+                  [ngStyle]="{
+                    opacity: model.partnerForm.controls['typeRelationShip']
+                      .invalid
+                      ? '.5'
+                      : '1'
+                  }"
+                >
+                  <option [value]="null" disabled selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let type of model.relationTypes"
+                    [value]="type.id"
+                  >
+                    {{ type.name }}
+                  </option>
+                </select>
+              </div>
+              <div
+                *ngIf="
+                  (model.partenerSubmitted ||
+                    model.fPartner['typeRelationShip'].touched) &&
+                  model.fPartner['typeRelationShip'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['typeRelationShip'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ownership Percent -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.companyInformation.ownershipPercent"
+                      | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  max="100"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  formControlName="ownershipPercent"
+                  id="ownershipPercent"
+                  [placeholder]="
+                    'memberShipsModule.companyInformation.percent' | translate
+                  "
+                  (change)="model.validatePercentage($event)"
+                />
+              </div>
+              <div
+                *ngIf="
+                (model.partenerSubmitted || model.fPartner['ownershipPercent'].touched) && model.fPartner['ownershipPercent'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['ownershipPercent'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+                <!-- <span
+                  class="form-error"
+                  *ngIf="model.fPartner['ownershipPercent'].errors['min'] ||
+                  model.fPartner['ownershipPercent'].errors['max']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.ownershipPercentInvalidValue" | translate }}
+                </span> -->
+              </div>
+              <!-- <div *ngIf="(model.partenerSubmitted || model.fPartner['ownershipPercent'].touched)">
+                <span
+                  class="form-error"
+                  *ngIf="model.totalPartnersPercentageError"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{model.totalPartnersPercentageError}}
+                </span>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Passport Number -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{ "shared.generalFeilds.passportNumber" | translate }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  formControlName="passportNumber"
+                  id="passportNumber"
+                  [placeholder]="'shared.generalFeilds.passportNumber' | translate"
+                />
+              </div>
+              <div
+                *ngIf="
+                (model.partenerSubmitted || model.fPartner['passportNumber'].touched) && model.fPartner['passportNumber'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['passportNumber'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emirates ID -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{ "shared.generalFeilds.emiratesID" | translate }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  [(ngModel)]="model.Idval"
+                  formControlName="emiratesID"
+                  pattern="^784-?[0-9]{4}-?[0-9]{7}-?[0-9]{1}$"
+                  [inputMask]="model.emiratesIdInputMask"
+                  id="emiratesID"
+                  [placeholder]="
+                  model.translate.instant(
+                    'shared.Placeholders.idNumber'
+                  )
+                "
+                  (focus)="model.visitFeild(model.Idval)"
+                  (blur)="model.checkFeildContent(model.Idval)"
+                />
+              </div>
+              <div
+                *ngIf="(model.partenerSubmitted || model.fPartner['emiratesID'].touched) && model.fPartner['emiratesID'].errors"
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['emiratesID'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Residence Number -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.companyInformation.residenceNumber"
+                      | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="residenceNumber"
+                  id="residenceNumber"
+                  [placeholder]="'memberShipsModule.companyInformation.residenceNumber' | translate"
+                />
+              </div>
+              <div
+                *ngIf="
+                (model.partenerSubmitted || model.fPartner['residenceNumber'].touched) && model.fPartner['residenceNumber'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['residenceNumber'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nationality Code -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "shared.generalFeilds.nationality"
+                      | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <select
+                  formControlName="nationality"
+                  class="form-select"
+                  [ngStyle]="{
+                    opacity: model.partnerForm.controls['nationality']
+                      .invalid
+                      ? '.5'
+                      : '1'
+                  }"
+                >
+                  <option [value]="null" disabled selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let nationality of model.nationalities"
+                    [value]="nationality.id"
+                  >
+                    {{ nationality.name }}
+                  </option>
+                </select>
+              </div>
+              <div
+                *ngIf="
+                (model.partenerSubmitted || model.fPartner['nationality'].touched) && model.fPartner['nationality'].errors
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['nationality'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Title -->
+          <div class="col-md-6 col-sm-12 my-3">
+
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="jobTitle"> {{ "companyModule.socail.jobTitle" | translate }}</label>
+                    <select
+                      formControlName="jobTitle"
+                      class="form-select"
+                    >
+                      <option
+                        *ngFor="let job of model.jobTitils"
+                        [value]="job.id"
+                      >
+                        {{ job.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (model.partenerSubmitted ||
+                        model.fPartner['jobTitle']?.touched) &&
+                      model.fPartner['jobTitle'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.fPartner['jobTitle'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i
+                      >{{ "cooModule.invoiceInfo.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+          </div>
+
+          <!-- Partner ID -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.companyInformation.partnerId" | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="partnerID"
+                  id="partnerID"
+                  [placeholder]="'shared.generalFeilds.input' | translate"
+                />
+              </div>
+              <div
+                *ngIf="(model.partenerSubmitted || model.fPartner['partnerID'].touched) && model.fPartner['partnerID'].errors"
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.fPartner['partnerID'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--start modal footer -->
+    <div class="modal-footer">
+      <button
+        id="dismissModal"
+        class="btn btn-outline-success w-25"
+        data-bs-dismiss="modal"
+        (onCancel)="model.onCancelPartner()"
+      >
+        {{ "shared.generalWord.cancel" | translate }}
+      </button>
+
+      <button
+        class="btn btn-success w-25"
+        (click)="model.onSubmitPartner()"
+      >
+        {{ "shared.generalWord.add" | translate }}
+      </button>
+    </div>
+  </div>
+</form-modal>

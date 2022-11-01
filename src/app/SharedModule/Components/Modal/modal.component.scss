@@ -1,0 +1,119 @@
+/* Modal Style */
+
+//Variables
+@import "../../../../assets/styles/helpers/variables";
+
+//Mixins
+@import "../../../../assets/styles/helpers/mixins";
+
+//Buttons
+@import "../../../../assets/styles/components/buttons";
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  //justify-content: center;
+  position: static;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    mat-icon {
+      margin-top: 22px;
+    }
+
+    .icon {
+      margin-bottom: 10px;
+      width: 100px;
+      height: 100px;
+
+      mat-icon {
+        font-size: 100px;
+      }
+    }
+
+    p {
+      @include font(22px, 700);
+      color: #000;
+      margin-bottom: 20px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    span {
+      font-size: 16px;
+      color: #727277;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e8e8e8;
+
+    strong {
+      font-size: 18px;
+    }
+
+    mat-icon {
+      cursor: pointer;
+      font-size: 20px;
+      color: #777;
+      @include rtl_value("margin-right", -9px, unset);
+      @include rtl_value("margin-left", unset, -9px);
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .inputs {
+    width: 100%;
+  }
+}
+
+.mat-dialog-content {
+  overflow: initial;
+}
+
+.mat-dialog-actions {
+  justify-content: center;
+  flex-flow: row;
+  margin-bottom: 0;
+}
+
+::ng-deep .mat-dialog-container {
+  // display: flex;
+  align-items: initial;
+  justify-content: center;
+  padding: 15px 50px;
+  min-width: 400px;
+  // max-height: 100vh;
+}
+
+::ng-deep .cdk-overlay-dark-backdrop {
+  // background: rgba(0,0,0,.5) !important;
+  background: rgb(113, 113, 113) !important;
+}
+
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: initial;
+}
+
+#modal_sidebar .actions {
+  display: flex;
+  justify-content: flex-end;
+}

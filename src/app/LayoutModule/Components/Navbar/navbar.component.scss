@@ -1,0 +1,250 @@
+//mixins
+@import "../../../../assets/styles/helpers/mixins";
+/* #brand-part */
+.navbar{
+    padding: 0 !important;
+    .navbar-container{
+      display: flex;
+      width: 100%;
+    }
+    .container{
+      padding: 0;
+    }
+}
+.navbar .navbar-brand img {
+    width: 170px;
+}
+
+/* toggle-icon */
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler svg {
+    color: #003764;
+    @media (max-width: 420px) {
+        color: white;
+    }
+}
+
+/* links-part */
+.middle-links {
+  @include rtl_value("margin-left", 2rem, unset);
+  @include rtl_value("margin-right", unset, 2rem);
+}
+
+.navbar-nav li a i,
+.navbar-nav li a {
+    color: #003764;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.active {
+    color: $secondaryColor !important;
+    @media (max-width: 420px) {
+        color: white !important;
+        border-left: 5px solid white;
+    }
+}
+
+/* extra-links */
+
+.login {
+  cursor: pointer;
+}
+
+.Extra-links {
+  // margin-left:2rem;
+}
+
+.breadCrump {
+    display: flex;
+    gap: 20px;
+
+    .mainBreadCrump {
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .subBreadCrump {
+      color: #fff;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+      font-size: 13px;
+
+      @media (max-width: 576px) {
+        font-size: 11px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 8px;
+      }
+    }
+
+    h6:not(:last-child) {
+      position: relative;
+
+      &::after {
+        content: ">";
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+      }
+    }
+  }
+
+
+
+.Extra-links ul {
+    align-items: center;
+    gap: 4px;
+}
+
+.Extra-links ul .Login {
+    background-color: #003764;
+    border-radius: 19px;
+    padding: 7px 20px;
+    color: white;
+    position: relative;
+    @media (max-width:300px) {
+        padding: 7px 18px;
+    }
+}
+
+.Extra-links ul .Login img {
+  @include rtl_value("margin-right", 5px, unset);
+@include rtl_value("margin-left", unset, 5px);
+
+}
+
+.Extra-links ul .Login span {
+    font-size: 18px;
+}
+
+/* three lines */
+.wrapper {
+  background-color: #003764;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.three-lines {
+  background-color: #003764;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  flex-direction: column;
+}
+
+.three-lines .line {
+  height: 2px;
+  background-color: #fff;
+  margin: 2px 0px;
+  border-radius: 2px;
+}
+
+.three-lines .one {
+  width: 40%;
+}
+
+.three-lines .two {
+  width: 70%;
+}
+
+.three-lines .three {
+  width: 50%;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse .Extra-links ul {
+    flex-direction: row;
+    width: 70%;
+    margin: 10px auto;
+    justify-content: space-between;
+  }
+}
+
+.nav-link {
+    position: relative;
+    .notification-numbers {
+        width: 3px;
+        height: 3px;
+        position: absolute;
+        background-color: #FF3300;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 7px;
+        font-size: 14px;
+        left: 20px;
+        color: #fff;
+        @media(max-width:992px){
+            left:10px;
+        }
+    }
+    @media (max-width: 4200px) {
+        padding-left: 0.5em;
+    }
+}
+
+.navbar{
+    @media (max-width: 420px) {
+      background-image: url("../../../../assets/images/bannerBackground.svg"),
+      linear-gradient(90.34deg, $secondaryColor 0.25%, #1d4861 99.76%);
+      background-size: cover;
+      margin-bottom: 40px !important;
+      background-repeat: no-repeat;
+      color: white;
+      min-height: 10em;
+    }
+}
+
+ul > li {
+    @media (max-width: 420px) {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+a{
+    @media (max-width: 420px) {
+        color: white !important;
+    }
+}
+
+.mb-20px{
+    margin-bottom: 20px;
+}
+
+.mobile{
+    display: none;
+    @media(max-width:420px){
+        display: inherit;
+    }
+}
+
+.no-mobile{
+    display: inherit;
+    @media(max-width:420px){
+        display: none !important;
+    }
+    img,svg{
+        width: 1.5em;
+    }
+}
+
+.splitter{
+  border-right: 2px solid #00376466;
+  padding-right: 0.5em;
+  width: 2em !important;
+}

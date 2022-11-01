@@ -1,0 +1,149 @@
+// Variables
+@import "../../../../assets/styles/helpers/variables";
+// Mixins
+@import "../../../../assets/styles/helpers/mixins";
+// Actions
+@import "../../../../assets/styles/components/actions";
+
+.widget {
+  display: flex;
+  align-items: center;
+  @include bRadius(15px);
+  background: #f0f0f0;
+  padding: 20px;
+  float: left;
+  @media ($xsScreen) {
+    float: none;
+  }
+  margin: {
+    right: 20px;
+    bottom: 20px;
+  }
+  &:last-of-type {
+    right: 0;
+  }
+  &.setCursor {
+    cursor: pointer;
+  }
+  .icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include bRadius(50%);
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .info {
+    text-align: center;
+    p {
+      margin: 0;
+      margin-bottom: 4px;
+      @include font(12px, 500);
+    }
+    span {
+      @include font(22px, 400);
+    }
+  }
+  &.block {
+    flex-direction: column;
+    justify-content: center;
+    width: 290px;
+    height: 200px;
+    @media ($xsScreen) {
+      width: 180px;
+    }
+    .icon {
+      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
+      mat-icon {
+        font-size: 25px;
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .info {
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+  &.tag {
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px;
+    width: 92px;
+    @include rtl_value("margin-right", 10px, unset);
+    @include rtl_value("margin-left", unset, 10px);
+    @media ($xsScreen) {
+      float: left;
+    }
+    .icon {
+      width: 25px;
+      height: 25px;
+      margin-bottom: 10px;
+      mat-icon {
+        width: 17px;
+        height: 17px;
+        font-size: 17px;
+      }
+      span {
+        @include font(12px, 400);
+      }
+    }
+    .check {
+      width: 100%;
+      text-align: right;
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+        &.selected {
+          color: $secondaryColor;
+        }
+        &.unselected {
+          color: #727272;
+        }
+      }
+    }
+  }
+  &.item {
+    flex-direction: row;
+    float: none;
+    position: relative;
+    .info {
+      text-align: left;
+      line-height: 15px;
+      @include rtl_value("margin-left", 15px, unset);
+      @include rtl_value("margin-right", unset, 15px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      span {
+        @include font(12px, 400);
+      }
+    }
+    .check {
+      position: absolute;
+      right: 8px;
+      top: 7px;
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+        &.selected {
+          color: $secondaryColor;
+        }
+        &.unselected {
+          color: #727272;
+        }
+      }
+    }
+  }
+}

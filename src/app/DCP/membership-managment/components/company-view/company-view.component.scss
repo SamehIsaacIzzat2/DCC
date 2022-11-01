@@ -1,0 +1,95 @@
+//colors
+@import "../../../../../assets/styles/helpers/variables";
+//line comp
+@import "../../../../../assets/styles/components/line";
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+
+.partners-table{
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  
+    .table-item{
+      font-weight: 400 !important;
+      color: #979797 !important;
+    }
+  
+    .partner-icon{
+      width: 2em;
+      height: 2em;
+      color: $secondaryColor;
+      margin: 1em;
+    }
+  
+    .partner-name{
+      margin: auto 0 auto 0;
+    }
+  
+    .view-icon{
+      font-size: 1em;
+      color: $secondaryColor;
+      cursor: pointer;
+    }
+}
+
+.attachments-container{
+  padding: 1em;
+  border: 1px solid $secondaryColor;
+  margin-top: 1em;
+  p{
+      color: $secondaryColor;
+  }
+  .attachment{
+      background-color: $secondaryColor;
+      color: white;
+      padding: 0.5em;
+      border-radius: 2em;
+      margin: 0.5em 0.5rem 0.5rem 0;
+      display: inline-block;
+      @media (max-width: 380px) {
+          font-size: 0.8em;
+      }
+  }
+}
+
+.details-section{
+    
+    .item{
+       .title{
+        h3{
+            font-size: 18px;
+            color: $secondaryColor;
+            font-weight: 700;
+            @include rtl_value("border-left", 3px solid $secondaryColor, unset);
+            @include rtl_value("border-right", unset, 3px solid $secondaryColor);
+    
+            @include rtl_value("padding-left", 10px, unset);
+            @include rtl_value("padding-right", unset, 10px);
+        }
+       
+
+       } 
+    }
+
+    .data{
+        color: #2f3334;
+        font-size: 18px;
+        font-weight: 400;
+        @include rtl_value("padding-left", 10px, unset);
+        @include rtl_value("padding-right", unset, 10px);
+
+    }
+}
+
+.Dummy-data {
+    color: #94a3b8 !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.clickable{
+  cursor: pointer !important;
+}

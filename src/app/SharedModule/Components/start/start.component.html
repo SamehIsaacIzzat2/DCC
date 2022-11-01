@@ -1,0 +1,4 @@
+<div class="star" >
+    <mat-icon *ngIf="!clickFlag" (click)="setRate()" class="empty-star">star_border</mat-icon>
+    <mat-icon *ngIf="clickFlag" (click)="setRate()" class="full-star">star</mat-icon>
+</div>

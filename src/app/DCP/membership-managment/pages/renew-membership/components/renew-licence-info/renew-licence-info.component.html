@@ -1,0 +1,66 @@
+<div class="container px-0">
+    <div class="information-section">
+      <form [formGroup]="renewLicenseForm">
+        <div class="formContainer">
+          <div class="row mb-10px">
+            <ng-container>
+              <div class="col-md-6 col-sm-12">
+                <!-- Company -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="">
+                      {{
+                        "memberShipsModule.license.selectCompany" | translate
+                      }}</label
+                    >
+                    <select
+                      formControlName="company"
+                      class="form-select"
+                      [ngStyle]="{
+                        opacity: renewLicenseForm.controls['company']
+                          .invalid
+                          ? '.5'
+                          : '1'
+                      }"
+                      (change)="getComanyDetails()"
+                    >
+                      <option [value]="null" disabled selected>
+                        {{
+                          "memberShipsModule.license.selectCompany" | translate
+                        }}
+                      </option>
+                      <option
+                        *ngFor="let company of myCompanies"
+                        [value]="company.id"
+                      >
+                        {{ company.companyNameEnglish }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="
+                      (submitted || f['company'].touched) &&
+                      f['company'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="f['company'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{ "memberShipsModule.license.requiredField" | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </form>
+      <ng-container *ngIf="licenceData && licenceData.length >0">
+        <div class="mt-5">
+          <company-view [items]="licenceData"  [title]="'title'" [hideParteners]="true"></company-view>
+        </div>
+      </ng-container>
+    </div>
+  </div>

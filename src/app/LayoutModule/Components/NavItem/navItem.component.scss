@@ -1,0 +1,15 @@
+// NavItem Style
+
+// Mixins
+@import "../../../../assets/styles/helpers/mixins";
+
+a {
+    color: #4F6372;
+    @include opacity(50%);
+    @include font(16px, 600);
+    &.active {
+        color: #0C5DAB;
+        @include opacity(100%);
+        @include font(16px, 700);
+    }
+}

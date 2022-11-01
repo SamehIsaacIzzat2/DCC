@@ -1,0 +1,106 @@
+// Variables
+@import"../helpers/variables";
+@import '~@angular/material/theming';
+// Mixins
+
+
+@mixin app-root-theme($theme) {
+  $secondaryColor: map-get($theme, $secondaryColor)
+}
+
+// Media Query
+/* XS screen */
+@mixin maxXScreen() {
+  @media #{$xsScreen} {
+    @content;
+  }
+}
+/* Small screen */
+@mixin minSMscreen() {
+  @media #{$smScreen} {
+    @content;
+  }
+}
+/* Medium screen */
+@mixin minMDscreen() {
+  @media #{$mdScreen} {
+    @content;
+  }
+}
+/* Large screen */
+@mixin minLGscreen() {
+  @media #{$lgScreen} {
+    @content;
+  }
+}
+
+// border-radius
+@mixin bRadius($r){
+    @include prefixer(border-radius,$r, webkit moz o ms)
+}
+
+// transition
+@mixin transition($args...){
+    @include prefixer(transition,$args..., webkit moz o ms)
+}
+
+// opacity
+@mixin opacity($value) {
+    zoom: 1;
+    $opacityRate: $value*100;
+    filter: alpha(opacity= $opacityRate);
+    opacity: $value;
+}
+
+// prefixer
+@mixin prefixer($property, $value, $prefixes:()){
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+// font
+@mixin font($fontSize,$fontWeight) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+// Animation
+@mixin KAnimation($animName) {
+  @-webkit-keyframes #{$animName} {
+    @content;
+  }
+  @-moz-keyframes #{$animName} {
+    @content;
+  }
+  @keyframes #{$animName} {
+    @content;
+  }
+}
+
+@mixin rtl_key($property, $ltr-value, $rtl-value, $unit) {
+  #{$property}#{$ltr-value}: $unit;
+
+  [dir="rtl"] & {
+    #{$property}#{$rtl-value}: $unit;
+  }
+
+  :host-context([dir="rtl"]) & {
+    #{$property}#{$rtl-value}: $unit;
+  }
+}
+
+// Value
+
+@mixin rtl_value($property, $ltr-value, $rtl-value) {
+  #{$property}: $ltr-value;
+
+  [dir="rtl"] & {
+    #{$property}: $rtl-value;
+  }
+
+  :host-context([dir="rtl"]) & {
+    #{$property}: $rtl-value;
+  }
+}

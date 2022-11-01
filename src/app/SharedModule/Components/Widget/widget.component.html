@@ -1,0 +1,26 @@
+<!-- Vertical Widget -->
+<div class="widget" [class.setCursor]="model.data.isClickable" 
+    [class.block]="model.AllowShowBlockWidgetMode" [class.item]="model.AllowShowItemWidget" [class.tag]="model.AllowShowTagWidget"
+    (click)="model.click(model.data)">
+
+    <div class="check" *ngIf="model.AllowShowCheckIcon">
+        <mat-icon [ngClass]="model.CheckIconStyle">{{model.CheckIconText}}</mat-icon>
+    </div>
+
+    <div class="icon" [style.background]="model.data.background">
+        <mat-icon [style.color]="model.data.color">{{model.data.icon}}</mat-icon>
+    </div>
+
+    <div class="info" *ngIf="model.data.title">
+        <div class="data">
+            <p>{{model.data.title}}</p>
+            <span>{{model.data.text}}</span>
+        </div>
+
+        <!-- <div class="actions" *ngIf="model.AllowShowActions"> -->
+            <!-- <span *ngIf="model.data.allowEdit" (click)="model.edit($event)"> Edit </span> |
+            <span *ngIf="model.data.allowDelete" (click)="model.delete($event)"> Delete </span>  -->
+        <!-- </div> -->
+    </div>
+
+</div>

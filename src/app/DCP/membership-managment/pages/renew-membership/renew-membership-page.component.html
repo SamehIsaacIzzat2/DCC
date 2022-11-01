@@ -1,0 +1,54 @@
+<div class="create-request my-4">
+  <div class="banner mb-4">
+    <banner
+      [bannerData]="model.banner"
+      [bannerMode]="3"
+      [EditFlag]="true"
+      [paddingFlag]="true"
+    >
+    </banner>
+  </div>
+  <div class="container">
+    <p class="page-title">{{ model.banner.title }} </p>
+    <steeper
+      [steps]="model.steps"
+      (nextStepEvent)="model.nextStep()"
+      (backFormEvent)="model.backForm()"
+      [hideCancel]="false"
+      [submitStep]="4"
+      (submitEvent)="model.submit($event)"
+      (cancleEvent)="model.cancel()"
+      [activeStep]="model.activeStep"
+      [hideActions]="model.hideActions"
+    >
+      <div [ngStyle]="{ display: model.activeStep == 1 ? 'block' : 'none' }">
+        <div class="title">
+          <h4 class="my-4">
+            {{ "memberShipsModule.steeper.licenseInformation" | translate }}
+          </h4>
+        </div>
+        <app-renew-licence-info
+        #LicenseInfoComponent
+          (getCompanyDetails)="model.getComanyDetails($event)"
+            [licenceData]="model.licenceData"
+            >
+        </app-renew-licence-info>
+      </div>
+
+      <div [ngStyle]="{ display: model.activeStep == 2 ? 'block' : 'none' }">
+        <company-view [items]="model.viewCompanyData" [partners]="model.viewPartnersData" [attachments]="model.viewAttachmentsData"></company-view>
+      </div>
+
+      
+      <div [ngStyle]="{ display: model.activeStep == 3 ? 'block' : 'none' }">
+        <attachments-membership></attachments-membership>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 4 ? 'block' : 'none' }">
+        <company-view [items]="model.viewCompanyData" [partners]="model.viewPartnersData" [attachments]="model.viewAttachmentsData"></company-view>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 5 ? 'block' : 'none' }">
+        <app-request-result [requestId]="model.requestId"></app-request-result>
+      </div>
+    </steeper>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+@import "../../../../assets/styles/helpers/variables";
+
+.card {
+  background-color: #fff;
+  max-width: 280px;
+  @media (max-width: 420px) {
+    max-width: initial;
+  }
+  border: 1px solid #ddd;
+
+  .header {
+    margin: 0 22px 22px;
+    display: flex;
+    padding: 20px 0px;
+    grid-gap: 10px;
+    gap: 10px;
+    border-bottom: 1px solid #ddd;
+
+    .title-icon {
+      color: $secondaryColor;
+    }
+
+    .title {
+      color: #476e83;
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+
+  .body {
+    padding: 0 48px;
+
+    ul {
+      list-style: disc;
+
+      li {
+        margin-bottom: 16px;
+        color: #616465;
+      }
+    }
+  }
+}

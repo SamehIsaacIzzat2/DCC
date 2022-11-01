@@ -1,0 +1,41 @@
+<div class="payment-methods">
+    <div class="container">
+        <div class="title">
+            <h4>{{"profileModule.sideLinks.generalInfo"|translate}}</h4>
+        </div>
+        <div class="methods">
+            <div class="row">
+                <!-- dubai pay -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="item d-flex justify-content-center align-items-center" (click)="onActionType('dubaiPay')" [ngClass]="{'selected-item': selectedItem == 'dubaiPay' }">
+                        <img src="../../../../assets/images/dubaiPay.svg" alt="dubaiPay"/>
+                    </div>
+                </div>
+                <!-- pay by visa card -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="item d-flex justify-content-center align-items-center" (click)="onActionType('visaMaster')" [ngClass]="{'selected-item': selectedItem == 'visaMaster' }">
+                        <img src="../../../../assets/images/visa_master.svg" alt="dubaiPay"/>
+                    </div>
+                </div>
+                   <!-- pay by bank transfer -->
+                   <div class="col-lg-3 col-md-6 col-sm-12" >
+                    <div class="item d-flex justify-content-center align-items-center" (click)="onActionType('bankTransfer')" [ngClass]="{'selected-item': selectedItem == 'bankTransfer' }">
+                        <img src="../../../../assets/images/regular-bank-transfer.svg" alt="dubaiPay"/>
+                    </div>
+                </div>
+                  <!-- pay by client wallet [routerLink]="['/services/wallets']" -->
+                  <div class="col-lg-3 col-md-6 col-sm-12" >
+                    <div  class="item d-flex justify-content-center align-items-center" (click)="onActionType('wallet')" [ngClass]="{'selected-item': selectedItem == 'wallet' }">
+                        <div class="custom-img text-center">
+                            <img class="custom-style" src="../../../../assets/images/wallet.svg" alt="Wallet"  />
+                            <p class="my-2">{{"memberShipsModule.wallet.myWallet"| translate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

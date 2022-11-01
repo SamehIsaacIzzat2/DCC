@@ -1,0 +1,108 @@
+<div class="create-interaction my-4">
+  <div class="container">
+    <form [formGroup]="model.interactionForm">
+      <div class="row">
+        <!-- Interaction Type -->
+        <div class="col-md-6 col-sm-12">
+          <div class="input my-3">
+            <div class="input-content">
+              <label class="form-label" for="interactionTypeId">
+                {{'leadsModule.interactions.type' | translate}}
+              </label>
+              <select class="w-100 form-select" formControlName="interactionType" id="interactionTypeId"
+                (change)="model.setDataFunc()">
+                <option *ngFor="
+                    let interaction of model.interactionTypeList;
+                    let i = index
+                  " [value]="interaction.id" name="">
+                  {{ interaction.name }}
+                </option>
+              </select>
+              <div *ngIf="model.submitted && model.f['interactionType'].errors">
+                <span class="form-error" *ngIf="model.f['interactionType'].errors['required']">
+                  <i class="fa-solid fa-circle-exclamation"></i> {{'shared.generalValidationErrorMessage.interactionRequired' | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specify Interaction Type -->
+        <div class="col-md-6 col-sm-12">
+          <div class="input my-3" *ngIf="model.fieldShowFlag">
+            <div class="input-content">
+              <label class="form-label" for="specifyInteractionTypeId">
+                {{'shared.generalFeilds.specifyinteraction' | translate}}
+              </label>
+              <input (keyup)="model.ModifyRequiredFlag($event.target)" class="w-100 form-control custom-input"
+                placeholder="write name here" formControlName="specifyInteractionType" id="specifyInteractionTypeId" />
+              <div *ngIf="model.submitted && model.requiredFlag">
+                <span class="form-error">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{'shared.generalValidationErrorMessage.interactionTypeRequired' | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- data and time part -->
+        <div class="col-md-6 col-sm-12">
+          <div class="input my-3">
+            <div class="input-content datePickerParent">
+              <label class="form-label"> {{'shared.generalFeilds.proposedDateTime' | translate}} </label>
+              <input
+                [min]="model.today"
+                [ngModel]="defaultDate"
+                class="dateInput"
+                type="text"
+                placeholder="Select"
+                #date
+                formControlName="dateTime"
+                onfocus="(this.type='datetime-local'),this.showPicker()"
+                (focus)="this.defaultDate = model.today"
+              />
+             
+              <!-- <span class="placeholder" *ngIf="!model.f['dateTime'].touched">Select</span> -->
+              <img
+                class="pickerIcon"
+                src="assets/icons/calendar.svg"
+                alt="date picker icon"
+                (click)="date.focus()"
+              />
+              <div *ngIf="model.submitted && model.f['dateTime'].errors">
+                <span class="form-error" *ngIf="model.f['dateTime'].errors['required']">
+                  <i class="fa-solid fa-circle-exclamation"></i> {{'shared.generalValidationErrorMessage.proposedDateTimeRequired' | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specify Interaction Type -->
+        <div class="col-md-12 col-sm-12">
+          <div class="input my-3">
+            <div class="input-content">
+              <label class="form-label" for="desc"> {{'shared.generalFeilds.description' | translate}} * </label>
+              <textarea class="w-100 form-textarea" formControlName="description" id="desc"
+                style="resize: none"></textarea>
+              <div *ngIf="model.submitted && model.f['description'].errors">
+                <span class="form-error" *ngIf="model.f['description'].errors['required']">
+                  <i class="fa-solid fa-circle-exclamation"></i> {{'shared.generalValidationErrorMessage.descriptionRequired' | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action mt-5 d-flex flex-column justify-content-end align-items-end">
+          <div class="create">
+            <button class="btn" (click)="model.createNewInteraction()">
+              {{'shared.actions.create' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

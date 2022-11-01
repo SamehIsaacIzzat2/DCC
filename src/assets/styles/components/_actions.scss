@@ -1,0 +1,157 @@
+// Variables
+@import "../../styles/helpers/variables";
+
+//Mixins
+@import "../../styles/helpers/mixins";
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+  .action {
+    position: relative;
+    padding: 0 10px;
+    .toolTip {
+      display: none;
+      text-align: center;
+      position: absolute;
+      // @include rtl_key(null,left, right, 0);
+      // @include rtl_value(top, -27px, -31px);
+      left: 0;
+      top: -27px;
+      z-index: 999999;
+      color: #fff;
+      @include font(12px,400);
+      background: #999dab;
+      @include bRadius(4px);
+      padding: 2px 5px;
+      opacity: 0.9;
+      @include prefixer(transition, all 0.2s ease-in-out, webkit moz o ms);
+      width: max-content;
+      &.resend {
+        // @include rtl_key(null,left, right, -38px);
+        left: -38px;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        // @include rtl_key(null,left, right, 38%);
+        // @include rtl_key(null,right, left, 0);
+        // @include rtl_value(top, 17px, 22px);
+        left: 38%;
+        right: 0;
+        top: 17px;
+        width: 0;
+        height: 0;
+        // @include rtl_key(border-,left, right,5px solid transparent);
+        border-top: 8px solid #999dab;
+        // @include rtl_key(border-,right, left,5px solid transparent);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+      }
+      &.resend2 {
+        &::before {
+          // @include rtl_value(top, 21px, 24px);
+          // @include rtl_value(left, 57%, 0);
+          // @include rtl_value(right, 0, 76%);
+          top: 21px;
+          left: 57%;
+          right: 0;
+        }
+      }
+    }
+    &:hover {
+      .toolTip {
+        display: block;
+      }
+    }
+    span {
+      font-size: 14px;
+      color: #bfc2ce;
+      @include prefixer(transition, color 0.3s ease-in-out, webkit moz o ms);
+      cursor: pointer;
+      &.icon-check_circle_outline, &.icon-delete_outline {
+        font-size: 17px;
+      }
+      &.icon-clear {
+        font-size: 19px;
+      }
+      &.icon-refresh {
+        font-size: 19px;
+      }
+    }
+    &.verify {
+      &:hover {
+        span {
+          color: $successColor;
+        }
+      }
+      .focus {
+        color: $successColor;
+      }
+    }
+    &.deletePerson , &.cancel {
+      &:hover {
+        span {
+          color: #da2127;
+        }
+      }
+    }
+    &.delete {
+      span {
+        font-size: 20px;
+      }
+      &:hover {
+        span {
+          color: #121b2d;
+        }
+      }
+    }
+    &.resume {
+      &:hover {
+        span {
+          color: #50b7ad;
+        }
+      }
+      .toolTip {
+        // @include rtl_key(null,left, right,-10px);
+        left: -10px;
+      }
+    }
+    &.suspend {
+      &:hover {
+        span {
+          color: #f56f74;
+        }
+      }
+      .toolTip {
+        // @include rtl_key(null,left, right,-10px);
+        left: -10px;
+      }
+    }
+    &.assign {
+      span {
+        font-size: 20px;
+      }
+      &:hover {
+        span {
+          color: #ff8800;
+        }
+      }
+    }
+    &.inProgress {
+      &:hover {
+        span {
+          color: #52c9be;
+        }
+      }
+    }
+    &.edit {
+      &:hover {
+        span {
+          color: $primaryColor;
+        }
+      }
+    }
+  }
+}

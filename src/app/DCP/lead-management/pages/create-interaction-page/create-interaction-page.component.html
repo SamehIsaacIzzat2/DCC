@@ -1,0 +1,21 @@
+
+<div class="create-interaction-page">
+
+     <!-- banner -->
+    <div class="banner mb-4">
+        <banner [bannerData]="confirmationFlag==false?banner:confirmationbanner "  [bannerMode]="1"> </banner>
+      </div>
+
+      <p class="page-title">{{confirmationFlag==false?banner.title:confirmationbanner.title}}</p>
+
+    <!-- create interaction -->
+    <div *ngIf="!confirmationFlag" class="create-interaction">
+        <create-interaction  (CreateInteraction)="goToCreateInteractionConfirmation($event)"></create-interaction>
+    </div>
+
+     <!-- create interaction confirmation card-->
+     <div *ngIf="confirmationFlag">
+        <create-interaction-result></create-interaction-result>
+     </div>
+
+</div>

@@ -1,0 +1,271 @@
+<div class="container px-0">
+  <div class="information-section">
+    <form [formGroup]="model.socialInformationForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <!-- Cotact Owner -->
+          <!-- <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="owner">{{"companyModule.socail.contactOwner" | translate}}</label>
+                <input type="text" formControlName="contactOwner" id="owner"/>
+              </div>
+            </div>
+          </div> -->
+          <!-- Contact Creator -->
+          <!-- <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="">{{"companyModule.socail.contactCreator" | translate}} *</label>
+                <input type="text" formControlName="contactCreator" id="owner"/>
+              </div>
+              <div *ngIf="model.submitted && model.f['contactCreator'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['contactCreator'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.contactCreatorRequired"|translate}}
+                </span>
+              </div>
+            </div>
+          </div> -->
+          <!-- Nationality -->
+          <!-- <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">{{"shared.generalFeilds.nationality"|translate}} *</label>
+                <select formControlName="nationalityId" class="form-select">
+                  <option value="">{{"shared.generalWord.select" | translate}} {{"shared.generalFeilds.nationality"|translate}}</option>
+                  <option *ngFor="let option of model.nationalities" [value]="option.id">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="model.submitted && model.f['nationalityId'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['nationalityId'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i> {{"shared.generalValidationErrorMessage.nationalityRequired"|translate}}
+                </span>
+              </div>
+            </div>
+          </div> -->
+          <!-- Job Title/Position -->
+          <!-- <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="">{{"companyModule.socail.jobTitle" | translate}} *</label>
+                <select formControlName="jobTitle" class="form-select">
+                  <option value="null">{{"shared.generalWord.select" | translate}} {{"companyModule.socail.jobTitle" | translate}}</option>
+                  <option *ngFor="let opt of model.jobTitles" [value]="opt.id">
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="model.submitted && model.f['jobTitle'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['jobTitle'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.jobTitleRequired"|translate}}
+                </span>
+              </div>
+            </div>
+          </div> -->
+          <!-- Website -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="website">{{
+                  "shared.generalFeilds.website" | translate
+                }}</label>
+                <input
+                  type="text"
+                  formControlName="website"
+                  id="website"
+                  [placeholder]="
+                    'shared.Placeholders.companyWebsite' | translate
+                  "
+                />
+              </div>
+              <div *ngIf="model.submitted && model.f['website'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['website'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i
+                  >{{
+                    "shared.generalValidationErrorMessage.invalidWebsite"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- LinkedIn -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="linkedIn">{{
+                  "shared.generalFeilds.linkedin" | translate
+                }}</label>
+                <input
+                  type="text"
+                  [placeholder]="
+                    'shared.Placeholders.companyLinkedIn' | translate
+                  "
+                  id="linkedIn"
+                  placeholder="linked in"
+                />
+              </div>
+              <div *ngIf="model.submitted && model.f['linkedIn'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['linkedIn'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i
+                  >{{
+                    "shared.generalValidationErrorMessage.invalidLinkedIn"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Facebook -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="facebook">{{
+                  "shared.generalFeilds.facebook" | translate
+                }}</label>
+                <input
+                  type="text"
+                  formControlName="faceBook"
+                  id="facebook"
+                  [placeholder]="
+                    'shared.Placeholders.companyFacebook' | translate
+                  "
+                />
+              </div>
+              <div *ngIf="model.submitted && model.f['faceBook'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['faceBook'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.invalidFacebook"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Instagram -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="insta">{{
+                  "shared.generalFeilds.instagram" | translate
+                }}</label>
+                <input
+                  type="text"
+                  formControlName="insta"
+                  id="insta"
+                  [placeholder]="
+                    'shared.Placeholders.companyInstagram' | translate
+                  "
+                />
+              </div>
+              <div *ngIf="model.submitted && model.f['insta'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['insta'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.invalidInstagram"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Twitter -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="Twitter">{{
+                  "shared.generalFeilds.twitter" | translate
+                }}</label>
+                <input
+                  type="text"
+                  formControlName="twitter"
+                  id="Twitter"
+                  [placeholder]="
+                    'shared.Placeholders.companyTwitter' | translate
+                  "
+                />
+              </div>
+              <div *ngIf="model.submitted && model.f['twitter'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['twitter'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.invalidTwitter"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Other Socail Media -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="otherSocail">{{
+                  "companyModule.socail.otherSocialMedia" | translate
+                }}</label>
+                <input
+                  type="text"
+                  formControlName="others"
+                  id="otherSocail"
+                  [placeholder]="
+                    'shared.Placeholders.companyOtherLinks' | translate
+                  "
+                />
+              </div>
+              <div *ngIf="model.submitted && model.f['others'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['others'].errors['pattern']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.invalidLink"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <div
+          class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+          *ngIf="!getSteeperState()"
+        >
+          <div class="normal-register">
+            <button class="btn" (click)="model.saveUpdate()">
+              {{ "shared.actions.save" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

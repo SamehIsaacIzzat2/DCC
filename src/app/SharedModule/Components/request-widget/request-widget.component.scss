@@ -1,0 +1,122 @@
+$spanFontSize: 14px;
+$headingFontSize: 17px;
+
+@import "../../../../assets/styles/helpers/variables";
+
+.request-widget {
+    border: 1px solid #DDDCEA;
+    padding: 10px 20px;
+    margin: 20px 0px;
+
+
+    &.indetails {
+        background-image: url("../../../../assets/images/bannerBackground.svg"), linear-gradient(90.34deg, $secondaryColor 0.25%, #1D4861 99.76%);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+
+        .request-type {
+            .request-title {
+
+                h4,
+                span {
+                    color: #FFFFFF;
+                }
+            }
+
+        }
+
+        .request-status {
+            h4 {
+                color: #fff !important;
+            }
+        }
+
+        .request-date {
+            h4 {
+                color: #fff !important;
+            }
+        }
+
+    }
+
+    .request-type {
+        .icon {
+            img {
+                width: 22.6px;
+            }
+        }
+
+        .request-title {
+            span {
+                font-size: $spanFontSize;
+                color: #979797;
+
+
+            }
+
+            h4 {
+                font-size: $headingFontSize;
+                color: #003764;
+                margin: 7px 0px;
+                font-weight: 600;
+
+
+
+            }
+        }
+
+    }
+
+    .request-status {
+        color: #979797;
+
+        span {
+            font-size: $spanFontSize;
+        }
+
+        h4 {
+            font-size: 15px;
+            margin: 7px 0px;
+           span{
+            font-weight: 600;
+           }
+        }
+    }
+
+    .request-date {
+        span {
+            font-size: $spanFontSize;
+            color: #979797;
+        }
+
+        h4 {
+            font-size: 15px;
+            color: #2F3334;
+            margin: 7px 0px;
+            font-weight: 400;
+        }
+
+    }
+}
+
+.DraftStyle,
+.closeStyle {
+    color: #979797;
+}
+
+.submitStyle {
+    color: #003764;
+}
+
+.custsubmitStyle {
+    color: #fff;
+}
+
+.responseStyle {
+    color: #F4CE6C;
+}
+
+.progressStyle {
+    color: #04CE6D;
+}

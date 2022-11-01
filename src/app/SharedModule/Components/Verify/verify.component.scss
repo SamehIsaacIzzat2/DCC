@@ -1,0 +1,353 @@
+// Variables
+@import "../../../../assets/styles/helpers/variables";
+
+// Mixins
+@import "../../../../assets/styles/helpers/mixins";
+
+// Button
+@import "../../../../assets/styles/components/buttons";
+
+::placeholder {
+  color: #d4d4d4;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #d4d4d4;
+}
+::-ms-input-placeholder {
+  color: #d4d4d4;
+}
+
+.verify {
+  &.center {
+    text-align: center;
+  }
+  direction: ltr;
+  h3 {
+    @include font(32px, 700);
+    color: #000;
+    margin-bottom: 30px;
+  }
+  p {
+    margin-top: 0;
+    @include font(18px, 500);
+    color: #727272;
+    &.verifyNewPerson {
+      @include font(16px, 400);
+      color: #6e768a;
+    }
+    &.pageTitle {
+      @include font(24px, 700);
+      text-align: center;
+      color: #101418;
+      margin: {
+        top: 0;
+        bottom: 30px;
+      }
+    }
+  }
+  .exp {
+    text-align: center;
+    //width: 365px;
+    margin: 20px auto;
+    span {
+      @include font(16px, 500);
+      color: #6e768a;
+    }
+  }
+  .boxing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &.box {
+      @include prefixer(
+        box-shadow,
+        0 4px 8px 0 rgba(191, 194, 206, 0.1),
+        webkit moz o ms
+      );
+      border: 1px, solid, #e0e3ec;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px 50px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .icon {
+      text-align: center;
+      margin-bottom: 30px;
+      width: 60px;
+      height: 60px;
+      span {
+        @include font(60px, 400);
+        &.icon-writing {
+          .icon-path1 {
+            &:before {
+              color: rgba($primaryColor, 0.1);
+            }
+          }
+          .icon-path2 {
+            &:before {
+              color: rgb(246, 229, 231);
+            }
+          }
+          .icon-path3,
+          .icon-path4,
+          .icon-path5,
+          .icon-path6 {
+            &:before {
+              color: $primaryColor;
+            }
+          }
+        }
+      }
+    }
+    .digits {
+      overflow: auto;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.veryAcc {
+        margin: {
+          top: 40px;
+          bottom: 0;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &.smallDigits {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .digit {
+        width: 56px;
+        height: 56px;
+        @include bRadius(5px);
+        border: 1px, solid, #d4d4d4;
+        @include prefixer(
+          box-shadow,
+          0 1px 3px 0 rgba(0, 0, 0, 0.16),
+          webkit moz o ms
+        );
+        @include prefixer(transition, border 0.3s ease-in-out, webkit moz o ms);
+        background: #fff;
+        // @include rtl_value(float, left, right);
+        float: left;
+        // @include rtl_key(margin-,right, left, 12px);
+        // @include rtl_key(margin-,left, right, 0);
+        @include rtl_value("margin-right", 12px, unset);
+        @include rtl_value("margin-left", unset, 12px);
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.digitActive {
+          border: 1px solid $primaryColor;
+          @include prefixer(
+            box-shadow,
+            0 3px 6px 0 rgba(0, 0, 0, 0.16),
+            webkit moz o ms
+          );
+        }
+        &.digitSuccess {
+          border: 1px solid #8fc276;
+        }
+        &.digitError {
+          border: 1px solid $dangerColor;
+        }
+        &.smallDigit {
+          width: 56px;
+          height: 56px;
+          &:last-child {
+            // @include rtl_key(margin-,right, left,0);
+            @include rtl_value("margin-right", 0, unset);
+            @include rtl_value("margin-left", unset, 0);
+          }
+        }
+        input {
+          // width: 33.3333%;
+          width: 50%;
+          height: 100%;
+          border: 0;
+          box-shadow: none;
+          outline: none;
+          // border-bottom: 2px solid #D4D4D4;
+          text-align: center;
+          @include font(32px, 500);
+          color: rgba(#000, 0.87);
+          &:focus {
+            border: 0;
+            box-shadow: none;
+            outline: none;
+          }
+          // &.inputFocus {
+          //  border-bottom: 2px solid #D4D4D4;
+          //  height: 1px;
+          // }
+          // &.inputunFocus {
+          //  border-bottom: 0;
+          //  height: 30px;
+          // }
+        }
+        .mat-form-field {
+          width: 33.3333%;
+          text-align: center;
+          @include font(32px, 500);
+          color: rgba(#000, 0.87);
+        }
+        div.mat-form-field-infix {
+          padding: 0;
+          border-top: 0;
+        }
+        .mat-form-field-appearance-legacy .mat-form-field-infix {
+          padding: 0;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        margin-top: 20px;
+        // @include rtl_key(margin-,left, right,10px);
+        @include rtl_value("margin-left", 10px, unset);
+        @include rtl_value("margin-right", unset, 10px);
+        cursor: pointer;
+        &.back {
+          margin-top: 10px;
+          //   @include rtl_key(margin-,left, right,10px);
+          @include rtl_value("margin-left", 10px, unset);
+          @include rtl_value("margin-right", unset, 10px);
+          @media ($smMaxScreen) {
+            margin-bottom: 0;
+          }
+        }
+      }
+      @media (max-width: 610px) {
+        flex-direction: column;
+      }
+    }
+    .link {
+      margin-top: 40px;
+      span {
+        @include font(14px, 400);
+        color: #727272;
+        a {
+          cursor: pointer;
+          color: $primaryColor;
+          @include prefixer(
+            transition,
+            color 0.3s ease-in-out,
+            webkit moz o ms
+          );
+          &:hover {
+            color: $dangerColor;
+          }
+        }
+      }
+    }
+    .infoDetTitle {
+      @include font(14px, 400);
+      color: #727272;
+    }
+    .infoDetails {
+      ul {
+        // @include rtl_key(margin-,left, right,20px);
+        @include rtl_value("margin-left", 20px, unset);
+        @include rtl_value("margin-right", unset, 20px);
+        li {
+          @include font(14px, 400);
+          color: #727272;
+          list-style: disc;
+          strong {
+            color: $dangerColor;
+          }
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .verifyNewPersonDetails {
+      p {
+        color: #6e768a;
+        @include font(12px, 400);
+      }
+      span {
+        color: #6e768a;
+        @include font(12px, 400);
+        a {
+          text-decoration: underline;
+          &.disabled {
+            color: gray;
+            cursor: not-allowed;
+            pointer-events: none;
+          }
+          &.active {
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+  }
+
+  circle {
+    transition: all 1s linear;
+  }
+  .c1 {
+    transition: all 1s linear;
+    stroke: #f1f2f6;
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: transparent;
+  }
+  .c2 {
+    transition: all 1s linear;
+    stroke: #da2127;
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: transparent;
+  }
+
+  .counterNum {
+    -webkit-animation: heartBeat 1s infinite;
+    animation: heartBeat 1s infinite;
+    font-size: 12px;
+  }
+  .counterText {
+    color: #bfc2ce;
+    font-size: 5px;
+  }
+
+  @-webkit-keyframes heartBeat {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes heartBeat {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

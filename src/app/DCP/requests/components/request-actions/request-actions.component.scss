@@ -1,0 +1,147 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+.content {
+  .col-md-3 {
+    .line {
+      width: 1px;
+      height: 82%;
+      background-color: #dddcea;
+      position: relative;
+      top: 2.5%;
+    }
+  }
+
+  .col-md-9 {
+    @include rtl_value("padding-left", 7px, unset);
+    @include rtl_value("padding-right", unset, 7px);
+  }
+}
+button {
+  background-color: $secondaryColor;
+  width: 180px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+  float: right;
+  margin: 5px;
+}
+
+// #start step-side style
+.step-side {
+  margin: 20px 0px;
+
+  .step-one {
+    .line {
+      width: 3px;
+      height: 25px;
+      background-color: $secondaryColor;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 18px;
+      color: $secondaryColor;
+      font-weight: 600;
+      @include rtl_value("margin-left", 10px, unset);
+      @include rtl_value("margin-right", unset, 10px);
+      cursor: pointer;
+    }
+
+    .status {
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .step-two {
+    p {
+      color: #1d4861;
+      font-size: 18px;
+      font-weight: 600;
+      @include rtl_value("margin-left", 10px, unset);
+      @include rtl_value("margin-right", unset, 10px);
+    }
+  }
+
+  .status {
+    p {
+      color: $secondaryColor;
+      font-size: 18px;
+      font-weight: 600;
+      @include rtl_value("margin-left", 10px, unset);
+      @include rtl_value("margin-right", unset, 10px);
+    }
+
+    ul {
+      li {
+        margin: 10px 0px;
+        display: flex;
+        grid-gap: 20px;
+        gap: 20px;
+        align-items: center;
+
+        input {
+          width: 25px !important;
+          height: 20px;
+          accent-color: #fff;
+        }
+
+        label {
+          color: #2f3334d4;
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+// start content-side style
+
+.request-status {
+  h4 {
+    color: #1d4861;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  request-status-card {
+    position: relative;
+  }
+
+  request-status-card::after {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background-color: #dddcea;
+    position: absolute;
+    top: 50%;
+    left: 102%;
+  }
+
+  .cards:last-child::after {
+    width: 0px;
+  }
+}
+
+:host ::ng-deep .cards .col-md-3:not(:last-child) .satatus-card::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background-color: #dddcea;
+  position: absolute;
+  top: 50%;
+  left: 102%;
+}
+
+.request-details {
+  h4 {
+    color: #1d4861;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

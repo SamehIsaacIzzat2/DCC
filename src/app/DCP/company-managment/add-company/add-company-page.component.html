@@ -1,0 +1,48 @@
+<div class="create-request my-4">
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true"> </banner>
+  </div>
+
+  <div class="container">
+    <p class="page-title">{{model.banner.title}}</p>
+    <steeper
+      [steps]="model.steps"
+      (nextStepEvent)="model.nextStep()"
+      (editFormEvent)="model.backForm()"
+      [hideCancel]="true"
+      (submitEvent)="model.submit()"
+      [activeStep]="model.activeStep"
+    >
+      <div [ngStyle]="{ display: model.activeStep == 1 ? 'block' : 'none' }">
+        <div class="title">
+          <h4 class="my-4">{{"companyModule.general.title" | translate}}</h4>
+        </div>
+        <app-edit-general-info
+          [State]="2"
+          (sendSubmittedGeneralData)="model.setGeneralinfo($event)"
+        ></app-edit-general-info>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 2 ? 'block' : 'none' }">
+        <div class="title">
+          <h4 class="my-4">{{"companyModule.contact.title" | translate}}</h4>
+        </div>
+        <app-edit-contact-info
+          [State]="2"
+          (sendSubmittedContactData)="model.setAdressinfo($event)"
+        ></app-edit-contact-info>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 3 ? 'block' : 'none' }">
+        <div class="title">
+          <h4 class="my-4">{{"companyModule.socail.title" | translate}}</h4>
+        </div>
+        <app-edit-social-info
+          [State]="2"
+          (sendSubmittedSocailData)="model.setSocialinfo($event)"
+        ></app-edit-social-info>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 4 ? 'block' : 'none' }">
+        <company-add-preview></company-add-preview>
+      </div>
+    </steeper>
+  </div>
+</div>

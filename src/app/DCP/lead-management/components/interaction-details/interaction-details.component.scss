@@ -1,0 +1,94 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+//description-part
+
+.content {
+    .title {
+        h4 {
+            font-size: 18px;
+            color: $secondaryColor;
+            @include rtl_value("border-left",3px solid $secondaryColor,unset);
+            @include rtl_value("border-right",unset,3px solid $secondaryColor);
+            @include rtl_value("padding-left",10px,unset);
+            @include rtl_value("padding-right",unset,10px);
+        }
+    }
+}
+
+textarea {
+    height: 100px;
+}
+
+// style for action buttons
+
+.btns {
+    display: flex;
+    @media (max-width:992px) {
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+
+    .act_right,
+    .act_left {
+        @media (max-width:992px) {
+            width: 100% !important;
+            text-align: center;
+        }
+
+        @media (min-width:992.1111px) {
+            width: 50% !important;
+        }
+    }
+
+
+    // adjust layout
+    .act_right {
+        width: 50%;
+        display: flex;
+        justify-content: end;
+
+        @media (max-width:992px) {
+            justify-content: center;
+        }
+
+        @media (max-width:450px) {
+            .btn-group {
+                display: flex;
+                flex-wrap: wrap;
+                button{
+                    min-width: 200px !important;
+                }
+            }
+        }
+
+
+    }
+
+    .act_left {
+        width: 50%;
+    }
+
+}
+
+// modify button style
+button{
+    width:200px;
+    background-color: $secondaryColor;
+    border: 1px solid $secondaryColor;
+    color: #fff;
+    border-radius: 0px;
+    padding: 0.6rem 0.75rem;
+    margin:10px;
+    &:hover{
+        color:#fff;
+    }
+}
+button.custom-outline {
+    background-color: #fff;
+    border: 1px solid $secondaryColor;
+    color: $secondaryColor;
+
+    &:hover {
+        color: $secondaryColor;
+    }
+}

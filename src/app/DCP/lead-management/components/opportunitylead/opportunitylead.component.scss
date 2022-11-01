@@ -1,0 +1,112 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+$spanSize: 14px;
+.apportunity-section {
+  border: 1px solid #dddcea;
+  padding: 30px;
+}
+
+.request-type {
+  .icon {
+    img {
+      width: 22.6px;
+    }
+  }
+
+  .request-title {
+    span {
+      font-size: $spanSize;
+      color: #979797;
+    }
+
+    h4 {
+      font-size: 16px;
+      color: #003764;
+      margin: 7px 0px;
+      font-weight: 500;
+    }
+  }
+}
+
+.request-status {
+  span {
+    font-size: $spanSize;
+    color: #979797;
+  }
+
+  h4 {
+    font-size: 15px;
+    margin: 7px 0px;
+    color: #003764;
+    font-weight: 400;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+.request-date {
+  span {
+    font-size: $spanSize;
+    color: #979797;
+  }
+
+  h4 {
+    font-size: 15px;
+    margin: 7px 0px;
+    color: #003764;
+    font-weight: 400;
+  }
+}
+.content {
+  .title {
+    h4 {
+      font-size: 18px;
+      color: $secondaryColor;
+      @include rtl_value("border-left", 3px solid $secondaryColor, unset);
+      @include rtl_value("border-right", unset, 3px solid $secondaryColor);
+      @include rtl_value("padding-left", 10px, unset);
+      @include rtl_value("padding-right", unset, 10px);
+    }
+  }
+}
+button {
+  &.custom-btn {
+    background-color: #fff;
+    border: 1px solid #ff3300;
+    color: #ff3300;
+  }
+  background-color: $secondaryColor;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+  @include rtl_value("margin-left", 20px, unset);
+  @include rtl_value("margin-right", unset, 20px);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  // margin-bottom: 20px;
+  // @media (max-width:325px) and (min-width:300px) {
+  //     width:135px;
+  //   }
+  // @media (max-width:300px) {
+  //   width:135px;
+  // }
+}
+
+.btn-actions {
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
+}
+
+.note-data {
+  color: #003764;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 20px 0 15px;
+}

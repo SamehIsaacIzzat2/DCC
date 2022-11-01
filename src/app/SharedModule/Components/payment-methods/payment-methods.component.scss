@@ -1,0 +1,34 @@
+@import "../../../../assets/styles/helpers/variables";
+
+.payment-methods{
+   
+    .title{
+        h4{
+            font-size: 18px;
+            color:#1D4861;
+            font-weight: 700;
+        }
+    }
+    .methods{
+        .item{
+            border:1px solid #DDDCEA;
+            margin:10px 0px;
+            min-height:125px;
+            max-height:125px;
+            cursor: pointer;
+            img{
+                &.custom-style{
+                    height:30px;
+                }
+                p{
+                    color:#003764;
+                    font-size: 17px;
+                    font-weight: 400;
+                }
+            }
+        }
+        .selected-item{
+            border: 1px solid $secondaryColor;
+        }
+    }
+}

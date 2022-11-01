@@ -1,0 +1,64 @@
+<div class="OTP-section">
+    <div class="container">
+        <div class="row">
+            <!-- title of the otp-feild -->
+            <div class="col-12 ">
+                <div class="OTP-title my-5">
+                    <h4>{{'registration.compeletRegistration.lastStep' | translate}}!</h4>
+                    <p>{{'registration.compeletRegistration.info' | translate}}</p>
+                </div>
+
+            </div>
+            <!--  otp-feild -->
+            <div class="col-md-6 col-sm-12">
+                <div class="OTP-feild mb-3">
+
+                    <form [formGroup]="model.sendOtpForm">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'registration.compeletRegistration.otp' | translate}}</label>
+                            <input type="text" maxlength="4" formControlName="otpCode"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                        </div>
+                        <div *ngIf="model.submitted && model.f['otpCode'].errors">
+                            <span class="form-error" *ngIf="model.f['otpCode'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i> 
+                                {{'registration.compeletRegistration.requiredOtp' | translate}}
+
+                            </span>
+                            <span class="form-error" *ngIf="model.f['otpCode'].errors['pattern'] && model.f['otpCode'].errors['maxlength'] && model.f['otpCode'].errors['minlength'] " >
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{'registration.compeletRegistration.invalidOtp' | translate}}
+                            </span>
+                            <span class="form-error" *ngIf=" model.f['otpCode'].errors['maxlength']" >
+                                <i class="fa-solid fa-circle-exclamation"></i> 
+                                {{'registration.compeletRegistration.invalidOtp' | translate}}
+
+                            </span>
+                            <span class="form-error" *ngIf="model.f['otpCode'].errors['minlength'] " >
+                                <i class="fa-solid fa-circle-exclamation"></i> 
+                                {{'registration.compeletRegistration.invalidOtp' | translate}}
+
+                            </span>
+                            
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- submition button -->
+            <div class="col-12">
+                <div class="OTP-submit-btn my-5 d-flex flex-column justify-content-end align-items-end">
+                    <div class="normal-register">
+                        <button (click)="model.confirmOtp()" class="btn">
+                            {{'shared.actions.confirm' | translate}}
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

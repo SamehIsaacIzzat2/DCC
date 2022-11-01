@@ -1,0 +1,113 @@
+<div class="banner">
+  <div
+    class="banner-wrapper container"
+    [ngClass]="{ removePadding: paddingFlag,onlyTitle: bannerData.show }"
+  >
+    <div class="breadCrump">
+      <img src="assets/images/Icon.svg">
+      <h6
+        *ngFor="let item of bannerData.breadCrump"
+        [routerLink]="item?.link ? ['/' + item?.link] : []"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{
+          exact: true
+        }"
+        class="mainBreadCrump"
+      >
+        {{ item?.title }}
+      </h6>
+      <h6 *ngFor="let item of bannerData.subbreadCrump" class="subBreadCrump">
+        {{ item }}
+      </h6>
+    </div>
+    <div class="title" *ngIf="bannerData.title&&bannerData.show">
+      <h2>
+        <i
+          class="fa fa-chevron-left arrow"
+          *ngIf="bannerData.withPrevArrow"
+        ></i>
+        {{ bannerData.title }}
+      </h2>
+    </div>
+    <div class="search" *ngIf="getWithSearchMode()">
+      <input
+        class="form-control"
+        id="search"
+        [(ngModel)]="textsearch"
+        placeholder="{{'bannerData.search'|translate}}"
+        (ngModelChange)="filterByText()"
+      />
+      <button class="search-button" *ngIf="!withoutSearchButton">
+        <span>Search</span>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <div class="user" *ngIf="logineduser&&false">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span
+              >{{ (authSer.user | async)?.firstName }}
+              {{ (authSer.user | async)?.lastName }}</span
+            >
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="detailsContent" *ngIf="getDetailsMode()">
+      <ng-content></ng-content>
+    </div>
+    <div
+      class="menu-wrapper"
+      *ngIf="router.url.includes('requests') || getDetailsMode()"
+    >
+      <div class="menu">
+        <a
+          *ngFor="let item of menus; let i = index"
+          [routerLink]="['/' + item.link]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{
+            exact: true
+          }"
+          [ngClass]="{
+            active:
+              (i == 0 && router.url.includes('requests')) ||
+              (i == 1 && router.url.includes('leads')) ||
+              (i == 2 && router.url.includes('opportunities'))
+          }"
+          >{{ item.title }}</a
+        >
+      </div>
+      <div class="user" *ngIf="!EditFlag">
+        <div class="dropdown" *ngIf="authenticationFlag&&false">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span
+              >{{ (authSer.user | async)?.firstName }}
+              {{ (authSer.user | async)?.lastName }}</span
+            >
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" routerLink="/profile">{{'bannerData.dropDown.profile' |translate}}</a></li>
+            <li><a class="dropdown-item" (click)="logout()">{{'bannerData.dropDown.logout' |translate}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

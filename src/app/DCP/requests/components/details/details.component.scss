@@ -1,0 +1,16 @@
+@import "../../../../../assets/styles/helpers/variables";
+.action-buttons {
+    .bbtn {
+        background-color: $secondaryColor;
+        width: 200px;
+        border: 1px solid $secondaryColor;
+        color: #fff;
+        border-radius: 0px;
+        padding: 0.6rem 0.75rem;
+
+        &.cancle {
+            background-color: #fff;
+            color: $secondaryColor;
+        }
+    }
+}

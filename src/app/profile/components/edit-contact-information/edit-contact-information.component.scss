@@ -1,0 +1,97 @@
+//mixnis
+@import "../../../../assets/styles/helpers/mixins";
+// phone number
+
+::ng-deep .iti {
+  display: flex;
+  align-items: center;
+  border: 1px solid #DDDCEA;
+
+  @media (max-width: 380px) {
+    flex-wrap: wrap;
+  }
+
+  ::ng-deep .iti__flag-container {
+    position: relative;
+    border-right: 1px solid #dddcea;
+    margin-left: 1em;
+  }
+
+  ::ng-deep .iti__selected-flag {
+    width: 85px !important;
+    height: 50%;
+     @include rtl_value("padding-left",0,unset);
+@include rtl_value("padding-right",unset,0);
+
+
+    .selected-dial-code {
+      font-size: 12px !important;
+
+      input{
+
+
+      }
+    }
+  }
+
+  ::ng-deep .dropdown-menu.show {
+    width: 302px;
+
+    @media (max-width: 478px) {
+      width: 250px !important;
+    }
+
+    @media (max-width: 400px) {
+      width: 150px !important;
+    }
+
+    ul {
+      /* width */
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px rgb(161 161 161 / 0%);
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #4f63727a;
+        border-radius: 10px;
+      }
+    }
+
+    @media (max-width: 420) {
+      width: 200px !important;
+    }
+
+    .iti__country-list {
+      width: 100%;
+      overflow-x: hidden;
+    }
+  }
+}
+
+::ng-deep .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+  background-color: transparent;
+}
+
+::ng-deep .iti input[type=tel]{
+  border: unset !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent;
+}
+
+.register-buttons .normal-register button {
+    background-color: $secondaryColor;
+    width: 228.25px;
+    border: 1px solid $secondaryColor;
+    color: #fff;
+    border-radius: 0px;
+    padding: 0.6rem 0.75rem;
+
+  }

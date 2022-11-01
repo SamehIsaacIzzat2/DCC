@@ -1,0 +1,55 @@
+<div class="payment-filter">
+    <!-- #first-filter -->
+    <div class="options">
+        <h4 class="my-2">{{'shared.filterData.filterBy' |translate}}:</h4>
+        <label class="option-label">
+          <span>{{'memberShipsModule.payment.status' |translate}}</span>
+        </label>
+        <div class="checkbox-group my-3">
+           <!-- option-all -->
+           <div class="checkbox-option">
+            <input type="checkbox" name="first" id="all1" (change)="filterReq($event,'0','paymentstatus')"/>
+            <label for="all1">{{'shared.generalWord.all' | translate}}</label>
+          </div>
+          <div class="checkbox-option" *ngFor="let opt of paymentStatus ;let i = index">
+            <input [checked]="statuscheckAllFlag" type="checkbox" name="first" [id]="'opt1' + i" (change)="filterReq($event,opt.id,'paymentstatus')"/>
+            <label [for]="'opt1' + i">{{opt.name}}</label>
+          </div>
+        </div>
+      </div>
+      <!-- #second-filter -->
+    <div class="options">
+      <label class="option-label">
+        <span>{{'memberShipsModule.payment.method' |translate}}</span>
+      </label>
+      <div class="checkbox-group my-3">
+         <!-- option-all -->
+         <div class="checkbox-option">
+          <input type="checkbox" name="second" id="all2" (change)="filterReq($event,'0','paymentMethods')"/>
+          <label for="all2">{{'shared.generalWord.all' | translate}}</label>
+        </div>
+        <div class="checkbox-option" *ngFor="let opt of paymentMethod ;let i = index">
+          <input [checked]="methodcheckAllFlag" type="checkbox" name="second" [id]="'opt2' + i" (change)="filterReq($event,opt.id,'paymentMethods')"/>
+          <label [for]="'opt2' + i">{{opt.name}}</label>
+        </div>
+      </div>
+    </div>
+       <!-- #third-filter -->
+       <div class="options">
+        <label class="option-label">
+          <span>{{'memberShipsModule.payment.companyName' |translate}}</span>
+        </label>
+        <div class="checkbox-group my-3">
+           <!-- option-all -->
+           <div class="checkbox-option">
+            <input type="checkbox" name="third" id="all3" (change)="filterReq($event,'0','userComapny')"/>
+            <label for="all3">{{'shared.generalWord.all' | translate}}</label>
+          </div>
+          <div class="checkbox-option" *ngFor="let opt of userComapny ;let i = index">
+            <input  [checked]="companycheckAllFlag" type="checkbox" name="third" [id]="'opt3' + i" (change)="filterReq($event,opt.id,'userComapny')"/>
+            <label [for]="'opt3' + i">{{opt.companyNameEnglish}}</label>
+          </div>
+        </div>
+      </div>
+
+</div>

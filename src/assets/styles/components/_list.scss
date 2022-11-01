@@ -1,0 +1,44 @@
+//mixins
+@import "../../../assets/styles/helpers/mixins";
+.custom-list {
+  counter-reset: li;
+  list-style: none !important;
+  li {
+    position: relative;
+    margin: 20px 0px;
+    @include rtl_value("padding-left", 30px, unset);
+    @include rtl_value("padding-right", unset, 30px);
+    height: 40px;
+    &:before {
+      content: counter(li);
+      counter-increment: li;
+      height: 26px;
+      width: 26px;
+      border: 2px solid #003764;
+      border-radius: 50%;
+      color: #003764;
+      text-align: center;
+      position: absolute;
+      left: -22px;
+      top: 0px;
+      @media (max-width: 420px) {
+        top: 3px;
+      }
+      background-color: #b4d9f95c;
+    }
+  }
+  li:not(:last-child) {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      background-color: #003764;
+      top: 26px;
+      left: -10px;
+      height: 35px;
+      @media (max-width: 420px) {
+        height: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+<div class="information-section contact-information-section">
+    <div class="row">
+        <!--  title And Edit Button -->
+        <div class="header col-12">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6 col-sm-12">
+                    <div class="title">
+                        <h4>{{'profileModule.contactInfo.contactInformation' |translate}}</h4>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="edit-btn">
+                        <div class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end">
+                            <div class="normal-information">
+                                <button [routerLink]="['/profile','contact','edit']" class="btn" *ngIf="getViewAndEditState()">{{'profileModule.contactInfo.editContactInfo' |translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- address address-information-feilds -->
+
+        <div class="items-container my-5 " [formGroup]="phoneForm">
+            <div class="row">
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.workEmail' |translate}} </div>
+                        <div *ngIf="contactData?.workEmail" class="data my-4 ">{{contactData?.workEmail}}</div>
+                        <p *ngIf="!contactData?.workEmail" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.personalEmail' |translate}} </div>
+                        <div *ngIf="contactData?.personalEmail" class="data my-4 ">{{contactData?.personalEmail}}</div>
+                        <p *ngIf="!contactData?.personalEmail" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.officeNumber' |translate}}</div>
+                        <div *ngIf="contactData?.officeNumber" class="data my-4 input-content mobileFeild inputHasSuffixOrPrefix">
+                            <ngx-intl-tel-input
+                                id="mobileInput"
+                                [preferredCountries]="model.preferredCountries"
+                                [selectFirstCountry]="true"
+                                [separateDialCode]="true"
+                                [enablePlaceholder]="false"
+                                formControlName="officeNumber"
+                                name="officeNumber"
+                                [phoneValidation]="true"
+                                [searchCountryFlag]="true"
+                                [searchCountryField]="[
+                                    model.searchCountryField.Iso2,
+                                    model.searchCountryField.Name
+                                ]"
+                                >
+                            </ngx-intl-tel-input>
+                        </div>
+                        <p *ngIf="!contactData?.officeNumber" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.workNumber' |translate}}</div>
+                        <div  *ngIf="contactData?.officeNumber"class="data my-4 input-content mobileFeild inputHasSuffixOrPrefix">
+                            <ngx-intl-tel-input
+                                id="mobileInput"
+                                [preferredCountries]="model.preferredCountries"
+                                [selectFirstCountry]="true"
+                                [separateDialCode]="true"
+                                [enablePlaceholder]="false"
+                                formControlName="workNumber"
+                                name="workNumber"
+                                [phoneValidation]="true"
+                                [searchCountryFlag]="true"
+                                [searchCountryField]="[
+                                    model.searchCountryField.Iso2,
+                                    model.searchCountryField.Name
+                                ]"
+                                >
+                            </ngx-intl-tel-input>
+                        </div>
+                        <p *ngIf="!contactData?.officeNumber" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" *ngIf="contactData?.mobileNumber">
+                    <div class="item"  >
+                        <div class="title mb-4">{{'shared.generalFeilds.mobileNumber' |translate}} </div>
+                        <div *ngIf="contactData?.mobileNumber" class="data my-4 input-content mobileFeild inputHasSuffixOrPrefix">
+                            <ngx-intl-tel-input
+                                id="mobileInput"
+                                [preferredCountries]="model.preferredCountries"
+                                [selectFirstCountry]="true"
+                                [separateDialCode]="true"
+                                [enablePlaceholder]="false"
+                                formControlName="mobileNumber"
+                                name="mobileNumber"
+                                [phoneValidation]="true"
+                                [searchCountryFlag]="true"
+                                [searchCountryField]="[
+                                    model.searchCountryField.Iso2,
+                                    model.searchCountryField.Name
+                                ]"
+                                >
+                            </ngx-intl-tel-input>
+                        </div>
+                        <p *ngIf="!contactData?.mobileNumber" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

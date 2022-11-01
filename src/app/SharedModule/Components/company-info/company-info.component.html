@@ -1,0 +1,142 @@
+<!-- banner -->
+<div class="banner mb-4">
+  <banner [bannerData]="model.banner" [bannerMode]="3" [paddingFlag]="true">
+  </banner>
+</div>
+
+<div class="container">
+  <p class="page-title">{{ model.banner.title }}</p>
+  <div class="page-content">
+    <!-- <div class="request-widget">
+            <request-widget [item]="model.requestitem" [status]="2"></request-widget>
+          </div> -->
+
+    <div class="container" *ngIf="model.itemcompany">
+      <div class="company-datails">
+        <h4 class="title">
+          {{ "shared.comapnyInfo.comapnyInfo" | translate }}
+        </h4>
+        <div class="first-row row">
+          <div class="company-name col-md-6 col-sm-12">
+            <div class="line"></div>
+            <h3>{{ "shared.comapnyInfo.companyName" | translate }}</h3>
+            <p *ngIf="model.itemcompany?.CompanyName">
+              {{ model.itemcompany?.CompanyName }}
+            </p>
+            <p *ngIf="!model.itemcompany?.CompanyName" class="Dummy-data">
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+
+          <div class="company-size col-md-6 col-sm-12">
+            <h3>{{ "shared.comapnyInfo.comapnySize" | translate }}</h3>
+            <p *ngIf="model.itemcompany?.CompanySize">
+              {{ model.itemcompany?.CompanySize }}
+            </p>
+            <p *ngIf="!model.itemcompany?.CompanySize" class="Dummy-data">
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="activities" *ngIf="model.itemcompany?.Products">
+          <h3>{{ "shared.comapnyInfo.products" | translate }}</h3>
+
+          <div class="codes row">
+            <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+            <div
+              *ngFor="let term of model.itemcompany?.Products"
+              class="col-md-6 col-sm-12"
+            >
+              <p>{{ term }}</p>
+            </div>
+            <p
+              *ngIf="model.itemcompany?.Products?.length == 0"
+              class="Dummy-data"
+            >
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+
+        <div class="activities" *ngIf="model.itemcompany?.Activities">
+          <h3>{{ "shared.comapnyInfo.activities" | translate }}</h3>
+
+          <div class="codes row">
+            <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+            <div
+              *ngFor="let term of model.itemcompany?.Activities"
+              class="col-md-6 col-sm-12"
+            >
+              <p>{{ term }}</p>
+            </div>
+            <p
+              *ngIf="model.itemcompany?.Activities?.length == 0"
+              class="Dummy-data"
+            >
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="activities" *ngIf="model.itemcompany?.industries">
+          <h3>{{ "shared.comapnyInfo.industries" | translate }}</h3>
+
+          <div class="codes row">
+            <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+            <div
+              *ngFor="let term of model.itemcompany?.industries"
+              class="col-md-6 col-sm-12"
+            >
+              <p>{{ term }}</p>
+            </div>
+            <p
+              *ngIf="model.itemcompany?.industries?.length == 0"
+              class="Dummy-data"
+            >
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+
+        <div class="interest" *ngIf="model.itemcompany?.companyLocation">
+          <h3>{{ "shared.comapnyInfo.locations" | translate }}</h3>
+          <div class="codes row">
+            <div
+              *ngFor="let term of model.itemcompany?.companyLocation"
+              class="col-md-6 col-sm-12"
+            >
+              <p>{{ term }}</p>
+            </div>
+            <p
+              *ngIf="model.itemcompany?.companyLocation?.length == 0"
+              class="Dummy-data"
+            >
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+
+        <!-- <div class="interest" *ngIf="model.itemcompany?.countries">
+                    <h3>Countries </h3>
+                    <div class="codes row justify-content-between">
+        
+                    <div *ngFor="let term of model.itemcompany?.countries" class="col-md-6">
+                        <p>{{term}} </p>
+                    </div></div>
+        
+        
+                </div>
+                <div class="interest" *ngIf="model.itemcompany?.cities">
+                    <h3>Cities </h3>
+                    <div class="codes row justify-content-between">
+        
+                    <div *ngFor="let term of model.itemcompany?.cities" class="col-md-6">
+                        <p>{{term}} </p>
+                    </div>
+                    </div>
+        
+        
+                </div> -->
+      </div>
+    </div>
+  </div>
+</div>

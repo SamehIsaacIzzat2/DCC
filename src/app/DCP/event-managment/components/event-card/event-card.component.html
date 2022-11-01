@@ -1,0 +1,65 @@
+<div class="event-card my-3">
+
+    <!-- header -->
+    <div class="card-header">
+        <h4>{{item.title}}</h4>
+        <p><span class="Event-type-title">{{'eventsModule.eventsInfo.type' | translate}} : </span>
+           <span class="Event-type-data">{{item.typeName}}</span></p>
+    </div>
+
+<div class="content">
+
+    <!-- body -->
+    <div class="card-body">
+        <div class="data-time d-flex justify-content-between mb-2">
+            <div class="date ">
+                <span class="date-icon"><img src="../../../../../assets/images/event-calender.svg"/></span>
+                <span class="data">{{item.date|customDate:"dd-MM-yyyy"}}</span>
+            </div>
+            <div class="time">
+                <span class="time-icon"><img src="../../../../../assets/images/event-timer.svg"/></span>
+                <!-- <span class="data">{{item.timeAMPM.slice(-8)}}</span> -->
+                <span class="data">{{item.date |customDate:'shortTime'}}</span>
+                </div>
+        </div>
+
+        <div class="duration-days my-3">
+            <div class="days">
+                <span class="date-icon"><img src="../../../../../assets/images/event-days.svg"/></span>
+                <span>{{item.days}} {{'shared.generalFeilds.days' | translate}}</span>
+            </div>
+        </div>
+        <div class="Location my-2" >
+            <!-- *ngIf="item.address" -->
+                <span *ngIf="item.address" class="date-icon"><img src="../../../../../assets/images/event-locattion.svg"/></span>
+                <span class="loc-data">
+                    <a *ngIf="item.compositeAddress" href="https://www.google.com/maps?q={{item.compositeAddress}}" target="_blank">
+                        {{item.address }}
+                    </a>
+                    <span *ngIf="!item.compositeAddress">{{item.address }}</span>
+                </span>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="card-footer ">
+        <div class="data">
+            <div class="footer-content" *ngIf="item.statusName == null && !model.actionTaken" style="cursor: pointer;">
+                <p class="reject" *ngIf="model.authSer.isAuthorized()" (click)="model.Reject(item.id)">{{'shared.actions.reject' | translate}}</p>
+                <p class="accept"(click)="model.Accept(item.id)">{{'shared.actions.accept' | translate}}</p>
+            </div>
+            <div class="footer-content-result" *ngIf="model.actionTaken">
+                <p class="accept">{{model.actionValue}}</p>
+            </div>
+        </div>
+        
+        <div class="footer-content-result" *ngIf="item.statusName != null">
+            <p class="accept">{{item.statusName}}</p>
+        </div>
+
+    </div>
+</div>
+
+
+</div>

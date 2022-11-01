@@ -1,0 +1,72 @@
+<!-- Confirmation Modal -->
+<div class="modal"
+     id="modal"
+     *ngIf="model.ConfirmationMode">
+
+  <!-- Content -->
+  <mat-dialog-content>
+    <div class="content"
+         id="modal_content">
+      <mat-icon [innerHTML]="model.data.icon" *ngIf="model.data.icon"></mat-icon>
+      <p id="modal_content_title" *ngIf="model.data.title" 
+         [innerHTML]="model.data.title"></p>
+      <span id="modal_content_text"
+            [innerHTML]="model.data.text"></span>
+    </div>
+  </mat-dialog-content>
+
+  <!-- Actions -->
+  <mat-dialog-actions class="actions"
+                      id="modal_actions">
+    <button class="muted"
+            id="modal_actions_button_muted"
+            mat-dialog-close
+            (click)="model.close()">{{model.data.secondaryActionText}}</button>
+    <button class="primary"
+            id="modal_actions_button_primary"
+            (click)="model.save()">{{model.data.primaryActionText}}</button>
+  </mat-dialog-actions>
+
+</div>
+
+<!-- Inputs Modal -->
+<div class="modal"
+     *ngIf="model.ActionMode">
+  <!-- Header -->
+  <div class="header"
+       id="modal_inputs_header">
+    <strong>{{model.data.title}}</strong>
+    <span class="space"></span>
+    <mat-icon id="modal_inputs_header_matIcon"
+              (click)="model.close()">close</mat-icon>
+  </div>
+  <!-- Inputs -->
+  <div class="inputs"
+       id="modal_inputs_header_inputs">
+    <ng-container #inputsContent></ng-container>
+  </div>
+</div>
+
+<!-- Sidebar Modal -->
+<div class="modal"
+     *ngIf="model.SidebarMode">
+
+  <!-- Content -->
+  <mat-dialog-content>
+    <!-- Header -->
+    <div class="header"
+         id="modal_sidebar_content_header">
+      <mat-icon (click)="model.close()">close</mat-icon>
+      <div class="title">
+        <strong id="modal_sidebar_content_header_title">{{model.data.title}}</strong>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div id="modal_sidebar_content_container">
+      <ng-container #sidebarContent></ng-container>
+    </div>
+
+  </mat-dialog-content>
+
+</div>

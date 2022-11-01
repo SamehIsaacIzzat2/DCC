@@ -1,0 +1,68 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+.request-datails {
+  & > div {
+    margin: 30px auto;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: $secondaryColor;
+    font-weight: 600;
+    @include rtl_value("border-left", 2px solid $secondaryColor, unset);
+    @include rtl_value("border-right", unset, 2px solid $secondaryColor);
+    @include rtl_value("padding-left", 10px, unset);
+    @include rtl_value("padding-right", unset, 10px);
+  }
+
+  p {
+    color: #2f3334;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 12px;
+    background-color: #fbfbfb;
+  }
+
+  // .codes>div {
+
+  //     p {
+  //         background-color: #FBFBFB;
+  //         padding: 10px;
+  //     }
+  // }
+}
+
+// p{
+//     background-color: #FBFBFB;
+//     padding: 10px;
+
+// }
+.Dummy-data {
+  width: 50%;
+  color: #94a3b8 !important;
+  font-size: 16px;
+  font-weight: 400;
+  // margin-left:10px !important;
+  @media (max-width: 992px) {
+    width: 100% !important;
+  }
+  @media (min-width: 992.1px) {
+    width: 50% !important;
+  }
+}
+.clickable {
+  cursor: pointer;
+}
+
+.custom-w {
+  @media (max-width: 992px) {
+    p {
+      width: 100% !important;
+    }
+  }
+  @media (min-width: 992.1px) {
+    p {
+      width: 50% !important;
+    }
+  }
+}

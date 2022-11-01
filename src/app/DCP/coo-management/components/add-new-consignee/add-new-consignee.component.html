@@ -1,0 +1,158 @@
+<div class="add-new-consignee">
+    <div class="container">
+
+        <form [formGroup]="model.consigneeForm">
+            <div class="row">
+                <!-- consignee Name -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.consigneeName' |translate}} *</label>
+                            <input type="text" formControlName="consigneeName"
+                                [placeholder]="'shared.generalFeilds.firstName' | translate" />
+                        </div>
+                        <div *ngIf="model.submitted && model.f['consigneeName'].errors">
+                            <span class="form-error" *ngIf="model.f['consigneeName'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                Consignee Name is required
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- consignee Type -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.consigneeType' |translate}} *</label>
+                            <select formControlName="consigneeType" class="form-select">
+                                <option *ngFor="let opt of model.consigneeTypes;let index = index" [value]="opt.id"
+                                  >
+                                    {{ opt.consigneeTypesNameEnglish }}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="model.submitted && model.f['consigneeType'].errors">
+                            <span class="form-error" *ngIf="model.f['consigneeType'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                Consignee Type is required
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- consignee phone number -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="item">
+                        <div class="title mb-4">{{"shared.generalFeilds.phoneNumber" | translate}}</div>
+                        <div class="data my-4 input-content mobileFeild inputHasSuffixOrPrefix no-value">
+                            <ngx-intl-tel-input id="mobileInput" [preferredCountries]="model.preferredCountries"
+                                [selectFirstCountry]="true" [separateDialCode]="true" [enablePlaceholder]="false"
+                                formControlName="phoneNumber" name="phone" [phoneValidation]="true"
+                                [searchCountryFlag]="true" [searchCountryField]="[
+                                model.searchCountryField.Iso2,
+                                model.searchCountryField.Name
+                              ]">
+                            </ngx-intl-tel-input>
+                            <div *ngIf="model.submitted && model.f['phoneNumber'].errors">
+                                <span class="form-error" *ngIf="model.f['phoneNumber'].errors['required']">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    phone Number is required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- consignee Line 1 -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.addressLine1' |translate}}</label>
+                            <textarea formControlName="addressLine1" class="form-textarea"
+                                style="resize: none"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- consignee Line 2 -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.addressLine2' |translate}}</label>
+                            <textarea formControlName="addressLine2" class="form-textarea"
+                                style="resize: none"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- consignee PO box -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.pOBOX' |translate}}</label>
+                            <input type="text" maxlength="4" formControlName="poBox"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                        </div>
+                    </div>
+                </div>
+
+                <!--consignee country -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'shared.generalFeilds.country' |translate}} </label>
+                            <select formControlName="countryId" class="form-select"
+                                (change)="model.selectRelatedCities($event.target)">
+                                <option [value]="''">{{'shared.generalWord.selectCountry' |translate}}</option>
+                                <option *ngFor="let opt of model.allCountries" [value]="opt.id">
+                                    {{ opt.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="model.submitted && model.f['countryId'].errors">
+                            <span class="form-error" *ngIf="model.f['countryId'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{'shared.generalValidationErrorMessage.requiredCountry' |translate}}
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- city -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'shared.generalFeilds.city' |translate}} </label>
+                            <select formControlName="cityId" class="form-select">
+                                <option [value]="''">{{'shared.generalWord.selectCity' |translate}}</option>
+                                <option *ngFor="let opt of model.allCities" [value]="opt.id">
+                                    {{ opt.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="model.submitted && model.f['cityId'].errors">
+                            <span class="form-error" *ngIf="model.f['cityId'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{'shared.generalValidationErrorMessage.requiredCity' |translate}}
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- consignee Fax -->
+                <div class="col-md-6 col-sm-12 my-3">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{'cooModule.detailsData.fax' |translate}} </label>
+                            <input type="text" maxlength="4" formControlName="fax"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

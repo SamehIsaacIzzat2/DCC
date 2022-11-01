@@ -1,0 +1,85 @@
+<div class="footer">
+  <div class="footer-links">
+    <div class="container w-90">
+      <div class="row">
+        <!-- first Column -->
+        <div class="col-lg-3 col-md-6 col-sm-12 my-3">
+          <div class="image">
+            <img class="img-fluid" [src]="'assets/images/' + langSer.toggleVal('logo-en-','logo-ar-')+platformSer.getPlatform()+'.png'" />
+          </div>
+          <div class="free-toll">
+            <h4>{{"layout.footer.ToilFree" | translate}}</h4>
+            <p>{{"layout.footer.800CHAMBER" | translate}}</p>
+          </div>
+        </div>
+        <!-- Second Column -->
+        <div class="col-lg-3 col-md-6 col-sm-12  my-3">
+          <h4>{{"layout.footer.QuickLinks.text" | translate}}</h4>
+          <div class="qick-links">
+            <ul type="none">
+              <li><a>{{"layout.footer.QuickLinks.contact" | translate}}</a></li>
+              <li><a [routerLink]="'/'+platformSer.getPlatform()+'/complaint'">{{"layout.footer.QuickLinks.Complaints" | translate}}</a></li>
+              <li><a>{{"layout.footer.QuickLinks.FAQ" | translate}}</a></li>
+              <li><a>{{"layout.footer.QuickLinks.privacyPolicy" | translate}}</a></li>
+              <li><a>{{"layout.footer.QuickLinks.Sitemap" | translate}}</a></li>
+              <li><a>{{"layout.footer.QuickLinks.Terms&Conditions" | translate}}</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Third Column -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 my-3">
+          <h4>{{"layout.footer.GETCONNECTED" | translate}}</h4>
+          <div class="Social-Media-icon">
+            <div class="d-flex justify-content-between">
+              <div
+                class="icon d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+
+              <div
+                class="icon d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+
+              <div
+                class="icon d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-brands fa-tumblr"></i>
+              </div>
+
+              <div
+                class="icon d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fourth Column -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 my-3">
+          <h4>{{"layout.footer.SUBSCRIBE NEWSLETTER" | translate}}</h4>
+          <div class="Email-input">
+            <input
+              class="form-control"
+              type="email"
+              [placeholder]="'shared.Placeholders.enterYourEmailAddress' | translate"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container row margin-auto">
+  <div class="copy-right col my-4">
+    <span>{{"layout.footer.Copyright2022DubaiChamberOfCommerce&Industry" | translate}}</span>
+  </div>
+  <div class="date col my-4">
+    <span>{{"layout.footer.websiteUpdatedOn" | translate}} 25 Oct 2022</span>
+  </div>
+</div>

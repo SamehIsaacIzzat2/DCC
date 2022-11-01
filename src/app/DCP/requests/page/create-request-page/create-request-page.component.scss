@@ -1,0 +1,29 @@
+@import "../../../../../assets/styles/components/_form.scss";
+@import "../../../../../assets/styles/helpers/variables";
+// modify select style
+.page-title{
+    color: #1D4861;
+    font-size: 28px;
+    font-weight: 700;
+  }
+select {
+    border-radius: 0px;
+    padding: 0.85rem 0.75rem !important;
+    outline: none;
+    border: 1px solid #DDDCEA;
+}
+
+select:focus {
+    border: 1px solid #DDDCEA;
+    outline: none;
+    box-shadow: none;
+}
+
+button {
+    background-color: $secondaryColor;
+    width: 228.25px;
+    border: 1px solid $secondaryColor;
+    color: #fff;
+    border-radius: 0px;
+    padding: 0.6rem 0.75rem;
+}

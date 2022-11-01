@@ -1,0 +1,30 @@
+// Variables
+
+/* Colors */
+$primaryColor: #003764;
+$secondaryColor1: #A73439;
+$secondaryColor2: #76BC21;
+$secondaryColor: var(--secondaryColor);
+$dangerColor: #E93737;
+$successColor: #23ae3a;
+$grayColor: #727272;
+$warningColor: #ff9d0f;
+$mutedColor: #DDDCEA;
+
+/* Fonts */
+$mainFont: "HelveticaNeue";
+$mainArabicFont: "DroidKufi";
+
+/* Media Queries */
+$xsScreen: "max-width:767px";
+$smMinScreen: "min-width:768px";
+$smMaxScreen: "max-width:992px";
+$mdMinScreen: "min-width:992px";
+$lgScreen: "min-width:1200px";
+$maxLgScreen: "max-width:1200px";
+body{
+   --secondaryColor: #{$secondaryColor1};
+}
+body>app-root>layout>div.dic{
+    --secondaryColor: #{$secondaryColor2};
+}

@@ -1,0 +1,47 @@
+<div class="ser-dir">
+  <div class="ser-dir-wapper">
+    <div class="banner">
+      <banner [bannerData]="banner" [bannerMode]="3" [paddingFlag]="true">
+      </banner>
+    </div>
+    <div class="main-content container">
+      <p class="page-title">{{banner.title}}</p>
+      <div class="used-sers row">
+        <div class="col-md-3 col-sm-12 side">
+          <!-- <h5>Quick Find</h5> -->
+          <div class="filter">
+            <side-filter></side-filter>
+          </div>
+        </div>
+        <div class="col-offset-1 col-md-9 col-sm-12">
+          <h3 class="filter-title" >{{"serviceCatlogueModule.serviceDirectory.mostUsedServices" |translate }}</h3>
+          <div class="row sers" *ngIf="!model.loading">
+            <div class="col-md-4 col-sm-12" *ngFor="let item of model.data">
+              <card-widget [service]="item"></card-widget>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="model.loading">
+            <div
+              class="col-md-4 col-sm-12"
+              *ngFor="let x of [1, 2, 3, 4, 5, 6]"
+            >
+              <card-loader [height]="150"></card-loader>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="offset-3 col-9 other">
+        <h3>Other services</h3>
+        <div class="main-con">
+          <div class="col-12" *ngFor="let item of model.rowData">
+            <row-widget [item]="item"></row-widget>
+          </div>
+        </div>
+        <Button>Load More</Button>
+        <div class="line custom-line"></div>
+        <survey></survey>
+      </div> -->
+    </div>
+  </div>
+</div>

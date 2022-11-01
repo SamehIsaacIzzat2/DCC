@@ -1,0 +1,307 @@
+<div class="container px-0">
+  <div class="information-section">
+    <form [formGroup]="model.generalInfoForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <!-- ُEntity Name -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">{{"shared.generalFeilds.entityName" | translate}} <span class="required"> *</span></label>
+                <input type="text" formControlName="entityName" />
+                <!-- <div *ngIf="model.submitted && model.f['entityName'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['entityName'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>Entity name is
+                    required
+                  </span>
+                </div> -->
+              </div>
+              <div *ngIf="model.submitted && model.f['entityName'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['entityName'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.entityNameIsRequired" | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Sector -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="">{{"shared.generalFeilds.sector" | translate}} <span class="required"> *</span></label>
+                <select formControlName="sectorId" class="form-select">
+                  <option value="null" hidden>{{"companyModule.general.selectSector" | translate}}</option>
+                  <option *ngFor="let opt of model.sectors" [value]="opt.id">
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="model.submitted && model.f['sectorId'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['sectorId'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.sectorIsRequired" | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Entity Type -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="">{{"shared.generalFeilds.entityType" | translate}} <span class="required"> *</span></label>
+                <select formControlName="entityTypeId" class="form-select">
+                  <option value="null" hidden>{{"companyModule.general.selectEntityType" | translate}}</option>
+                  <option
+                    *ngFor="let opt of model.entityTypes"
+                    [value]="opt.id"
+                  >
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="model.submitted && model.f['entityTypeId'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="model.f['entityTypeId'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.entityTypeIsRequired" | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Annual Turnover -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="turnover">{{"companyModule.general.anuualTurnover" | translate}}</label>
+                <select
+                  formControlName="annualTurnoverId"
+                  class="form-select"
+                  id="turnover"
+                >
+                  <option [value]="null" hidden selected>{{"companyModule.general.selectAnnualTurnover" | translate}}</option>
+                  <option
+                    *ngFor="let opt of model.annualTurnover"
+                    [value]="opt.id"
+                  >
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Company Size -->
+          <div class="col-md-6 col-sm-12">
+            <label class="form-label" for="">{{"companyModule.general.companySize" | translate}} <span class="required"> *</span></label>
+            <div class="radio-group-container">
+              <div class="form-check" *ngFor="let size of model.cmopnaySizes">
+                <input
+                  type="radio"
+                  [id]="size.id"
+                  [value]="size.id"
+                  formControlName="companySizeId"
+                />
+                <label class="form-check-label" [for]="size.id">{{
+                  size.name
+                }}</label>
+              </div>
+            </div>
+            <div
+              *ngIf="model.submitted && model.f['companySizeId'].errors"
+              style="margin-top: 25px"
+            >
+              <span
+                class="form-error"
+                *ngIf="model.f['companySizeId'].errors['required']"
+              >
+                <i class="fa-solid fa-circle-exclamation"></i>{{"shared.generalValidationErrorMessage.companySizeIsRequired" | translate}}
+              </span>
+            </div>
+          </div>
+          <!-- No. Of Employees -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="nEmplyees"
+                  >{{"companyModule.general.noEmployees" | translate}}</label
+                >
+                <select
+                  formControlName="numberofEmployeesId"
+                  class="form-select"
+                  id="nEmplyees"
+                >
+                  <option [value]="null" hidden selected>{{"companyModule.general.SelectNoOfEmployees" | translate}}</option>
+                  <option
+                    *ngFor="let opt of model.noOfEmplyees"
+                    [value]="opt.id"
+                  >
+                    {{ opt.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Parent Entity -->
+          <div class="col-md-6 col-sm-12">
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="">{{"companyModule.general.parentEntity" | translate}}</label>
+                <select formControlName="parentEntityId" class="form-select">
+                  <option value="null" hidden>{{"companyModule.general.selectParentEntity" | translate}}</option>
+                  <option *ngFor="let opt of model.companies" [value]="opt.id">
+                    {{ opt.entityName }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Subsidairy Entity -->
+          <div class="col-md-6 col-sm-12">
+            <!-- Subsidairy Entity-Feild -->
+            <div class="input mb-30px margin-top-sm">
+              <div class="input-content">
+                <label class="form-label" for="SubsidairyEntities"
+                  >{{"companyModule.general.subsidiaryEntity" | translate}}</label
+                >
+                <input
+                  id="SubsidairyEntities"
+                  autocomplete="new-industry"
+                  type="text"
+                  [placeholder]="'shared.Placeholders.SearchByName' | translate"
+                  aria-label="Subsidiary EntitiesIds"
+                  autocomplete="off"
+                  matInput
+                  formControlName="subsidiaryEntitiesIds"
+                  [matAutocomplete]="autoooo"
+                  #subEntites
+                  multiple
+                />
+                <mat-autocomplete
+                  autoActiveFirstOption
+                  #autoooo="matAutocomplete"
+                >
+                  <mat-option
+                    *ngFor="let option of model.subEntities | async"
+                    [value]="option.name"
+                    (click)="
+                      model.addOpt(
+                        model.selectedSubEntites,
+                        'subsidiaryEntitiesIds',
+                        option
+                      )
+                    "
+                  >
+                    {{ option.entityName }}
+                  </mat-option>
+                </mat-autocomplete>
+                <!-- <div
+                  *ngIf="
+                    model.selectedSubEntites.length === 0 &&
+                    model.f['subsidiaryEntitiesIds'].touched
+                  "
+                >
+                  <span class="form-error">
+                    <i class="fa-solid fa-circle-exclamation"></i> You must
+                    select at least one Entity
+                  </span>
+                </div> -->
+              </div>
+              <div
+                class="selected-items-container"
+                *ngIf="model.selectedSubEntites.length !== 0"
+              >
+                <app-tags
+                  [SelectedItems]="model.selectedSubEntites"
+                  [itemName]="'Entity'"
+                  [itemNameAr]="'الشركة او الشركات'"
+                  (onRemoveTag)="
+                    model.removeOpt(model.selectedSubEntites, $event)
+                  "
+                ></app-tags>
+              </div>
+            </div>
+          </div>
+          <!-- Industry(s) -->
+          <div class="col-md-6 col-sm-12">
+            <!-- industry-Feild -->
+            <div class="input my-3">
+              <div class="input-content">
+                <label class="form-label" for="">{{"companyModule.general.industry" | translate}}</label>
+                <input
+                  autocomplete="new-industry"
+                  type="text"
+                  [placeholder]="('shared.Placeholders.SearchByName' | translate)"
+                  aria-label="Industries"
+                  autocomplete="off"
+                  matInput
+                  formControlName="industryId"
+                  [matAutocomplete]="autooo"
+                  #indust
+                  multiple
+                />
+                <mat-autocomplete
+                  autoActiveFirstOption
+                  #autooo="matAutocomplete"
+                >
+                  <mat-option
+                    *ngFor="let option of model.filteredOptionsInd | async"
+                    [value]="option.name"
+                    (click)="
+                      model.addOpt(
+                        model.selectedIndustries,
+                        'industryId',
+                        option
+                      )
+                    "
+                  >
+                    {{ option.name }}
+                  </mat-option>
+                </mat-autocomplete>
+                <!-- <div
+                  *ngIf="
+                    model.selectedIndustries.length === 0 &&
+                    model.f['industryId'].touched
+                  "
+                >
+                  <span class="form-error">
+                    <i class="fa-solid fa-circle-exclamation"></i> You must
+                    select at least one industry
+                  </span>
+                </div> -->
+              </div>
+              <div
+                class="selected-items-container"
+                *ngIf="model.selectedIndustries.length !== 0"
+              >
+                <app-tags
+                  [SelectedItems]="model.selectedIndustries"
+                  [itemName]="'Industry'"
+                  [itemNameAr]="'الصناعة او الصناعات'"
+                  (onRemoveTag)="
+                    model.removeOpt(model.selectedIndustries, $event)
+                  "
+                ></app-tags>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <div
+          class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+          *ngIf="!getSteeperState()"
+        >
+          <div class="normal-register">
+            <button class="btn" (click)="model.saveUpdate()">{{"shared.actions.save" | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

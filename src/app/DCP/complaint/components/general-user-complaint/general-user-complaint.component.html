@@ -1,0 +1,119 @@
+<div class="general-comlaint">
+  <div class="general-comlaint-wrapper">
+    <form [formGroup]="model.generalComplaintForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <div class="col-md-12">
+            <div class="row">
+
+              <div class="col-sm-12 col-md-6">
+                <!-- Complaint Type -->
+                <div class="input mb-30px margin-top-sm mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="type">{{'complaintsModule.complaintsInfo.type' | translate}}
+                      *</label>
+                    <select formControlName="complaintType" class="form-select" id="type">
+                      <option selected value="1">General</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- First Name -->
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="name">{{'shared.generalFeilds.name' | translate}} *</label>
+                    <input type="text" formControlName="name" id="name" />
+                  </div>
+                  <div *ngIf="model.submitted && model.f['name'].errors">
+                    <span class="form-error" *ngIf="model.f['name'].errors['required']">
+                      <i
+                        class="fa-solid fa-circle-exclamation"></i>{{'shared.generalValidationErrorMessage.nameRequired'
+                      | translate}}
+
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="input mb-30px mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.email' | translate}} *</label>
+                    <!-- <span class="optional-lable"> ({{'shared.generalWord.optional' | translate}})</span> -->
+                    <input type="text" formControlName="email" />
+                  </div>
+                  <div *ngIf="model.submitted && model.f['email'].errors">
+                    <span class="form-error mb-2" *ngIf="model.f['email'].errors['required']">
+                      <i
+                        class="fa-solid fa-circle-exclamation"></i>{{'shared.generalValidationErrorMessage.emailRequired'
+                      | translate}}
+                    </span>
+                    <span class="form-error" *ngIf="model.f['email'].errors['pattern']">
+                      <i
+                        class="fa-solid fa-circle-exclamation"></i>{{'shared.generalValidationErrorMessage.emailNotValid'
+                      | translate}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 ">
+                <div class="input mb-30px mt-3">
+                  <label for="mobile">
+                    <label class="form-label" for="">{{'shared.generalFeilds.phoneNumber' | translate}} *</label>
+                  </label>
+
+                  <div dir="ltr" class="input-content mobileFeild inputHasSuffixOrPrefix">
+                    <ngx-intl-tel-input id="mobileInput" [preferredCountries]="model.preferredCountries"
+                      [selectFirstCountry]="true" [separateDialCode]="true" [enablePlaceholder]="false"
+                      formControlName="phoneNumber" [phoneValidation]="true" [searchCountryFlag]="true"
+                      [searchCountryField]="[
+                        model.searchCountryField.Iso2,
+                        model.searchCountryField.Name
+                      ]">
+                    </ngx-intl-tel-input>
+                  </div>
+
+                  <div *ngIf="model.submitted && model.f['phoneNumber'].errors">
+                    <span class="form-error mb-2" *ngIf="model.f['phoneNumber'].errors['required']">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.phoneNumberRequired' | translate}}
+                    </span>
+                    <span class="form-error" *ngIf="
+                        model.f['phoneNumber'].status == 'INVALID' &&
+                        !model.f['phoneNumber'].errors['required']
+                      ">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.phoneNumberNotValid' | translate}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for="desc">{{'shared.generalFeilds.writeDescription' | translate}}
+                      *</label>
+                    <textarea class="w-100 form-textarea" formControlName="description" id="desc"
+                      style="resize: none"></textarea>
+                    <div *ngIf="model.submitted && model.f['description'].errors">
+                      <span class="form-error" *ngIf="model.f['description'].errors['required']">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{'shared.generalValidationErrorMessage.descriptionRequired' | translate}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="save-buttons mt-5 d-flex flex-column justify-content-end align-items-end">
+          <div class="send">
+            <button class="btn" (click)="model.sendComplaint()">{{'shared.actions.submit' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

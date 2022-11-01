@@ -1,0 +1,30 @@
+<h4 class="title">{{'opportunitiesModule.opportunitiesInfo.referralsList' | translate}}</h4>
+
+<ng-container *ngIf="!model.loading">
+  <app-lead-widget
+    [status]="3"
+    *ngFor="
+      let item of model.referralsData
+        | paginate: { itemsPerPage: 5, currentPage: model.p }
+    "
+    [referral]="item"
+    [showIndetails]="false"
+  ></app-lead-widget>
+
+<no-data [item]="'shared.generalWord.referral' |translate" *ngIf="model.referralsData && model.referralsData.length == 0"></no-data>
+
+  <div *ngIf="model.referralsData.length != 0">
+    <div
+      class="pagination-section d-flex justify-content-center align-items-center"
+    >
+      <app-paginator (pageChange)="model.changePage($event)"></app-paginator>
+    </div>
+  </div>
+</ng-container>
+
+<!-- skelton loader -->
+<div class="row mt-3" *ngIf="model.loading">
+  <div class="col-12" *ngFor="let x of [1, 2, 3, 4, 5]">
+    <card-loader [height]="60"></card-loader>
+  </div>
+</div>

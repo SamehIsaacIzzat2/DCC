@@ -1,0 +1,37 @@
+<div class="ser-dir">
+  <div class="ser-dir-wapper">
+    <div class="banner">
+      <banner
+        (filter)="model.filterdataByText($event)"
+        [bannerData]="banner"
+        [bannerMode]="2"
+        [paddingFlag]="true"
+        [withoutSearchButton]="true"
+        [logineduser]="authenticationFlag"
+      >
+      </banner>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="page-title">{{banner.title}}</p>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <!-- // filter -->
+          <app-event-filter
+            (filter)="model.filterData($event)"
+            (removeFilter)="model.removefilterData($event)"
+          ></app-event-filter>
+        </div>
+        <div class="col-md-9 col-sm-12 g-0">
+          <app-event-list
+            [items]="model.rowData"
+            [loading]="model.loading"
+            (chnageStateEvent)="model.chnageState($event)"
+          ></app-event-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

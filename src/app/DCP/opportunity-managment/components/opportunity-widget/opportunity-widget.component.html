@@ -1,0 +1,83 @@
+<div class="request-widget" *ngIf="status == 1 && !showIndetails" [routerLink]="'/opportunities/opportunityDetails/' + item.id+'/opportunityinfo'">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 g-0">
+            <div class="request-type d-flex align-items-center">
+                <div class="icon">
+                    <img src="../../../../assets/images/Requests.svg" />
+                </div>
+                <div class="request-title mx-4">
+                    <span style="text-decoration:underline;">{{'opportunitiesModule.opportunitiesInfo.opportunityNo' | translate}}</span>
+                    <h4>{{item.opportunityNumber}}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 g-0">
+            <div class="request-date">
+                <span>{{'reqestModule.requestWidget.createdOn' | translate}}</span>
+                <h4>{{item.createdOn | customDate:"dd-MM-yyyy"}}</h4>
+            </div>
+        </div>
+        <div class="col-md-4  col-sm-6 g-0">
+            <div class="status-part d-flex justify-content-end align-items-center">
+
+                <div class="request-date">
+                    <span>{{'shared.generalFeilds.status' | translate}}</span>
+                    <h4>{{item.statusName}}</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="request-widget indetails" *ngIf="item&& showIndetails">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="request-type d-flex align-items-center">
+                <div class="icon">
+                    <img src="../../../../assets/images/whiteFile.svg"/>
+                </div>
+                 <div class="request-title mx-4" *ngIf="item.opportunityNumber">
+                    <span>{{'opportunitiesModule.opportunitiesInfo.opportunityNo' | translate}} {{item.opportunityNumber}}</span>
+                    <h4>{{item.opportunityName}}</h4>
+                 </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row justify-content-between">
+                <div class="col-md-4">
+                    <div class="request-date">
+                     <span>{{'reqestModule.requestWidget.createdOn' | translate}}</span>
+                     <h4>{{item.createdOn | customDate:"dd-MM-yyyy"}}</h4>
+                    </div>
+                 </div>
+                <div class="col-md-4 ">
+                   <div class="request-status">
+                    <span>{{'shared.generalFeilds.status' | translate}}</span>
+                    <h4 >
+                        <!-- {'submitStyle':item.requestStatus=='Submitted'},
+                        { 'responseStyle':item.requestStatus=='No Response'},
+                        {'progressStyle':item.requestStatus=='In Progress'} -->
+                        <span [ngClass]="{'DraftStyle':item.statusName=='Draft' || item.statusName=='Closed',
+                                          'custsubmitStyle':item.statusName=='Submitted',
+                                          'responseStyle':item.statusName=='No Response',
+                                          'progressStyle':item.statusName=='In Progress'
+                                        }">
+
+                        {{item.statusName}}
+                    </span>
+                    </h4>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

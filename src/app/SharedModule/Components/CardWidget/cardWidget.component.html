@@ -1,0 +1,14 @@
+<div class="widget">
+    <div class="data">
+        <div class="icon">
+            <img width="40" height="33" [src]="'assets/images/'+service.icon +'.svg'">
+            <!-- <mat-icon>{{service.icon}}</mat-icon> -->
+        </div>
+        <h5 class="title">{{service.title}}</h5>
+    </div>
+    <div class="actions">
+        <div class="info">{{service.info}}</div>
+        <a class="setting" [routerLink]="[service.link]" routerLinkActive="router-link-active"
+            [class.disabled]="service?.disabled"> {{"shared.actions.startService" | translate}}</a>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div *ngIf="item">
+  <div class="request-datails">
+    <div class="company">
+      <div class="line"></div>
+      <h3>{{ "shared.generalWord.company" | translate }}</h3>
+      <div class="row">
+       <div class="col-md-6">
+        <p *ngIf="item.companyId">{{item.companyId }}</p>
+       </div>
+      </div>
+
+      <p  *ngIf="!item.companyId" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+    </div>
+    <!-- <div *ngIf="item.companyIds" class="interest">
+            <div class="line"></div>
+            <h3>Company</h3>
+            <p *ngIf="item.companyIds">{{item.companyIds}}</p>
+        </div> -->
+    <!-- <div class="interest">
+            <div class="line"></div>
+            <h3>Looking For</h3>
+            <p *ngIf="item.interestId">{{item.interestId}}</p>
+        </div> -->
+
+    <div class="product">
+      <h3>{{'reqestModule.requestDetails.data.hSProducts' |translate}}</h3>
+
+      <div *ngIf="item.productsIds" class="codes row justify-content-between">
+        <!-- <div class="col-md-6"><p>344343- HS CODE Title will be shown here and  take a full ,,</p> </div> -->
+        <ng-container *ngIf="item.productsIds?.length >0" >
+          <div *ngFor="let term of item.productsIds" class="col-md-6">
+            <p class="background-gray">{{ term }}</p>
+          </div>
+        </ng-container>
+        <p  *ngIf="item.productsIds?.length ==0" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+      </div>
+    </div>
+    <div class="Industry">
+      <h3>{{'reqestModule.requestDetails.data.industry' |translate}}</h3>
+
+      <div *ngIf="item.industriesIds" class="codes row justify-content-between">
+        <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+        <ng-container *ngIf="item.industriesIds?.length >0" >
+          <div *ngFor="let term of item.industriesIds" class="col-md-6">
+            <p>{{ term }}</p>
+          </div>
+        </ng-container>
+        <p  *ngIf="item.industriesIds?.length == 0" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+
+        
+      </div>
+    </div>
+    <div class="activities">
+      <h3>{{'reqestModule.requestDetails.data.activity' |translate}}</h3>
+
+      <div *ngIf="item.activitiesIds" class="codes row justify-content-between">
+        <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+        <ng-container *ngIf="item.activitiesIds?.length >0" >
+          <div *ngFor="let term of item.activitiesIds" class="col-md-6">
+            <p class="background-gray">{{ term }}</p>
+          </div>
+        </ng-container>
+        <p  *ngIf="item.activitiesIds?.length == 0" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+        
+      </div>
+    </div>
+    <div class="interest">
+      <div class="line"></div>
+      <h3>{{'reqestModule.requestDetails.data.lookingFor' |translate}}</h3>
+      <div class="row">
+       <div class="col-md-6">
+        <p *ngIf="item.interestId">{{ item.interestId }}</p>
+       </div>
+      </div>
+
+      <p  *ngIf="!item.interestId" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+    </div>
+
+    <div class="Locations">
+      <h3>{{'reqestModule.requestDetails.data.location' |translate}}</h3>
+      <ng-container *ngIf="item.locations?.length >0"  >
+        <div class="row">
+          <div *ngFor="let term of item.locations" class="col-md-6 col-sm-12">
+            <p>{{ term }}</p>
+          </div>
+        </div>
+        
+      </ng-container>
+      <p  *ngIf="item.locations?.length == 0" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+      
+    </div>
+
+    <div class="Description">
+      <h3>{{'reqestModule.requestDetails.data.description' |translate}}</h3>
+      <p *ngIf="item.description">{{ item.description }}</p>
+      <p  *ngIf="!item.description" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+    </div>
+  </div>
+</div>

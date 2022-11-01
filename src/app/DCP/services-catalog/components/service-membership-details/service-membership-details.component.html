@@ -1,0 +1,63 @@
+<div class="service-details">
+  <div class="service-details-wrapper">
+    <div class="banner">
+      <banner [bannerData]="banner" [bannerMode]="3">
+        <banner-membership-details [serviceDetails]="serDerails" serviceUrl="/dcc/services/memberships/new-membership">
+        </banner-membership-details>
+      </banner>
+    </div>
+    <div class="container">
+      <p class="page-title">{{banner.title}}</p>
+      <div class="main-cont row">
+        <div class="details col-sm-12 col-md-8">
+          <div class="line"></div>
+          <accordion-item [item]="{title:'reqestModule.createRequest.aboutTheService'|translate,icon:'settings'}">
+            {{"reqestModule.createRequest.aboutMembershipTxt"|translate}}
+          </accordion-item>
+          <div class="line"></div>
+          <accordion-item [item]="{title:'reqestModule.createRequest.serviceProcedure'|translate,icon:'ac_unit'}">
+            <ul class="custom-list">
+              <li class="long-text">{{"reqestModule.createRequest.Procedure1"|translate}}</li>
+              <li>{{"reqestModule.createRequest.Procedure2"|translate}}</li>
+              <li>{{"reqestModule.createRequest.Procedure3"|translate}}</li>
+              <li>{{"reqestModule.createRequest.Procedure4"|translate}}</li>
+            </ul>
+          </accordion-item>
+          <div class="line"></div>
+          <accordion-item [item]="{title:'reqestModule.createRequest.serviceRequirements'|translate,icon:'book'}">
+            <div class="requires">
+              <div class="item">
+                <h6>{{"reqestModule.createRequest.signatureBusinessMatchingRequest"|translate}}</h6>
+                <ul>
+                  <li>{{"reqestModule.createRequest.signature1"|translate}}</li>
+                  <li><span style="text-decoration: underline;color:#A73439">{{"reqestModule.createRequest.signatureCard"|translate}}</span> {{"reqestModule.createRequest.signature2"|translate}}</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h6>{{"reqestModule.createRequest.authenticateCertificate"|translate}}</h6>
+                <ul>
+                  <li>{{"reqestModule.createRequest.DocumentsRequireAttestation"|translate}}</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h6>{{"reqestModule.createRequest.trueCopy"|translate}}</h6>
+                <ul>
+                  <li>{{"reqestModule.createRequest.TrueCopyDocumentsRequireAttestation"|translate}}</li>
+                </ul>
+              </div>
+            </div>
+          </accordion-item>
+        </div>
+        <div class="side col-sm-12 col-md-3" style="padding-right: 0;">
+          <div class="side-wrapper">
+            <membership-details-aside></membership-details-aside>
+          </div>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="survey">
+        <survey></survey>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container px-0 h-100">
+  <div class="avatar-upload">
+    <label class="hoverable" [for]="uniqueId || 'fileInput'">
+      <img class="intial-image " [src]="imageUrl" *ngIf="imageUrl && !uploadedImage" />
+      <img class="uploaded-image " [src]="uploadedImage" *ngIf="uploadedImage" onerror="this.src='assets/images/default_img.png';this.onerror=''"/>
+      <div class="hover-text" *ngIf="uploadedImage ">{{ hoverText }}</div>
+      <div class="intial-title" *ngIf="imageUrl && !uploadedImage">{{ title }}</div>
+      <div class="background"></div>
+    </label>
+    <input [id]="uniqueId || 'fileInput'" type="file" (change)="uploadFile($event)" />
+  </div>
+</div>

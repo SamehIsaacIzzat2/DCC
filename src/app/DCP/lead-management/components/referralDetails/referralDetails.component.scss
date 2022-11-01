@@ -1,0 +1,42 @@
+@import "../../../../../assets/styles/helpers/variables";
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+.details {
+  margin-bottom: 80px;
+}
+
+.details-item {
+  margin-bottom: 35px;
+
+  .title {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    color: $secondaryColor;
+    @include rtl_value("padding-left", 15px, unset);
+    @include rtl_value("padding-right", unset, 15px);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background-color: $secondaryColor;
+      border-radius: 2px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #2f3334;
+  }
+}
+.Dummy-data{
+  color: #94a3b8 !important;
+  font-size: 16px;
+  font-weight: 400;
+}

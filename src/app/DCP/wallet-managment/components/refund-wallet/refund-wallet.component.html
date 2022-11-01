@@ -1,0 +1,119 @@
+<div class="wallet-recharge my-5">
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h4>{{'memberShipsModule.wallet.refundWallet' |translate}}</h4>
+            </div>
+        </div>
+        <div class="refund-inputs">
+            <form [formGroup]="model.walletRefundForm">
+                <!-- bank Name -->
+                <!-- <div class="col-12 my-4">
+                <div class="input mb-30px">
+                    <div class="input-content">
+                        <label class="form-label" for="">
+                            {{ "memberShipsModule.bankTransfere.bankName" | translate }}
+                            <span class="required-star required">*</span>
+                        </label>
+                        <input type="text" formControlName="bankName" id="bankName"
+                            [placeholder]="'memberShipsModule.bankTransfere.bankName' | translate" />
+                    </div>
+                    <div
+                        *ngIf="(model.submitted||model.f['bankName'].touched) && model.f['bankName'].errors">
+                        <span class="form-error" *ngIf="model.f['bankName'].errors['required']">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                        </span>
+                    </div>
+                </div>
+            </div> -->
+
+                <div class="col-12">
+                    <!-- title -->
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">{{ "memberShipsModule.bankTransfere.bankName" | translate }} *</label>
+                            <select formControlName="bankName" id="bankName" 
+                            placeholder="'memberShipsModule.bankTransfere.bankName' | translate" 
+                            class="form-select" >
+                                <option *ngFor="let opt of model.bankNames; let index = index" [value]="opt.bankId"
+                                    [attr.selected]="index === 0 ? true : null">
+                                    {{ opt.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="(model.submitted||model.f['bankName'].touched) && model.f['bankName'].errors">
+                            <span class="form-error" *ngIf="model.f['bankName'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iBanNumber -->
+                <div class="col-12  my-4">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">
+                                {{ "memberShipsModule.bankTransfere.IBANNumber" | translate }}
+                                <span class="required-star required">*</span>
+                            </label>
+                            <input type="text" formControlName="iBanNumber" id="iBanNumber"
+                                [placeholder]="'memberShipsModule.bankTransfere.IBANNumber' | translate" />
+                        </div>
+                        <div *ngIf="(model.submitted||model.f['iBanNumber'].touched) && model.f['iBanNumber'].errors">
+                            <span class="form-error" *ngIf="model.f['iBanNumber'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                            </span>
+                            <span class="form-error" *ngIf="model.f['iBanNumber'].errors['ibanInvalid']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{ "shared.generalValidationErrorMessage.invalidIBAN" | translate }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Acount number -->
+                <div class="col-12 my-4">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">
+                                {{
+                                "memberShipsModule.bankTransfere.AccountNumber" | translate
+                                }}
+                                <span class="required-star required">*</span>
+                            </label>
+                            <input type="text" formControlName="accountNumber" id="accountNumber"
+                                [placeholder]="'memberShipsModule.bankTransfere.AccountNumber' | translate" />
+                        </div>
+                        <div
+                            *ngIf="(model.submitted||model.f['accountNumber'].touched) && model.f['accountNumber'].errors">
+                            <span class="form-error" *ngIf="model.f['accountNumber'].errors['required']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                            </span>
+                            <span class="form-error" *ngIf="model.f['accountNumber'].errors['incorrect']">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                {{ "shared.generalValidationErrorMessage.invalidAccountNumber" |
+                                translate }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <div class="refund-action d-flex ">
+                <div class="ouline-button">
+                    <button (click)="model.cancle()">{{'shared.actions.cancle' |translate}}</button>
+                </div>
+                <div class="normal-button">
+                    <button (click)="model.refundWallet()">{{'memberShipsModule.wallet.refund' |translate}}</button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

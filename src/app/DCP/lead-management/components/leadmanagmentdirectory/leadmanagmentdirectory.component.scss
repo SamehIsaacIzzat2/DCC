@@ -1,0 +1,87 @@
+@import "../../../../../assets/styles/helpers/variables";
+// #All p tag
+p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2F3334
+}
+.page-title{
+    color: #1D4861;
+    font-size: 28px;
+    font-weight: 700;
+  }
+.main-container {
+    justify-content: center;
+
+    // #style use in right side
+    .right-side {
+        .row {
+
+            // justify-content: space-between;
+            // gap:20px;
+            img.status {
+                width: 100%;
+
+            }
+
+            img.servises {
+                width: 117%;
+            }
+
+
+        }
+
+        .request-part {
+            @media (max-width:767px){
+                margin:1.5rem !important;
+            }
+            @media (max-width:350px){
+              flex-direction: column;
+              button{
+                margin:10px 0px;
+              }
+            }
+            p {
+                margin-bottom: 0px;
+                color:#1D4861;
+                font-size: 23px;
+            }
+
+            button {
+                background-color: $secondaryColor;
+                width: 180px;
+                border: 1px solid $secondaryColor;
+                color: #fff;
+                border-radius: 0px;
+                padding: 0.6rem 0.75rem;
+            }
+        }
+    }
+}
+
+
+@media screen and(max-width:768px) {
+    .right-side {
+        .images {
+            .services {
+                margin-top: 20px;
+            }
+        }
+    }
+
+
+}
+
+@media screen and(max-width:992px) {
+
+    img.servises {
+        width: 100% !important;
+    }
+}
+
+.allRequests{
+    @media (max-width:767px) {
+        width: 95%;
+        margin: 10px auto;
+    }
+}

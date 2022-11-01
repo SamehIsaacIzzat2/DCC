@@ -1,0 +1,23 @@
+<div
+  class="modal form-modal fade"
+  [id]="id"
+  role="dialog"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered animated modal-lg"
+    role="document"
+  >
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header" *ngIf="!hideLabel">
+        <h5 class="modal-title">{{ title }}</h5>
+      </div>
+
+      <!-- Dynamic Modal Content coming from parent component -->
+      <ng-content select="[modal-content]"></ng-content>
+    </div>
+  </div>
+</div>

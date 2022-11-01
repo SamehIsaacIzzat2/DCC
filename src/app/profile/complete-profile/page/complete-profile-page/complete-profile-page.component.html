@@ -1,0 +1,57 @@
+<div class="create-request my-4">
+  <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true"> </banner>
+  </div>
+
+  <div class="container">
+    <p class="page-title">{{model.banner.title}}</p>
+    <steeper
+      [steps]="model.steps"
+      (nextStepEvent)="model.nextStep()"
+      (editFormEvent)="model.backForm()"
+      [hideCancel]="true"
+      (submitEvent)="model.submit()"
+      [activeStep]="model.activeStep"
+    >
+      <div [ngStyle]="{ display: model.activeStep == 1 ? 'block' : 'none' }">
+        <div class="title">
+          <h4>{{'profileModule.generalInfo.personalInformation' |translate}}</h4>
+        </div>
+        <app-edit-general-information
+          [State]="2"
+          (sendSubmittedGeneralData)="model.setGeneralinfo($event)"
+        ></app-edit-general-information>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 2 ? 'block' : 'none' }">
+        <div class="title">
+          <h4>{{'profileModule.AddressInfo.addressInformation' |translate}}</h4>
+        </div>
+        <app-edit-address-information
+          [State]="2"
+          (sendSubmittedAdressData)="model.setAdressinfo($event)"
+        ></app-edit-address-information>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 3 ? 'block' : 'none' }">
+        <div class="title">
+          <h4>{{'profileModule.contactInfo.contactInformation' |translate}}</h4>
+        </div>
+        <app-edit-contact-information
+          [State]="2"
+          (sendSubmittedContactData)="model.setContactinfo($event)"
+        ></app-edit-contact-information>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 4 ? 'block' : 'none' }">
+        <div class="title">
+          <h4>{{'profileModule.socialInfo.socailInformation' |translate}}</h4>
+        </div>
+        <app-edit-social-information
+          [State]="2"
+          (sendSubmittedSocailData)="model.setSocialinfo($event)"
+        ></app-edit-social-information>
+      </div>
+      <div [ngStyle]="{ display: model.activeStep == 5 ? 'block' : 'none' }">
+        <preview></preview>
+      </div>
+    </steeper>
+  </div>
+</div>

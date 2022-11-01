@@ -1,0 +1,62 @@
+<div class="charts">
+  <!-- pie-chart -->
+  <div class="chart-wrapper pie-chart">
+    <h3 class="title">{{'reqestModule.requestChart.requestsStatus' |translate}}</h3>
+    <div class="chart doughnut pie-chart pe-3">
+      <div class="wrapper">
+        <p class="total">
+          <span>{{'reqestModule.requestChart.total' |translate}}</span>
+          <span class="number">{{totalRequest}}</span>
+        </p>
+
+        <canvas
+          width="200px"
+          baseChart
+          [data]="doughnutChartData"
+          [type]="doughnutChartType"
+          [options]="doughnutChartOptions"
+        >
+        </canvas>
+      </div>
+
+      <div class="data">
+        <div class="item" *ngFor="let state of data">
+          <span class="text">
+            <span
+              class="shape"
+              [ngClass]="{
+                required_action: state.status == 'draft',
+                waiting: state.status == 'submitted',
+                interested: state.status == 'open' ||state.status == 'pending' ||state.status == 'Pending',
+                closed: state.status == 'closed'
+              }"
+            >
+            </span>
+            <!-- <span [ngClass]="{'arstyle':this.langSer.getLangFromLocalStorage() =='ar'}"  class="status ms-2">{{state.status}}</span> -->
+            <span *ngIf="this.langSer.getLangFromLocalStorage() =='en'" [ngClass]="{'arstyle':this.langSer.getLangFromLocalStorage() =='ar'}"  class="status ms-2">{{state.status}}</span>
+            <span *ngIf="this.langSer.getLangFromLocalStorage() =='ar'" [ngClass]="{'arstyle':this.langSer.getLangFromLocalStorage() =='ar'}"  class="status ms-2">
+              {{state.status |arStatus }} 
+            </span>
+          </span>
+          <!-- dispaly percentange for requests -->
+          <span class="percentage">
+            <!-- <span  class="percentage" *ngIf="state.percentage/totalRequest*100 < 10">0</span> -->
+            {{ (state.percentage / totalRequest) * 100 | number: "1.0-0" }}
+            <span class="percentage" *ngIf="totalRequest == 0">0</span>
+            <span class="sign">%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bar-chart -->
+  <!-- <div class="chart-wrapper bar-chart ">
+    <h3 class="title">Services Types</h3>
+    <div class="chart ps-3">
+      <canvas width="250px" height="250px" baseChart [data]="barChartData" [plugins]="barChartPlugins"
+        [options]="barChartOptions" [type]="barChartType">
+      </canvas>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,11 @@
+<div class="tabs-container">
+    <div class="row tab-header">
+        <div class="col-1"></div>
+        <img class="col-1" [routerLink]="prevRoute" (click)="prev()" src="../../../../assets/images/arrow-left.svg"/>
+        <span class="col-8 tab-title">{{activeTab.title}}</span>
+        <img class="col-1" [routerLink]="nextRoute" (click)="next()" src="../../../../assets/images/arrow-right.svg"/>
+    </div>
+    <div class="tab-body">
+        <router-outlet></router-outlet>
+    </div>
+</div>

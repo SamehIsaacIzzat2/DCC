@@ -1,0 +1,913 @@
+{
+  "layout": {
+    "navItems": {
+      "services": "Services",
+      "resources": "Recources",
+      "mediaCenter": "Media Center",
+      "aboutUs": "About Us",
+      "events": "Events",
+      "contactUs": "Contact Us",
+      "hi": "Hi"
+    },
+    "footer": {
+      "ToilFree": "TOLL FREE",
+      "800CHAMBER": "800 CHAMBER ( 800 242 6237)",
+      "QuickLinks": {
+        "text": "QUICK LINKS",
+        "contact": "Contact",
+        "privacyPolicy": "Privacy Policy",
+        "FAQ": "FAQ",
+        "Complaints": "Complaints",
+        "Terms&Conditions": "Terms & Conditions",
+        "Sitemap": "Sitemap"
+      },
+      "websiteUpdatedOn": "Website Updated On",
+      "GETCONNECTED": "GET CONNECTED",
+      "SUBSCRIBE NEWSLETTER": "SUBSCRIBE NEWSLETTER",
+      "Copyright2022DubaiChamberOfCommerce&Industry": "Copyright 2022 Dubai Chamber Of Commerce & Industry"
+    }
+  },
+  "shared": {
+    "actions": {
+      "login": "Login",
+      "register": "Register",
+      "confirm": "Confirm",
+      "save": "Save",
+      "draft": "Save As Draft",
+      "startService": "Start Service",
+      "accept": "Accept",
+      "reject": "Reject",
+      "yes": "Yes",
+      "no": "No",
+      "send": "Send",
+      "create": "Create",
+      "alreadyHaveAccountLogin": "If you already have an account, please log in",
+      "editInformation": "Edit Information",
+      "next": "Next",
+      "saveAsDraft": "Save As Draft",
+      "previous": "Previous",
+      "submit": "Submit",
+      "editPhoto": "Edit Photo",
+      "back": "Back",
+      "payNow": "Pay Now",
+      "cancle": "Cancel"
+    },
+    "Placeholders": {
+      "enterYourEmailAddress": "Enter your email address",
+      "email": "user@company.com",
+      "idNumber": "ID Number",
+      "SearchByName": "Search By Name",
+      "writeMessageHere": "Write your message here",
+      "companyLinkedIn": "Company LinkedIn",
+      "companyInstagram": "Company Instagram",
+      "companyFacebook": "Company Facebook",
+      "companyTwitter": "Company Twitter",
+      "companyWebsite": "Company Website",
+      "companyOtherLinks": "Company Other Social Media",
+      "enterFirstName": "Enter Your firstname",
+      "enterLastName": "Enter Your lastname",
+      "enterEmail": "Enter Your Email",
+      "userName":"Enter your username"
+    },
+    "filterData": {
+      "filterBy": "Filter By",
+      "requestStatus": "Request Status",
+      "serviceType": "Service Type",
+      "sortingBy": "Sorting by",
+      "applyFilter": "Apply Filter",
+      "clear": "Clear",
+      "searchBy": "Search By",
+      "quickFind": "Quick Find"
+    },
+    "generalWord": {
+      "all": "All",
+      "closed": "closed",
+      "draft": "draft",
+      "open": "open",
+      "close":"Close",
+      "submitted": "submitted",
+      "note": "Note",
+      "notes": "Notes",
+      "noValue": "No value",
+      "selectCountry": "Select a Country",
+      "selectCity": "Select a City",
+      "optional": "Optional",
+      "preview": "Preview",
+      "opportuinities": "Opportuinities",
+      "match": "Match",
+      "selected": "Selected",
+      "searchByName": "Search by Name",
+      "noCountryFound": "No country found",
+      "select": "Select",
+      "or": "Or",
+      "number": "Number",
+      "successful": "Successful",
+      "unsuccessful": "Unsuccessful",
+      "draftnumber": "Draft number",
+      "hasBeenUpdated": "has been updated",
+      "hasBeenSubmitted": "has been submitted",
+      "submittedsuccessfully": "Submitted successfully",
+      "referenceID": "Reference ID",
+      "no": "No",
+      "yet": "yet",
+      "AddYourFirst": "Add your first",
+      "senetance-cont": "to start the first step towards a success story",
+      "company": "Company",
+      "selectCompany": "Select Company",
+      "event": "event",
+      "interaction": "interaction",
+      "lead": "lead",
+      "message": "message",
+      "referral": "referral",
+      "opportunity": "opportunity",
+      "request": "request",
+      "requiredData": "Enter all required data !",
+      "wrongSomeThing": "Something went wrong",
+      "updatedInfo": "Info Updated Successfully",
+      "special": "Special",
+      "results": "Results",
+      "requestInfo": "Request Information",
+      "cancel": "Cancel",
+      "add": "Add",
+      "verifyFirst": "Please verify first",
+      "continue": "Continue",
+      "AED":"AED"
+    },
+    "generalFeilds": {
+      "title": "Title",
+      "name": "Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "nationality": "Nationality",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "emiratesID": "Emirates ID",
+      "passportNumber": "Passport Number",
+      "unifiedID": "Unified ID",
+      "address": "Address",
+      "country": "Country",
+      "city": "City",
+      "type": "Type",
+      "provinceAndState": "Province / State",
+      "zipCode": "Zip Code",
+      "workEmail": "Work Email",
+      "personalEmail": "Personal Email",
+      "officeNumber": "Office Number",
+      "workNumber": "Work Number",
+      "mobileNumber": "Mobile Number",
+      "website": "Website",
+      "linkedin": "Linkedin",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "otherLinks": "Other Links",
+      "product": "Product",
+      "industry": "Industry",
+      "activity": "Activity",
+      "location": "Location",
+      "date": "Date",
+      "activities": "Activity(s)",
+      "products": "Product(s)",
+      "industries": "Industry(s)",
+      "locations": "Locations",
+      "status": "Status",
+      "days": "Days",
+      "description": "Description",
+      "writeDescription": "Write a description here",
+      "specifyinteraction": "specify Interaction",
+      "proposedDateTime": "proposed Date & Time",
+      "department": "Department",
+      "entityName": "Entity Name",
+      "sector": "Sector",
+      "entityType": "Entity Type",
+      "exteranlType": "External Entity",
+      "input": "Input"
+    },
+    "generalValidationErrorMessage": {
+      "titleRequired": "Title is required",
+      "nameRequired": "Name is required",
+      "firstNameRequired": "First Name is required",
+      "lastNameRequired": " Last Name is required",
+      "nationalityRequired": "Nationality is required",
+      "emailRequired": "Email is required",
+      "emailNotValid": "Email is not valid",
+      "phoneNumberRequired": "Phone Number is required",
+      "phoneNumberNotValid": "Phone Number is not valid",
+      "emiratesIDRequired": "Emirates ID is required",
+      "emiratesIDNotValid": "Emirates ID is invalid",
+      "emiratesIDNotReachRequirdLength": "Emirates ID must be 15 numbers",
+      "descriptionRequired": "Description is required",
+      "requestNumberRequired": "Request Number is required",
+      "requestNumberNotValid": "Request Number is not valid",
+      "eventRequired": "Event is required",
+      "eventNotValid": "Event is not valid",
+      "interactionRequired": "Interaction is required",
+      "interactionTypeRequired": "Interaction Type is required",
+      "proposedDateTimeRequired": "Proposed Date & Time is required",
+      "outcomeRequired": "Outcome is required",
+      "complaintRequired": "Complaint is required",
+      "passportNumberRequired": "Passport number is required",
+      "unifiedIDRequired": " Invalid Unified ID format",
+      "requiredAddress": "Address is required",
+      "requiredCountry": "Country is required",
+      "requiredZIP": "Zip Code is required",
+      "requiredState": "State is required",
+      "requiredCity": "City is required",
+      "requiredWorkEmail": "Work Email is required",
+      "requiredPersonalEmail": "Personal Email is required",
+      "invalidOfficeNumber": "office Number is not valid",
+      "invalidWorkNumber": "Work Number is not valid",
+      "requiredMobileNumber": "mobile Number Number is required",
+      "invaidMobileNumber": "mobile Number Number is not valid",
+      "invalidWebsite": "Website Link is not valid",
+      "invalidLinkedIn": "Linkedin Link is not valid",
+      "invalidFacebook": "Facebook Link is not valid",
+      "invalidInstagram": "Instagram Link is not valid",
+      "invalidTwitter": "Twitter Link is not valid",
+      "invalidLink": "Link is not valid",
+      "invalidIBAN": "IBAN is not valid",
+      "invalidAccountNumber": "Account Number is not valid",
+      "productValidation": "You must select at least one product",
+      "industryValidation": "You must select at least one industry",
+      "activityValidation": "You must select at least one activity",
+      "countryValidation": "You must select at least one Country",
+      "cityValidation": "You must select at least one city",
+      "descriptionValidation": "Description is required",
+      "interestValidation": "Interest is required",
+      "entityNameIsRequired": "Entity name is required",
+      "sectorIsRequired": "Sector is required",
+      "entityTypeIsRequired": "Entity Type is required",
+      "companySizeIsRequired": "Company size is required",
+      "contactCreatorRequired": "Contact Creator is required",
+      "jobTitleRequired": "Job Title is required"
+    },
+    "comapnyInfo": {
+      "comapnyInfo": "Company Info",
+      "comapnySize": "Size",
+      "companyName": "Company Name",
+      "products": "Product(s)",
+      "activities": "Activity(s)",
+      "industries": "Industry(s)",
+      "locations": "Locations",
+      "entityNameIsRequired": "Entity name is required",
+      "sectorIsRequired": "Sector is required",
+      "entityTypeIsRequired": "Entity Type is required",
+      "companySizeIsRequired": "Company size is required"
+    }
+  },
+  "bannerData": {
+    "breadCrump": {
+      "home": "Home", 
+      "requests": "Requests",
+      "registration": "Registration",
+      "newAccount": "Create New Account",
+      "editProfile": "Edit Profile",
+      "dashBoard": "Dashboard",
+      "newRequest": "New Request",
+      "createRequest": "create requests",
+      "opportunitiesList": "Opportunities List",
+      "companies": "Companies",
+      "addCompany": "Add Company",
+      "newMemberShip": "New MemberShip",
+      "renewMemberShip":"Renew Membership",
+      "amendMemberShip":"Amend Membership",
+      "newCoo": "Issuing Certificate of Origin",
+      "memberships": "MemberShips",
+      "createCoo": "Create COO",
+      "cancleMembership":"Cancel Membership"
+    },
+    "mainTitle": {},
+    "bannerNavigationLinks": {
+      "requests": "Requests",
+      "leads": "Leads",
+      "leadDetails": "Lead Details",
+      "opportunites": "Opportunites",
+      "companies": "Companies",
+      "payment": "Payment",
+      "services": "Services",
+      "servicesDirectory": "Service Directory",
+      "Interactions": "Interactions",
+      "createInteraction": "Create Interaction"
+    },
+    "dropDown": {
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "search": "Type a keyword to search"
+  },
+  "registration": {
+    "registrationForm": {
+      "registrationForm": "Registration Form",
+      "registerationFailed": "Registeration Failed",
+      "personalInfo": "Personal info",
+      "personalInfoNote": " These fields are required and will help us to fasten your registration",
+      "identificationInfo": "Identification info",
+      "identificationInfoNote": "These fields are optional but fasten registration you need to fill at least one."
+    },
+    "success": {
+      "youHaveSuccessfullyRegistered": "You have successfully registered",
+      "viewRequests": "View Requests",
+      "yourPasswordChangedSuccessfuly": "your password changed successfuly",
+      "backtoLogin": "back to login"
+    },
+    "registrationVerification": {
+      "verificationCard": {
+        "Verification": "Verification",
+        "title": "Verification link is sent to your email/phone number.",
+        "title2": " Verification link is sent to your email",
+        "btnTxt2": "Enter New Password",
+        "btnText": "Go To Enter OTP"
+      }
+    },
+    "compeletRegistration": {
+      "lastStep": "Last step",
+      "info": "Please Enter below the OTP sent to your Email/Phone Number",
+      "otp": "OTP",
+      "requiredOtp": "OTP is required",
+      "invalidOtp": "OTP is not valid",
+      "compeletRegistration": "Complete Registration"
+    },
+    "createPassword": {
+      "createPassword": "Create Password",
+      "message": "Please create your password",
+      "password": "Password",
+      "requiredPassword": "Password is required",
+      "invalidPassword": "Password is not valid",
+      "confirmPassword": "Confirm Password",
+      "requiredConfirmPassword": "Password confirmation is required",
+      "passwordMust": "Password must",
+      "passwordValidationRule": {
+        "characterNumber": "At least eight (8) characters or more",
+        "digitNumber": "At least one (1) number",
+        "letterNumber": "At least one (1) capital letter",
+        "noSpace": "No spaces allowed"
+      }
+    }
+  },
+  "Login": {
+    "userName": "Username",
+    "requiredUserName": "User Name is required",
+    "invalidUserName": "User Name is not Valid",
+    "forgetpassword": "Forgot Your Password?",
+    "createNewAccount": "Don’t have Account?",
+    "UEAPathWaitingMessage": "Please wait while we complete your UAE Pass login...",
+    "forgetPass": "Forgot Password",
+    "changePassVerification": "Verification link is sent to your email",
+    "resetPassword": "Reset Password"
+  },
+  "reqestModule": {
+    "bannerTitle": {
+      "mainTitle": "My Requests"
+    },
+    "requestChart": {
+      "requestsStatus": "Requests Status",
+      "total": "Total"
+    },
+    "requestList": {
+      "myRequests": "My Requests",
+      "newRequest": "New Request"
+    },
+    "requestWidget": {
+      "requestNumber": "Request Number",
+      "status": "Status",
+      "createdOn": "Created On "
+    },
+    "requestDetails": {
+      "banner": {
+        "title": "Business Matching Request"
+      },
+      "data": {
+        "hSProducts": "HS-CODES / Product (s)",
+        "industry": "Industry (s)",
+        "activity": "Activity (s)",
+        "lookingFor": "Looking For",
+        "location": "Location (s)",
+        "description": "Description",
+        "companySize": "Company Size",
+        "country": "Country (s)",
+        "city": "City (s)"
+      },
+      "sideNav": {
+        "bussinessMatchRequest": "Business Matching Request",
+        "bussinessMatchResults": "Business Matching Results"
+      },
+      "requestInfo": {
+        "requestStatus": "Request Status",
+        "requestDetails": "Request Details"
+      },
+      "requestActionResult": {
+        "companyId": "Company ID",
+        "closeReqest": "Close Request",
+        "InitateLead": "Initiate Lead(s)"
+      }
+    },
+    "createRequest": {
+      "title": "Create Business Matching Request",
+      "productNote": "product will be shown according to selected industry and activity",
+      "fillingInfo": "Filling Information",
+      "previewInfo": "Preview Information",
+      "requestSendSucessfully": "Business Matching  is submitted successfully",
+      "viewRequests": "View Requests",
+      "requestNumber": "Your request reference number is",
+      "doYouFindContentHelpful": "Do you find this content helpful ?",
+      "print": "print",
+      "share": "share",
+      "favoriteService": "Favorite this service",
+      "bookmarkPage": "Bookmark this Page",
+      "serviceRating": "Service Rating",
+      "ratings": "Ratings",
+      "serviceAccomplishTime": "Service Accomplish Time",
+      "twoMinutesDubaiChamerWebsite": "2 minutes throuth Dubai Chamber website",
+      "sixMinutesDubaiChamperCustomerHappiness": "6 minutes throuth visiting Dubai Chamber customer happiness center",
+      "usersUsedService": "Users who used this service",
+      "serviceChannles": "Service Channels",
+      "submitDesc": "Submitting the application throuth Dubai Chamber website or the smart application and in case you encounter any issues during submition, you can procceed to customer happiness center",
+      "membershipServiceChannels":"Customer Happiness Centers<br/> Website<br/> Mobile application",
+      "aboutTheService": "About the Service",
+      "aboutTxt": "Dubai Chamber simplifies procedures of doing business by having the documents, correspondences and contracts attested for its members and facilating acceptance of these documents by the concerned authorities",
+      "aboutMembershipTxt":"the membership service is concerned with the registration of mainland and free zone companies licensed to practise all commercial , industrial and professional activities. The service helps customers to practise their econmici activities and enjoy Dubai Chamber's numeros other services and programmes aimed at supporting the growth of business sector. ",
+      "targetedCustomers":"Targeted Customers",
+      "mainland":"Mainland Licensed Companies",
+      "freeZoneLicensed":"Free Zone Licensed Companies",
+      "subServiceTransactional":"Sub service - Transactional",
+      "serviceProcedure": "Service Procedure",
+      "Procedure1": "submission of all necessary documents by visiting Dubai Chamber Happiness centres or Dubai Chamber Website,or smart application",
+      "Procedure2": "Approval of application",
+      "Procedure3": "Payment of service fees",
+      "Procedure4": "attestation of the documents",
+      "serviceRequirements": "Service Requirements",
+      "signatureBusinessMatchingRequest": "Signature Business matching request",
+      "signature1": "The documents require attestation should be signed by the authorised signatory",
+      "signatureCard": "Signature card",
+      "signature2": " signed and stamped by the manger or atterony",
+      "authenticateCertificate": "Authenticate Certificate",
+      "DocumentsRequireAttestation": "The documents require attestation (Attested from the Issuing Authority/Entity)",
+      "trueCopy": "True Copy",
+      "TrueCopyDocumentsRequireAttestation": "The documents require attestation",
+      "WatchVideo": "Watch the video to help you apply to the service",
+      "havingTrouble": "Having Trouble?",
+      "call": "Call",
+      "paymentChannel": "Payment Channel",
+      "ePayment": "E-payment",
+      "eDirham": "E-Dirham",
+      "bankTransfer": "Bank transfer",
+      "chequeDeposite": "Cheque deposite",
+      "serviceFees": "Service Fees",
+      "serviceFees1": "Attesting validity of signature: AED 100",
+      "serviceFees2": "Document attestation: 100 AED",
+      "serviceFees3": "True copy: 100 AED",
+      "serviceFees4": "NB: 10 AED will be collected for each additional copy after 5 copy of the same transaction for all the previous type"
+    }
+  },
+  "serviceCatlogueModule": {
+    "serviceDirectory": {
+      "mostUsedServices": "Most Used Services"
+    }
+  },
+  "profileModule": {
+    "myProfile": "My Profile",
+    "sideLinks": {
+      "generalInfo": "General Information",
+      "addressInfo": "Address Information",
+      "contactInfo": "Contact Information",
+      "socialInfo": "Social Information"
+    },
+    "generalInfo": {
+      "personalInformation": "Personal Information",
+      "editPersonalInfo": "Edit General info",
+      "requiredImage": "Image is required",
+      "selectJob": "Select Job title",
+      "selectNationality": "Select Nationality"
+    },
+    "AddressInfo": {
+      "addressInformation": "Address Information",
+      "editAddressInfo": "Edit Address info"
+    },
+    "contactInfo": {
+      "contactInformation": "Contact Information",
+      "editContactInfo": "Edit Contact info"
+    },
+    "socialInfo": {
+      "socailInformation": "Social Media Information",
+      "editSocialInfo": "Edit Social Media info"
+    },
+    "stepper": {
+      "generalInfo": "General Info",
+      "addressInfo": "Address Info",
+      "contactInfo": "Contact Info",
+      "socialInfo": "Social Info"
+    }
+  },
+  "opportunitiesModule": {
+    "bannerTitle": {
+      "mainTitle": "Opportunities List"
+    },
+    "opportunitiesList": "Opportunities List",
+    "opportunityStatus": "Opportunity Status",
+    "opportunity": "Opportunity",
+    "opportunitiesInfo": {
+      "leadNo": "Lead No.",
+      "opportunityNo": "Opportunity No.",
+      "companyName": "Company Name",
+      "listInterests": "Interests List",
+      "opportunityInformation": "Opportunity Information",
+      "referralsList": "Referrals List",
+      "messagesList": "Messages List",
+      "referral": "Referral",
+      "interactionsList": "Interactions List",
+      "noOpportunity": "no oppotunity existed !!",
+      "enterNote": "please enter notes !!",
+      "successfull": " Successful",
+      "unsuccessfull": "Unsuccessful"
+    },
+    "interactions": {
+      "interactionRequestSentSuccessfully": "Interaction Request has been sent successfully",
+      "backToInteractions": "Back to Interactions"
+    }
+  },
+  "eventsModule": {
+    "bannerTitle": {
+      "mainTitle": "Events List"
+    },
+    "eventsList": "Events List",
+    "events": "Events",
+    "eventsDirectory": "Events Directory",
+    "event": "Event",
+    "registerEvent": "Register for event",
+    "registerEvent2": "Register Event",
+    "eventsInfo": {
+      "type": "Event Type",
+      "listInterests": "Interests List",
+      "opportunityInformation": "Opportunity Information",
+      "referralsList": "Referrals List",
+      "messagesList": "Messages List",
+      "rejected": "Rejected",
+      "registered": "Registered"
+    },
+    "eventAction": {
+      "Accepted": "Event Accepted",
+      "rejected": "Even Rejected"
+    }
+  },
+  "complaintsModule": {
+    "bannerTitle": {
+      "mainTitle": "Complaints List"
+    },
+    "complaintsList": "Complaints List",
+    "complaints": "Complaints",
+    "sendComplaints": "Send Complaints",
+    "complaintsInfo": {
+      "type": "Complaint Type"
+    }
+  },
+  "leadsModule": {
+    "bannerTitle": {
+      "mainTitle": "Leads List"
+    },
+    "leadsList": "Leads List",
+    "leads": "Leads List",
+    "leadsInfo": {
+      "leadInformation": "Lead Information",
+      "leadStatus": "Lead Status"
+    },
+    "interactions": {
+      "type": "Interaction Type",
+      "interactionOutcome": "Interaction Outcome",
+      "noDeal": "No Deal",
+      "newInteraction": "New Interaction"
+    },
+    "messages": {
+      "createdBy": "Created By",
+      "messages": "Messages",
+      "newMessage": "New Message",
+      "yourMessageSentSuccessfully": "Your message has been sent successfully",
+      "backToMessages": "Back to Messages"
+    }
+  },
+  "companyModule": {
+    "widget": {
+      "parentEntity": "Parent Entity",
+      "entityType": "Entity Type",
+      "No.Employees": "No. Employees",
+      "address": "Address"
+    },
+    "filter": {
+      "companyType": "Company Type"
+    },
+    "list": {
+      "myCompaniesList": "My Companies List",
+      "addCompany": "Add Company",
+      "companiesList": "Companies List"
+    },
+    "profile": {
+      "generalInfo": "General Information",
+      "address&ContactInformation": "Address & Contact Information",
+      "social&OtherInformation": "Social & Other Information",
+      "communicationSettings": "Communication Settings"
+    },
+    "communicationInformation": {
+      "title": "Communication Information",
+      "emailReceiver": "Email Receiver(s)",
+      "SMSReceiver": "SMS Receiver(s)",
+      "emailReceiverValidationError": "You must select at least Email Receivers",
+      "SMSReceiverValidationError": " You must select at least one industry"
+    },
+    "contact": {
+      "title": "Address & Contact Information",
+      "stepTitle": "Address Information"
+    },
+    "general": {
+      "title": "General Information",
+      "selectSector": "Select Sector",
+      "selectEntityType": "Select entity type",
+      "selectAnnualTurnover": "Select annual turnover",
+      "SelectNoOfEmployees": "Select No. Of Employees",
+      "selectParentEntity": "Select parent entity",
+      "anuualTurnover": "Anuual Turnover (USD)",
+      "companySize": "Company Size",
+      "noEmployees": "No. Of Emploees",
+      "DEDMembershipNumber": "DED Membership Number",
+      "DCCIMembershipNumber": "DCCI Membership Number",
+      "parentEntity": "Parent Entity",
+      "subsidiaryEntity": "Subsidiary Entity",
+      "industry": "Industry(s)",
+      "selectCompany":"Select Company"
+    },
+    "socail": {
+      "title": "Social & Other Information",
+      "otherSocialMedia": "Other Social Media",
+      "contactOwner": "Contact Owner",
+      "contactCreator": "Contact Creator",
+      "jobTitle": "Job Title/Position"
+    },
+    "success": {
+      "btnTxt": "View Companies"
+    }
+  },
+  "memberShipsModule": {
+    "steeper": {
+      "licenseInformation": "License Information",
+      "companyInformation": "Company Information",
+      "attachments": "Attachments"
+    },
+    "companyInformation": {
+      "legalStatus": "Legal Status",
+      "firmType": "Firm Type",
+      "branch": "Branch",
+      "parentCompany": "Parent Company",
+      "licenseNumber": "License Number",
+      "arabic": "Arabic",
+      "english": "English",
+      "commercialRegistrationType": "Commercial Registration Type",
+      "licenseType": "License Type",
+      "licenseCategory": "License Category",
+      "licenseIssueDate": "License Issue Date",
+      "licenseExpiryDate": "License Expiry Date",
+      "licenseNationality": "License Nationality",
+      "faxNumber": "Fax Number",
+      "POBOX": "POBOX",
+      "makaniNumber": "Makani Number",
+      "buildingNumber": "Building Number",
+      "streetAddress": "Street Address",
+      "issuingAuthority": "Issuing Authority",
+      "licenceIssuer": "Licence Issuer",
+      "commercialRegistrationNumber": "Commercial Registration Number",
+      "partnerInformation": "Partner(s) Information",
+      "newPartner": "Add New Partner",
+      "partnerName": "Partner Name",
+      "partnerNameArabic": "اسم الشريك بالعربي",
+      "typeRelationShip": "Type of RelationShip",
+      "ownershipPercent": "Ownership Percent",
+      "percent": "Percent",
+      "partnerId": "Partner ID",
+      "residenceNumber": "Residence Number",
+      "nationalityCode": "Nationality",
+      "verifiedSuccessfully": "Verified Successfully!",
+      "licenceNumber":"License Number",
+      "companyNameArabic":"Company Name in Arabic",
+      "comapyNameInEnglish":"Company Name in English",
+      "partnersPercentageError":"partners percentage must be equall 100%",
+      "partnersNumberError":"Partners are required"
+    },
+    "license": {
+      "issuingAuthority": "Issuing Authority",
+      "licenseNumber": "License Number",
+      "selectCompany": "Select Company",
+      "addNewCompany":"Add New Company",
+      "input": "input",
+      "requiredField": "This filed is required",
+      "verify": "verify",
+      "pleaseMakeSure": "Please make sure from the company name before you proceed",
+      "companyNameEnglish": "Company Name in English",
+      "englishCompanyName": "English Company Name",
+      "companyNameArabic": "Company Name in Arabic",
+      "licenseExpirtyDate": "License Expiry Date",
+      "inputExpiryDate": "Input Expiry Date",
+      "membershipDuration": "Membership Duration",
+      "selectMembershipDuration": "Select Membership Duration",
+      "sameAsLicenseValidity": "Same as license validity",
+      "yearly": "Yearly"
+    },
+    "memberShiprequestDetails": {
+      "cardTitle": "Your request has been submitted and it will be reviewed by the Agent.",
+      "cardButton": "Open Request Details",
+      "requestInfo": "Request Information",
+      "result&Action": "Results and Actions",
+      "message": "Messages",
+      "lastUpdates": "Last Updates"
+    },
+    "wallet": {
+      "wallets": "Wallets",
+      "myWallet" : "My Wallet",
+      "inTransaction" : "In Transaction",
+      "outTransaction" : "Out Transaction",
+      "walletDetails": "Wallet Details",
+      "transactionType": "Transaction Type",
+      "currentBalance": " Current Balance",
+      "refundWallet": "Refund Wallet",
+      "chargeWallet": "Charge Wallet",
+      "transactionList": "Transactions list",
+      "transactionNumber": "Transaction Number",
+      "transactionAmount": "Amount",
+      "transactionTransferDate": "Transferred",
+      "rechargeWallet": "Recharge Wallet",
+      "rechargeAmount": "Recharge Amount",
+      "selectPaymentMethod": "Select Payment Method",
+      "Recharge": "Recharge",
+      "refund":"Refund",
+      "transaction" : "Transactions",
+      "rechargeWalletDone":"Recharge wallet done successfully",
+      "procceedPay":"Please proceed to pay",
+      "refundWalletDone":"Refund wallet done successfully"
+    },
+    "documents": {
+      "documents": "Documents",
+      "serviceName": "Service Name",
+      "relatedRequest": "Related Request",
+      "issuedDate": "Issued Date",
+      "companyRegistration": "Company Registration",
+      "attachmentName": "Attachment Name",
+      "extensionsError":"Please upload file with available extensions",
+      "maxSizeError":"Please upload file with max size"
+    },
+    "bankTransfere": {
+      "generalInformation": "General Information",
+      "bankName": "Bank Name",
+      "IBAN": "IBAN",
+      "attentionMessage": "Attention Message",
+      "attentionMessageMsg": "1- Amount Transferred should be equal to the Fees requested and must be sent to the bank information displayed in the form.<br/> 2- Any extra amount transferred will deposited in your wallet and not refunded to your bank account.<br/> 3- If your bank transfer permits, kindly enter the reference number shown in the fees information in your notes for the transfer transaction.",
+      "InsertInformation": "Insert Information",
+      "AccountNumber": "Account Number",
+      "IBANNumber": "IBAN Number",
+      "uploadReceipt": "Upload Receipt"
+    },
+
+    "cancleMembership":{
+      "noteMessage":"Please make sure from the company name before you proceed",
+      "expirtyDate":"Expirty Date",
+      "refundWallet":"Refund Wallet",
+      "refundQestion":"Are you want to refund the wallet balance?",
+      "cancleMembership":"Cancel Membership",
+      "bankInformation":"Bank Information"
+
+    },
+    "payment" :{
+      "request":"Request#",
+      "transaction":"Transaction#",
+      "amount":"Amount",
+      "transferred":"Transferred",
+      "status":"Status",
+      "method":"Method",
+      "companyName":"Company Name",
+      "filters":{
+        "pending":"Pending",
+        "inactive":"Inactive",
+        "approved":"Approved",
+        "rejected" :"Rejected",
+        "dubaiPay":"Dubai Pay",
+        "Offline":"Offline",
+        "Wallet":"Wallet",
+        "visaMastercard":"Visa, Mastercard",
+        "bankTransfer":"Bank Transfer"
+      }
+    }
+  },
+  "cooModule": {
+    "createCoo": "Create COO",
+    "cooInfo": "COO Information",
+    "stepper": {
+      "exporterInfo": "Exporter Info",
+      "consigneeInfo": "Consignee info",
+      "shipmentInfo": "Shipment Info",
+      "invoiceInfo": "Invoice Info",
+      "attachments": "Attachments",
+      "preview": "Preview"
+    },
+
+    "invoiceInfo": {
+      "invoiceDetails": "Invoice details",
+      "productDetails": "Product details",
+      "invoiceNumber": "Invoice Number",
+      "invoiceDate": "Invoice date",
+      "invoiceAmount": "Invoice amount",
+      "selectProduct": "Select Product/HS Code",
+      "hSCode": "HS Code",
+      "selectHSCode": "Select HS Code",
+      "productNameAr": "Product Name (English)",
+      "productNameEn": "Product Name (Arabic)",
+      "searchProduct": "Search by product name/HS Code",
+      "quantity": "Quantity",
+      "unitPrice": "Unit Price",
+      "country": "Country of Origin",
+      "processType": "Process Type",
+      "selectProcessType": "Select Process Type",
+      "comments": "Comments",
+      "select": "Select",
+      "currency": "Currency",
+      "aed": "AED",
+      "usd": "USD",
+      "unit": "Unit of Measure",
+      "requiredField": "This filed is required",
+      "olderThan180": "Invalid Invoice date, older than 180 days",
+      "future": "Invalid Invoice date, future date",
+      "add": "add",
+      "addProduct": "Add Product",
+      "productType": "Package Type",
+      "size": "Size",
+      "packageWeight": "Package Weight",
+      "count": "Count",
+      "ownershipPercentInvalidValue":"the value must be between 1% to 100%"
+    },
+    "invoiceList": {
+      "alert": "Helps you upload bulk of products instead of one by one",
+      "uploadBulk": "Upload Bulk Products ",
+      "productList": "Products List",
+      "package": "package",
+      "totalQuantity": "Total Quantity should be",
+      "addPackage": "Add Package"
+    },
+    "detailsData": {
+      "exporterDetails": "Exporter Details",
+      "exporterName": "Exporter Name",
+      "english": "English",
+      "arabic": "Arabic",
+      "pOBOX": "PO BOX",
+      "fax": "FAX",
+      "consigneeDetails": "Consignee Details",
+      "consigneeName": "Consignee Name",
+      "addConsignee": "Add New Consignee",
+      "consigneeType": "Consignee Type",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "phoneNumber": "Phone Number",
+      "shipmentInformation": "Shipment Information",
+      "transportationMode": "Mode of Transportation",
+      "exitPoint": "Exit Point",
+      "expectedDeparture": "Expected Departure",
+      "additionalDetails": "Additional Details to be Printed",
+      "exporterType": "Exporter Type",
+      "portofDischarge": "Port of Discharge",
+      "finalDestination": "Final Destination",
+      "dragDrop": "Drag and drop files here or Upload",
+      "companyName": "Company Name",
+      "newConsigneeInfo": "New Consignee Info",
+      "requestSubmitted": "COO has been submitted sucessfully",
+      "cooInfo": "COO Information",
+      "resultAction": " Results & Action",
+      "hSCode": "HS-Code",
+      "originCountry": "Country of Origin",
+      "Country": "Country",
+      "city": "City",
+      "processType": "Process Type &Country",
+      "unitPrice": "Price per Unit",
+      "quantity": "Quantity",
+      "totalprice": "Total price"
+    },
+    "exporterInfo": {
+      "exporterType": "Exporter Type",
+      "selectExporterType": "Select Exporter Type",
+      "selectCompanyName": "Select Company Name"
+    },
+    "consigneeInfo": {},
+    "shipmentInfo": {
+      "printProductsInCOO": "Are you want to print the products in the COO?",
+      "yes": "Yes",
+      "no": "No",
+      "shipmentInfo": "Shipment Info",
+      "selectTransportationMode": "Select Mode of Transportation",
+      "selectExitPoint": "Select Exit Point",
+      "selectPortofDischarge": "Select Port of Discharge",
+      "selectFinalDestination": "Select Final Destination",
+      "requiredField": "This filed is required"
+    },
+    "documents": {
+      "documents": "Documents",
+      "serviceName": "Service Name",
+      "relatedRequest": "Related Request",
+      "issuedDate": "Issued Date",
+      "attachmentName": "Attachment Name",
+      "extensionsError": "Please upload file with available extensions",
+      "maxSizeError": "Please upload file with max size"
+    }
+  }
+}

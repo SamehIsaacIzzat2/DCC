@@ -1,0 +1,58 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+button {
+  background-color: $secondaryColor;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+}
+
+button:hover {
+  color: #fff;
+}
+
+.custom-input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: none;
+  border-color: #dddcea;
+  background-color: #fff;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.datePickerParent {
+  position: relative;
+  input {
+    cursor: pointer;
+    @include rtl_value(text-align,left,right)
+  }
+  .pickerIcon {
+    position: absolute;
+    top: 48px;
+    @include rtl_value(right,15px,unset);
+    @include rtl_value(left,unset,15px);
+    background: #fff;
+    cursor: pointer;
+  }
+  span.placeholder {
+    position: absolute;
+    width: 80%;
+    display: inline-block;
+    left: 11px;
+    top: 45px;
+    background: #fff;
+    cursor: pointer;
+  }
+}
+
+
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}

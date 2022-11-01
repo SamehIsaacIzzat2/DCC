@@ -1,0 +1,207 @@
+<!--Leads List-->
+<div class="request-widget" *ngIf="status == 1 && !showIndetails" [routerLink]="'/leads/leadDetails/' + item.id">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="assets/images/Requests.svg" />
+        </div>
+        <div class="request-title mx-4">
+          <span style="text-decoration: underline">{{ "opportunitiesModule.opportunitiesInfo.leadNo" | translate}}</span>
+          <h4>{{ item?.leadNumber }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="request-status">
+        <span>{{'opportunitiesModule.opportunitiesInfo.companyName' | translate}}</span>
+        <h4>
+          {{ item?.companyName }}
+        </h4>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="request-date">
+        <span>{{'reqestModule.requestWidget.createdOn' | translate}}</span>
+        <h4>{{ item?.created | customDate: "dd-MM-yyyy" }}</h4>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="status-part d-flex justify-content-end align-items-center">
+        <div class="request-date">
+          <span>{{'shared.generalFeilds.status' | translate}}</span>
+          <h4>{{ item?.statusName }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--this is interaction list-->
+<div
+  class="request-widget interaction-widget"
+  *ngIf="status == 2 && !showIndetails"
+  [routerLink]="[itemInteraction.id]"
+>
+  <div class="row px-2">
+    <div class="col-lg-4 col-md-12 col-sm-12 g-0 my-2">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="../../../../../assets/images/interactionIcon.svg" />
+        </div>
+        <div class="request-title mx-4">
+          <span>{{'leadsModule.interactions.type' | translate}}</span>
+          <h4>{{ itemInteraction?.interactionTypeName }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 g-0 my-2">
+      <div class="request-status">
+        <span>{{'shared.generalFeilds.proposedDateTime' | translate}}</span>
+        <h4>
+          {{ itemInteraction?.proposedDateTime | customDate: "dd-MM-yyyy hh:mm a"}}
+          <!-- {{itemInteraction.proposedDateTime|  customDate: "dd-MM-yyyy hh:mm a" | date:"dd-MM-yyyy hh:mm:ss"}} -->
+        </h4>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6 g-0 my-2">
+      <div class="status-part">
+        <div class="request-date">
+          <span>{{'shared.generalFeilds.status' | translate}}</span>
+          <h4 *ngIf="itemInteraction?.interactionStatusName">
+            {{ itemInteraction?.interactionStatusName
+            }}
+          </h4>
+          <h4 *ngIf="itemInteraction?.statusName
+          ">
+            {{ itemInteraction?.statusName
+
+            }}
+          </h4>
+          <!-- <h4 *ngIf="itemInteraction?.statusName==null">{{itemInteraction?.status=='1' ? 'Open' : itemInteraction?.status=='2' ?'Closed' : 'Create Opportunity'}}</h4> -->
+          <!-- <h4
+            *ngIf="
+              itemInteraction?.status == '1' && !itemInteraction?.statusName
+            "
+          >
+            Open
+          </h4>
+          <h4
+            *ngIf="
+              itemInteraction?.status == '2' && !itemInteraction?.statusName
+            "
+          >
+            Closed
+          </h4>
+          <h4
+            *ngIf="
+              itemInteraction?.status == '3' && !itemInteraction?.statusName
+            "
+          >
+            Create Opportunity
+          </h4> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--referrals list-->
+<div class="request-widget" *ngIf="status == 3 && !showIndetails" [routerLink]="[referral.id]">
+  <div class="row d-flex justify-content-between flex-wrap">
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="../../../../assets/images/Requests.svg" />
+        </div>
+        <div class="request-title mx-4">
+          <span>{{'opportunitiesModule.opportunitiesInfo.referral' | translate}} {{'shared.generalWord.number' | translate}}#</span>
+          <h4>{{ referral?.refralNumber }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="request-status">
+        <span>{{'reqestModule.requestWidget.createdOn' | translate}}</span>
+        <h4>{{ referral?.created | customDate: "dd-MM-yyyy" }}</h4>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 g-0">
+      <div class="status-part d-flex justify-content-end align-items-center">
+        <div class="request-date">
+          <span>{{'shared.generalFeilds.type' | translate}}</span>
+          <h4>{{ referral?.referralTypeName }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--referral data-->
+<div class="request-widget" *ngIf="status == 'referral-data' && !showIndetails">
+  <div class="row">
+    <div class="col-6 g-0">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="../../../../assets/images/Requests.svg" />
+        </div>
+        <div class="request-title mx-4">
+          <span>{{'opportunitiesModule.opportunitiesInfo.referral' | translate}} {{'shared.generalWord.number' | translate}}#</span>
+          <h4>{{ referral?.refralNumber }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 g-0">
+      <div class="request-status">
+        <span>{{'reqestModule.requestWidget.createdOn' | translate}}</span>
+        <h4>{{ referral?.created | customDate: "dd-MM-yyyy" }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="request-widget indetails" *ngIf="item && showIndetails">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="../../../../assets/images/whiteFile.svg" />
+        </div>
+        <div class="request-title mx-4" *ngIf="item.leadNumber">
+          <span>{{ "opportunitiesModule.opportunitiesInfo.leadNo" | translate}} {{ item?.leadNumber }}</span>
+          <h4>{{ item?.leadName }}</h4>
+          <!-- {{item?.leadName}} -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row justify-content-between">
+        <div class="col-md-8">
+          <div class="request-status">
+            <span>{{'shared.generalFeilds.status' | translate}}</span>
+            <h4>
+              <span
+                [ngClass]="{
+                  DraftStyle:
+                    item.statusName == 'Draft' || item.statusName == 'Closed',
+                  custsubmitStyle: item.statusName == 'Submitted',
+                  responseStyle: item.statusName == 'No Response',
+                  progressStyle: item.statusName == 'In Progress'
+                }"
+              >
+                {{ item?.statusName }}
+              </span>
+            </h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="request-date">
+            <span>{{'reqestModule.requestWidget.createdOn' | translate}}</span>
+            <h4>{{ item?.created | customDate: "dd-MM-yyyy" }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

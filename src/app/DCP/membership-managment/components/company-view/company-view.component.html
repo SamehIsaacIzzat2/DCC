@@ -1,0 +1,275 @@
+<div class="request-details" *ngIf="!detailsFlag || !loading">
+  <div class="title">
+    <h4 *ngIf="!title">
+      {{"companyModule.general.title"|translate}}
+    </h4>
+    <h4 *ngIf="title">
+      {{title}}
+    </h4>
+  </div>
+  <generic-display-details [items]="items" class="mb-5"> </generic-display-details>
+  <div class="title" *ngIf="!hideParteners">
+    <h4>
+      {{"memberShipsModule.companyInformation.partnerInformation"|translate}}
+    </h4>
+  </div>
+
+  <div *ngIf="!hideParteners">
+      <table class="partners-table" *ngIf="partners && partners.length > 0">
+        <thead>
+          <tr>
+            <th>
+              <div class="table-item"></div>
+            </th>
+  
+            <th>
+              <div class="table-item">
+                <span>{{
+                  "memberShipsModule.companyInformation.typeRelationShip"
+                    | translate
+                }}</span>
+              </div>
+            </th>
+  
+            <th>
+              <div class="table-item">
+                <span>{{
+                  "memberShipsModule.companyInformation.ownershipPercent"
+                    | translate
+                }}</span>
+              </div>
+            </th>
+  
+            <th>
+              <div class="table-item">
+                <span>{{
+                  "shared.generalFeilds.nationality"
+                    | translate
+                }}</span>
+              </div>
+            </th>
+  
+            <th>
+              <div class="table-item">
+                <span>{{
+                  "companyModule.socail.jobTitle" | translate
+                }}</span>
+              </div>
+            </th>
+  
+            <th class="close d-flex align-content-center">
+              <div class="table-item"></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let partner of partners; index as i">
+            <td>
+              <div class="package d-flex">
+                <i class="fa fa-file partner-icon"></i>
+                <span class="title partner-name">
+                  {{ partner.partnerNameEnglish }}
+                </span>
+              </div>
+            </td>
+            <td>
+              <div class="package">
+                <span>
+                  {{partner.typeRelationShip}}
+                </span>
+              </div>
+            </td>
+            <td>
+              <div class="package">
+                <span>
+                  {{ partner.ownershipPercent }}
+                </span>
+              </div>
+            </td>
+            <td>
+              <div class="package">
+                <span>
+                  {{partner.nationality}}
+                </span>
+              </div>
+            </td>
+            <td>
+              <div class="package">
+                <span>
+                  {{ partner.jobTitle }}
+                </span>
+              </div>
+            </td>
+            <td>
+              <div class="package" (click)="viewPartner(i)">
+                <span>
+                  <i class="fa fa-eye view-icon"></i>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span *ngIf="partners.length==0" class="Dummy-data">
+        {{ "shared.generalWord.noValue" | translate }}
+      </span>
+  </div>
+  <div class="title" *ngIf="!hideParteners">
+    <h4>
+      {{"memberShipsModule.documents.documents"|translate}}
+    </h4>
+  </div>
+  <div class="title" *ngFor="let attachment of attachments">
+    <p>{{attachment.documentName}}</p>
+    <div class="attachments-container">
+      <span class="attachment clickable" *ngFor="let file of attachment.files" (click)="downloadDocument(file.id)">
+        {{file.fileName}}
+        <a #download id="{{file.id}}" [href]="_sanitizer.bypassSecurityTrustResourceUrl(file.content)" download="{{file.fileName}}"></a>
+      </span>
+     
+    </div>
+  </div>
+  <span *ngIf="attachments && attachments.length==0 && !hideParteners" class="Dummy-data">
+    {{ "shared.generalWord.noValue" | translate }}
+  </span>
+</div>
+
+<form-modal [title]="'memberShipsModule.companyInformation.partnerInformation' | translate" [id]="'showPartner'">
+  <div class="display-contents details-section" modal-content>
+    <div class="modal-body">
+        <div class="row">
+          <!-- Partner Name English -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"memberShipsModule.companyInformation.partnerName"| translate}}
+                ({{"memberShipsModule.companyInformation.english" | translate}})
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.partnerNameEnglish }}</span>
+            </h4>
+          </div>
+          <!-- Partner Name Arabic -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"memberShipsModule.companyInformation.partnerName"| translate}}
+                ({{"memberShipsModule.companyInformation.arabic" | translate}})
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.partnerNameArabic }}</span>
+            </h4>
+          </div>
+          <!-- Type Relationship -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"memberShipsModule.companyInformation.typeRelationShip"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.typeRelationShip }}</span>
+            </h4>
+          </div>
+          <!-- Ownership Percent -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"memberShipsModule.companyInformation.ownershipPercent"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.ownershipPercent }}</span>
+            </h4>
+          </div>
+          <!-- Passport Number -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"shared.generalFeilds.passportNumber"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.passportNumber }}</span>
+            </h4>
+          </div>
+          <!-- Emirates ID -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"shared.generalFeilds.emiratesID"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.emiratesID }}</span>
+            </h4>
+          </div>
+          <!-- Residence Number -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"memberShipsModule.companyInformation.residenceNumber"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.residenceNumber }}</span>
+            </h4>
+          </div>
+          <!-- Nationality Code -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"shared.generalFeilds.nationality"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.nationality }}</span>
+            </h4>
+          </div>
+          <!-- Job Title -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"companyModule.socail.jobTitle"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.jobTitle }}</span>
+            </h4>
+          </div>
+          <!-- Partner ID -->
+          <div class="col-6 item my-3">
+            <div class="title">
+              <h3 class="mainTitle">
+                {{"memberShipsModule.companyInformation.partnerId"| translate}}
+              </h3>
+            </div>
+            <h4 class="data my-3">
+              <span>{{ selectedPartner.partnerID }}</span>
+            </h4>
+          </div>
+        
+        </div>
+    </div>
+
+    <!--start modal footer -->
+    <div class="modal-footer">
+      <button
+        class="btn btn-outline-success w-25"
+        data-bs-dismiss="modal"
+      >
+        {{ "shared.generalWord.close" | translate }}
+      </button>
+    </div>
+  </div>
+</form-modal>
+
+<!-- skelton loader -->
+<div class="row mt-3" *ngIf="loading && detailsFlag">
+  <div class="col-12" *ngFor="let x of [1, 2, 3, 4, 5]">
+    <card-loader [height]="60"></card-loader>
+  </div>
+</div>
+

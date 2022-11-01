@@ -1,0 +1,88 @@
+<div class="items-container">
+   <form [formGroup]="model.editAddressInformationForm">
+    <div class="row">
+
+         <!-- Address -->
+        <div class="col-12 my-3">
+            <div class="item">
+                <div class="title mb-4">{{'shared.generalFeilds.address' |translate}} </div>
+                <textarea formControlName="address" class="form-control"></textarea>
+                <div *ngIf="model.submitted && model.f['address'].errors">
+                    <span class="form-error" *ngIf="model.f['address'].errors['required']">
+                      <i class="fa-solid fa-circle-exclamation"></i> 
+                      {{'shared.generalValidationErrorMessage.requiredAddress' |translate}}
+                    </span>
+                  </div>
+            </div>
+        </div>
+          <!-- country -->
+        <div class="col-md-6 col-sm-12 my-3">
+             <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">{{'shared.generalFeilds.country' |translate}} </label>
+                  <select formControlName="countryId" class="form-select" (change)="model.selectRelatedCities($event.target)">
+                    <option value="null">{{'shared.generalWord.selectCountry' |translate}}</option>
+                    <option *ngFor="let opt of model.allCountries" [value]="opt.id">
+                      {{ opt.name }}
+                    </option>
+                  </select>
+                </div>
+                <div *ngIf="model.submitted && model.f['countryId'].errors">
+                  <span class="form-error" *ngIf="model.f['countryId'].errors['required']">
+                    <i class="fa-solid fa-circle-exclamation"></i> 
+                    {{'shared.generalValidationErrorMessage.requiredCountry' |translate}}
+
+                  </span>
+                </div>
+              </div>
+
+        </div>
+          <!-- city -->
+        <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+                <div class="input-content">
+                  <label class="form-label" for="">{{'shared.generalFeilds.city' |translate}} </label>
+                  <select formControlName="cityId" class="form-select" >
+                    <option value="null">{{'shared.generalWord.selectCity' |translate}}</option>
+                    <option *ngFor="let opt of model.allCities" [value]="opt.id">
+                      {{ opt.name }}
+                    </option>
+                  </select>
+                </div>
+                <div *ngIf="model.submitted && model.f['cityId'].errors">
+                  <span class="form-error" *ngIf="model.f['cityId'].errors['required']">
+                    <i class="fa-solid fa-circle-exclamation"></i> 
+                    {{'shared.generalValidationErrorMessage.requiredCity' |translate}}
+
+                  </span>
+                </div>
+              </div>
+
+        </div>
+        <div class="col-md-6 col-sm-12 my-3">
+            <div class="input">
+                <div class="input-content">
+                  <label class="form-label" for="">{{'shared.generalFeilds.provinceAndState' |translate}} <span class="disabled">({{'shared.generalWord.optional' |translate}})</span></label>
+                  <input formControlName="provinceState" />
+                </div>
+              </div>
+
+        </div>
+        <div class="col-md-6 col-sm-12 my-3">
+            <div class="input">
+                <div class="input-content">
+                  <label class="form-label" for="">{{'shared.generalFeilds.zipCode' |translate}} <span class="disabled">({{'shared.generalWord.optional' |translate}})</span></label>
+                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" formControlName="zipCode" />
+                </div>
+              </div>
+        </div>
+
+    </div>
+    <div class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end" *ngIf="!getSteeperState()">
+        <div class="normal-register">
+          <button class="btn" (click)="model.saveUpdate()">{{'shared.actions.save' |translate}}</button>
+        </div>
+      </div>
+
+   </form>
+</div>

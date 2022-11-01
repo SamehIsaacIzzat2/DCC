@@ -1,0 +1,13 @@
+<div class="wallet-recharge-page">
+    <!-- banner section -->
+    <div class="banner mb-4">
+        <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true">
+        </banner>
+        <div class="content" *ngIf="!model.resultFlag">
+            <recharge-wallet (RechargeWallet)="model.walletCharged($event)"></recharge-wallet>
+        </div>
+
+        <div class="result" *ngIf="model.resultFlag">
+            <result-card [item]="item" [showRate]="false"></result-card>
+        </div>
+    </div>

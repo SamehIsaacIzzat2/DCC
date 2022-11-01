@@ -1,0 +1,82 @@
+@import "../../../../../assets/styles/components/_form.scss";
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+@import "../../../../../assets/styles/helpers/variables";
+.w-45{
+  width:45% !important;
+}
+// modify select style
+select {
+  border-radius: 0px;
+  padding: 0.85rem 0.75rem !important;
+  outline: none;
+  border: 1px solid #DDDCEA;
+}
+
+select:focus {
+  border: 1px solid #DDDCEA;
+  outline: none;
+  box-shadow: none;
+}
+
+button {
+  background-color: $secondaryColor;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+}
+
+ul.selected {
+  margin-top: 20px;
+  padding: 0;
+
+  li {
+    background-color: #FBFBFB;
+    // width: 100%;
+    width:auto;
+    padding: 9px;
+    font-size: 15px;
+    @include rtl_value("margin", 10px 20px 10px 10px, 10px 10px 10px 20px);
+    display: flex;
+    justify-content: space-between;
+
+    img{
+      cursor: pointer;
+      margin:0px 10px
+    }
+  }
+}
+
+
+
+:host ::ng-deep .mat-form-field-autofill-control {
+  width: 100% !important;
+}
+
+
+.selected-items-container {
+  // border: 1px solid #D2F2AB;
+  // padding: 21px 11px 10px 11px;
+  margin-top: 8px;
+
+  .container-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: $secondaryColor;
+  }
+}
+
+small{
+  color:#C1C1C1;
+  font-size: 12px;
+}
+
+.w-sm-100{
+  @media (max-width:767px){
+    width:100% !important;
+
+  }
+}

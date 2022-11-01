@@ -1,0 +1,82 @@
+//mixins
+@import "../../../assets/styles/helpers/mixins";
+.information-section{
+    @media (max-width:992px){
+        border:none;
+    }
+    @include rtl_value("padding-left",20px,unset);
+@include rtl_value("padding-right",unset,20px);
+
+}
+.header {
+
+    // header style
+    h4 {
+        margin-bottom: 0px;
+        font-size: 20px;
+        color: #1D4861;
+        font-weight: 600;
+    }
+
+
+
+    // Edit button  style
+    .Edit-btn {
+        .normal-information {
+            button {
+                background-color: $secondaryColor;
+                width: 228.25px;
+                border: 1px solid $secondaryColor;
+                color: #fff;
+                border-radius: 0px;
+                padding: 0.6rem 0.75rem;
+
+            }
+        }
+    }
+
+}
+
+.General-information-content{
+    .image-container{
+       img{
+        // border:1px solid #DDDCEA;
+        padding:1px;
+        width:80%;
+       }
+
+    }
+}
+
+.items-container{
+    display:flex;
+    flex-direction: column;
+    height: 100% !important;
+    justify-content: space-between;
+
+    .item{
+        .title{
+            font-size: 18px;
+        }
+
+        .data{
+            padding:10px;
+            background-color:#FBFBFB ;
+            word-break: break-all;
+
+        }
+    }
+}
+.Dummy-data{
+    color: #94A3B8 !important;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #FBFBFB;
+    padding: 10px;
+
+  }
+
+// input[dir=rtl],
+// select[dir=rtl]{
+//     direction: ltr;
+// }

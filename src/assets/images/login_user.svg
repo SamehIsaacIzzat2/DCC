@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="419.086" height="426.067" viewBox="0 0 419.086 426.067">
+  <defs>
+    <filter id="Path_29207" x="0" y="0" width="419.086" height="426.067" filterUnits="userSpaceOnUse">
+      <feOffset dy="20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feFlood flood-color="#c2cfdd" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="login_user" transform="translate(-1368.457 -123.202)">
+    <g transform="matrix(1, 0, 0, 1, 1368.46, 123.2)" filter="url(#Path_29207)">
+      <path id="Path_29207-2" data-name="Path 29207" d="M77.676-3.813c53.8,0,86.719,38.8,86.719,74.94S112.4,204.595,79.995,182.369,6.509,124.733,6.509,88.6,23.881-3.813,77.676-3.813Z" transform="matrix(0.81, 0.59, -0.59, 0.81, 193.85, 69.26)" fill="#fff" opacity="0.711"/>
+    </g>
+    <g id="Icon_feather-user" data-name="Icon feather-user" transform="translate(1549.245 271.679)">
+      <path id="Path_29255" data-name="Path 29255" d="M67.242,45.466V37.811A15.311,15.311,0,0,0,51.932,22.5H21.311A15.311,15.311,0,0,0,6,37.811v7.655" transform="translate(0 27.597)" fill="none" stroke="#4591dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      <path id="Path_29256" data-name="Path 29256" d="M42.621,19.811A15.311,15.311,0,1,1,27.311,4.5,15.311,15.311,0,0,1,42.621,19.811Z" transform="translate(9.311 2)" fill="none" stroke="#4591dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+    </g>
+  </g>
+</svg>

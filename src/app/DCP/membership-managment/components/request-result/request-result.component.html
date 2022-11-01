@@ -1,0 +1,29 @@
+<div class="request-result">
+  <div *ngIf="isPaymentAction" class="banner mb-4">
+        <banner [bannerData]="banner" [bannerMode]="3" [paddingFlag]="true"> </banner>
+    </div>
+  <div class="container">
+    <result-card *ngIf="!isPaymentAction"
+      [showRate]="true"
+      [showPay]="true"
+      [item]="item"
+      [requestId]="requestId"
+      [id]="requestId"
+      [type]="'membership'"
+    ></result-card>
+
+    <request-card *ngIf="isPaymentAction"
+      [id]="requestId"
+    ></request-card>
+
+    <div class="my-5">
+      <payment-methods (actionType)="actionType($event)"></payment-methods>
+    </div>
+  </div>
+
+  <!-- bank transfer modal -->
+  <bank-transfer-modal [requestId]="requestId"> </bank-transfer-modal>
+
+   <!-- pay wallet model -->
+   <pay-wallet  [requestId]="requestId"></pay-wallet>
+</div>

@@ -1,0 +1,34 @@
+<div class="request-final-details">
+  <!-- <div class="banner mb-4">
+    <banner [bannerData]="model.banner" [bannerMode]="4"> </banner>
+  </div> -->
+
+  <div class="container">
+    <div class="content">
+      <div>
+        <div class="col-md-12 g-0">
+          <div class="content-side">
+            <div class="request-status my-2">
+              <h4>{{'reqestModule.requestDetails.requestInfo.requestStatus' |translate}}</h4>
+              <div class="status-cards my-3">
+                <div class="cards row align-items-center" *ngIf="itemDetails">
+                  <!-- col-lg-3 col-md-6 col-sm-12 -->
+                  <div *ngFor="let card of model.requestStatus; let i = index" class="col-lg-3 col-md-6 col-sm-3 my-3">
+                    <request-status-card [requestDetailsFlage]="true" [requestStatus]="itemDetails?.status" [item]="card" [createdDate]="itemDetails.created"
+                      [isLast]="i + 1 == model.requestStatus.length" [isPassedStep]="$any(card.id) < model.getStateId(itemDetails.status)">
+                    </request-status-card>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="request-details my-4">
+            <h4>{{'reqestModule.requestDetails.requestInfo.requestDetails' |translate}}</h4>
+            <request-details [item]="itemDetails"></request-details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

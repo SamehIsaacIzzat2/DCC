@@ -1,0 +1,22 @@
+// Person Info Style
+
+// Mixins
+@import "../../../../assets/styles/helpers/mixins";
+
+.personInfo {
+    background: #fff;
+    @include prefixer(box-shadow, 2px 3px 10px 0px rgba(0,0,0,0.1), webkit moz o ms);
+    @include bRadius(10px);
+    padding: 15px;
+    margin: 15px 0;
+    cursor: pointer;
+    p {
+        display: flex;
+        align-items: center;
+        @include font(13px, 400);
+        mat-icon {
+            color: #c3c3c3;
+            font-size: 20px;
+        }
+    }
+}

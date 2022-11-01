@@ -1,0 +1,86 @@
+// // Variables
+// @import "../../../../assets/styles/helpers/variables";
+
+// // Mixins
+// @import "../../../../assets/styles/helpers/mixins";
+
+// .anonymous {
+//   min-height: 100vh;
+//   background: $primaryColor;
+//   @include prefixer(background-size,contain, webkit moz o ms);
+//   position: relative;
+//   overflow: auto;
+//   .fixedSide {
+//     width: 66.666%;
+//     color: #fff;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+//     float: left;
+//     min-height: 100vh;
+//     // Min width 1200px and Max width 1400px
+//     @media ($lgScreen) and (max-width: 1400px) {
+//       width: 60%;
+//     }
+//     // Min width 992px and Max width 1200px
+//     @media ($mdMinScreen) and ($maxLgScreen) {
+//       width: 50%;
+//     }
+//     // Min width 767px and Max width 992px
+//     @media ($smMinScreen) and ($smMaxScreen) {
+//       width: 35%;
+//     }
+//     @media ($xsScreen) {
+//       width: 100%;
+//       min-height: 210px;
+//     }
+//     .content {
+//       h3 {
+//         @include font(32px,700);
+//         @media ($smMinScreen) and ($smMaxScreen) {
+//           @include font(21px, 600);
+//         }
+//         margin: {
+//           bottom: 0;
+//           top: 0;
+//         }
+//       }
+//       img {
+//         width: 135px;
+//         @media ($xsScreen) {
+//           width: 100px;
+//         }
+//       }
+//     }
+//   }
+//   .contentSide {
+//     width: 33.333%;
+//     background: url("../../../../assets/images/sidebarCurve_bg.svg") center center;
+//     background-size: cover;
+//     box-shadow: none;
+//     padding: 0 50px;
+//     float: left;
+//     min-height: 100vh;
+
+//     // Min width 1200px and Max width 1400px
+//     @media ($lgScreen) and (max-width: 1400px) {
+//       width: 40%;
+//     }
+//     // Min width 992px and Max width 1200px
+//     @media ($mdMinScreen) and ($maxLgScreen) {
+//       width: 50%;
+//     }
+//     // Min width 767px and Max width 992px
+//     @media ($smMinScreen) and ($smMaxScreen) {
+//       width: 65%;
+//     }
+//     // Max width 767px
+//     @media ($xsScreen) {
+//       width: 100%;
+//       min-height: calc(100vh - 210px);
+//       background: rgb(245,249,251);
+//     }
+//   }
+
+// }

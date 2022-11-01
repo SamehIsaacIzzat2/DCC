@@ -1,0 +1,38 @@
+//helpers
+@import "../../../../assets/styles/helpers/variables";
+@import "../../../../assets/styles/helpers/mixins";
+
+mat-card {
+  color:rgba(0,0,0,.54); border-top:1px solid #ddd; min-height: 50px; padding: 8px; @include prefixer(box-sizing, border-box, webkit moz);
+  .card-container {
+    display: flex; align-items: center; flex-wrap: wrap-reverse;
+    .total {
+      flex: 1 1 20%;
+      span {
+        // @include rtl_key(padding-,left, right,16px);
+        @include rtl_value("padding-left",16px,unset);
+@include rtl_value("padding-right",unset,16px);
+        color:#555;
+        font: {
+          size:18px;
+          weight:700;
+        }
+      }
+    }
+    .paging {
+      display:flex; flex: 1 1 80%; justify-content: flex-end;
+      mat-select { line-height: 35px; }
+      ul {
+        padding: 0; margin: 0; display: inline-block; list-style: none;
+        li {
+          @extend ul;
+          a {
+            cursor: pointer; display:inline-block; height: 22px; min-width: 15px; line-height: 22px; padding: 0 6px;  @include bRadius(3px); margin: 6px 3px; text-align: center; color:rgba(0,0,0,.54); text-decoration: none; vertical-align: bottom;
+            &.active { background:#3f51b5!important; color: #fff!important; }
+          }
+          &:hover a { background:#eee }
+        }
+      }
+    }
+  }
+}

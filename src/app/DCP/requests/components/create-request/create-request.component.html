@@ -1,0 +1,651 @@
+<ng-container *ngIf="!model.loading; else loader">
+  <div class="create-request my-4">
+    <div>
+      <div class="stepper-section">
+        <!-- Stepper will put here -->
+      </div>
+      <div class="request-form" [formGroup]="model.requestData">
+        <div class="row">
+          <!-- company -->
+          <div class="col-12">
+            <div class="row">
+              <div
+                class="col-md-6 col-sm-12"
+                *ngIf="model.usercompanies.length > 0"
+              >
+                <div class="input mt-3">
+                  <div class="input-content">
+                    <label class="form-label" for="Interest"
+                      >{{ "shared.generalWord.company" | translate }}
+                      <span class="required-star"></span
+                    ></label>
+                    <select
+                      class="w-100 form-select"
+                      formControlName="company"
+                      id="company"
+                      (change)="model.setDataFunc()"
+                     
+                    >
+                    <!-- [attr.selected]="i == 0" -->
+                    <option value=""  selected>{{"companyModule.general.selectCompany" | translate}}</option>
+                      <option
+                        *ngFor="
+                          let company of model.usercompanies;
+                          let i = index
+                        "
+                        [value]="company.id"
+                        name=""
+                      >
+                        {{ company.name }}
+                      </option>
+                    </select>
+                    <!-- <div *ngIf="model.f['company'].errors && model.f['company'].touched">
+                    <span class="form-error" *ngIf="model.f['company'].errors['required']">
+                      <i class="fa-solid fa-circle-exclamation"></i> company is required
+                    </span>
+                  </div> -->
+                  </div>
+                </div>
+              </div>
+              <!-- product-Felid -->
+              <div class="col-md-6 col-sm-12">
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "reqestModule.requestDetails.data.hSProducts"
+                          | translate
+                      }}
+                      <span class="required-star">*</span></label
+                    >
+                    <input
+                      autocomplete="new-product"
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.searchByName' | translate
+                      "
+                      aria-label="Products"
+                      matInput
+                      formControlName="products"
+                      [matAutocomplete]="autoo"
+                      multiple
+                      #prodVal
+                      (click)="openProductPanel($event)"
+                      (keyup)="model.onKeyUpHandler(prodVal.value, '', '')"
+                    />
+                    <small
+                      >{{ "shared.generalWord.note" | translate }}{{ ":"
+                      }}{{
+                        "reqestModule.createRequest.productNote" | translate
+                      }}
+                    </small>
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #autoo="matAutocomplete"
+                    >
+                      <mat-option
+                        *ngFor="let option of model.filteredOptionsProd | async"
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(
+                            model.selectedProducts,
+                            'products',
+                            option
+                          );
+                          model.getDpendantSelectData();
+                          model.setDataFunc()
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+
+                    <!-- error-message  -->
+
+                    <div
+                      *ngIf="
+                        model.selectedProducts?.length === 0 &&
+                        model.f['products'].touched
+                      "
+                    >
+                      <span class="form-error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "shared.generalValidationErrorMessage.productValidation"
+                            | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- user-selected-option -->
+
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedProducts.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedProducts"
+                      [itemName]="'Product'"
+                      [itemNameAr]="'المنتج او المنتجات'"
+                      (onRemoveTag)="
+                        model.removeOpt(
+                          model.selectedProducts,
+                          $event,
+                          'product'
+                        )
+                      "
+                    ></app-tags>
+                    <!-- <span class="container-title">Selected Products</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedProducts">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(model.selectedProducts, select, 'product')
+                        "
+                      />
+                    </li>
+                  </ul> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- industry-activity -->
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <!-- industry-Feild -->
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "reqestModule.requestDetails.data.industry" | translate
+                      }}<span class="required-star">*</span></label
+                    >
+                    <input
+                      autocomplete="new-industry"
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.searchByName' | translate
+                      "
+                      aria-label="Industries"
+                      matInput
+                      formControlName="industries"
+                      [matAutocomplete]="autooo"
+                      #indust
+                      (keyup)="model.onKeyUpHandler('', indust.value, '')"
+                      multiple
+                      (click)="openIndustryPanel($event)"
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #autooo="matAutocomplete"
+                    >
+                      <mat-option
+                        *ngFor="let option of model.filteredOptionsInd | async"
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(
+                            model.selectedIndustries,
+                            'industries',
+                            option
+                          );
+                          model.getDpendantSelectData();
+                          model.setDataFunc()
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                    <div
+                      *ngIf="
+                        model.selectedIndustries.length === 0 &&
+                        model.f['industries'].touched
+                      "
+                    >
+                      <span class="form-error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "shared.generalValidationErrorMessage.industryValidation"
+                            | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedIndustries.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedIndustries"
+                      [itemName]="'Industry'"
+                      [itemNameAr]="'الصناعة او الصناعات'"
+                      (onRemoveTag)="
+                        model.removeOpt(
+                          model.selectedIndustries,
+                          $event,
+                          'indistry'
+                        )
+                      "
+                    ></app-tags>
+                    <!-- <span class="container-title">Selected Industries</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedIndustries">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(
+                            model.selectedIndustries,
+                            select,
+                            'indistry'
+                          )
+                        "
+                      />
+                    </li>
+                  </ul> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-12">
+                <!-- Activites Felid -->
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "reqestModule.requestDetails.data.activity" | translate
+                      }}<span class="required-star">*</span></label
+                    >
+                    <input
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.searchByName' | translate
+                      "
+                      aria-label="Activities"
+                      matInput
+                      formControlName="activities"
+                      [matAutocomplete]="auto"
+                      #act
+                      (keyup)="model.onKeyUpHandler('', '', act.value)"
+                      (click)="openActivityPanel($event)"
+                    />
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option
+                        *ngFor="let option of model.filteredOptions | async"
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(
+                            model.selectedActivities,
+                            'activities',
+                            option
+                          );
+                          model.getDpendantSelectData();
+                          model.setDataFunc()
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                    <div
+                      *ngIf="
+                        model.selectedActivities.length === 0 &&
+                        model.f['activities'].touched
+                      "
+                    >
+                      <span class="form-error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "shared.generalValidationErrorMessage.activityValidation"
+                            | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedActivities.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedActivities"
+                      [itemName]="'Activity'"
+                      [itemNameAr]="'النشاط او النشاطات'"
+                      (onRemoveTag)="
+                        model.removeOpt(
+                          model.selectedActivities,
+                          $event,
+                          'activity'
+                        )
+                      "
+                    ></app-tags>
+                    <!-- <span class="container-title">Selected Activities</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedActivities">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(
+                            model.selectedActivities,
+                            select,
+                            'activity'
+                          )
+                        "
+                      />
+                    </li>
+                  </ul> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- look for -->
+          <div class="col-12">
+            <!-- interest Feild -->
+            <div class="input my-3 w-50 w-sm-100">
+              <div class="input-content">
+                <label class="form-label" for="Interest"
+                  >{{
+                    "reqestModule.requestDetails.data.lookingFor" | translate
+                  }}
+                  <span class="required-star">*</span></label
+                >
+                <select
+                  class="w-100 form-select"
+                  formControlName="interest"
+                  placeholder="Select Country"
+                  id="Interest"
+                  (change)="model.setDataFunc()"
+                  [ngStyle]="{
+                    opacity: model.requestData.controls['interest'].invalid
+                      ? '.5'
+                      : '1'
+                  }"
+                >
+                  <option value="" disabled selected>
+                    {{ "shared.generalWord.select" | translate }}
+                  </option>
+                  <option
+                    *ngFor="let interest of model.interestData"
+                    [value]="interest.id"
+                    name=""
+                  >
+                    {{ interest.name }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="
+                    model.f['interest'].errors && model.f['interest'].touched
+                  "
+                >
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['interest'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{
+                      "shared.generalValidationErrorMessage.interestValidation"
+                        | translate
+                    }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- county-city -->
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <!-- country-Feild -->
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{
+                        "reqestModule.requestDetails.data.country" | translate
+                      }}<span class="required-star">*</span></label
+                    >
+                    <input
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.selectCountry' | translate
+                      "
+                      aria-label="locations"
+                      matInput
+                      formControlName="location"
+                      [matAutocomplete]="autoooo"
+                      multiple
+                      #countryAutoComplete
+                      (click)="openCountryPanel($event)"
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #autoooo="matAutocomplete"
+                    >
+                      <mat-option
+                        *ngFor="
+                          let option of model.filteredOptionsLocations | async
+                        "
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(
+                            model.selectedLocation,
+                            'location',
+                            option
+                          );
+                          model.setDataFunc(true)
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                    <div
+                      *ngIf="
+                        model.selectedLocation.length === 0 &&
+                        model.f['location'].touched
+                      "
+                    >
+                      <span class="form-error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "shared.generalValidationErrorMessage.countryValidation"
+                            | translate
+                        }}
+                      </span>
+                    </div>
+                    <div
+                      *ngIf="
+                        (model.filteredOptionsLocations | async) &&
+                        (model.filteredOptionsLocations | async)?.length ===
+                          0 &&
+                        model.f['location'].touched
+                      "
+                    >
+                      <span class="form-error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{ "shared.generalWord.noCountryFound" | translate }}
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedLocation.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedLocation"
+                      [itemName]="'Country'"
+                      [itemNameAr]="'الدولة او الدول'"
+                      (onRemoveTag)="
+                        model.removeOpt(
+                          model.selectedLocation,
+                          $event,
+                          'country'
+                        )
+                      "
+                    ></app-tags>
+                    <!-- <span class="container-title">Selected Countries</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedLocation">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(
+                            model.selectedLocation,
+                            select,
+                            'country'
+                          )
+                        "
+                      />
+                    </li>
+                  </ul> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-12">
+                <!-- city Felid -->
+                <div class="input my-3">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{ "reqestModule.requestDetails.data.city" | translate
+                      }}<span class="required-star">*</span></label
+                    >
+                    <input
+                      autocomplete="new-city"
+                      type="text"
+                      [placeholder]="
+                        'shared.generalWord.selectCountry' | translate
+                      "
+                      aria-label="Citys"
+                      matInput
+                      formControlName="city"
+                      [matAutocomplete]="autocity"
+                      multiple
+                      (click)="openCityPanel($event)"
+                      #cityAutoComplete
+                    />
+                    <mat-autocomplete
+                      autoActiveFirstOption
+                      #autocity="matAutocomplete"
+                    >
+                      <mat-option
+                        *ngFor="
+                          let option of model.filteredOptionsCitys | async
+                        "
+                        [value]="option.name"
+                        (click)="
+                          model.addOpt(model.selectedCity, 'city', option);
+                          model.setDataFunc(true)
+                        "
+                      >
+                        {{ option.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                    <div
+                      *ngIf="
+                        model.selectedCity.length === 0 &&
+                        model.f['city'].touched
+                      "
+                    >
+                      <span class="form-error">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{
+                          "shared.generalValidationErrorMessage.cityValidation"
+                            | translate
+                        }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="selected-items-container"
+                    *ngIf="model.selectedCity.length !== 0"
+                  >
+                    <app-tags
+                      [SelectedItems]="model.selectedCity"
+                      [itemName]="'City'"
+                      [itemNameAr]="'المدينة او المدن'"
+                      (onRemoveTag)="
+                        model.removeOpt(model.selectedCity, $event, 'city')
+                      "
+                    ></app-tags>
+                    <!-- <span class="container-title">Selected Cities</span>
+                  <ul class="selected row">
+                    <li *ngFor="let select of model.selectedCity">
+                      <span>{{ select.name }}</span>
+                      <img
+                        src="assets/images/cross.svg"
+                        alt="Delete"
+                        (click)="
+                          model.removeOpt(model.selectedCity, select, 'city')
+                        "
+                      />
+                    </li>
+                  </ul> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label class="form-label" for=""
+                >{{ "shared.generalFeilds.description" | translate }}
+                <span class="required-star">*</span></label
+              >
+              <textarea
+                formControlName="description"
+                class="form-textarea"
+                (keyup)="model.setDataFunc()"
+                style="resize: none"
+              ></textarea>
+              <div
+                *ngIf="
+                  model.f['description'].errors &&
+                  model.f['description'].touched
+                "
+              >
+                <span
+                  class="form-error"
+                  *ngIf="model.f['description'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{
+                    "shared.generalValidationErrorMessage.descriptionValidation"
+                      | translate
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!---->
+<ng-template #loader>
+  <div class="row">
+    <div
+      class="mt-2 col-lg-6 col-md-12 col-sm-12"
+      *ngFor="let x of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    >
+      <card-loader [height]="50"></card-loader>
+    </div>
+  </div>
+</ng-template>

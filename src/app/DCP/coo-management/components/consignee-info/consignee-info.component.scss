@@ -1,0 +1,61 @@
+@import "../../../../../assets/styles/helpers/variables";
+.consignee-info {
+  margin: 70px 0px;
+
+
+  .title {
+    h2 {
+      margin: 35px 0;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1d4861;
+    }
+  }
+
+  .formContainer {
+    .input {
+      label {
+        font-size: 16px;
+        font-weight: 400;
+        color: #2F3334;
+        margin: 10px 0px;
+
+      }
+    }
+  }
+
+  .add-new-consignee {
+
+    margin-top:43px;
+    button{
+          background-color: #76BC21;
+      border:none !important;
+      outline:none !important;
+      width: 100%;
+      color: #fff;
+      padding: 10px 25px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+  }
+  .add-new-consignee.disabled{
+    opacity: .4;
+    pointer-events: none;
+  }
+  .consignee-details {
+    margin: 30px 0px 30px 10px;
+
+  }
+
+}
+.title {
+  h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2F3334;
+  }
+}
+.create-new-consignee{
+  margin:50px 0px;
+}

@@ -1,0 +1,54 @@
+<div class="wallet-recharge">
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h4>{{'memberShipsModule.wallet.rechargeWallet' |translate}}</h4>
+            </div>
+        </div>
+        <div class="recharge-amount-input">
+            <form [formGroup]="model.walletRechargeForm">
+                <div class="input-content">
+                    <label class="form-label" for="">{{'memberShipsModule.wallet.rechargeAmount' |translate}} <span>
+                            *</span></label>
+                    <input placeholder="0.0 AED" type="text" formControlName="chargeAmount"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                </div>
+                <div *ngIf="(model.submitted||model.f['chargeAmount'].touched) && model.f['chargeAmount'].errors">
+                    <span class="form-error" *ngIf="model.f['chargeAmount'].errors['required']">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        {{'memberShipsModule.wallet.rechargeAmount'| translate }}
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="payment-method my-4">
+            <div class="title">
+                <p>{{'memberShipsModule.wallet.selectPaymentMethod' |translate}} </p>
+            </div>
+            <div class="row">
+                <!-- dubai pay -->
+                <div class="col-md-6 col-sm-12">
+                    <div #dubaiPay (click)="model.setPaymentWay(121290000,'dubaiPay')" [ngClass]="{'selected':model.slectedItem=='dubaiPay'}"
+                        class="item d-flex justify-content-center align-items-center">
+                        <img src="assets/images/dubaiPay.svg" alt="dubaiPay" />
+                    </div>
+                </div>
+                <!-- pay by visa card -->
+                <div class="col-md-6 col-sm-12">
+                    <div #masterCard (click)="model.setPaymentWay(121290003,'masterCard')"
+                    [ngClass]="{'selected':model.slectedItem=='masterCard'}"
+                        class="item d-flex justify-content-center align-items-center">
+                        <img src="assets/images/visa_master.svg" alt="masterCard" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="charge-action normal-button">
+            <div class="normal-button d-flex justify-content-end">
+                <button (click)="model.chargeWallet()">{{'memberShipsModule.wallet.Recharge' |translate}}</button>
+            </div>
+
+        </div>
+    </div>
+</div>

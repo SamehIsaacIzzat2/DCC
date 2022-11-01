@@ -1,0 +1,81 @@
+// Variables
+@import "../helpers/variables";
+
+//Mixins
+@import "../helpers/mixins";
+
+button {
+  //background: $primaryColor;
+  background: #fff;
+  min-height: 32px;
+  text-align: center;
+  // color: #fff;
+  color: #000;
+  text-transform: capitalize;
+  @include font(14px, 500);
+  @include bRadius(35px);
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  padding: 5px 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  min-width: 95px;
+  margin: 5px;
+  @include prefixer(transition, all 0.3s ease-in-out, webkit moz o ms);
+  &.primary,
+  &.active {
+    background: $primaryColor;
+    color: #fff;
+    // background: rgba($primaryColor, 0.8);
+  }
+  &.secondary {
+    background: $secondaryColor;
+    color: #fff;
+  }
+  &.success {
+    background: $successColor;
+    color: #fff;
+  }
+  &.danger {
+    background: $dangerColor;
+    color: #fff;
+  }
+  &.muted,
+  &.notActive {
+    background: #e3e2e2;
+    color: #333;
+    // &:hover {
+    //   color: #fff;
+    // }
+  }
+  &.danger {
+    background: $dangerColor;
+    color: #fff;
+  }
+  &.dangerOutline {
+    border: solid 1px $dangerColor;
+    background-color: #fff5f5;
+    color: $dangerColor;
+    &:hover {
+      color: #fff;
+      background: $dangerColor;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    // background: rgba($secondaryColor, 0.8);
+    // color:#fff;
+  }
+  &:disabled,
+  &[disabled] {
+    background: transparent;
+    color: #b0b0b0;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,23 @@
+.modal-header{
+    border:none;
+
+    .modal-title{
+        color:#1D4861;
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+
+
+.modal-footer{
+    border: none;
+    align-items: center;
+    justify-content: center;
+    .ouline-button{
+        button{
+            background-color: #fff !important;
+
+        }
+    }
+}

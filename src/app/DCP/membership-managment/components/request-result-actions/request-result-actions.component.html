@@ -1,0 +1,8 @@
+<div class="result-actions">
+
+    <!-- last update card -->
+    <last-update-card [item]="model.lastUpdateMessageAndDate" [requestStatus]="model.requestCurrentStatus"></last-update-card>
+
+    <!-- client-agent-text-chat -->
+    <client-agent-chat (SendMessage)="model.sendClientResponse($event)" [chatMessages]="model.allChatMessages"></client-agent-chat>
+</div>

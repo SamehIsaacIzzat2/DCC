@@ -1,0 +1,12 @@
+<div class="banner">
+    <banner [bannerData]="router.url.includes('register') ? RegisterBannerData : verificationBannerData" [bannerMode]="1"> </banner>
+  </div>
+
+  <!-- register-form -->
+  <register-form *ngIf="router.url.includes('register')"></register-form>
+
+  <!-- Verification-card  -->
+  <result-card [item]="item" *ngIf="router.url.includes('verification')"></result-card>
+
+  <a class="text-center my-3" [href]="tempLinkForTest" *ngIf="router.url.includes('verification')">userSendMail</a>
+  <p *ngIf="router.url.includes('verification')" >OTP is :<span>{{tempOTP}}</span>

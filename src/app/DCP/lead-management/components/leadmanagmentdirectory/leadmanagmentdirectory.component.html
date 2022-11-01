@@ -1,0 +1,62 @@
+<div class="banner mb-4">
+  <banner [bannerData]="banner" [bannerMode]="3" [paddingFlag]="true"> </banner>
+</div>
+<div class="container">
+  <p class="page-title">{{ banner.title  }}</p>
+  <div class="main-container row">
+    <div class="left-side col-md-3 col-sm-12">
+      <app-leadfilter
+        [verticalLineInDataCase]="model.rowData.length == 0 ? true : false"
+        (filter)="model.filterData($event)"
+        (removeFilter)="model.removefilterData($event)"
+      ></app-leadfilter>
+    </div>
+
+    <div class="right-side px-0 col-md-9 col-sm-12">
+      <div *ngIf="model.totalRequests != 0" class="row images">
+        <app-chart
+          *ngIf="model.requestsStatusdiagramData"
+          [totalRequest]="model.totalRequests"
+          [data]="model.requestsStatusdiagramData"
+        ></app-chart>
+      </div>
+
+      <div
+        class="request-part mb-4 mb-2 px-0 d-flex justify-content-between align-items-center"
+      >
+        <p>{{ "leadsModule.leadsList" | translate }}</p>
+      </div>
+      <ng-container *ngIf="!model.loading">
+        <div class="allRequests my-4">
+          <app-lead-widget
+            [status]="1"
+            *ngFor="
+              let item of model.rowData
+                | paginate: { itemsPerPage: 5, currentPage: p }
+            "
+            [item]="item"
+            [showIndetails]="false"
+          ></app-lead-widget>
+          <no-data
+            [item]="'shared.generalWord.lead' | translate"
+            *ngIf="model.rowData && model.rowData.length == 0"
+          ></no-data>
+        </div>
+        <div class="col-12" *ngIf="model.rowData.length != 0">
+          <div
+            class="pagination-section d-flex justify-content-center align-items-center"
+          >
+            <app-paginator (pageChange)="changePage($event)"></app-paginator>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- skelton loader -->
+      <div class="row" *ngIf="model.loading">
+        <div class="col-12" *ngFor="let x of [1, 2, 3, 4, 5]">
+          <card-loader [height]="70"></card-loader>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

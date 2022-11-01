@@ -1,0 +1,96 @@
+<div class="information-section general-information-section">
+  <div class="row">
+    <!--  title And Edit Button -->
+    <div class="header col-12">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="title">
+            <h4>{{"companyModule.socail.title" | translate}}</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="edit-btn">
+            <div
+              class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end"
+            >
+              <div class="normal-information">
+                <button
+                  [routerLink]="['edit']"
+                  class="btn"
+                  *ngIf="getViewAndEditState()"
+                >
+                  {{"shared.actions.editInformation" | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- General-information-feilds -->
+  <div class="General-information-content" *ngIf="socialData">
+    <div class="row my-5">
+       <!-- <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">Contact Owner</div>
+            <div class="data my-4">{{ socialData.contactOwner }}</div>
+          </div>
+        </div>
+       <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">Contact Creator</div>
+            <div class="data my-4">{{ socialData.contactCreator }}</div>
+          </div>
+        </div> -->
+       <!-- <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">Nationality</div>
+            <div class="data my-4">{{ socialData.nationalityId }}</div>
+          </div>
+        </div>
+       <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">Job Title/Position</div>
+            <div class="data my-4">{{ socialData.jobTitle }}</div>
+          </div>
+        </div> -->
+       <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"shared.generalFeilds.website" | translate}}</div>
+            <div class="data my-4 no-value">{{ socialData.website }}</div>
+          </div>
+        </div>
+       <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"shared.generalFeilds.linkedin" | translate}}</div>
+            <div class="data my-4 no-value">{{ socialData.linkedIn }}</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"shared.generalFeilds.facebook" | translate}}</div>
+            <div class="data my-4 no-value">{{ socialData.faceBook }}</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"shared.generalFeilds.instagram" | translate}}</div>
+            <div class="data my-4 no-value">{{ socialData.insta }}</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"shared.generalFeilds.twitter" | translate}}</div>
+            <div class="data my-4 no-value">{{ socialData.twitter }}</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="item">
+            <div class="title mb-4">{{"companyModule.socail.otherSocialMedia" | translate}}</div>
+            <div class="data my-4 no-value">{{ socialData.others }}</div>
+          </div>
+        </div>
+
+    </div>
+  </div>

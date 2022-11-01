@@ -1,0 +1,52 @@
+.cancle-pages{
+    min-height:80vh;
+    .title {
+        margin: 50px 0 40px
+        h4 {
+          color: #1d4861;
+          font-size: 28px;
+          font-weight: 700;
+        }
+      }
+
+      .comapny-details{
+         .note{
+            margin-top:30px;
+            margin-bottom:20px;
+            p{
+                color: #1d4861;
+                font-size: 18px;
+                font-weight: 700;
+
+
+            }
+            span{
+                font-size: 18;
+                font-weight: 400;
+                color: #928E8E;
+            }
+         }
+
+         .wallet-option > div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            label{
+                margin:5px;
+                display: inline-block;
+            }
+            &:last-child{
+                margin-left:30px
+            }
+            
+         }
+      }
+
+      .footer{
+        .normal-button{
+            button:hover{
+                color:#fff !important;
+            }
+        }
+      }
+  }

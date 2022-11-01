@@ -1,0 +1,240 @@
+<div class="container px-0">
+  <div class="information-section">
+    <form [formGroup]="model.generalInformationForm">
+      <div class="formContainer">
+        <div class="row mb-10px">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-12 col-md-5">
+                <div class="upload">
+                  <app-image-upload
+                    [imageUrl]="'assets/images/file.svg'"
+                    [title]="'shared.actions.editPhoto' | translate"
+                    [hoverText]="'shared.actions.editPhoto' | translate"
+                    [fileExtensions]="['png', 'jpg', 'jpeg']"
+                    [uniqueId]="1"
+                    [uploadedImage]="
+                      'data:image/png;base64,' + model.currentImage
+                    "
+                    (onUploadImage)="model.onUploadImage($event)"
+                  ></app-image-upload>
+                </div>
+                <div *ngIf="model.submitted && model.f['photo'].errors">
+                  <span
+                    class="form-error"
+                    *ngIf="model.f['photo'].errors['required']"
+                  >
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{'profileModule.generalInfo.requiredImage' | translate}}
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 offset-md-1">
+                <!-- title -->
+                <div class="input mb-30px margin-top-sm">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.title' |translate}}*</label>
+                    <select formControlName="title" class="form-select">
+                      <option value="null">{{'profileModule.generalInfo.selectJob' | translate}}</option>
+                      <option
+                        *ngFor="let opt of model.jobTitles"
+                        [value]="opt.id"
+                      >
+                        {{ opt.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div *ngIf="model.submitted && model.f['title'].errors">
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['title'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.titleRequired' | translate}}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- First Name -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.firstName' |translate}} *</label>
+                    <input type="text" formControlName="firstName" />
+                  </div>
+                  <div *ngIf="model.submitted && model.f['firstName'].errors">
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['firstName'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.firstNameRequired' | translate}}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Last Name -->
+                <div class="input">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.lastName' |translate}} *</label>
+                    <input formControlName="lastName" />
+                  </div>
+                  <div *ngIf="model.submitted && model.f['lastName'].errors">
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['lastName'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.lastNameRequired' | translate}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="items-container col-sm-12 mt-5">
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.email' |translate}} *</label>
+                    <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" -->
+                    <input type="text" formControlName="email" readonly />
+                  </div>
+                </div>
+              </div>
+              <!-- <div *ngIf="model.submitted && model.f['email'].errors">
+                                        <span class="form-error mb-2" *ngIf="model.f['email'].errors['required']">
+                      <i class="fa-solid fa-circle-exclamation"></i>Email is
+                      required
+                    </span>
+                                        <span class="form-error" *ngIf="model.f['email'].errors['pattern']">
+                      <i class="fa-solid fa-circle-exclamation"></i>Email is not
+                      valid
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+              <div class="col-md-6 col-sm-12">
+                <!-- nationality -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.nationality' |translate}} *</label>
+                    <select formControlName="nationalityId" class="form-select">
+                      <option value="">{{'profileModule.generalInfo.selectNationality' | translate}}</option>
+                      <option *ngFor="let option of model.nationalities" [value]="option.id">
+                        {{ option.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div *ngIf="model.submitted && model.f['nationalityId'].errors">
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['nationalityId'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.nationalityRequired' | translate}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- emiratesId -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.emiratesID' |translate}} *</label>
+                    <div class="input">
+                      <input
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        [readonly]="model.currentUser?.generalInfo?.emiratesID"
+                        formControlName="emiratesID"
+                        pattern="^784-?[0-9]{4}-?[0-9]{7}-?[0-9]{1}$"
+                        [inputMask]="emiratesIdInputMask"
+                        [(ngModel)]="Idval"
+                        (focus)="visitFeild(Idval)"
+                        (blur)="checkFeildContent(Idval)"
+                      />
+                      <!-- <span>784</span> -->
+                    </div>
+                  </div>
+                  <div *ngIf="model.submitted && model.f['emiratesID'].errors">
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['emiratesID'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.emiratesIDRequired' | translate}}
+
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="model.f['emiratesID'].errors['pattern']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.emiratesIDNotValid' | translate}}
+
+                    </span>
+                    <span
+                      class="form-error"
+                      *ngIf="
+                        model.f['emiratesID'].errors['minlength'] ||
+                        model.f['emiratesID'].errors['maxlength']
+                      "
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{'shared.generalValidationErrorMessage.emiratesIDNotReachRequirdLength' | translate}}
+
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for=""
+                      >{{'shared.generalFeilds.passportNumber' |translate}}
+                      <!-- <span class="disabled">(Optional)</span> -->
+                    </label>
+                    <input
+                      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                      formControlName="passportNumber"
+                      [readonly]="model.currentUser?.generalInfo?.passportNumber"
+                    />
+                  </div>
+                  <div
+                    *ngIf="model.submitted && model.f['passportNumber'].errors"
+                  ></div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <!-- Unified ID  -->
+                <div class="input mb-30px">
+                  <div class="input-content">
+                    <label class="form-label" for="">{{'shared.generalFeilds.unifiedID' |translate}}</label>
+                    <div class="input">
+                      <input
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        formControlName="unifiedId"
+                        [readonly]="model.currentUser?.generalInfo?.unifiedId"
+                      />
+                      <!-- [readonly]="model.currentUser?.generalInfo?.unifiedId" -->
+                      <!-- <span>784</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end"
+          *ngIf="!getSteeperState()"
+        >
+          <div class="normal-register">
+            <button class="btn" (click)="model.saveUpdate()">{{'shared.actions.save' |translate}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

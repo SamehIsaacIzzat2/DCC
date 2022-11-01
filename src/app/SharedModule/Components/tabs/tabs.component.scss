@@ -1,0 +1,31 @@
+@import "../../../../assets/styles/helpers/variables";
+.tabs-container{
+    text-align: center;
+    .tab-header{
+        .tab-title{
+            border-top: 3px solid #1D4861;
+            border-right: 3px solid #1D4861;
+            border-left: 3px solid #1D4861;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding: 0.5em;
+        }
+        img{
+            width: 1em;
+            border-bottom: 3px solid #1D4861;
+            color: $secondaryColor;
+            font-size: 2em;
+        }
+        .border-left{
+            border-left: 3px solid #1D4861;
+            border-bottom-left-radius: 5px;
+        }
+        .border-right{
+            border-right: 3px solid #1D4861;
+            border-bottom-right-radius: 5px;
+        }
+    }
+    .tab-body{
+
+    }
+}

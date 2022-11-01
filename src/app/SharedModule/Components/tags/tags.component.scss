@@ -1,0 +1,26 @@
+@import "../../../../assets/styles/helpers/variables";
+
+.tags-container{
+    padding: 1em;
+    border: 1px solid $secondaryColor;
+    margin-top: 1em;
+    p{
+        color: $secondaryColor;
+    }
+    .tag{
+        background-color: $secondaryColor;
+        color: white;
+        padding: 0.5em;
+        border-radius: 2em;
+        margin: 0.5em 0.5rem 0.5rem 0;
+        display: inline-block;
+        button{
+            background: transparent;
+            border: transparent;
+            color: white;
+        }
+        @media (max-width: 380px) {
+            font-size: 0.8em;
+        }
+    }
+}

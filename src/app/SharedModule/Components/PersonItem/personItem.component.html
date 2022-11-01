@@ -1,0 +1,6 @@
+<!-- Person Item -->
+<div class="personItem" (click)="model.clickItem()">
+  <img *ngIf="model.data.image" [src]="model.data.image" width="32" height="32" />
+  <div *ngIf="!model.data.image && model.data.backgroundColor" class="name" [style.background]="model.data.backgroundColor">{{model.Name}}</div>
+  <span [innerHTML]="model.data.name | highlight : model.highlightedText"></span>
+</div>

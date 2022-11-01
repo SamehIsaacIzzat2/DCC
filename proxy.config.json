@@ -1,0 +1,12 @@
+{
+    "/api/*": {
+        "target": "http://localhost:4200",
+        "secure": false,
+        "logLevel": "info"
+    },
+	"/myotherapp/*": {
+        "target": "https://dccpilotweb.azurewebsites.net/",
+        "secure": false,
+        "logLevel": "info"
+    }
+}

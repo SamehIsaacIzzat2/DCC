@@ -1,0 +1,14 @@
+<div class="item">
+    <div class="header">
+        <div class="title-icon">
+            <mat-icon>{{item.icon}}</mat-icon>
+        </div>
+        <div class="title">{{item.title}}</div>
+        <div class="icon" (click)="model.expand()">
+            <mat-icon>{{model.isExpanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+        </div>
+    </div>
+    <div class="body" *ngIf="model.isExpanded">
+       <ng-content></ng-content>
+    </div>
+</div>

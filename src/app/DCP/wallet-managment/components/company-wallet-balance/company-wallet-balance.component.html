@@ -1,0 +1,19 @@
+<div class="company-wallet-balance-card">
+    <div (click)="selectCompany(item.companyId,item.walletId,item.balance)" class="content" [ngClass]="{'cardSelected':item.selected}">
+        <img src="../../../../../../../assets/images/wallet-2.svg" alt="wallet-icon" />
+        <div class="company-name">
+            <h4 class="my-1">{{item.company}}</h4>
+        </div>
+        <div class="current-balace text-center my-3">
+            <div class="title">
+                <p>{{'memberShipsModule.wallet.currentBalance'|translate}}</p>
+            </div>
+            <div class="data">
+                <p class="current-balance">
+                    <span class="currency">AED</span>
+                    <span class="amount"> {{item.balance}}</span>
+                   
+                </p></div>
+        </div>
+    </div>
+</div>

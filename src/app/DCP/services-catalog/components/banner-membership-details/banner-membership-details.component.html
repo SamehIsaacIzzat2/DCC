@@ -1,0 +1,36 @@
+<div class="serDetails">
+  <div class="serDetails-wrapper">
+    <div class="header">
+      <h3>
+        {{ serviceDetails.serName }}
+      </h3>
+      <a (click)="checkUserAuthetication()">
+        <span>{{'shared.actions.startService'|translate}}</span>
+        <mat-icon>power_settings_new</mat-icon>
+      </a>
+    </div>
+    <div class="line"></div>
+    <div class="content">
+      <div class="details">
+        <div class="item">
+          <div class="icon">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <div>
+            <h6>{{"reqestModule.createRequest.serviceAccomplishTime"|translate}}</h6>
+            <div [innerHTML]="serviceDetails.accTime"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <i class="fa-regular fa-sun"></i>
+          </div>
+          <div>
+            <h6>{{"reqestModule.createRequest.serviceChannles"|translate}}</h6>
+            <p [innerHTML]="serviceDetails.serviceChannels"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

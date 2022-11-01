@@ -1,0 +1,38 @@
+// Variables
+@import "../../../../assets/styles/helpers/variables";
+
+.columnSettings {
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  background-color: white;
+  box-shadow: 4px 4px 7px #a8a8a840, -4px 0px 7px #a8a8a840;
+
+  .header {
+    padding: 16px;
+    color: white;
+    text-align: center;
+    background-color: $primaryColor;
+  }
+  .body {
+    padding: 10px 0;
+    width: 490px;
+    max-height: 220px;
+    overflow: auto;
+    ::ng-deep .mat-grid-tile-content {
+      justify-content: space-between;
+      margin-inline-start: 15px;
+    }
+    mat-checkbox {
+      text-transform: capitalize;
+    }
+  }
+  .footer {
+    padding: 16px;
+    position: relative;
+    bottom: 0;
+    box-shadow: 0px -5px 6px #e6e6e6;
+  }
+}

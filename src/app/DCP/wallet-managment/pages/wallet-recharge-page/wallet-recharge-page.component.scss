@@ -1,0 +1,9 @@
+.wallet-recharge-page{
+    .content{
+        width:50%;
+        margin:30px auto;
+        @media (max-width:567px){
+            width:80% !important;
+        }
+    }
+}

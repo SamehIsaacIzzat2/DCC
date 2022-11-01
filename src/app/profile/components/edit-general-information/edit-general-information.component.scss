@@ -1,0 +1,137 @@
+
+@import "../../../../assets/styles/components/_form.scss";
+@import "../../../../assets/styles/components/_profile_information.scss";
+@import "../../../../assets/styles/helpers/variables";
+
+
+.formContainer {
+  //display: flex;
+  flex-wrap: wrap;
+  gap: 23px;
+  justify-content: space-between;
+
+  .inputs-container {
+    .input-content {
+
+      input,
+      select {
+        width: 100% !important;
+        padding: 6px 16px;
+        border: 1px solid #ddd;
+        margin: 10px 0px;
+      }
+
+      select {
+        padding: 13px 0px;
+      }
+    }
+  }
+
+  .left-side {
+    flex: 1 1 auto;
+
+    .upload {
+      width:80%;
+      // width: calc(60% - 10px);
+      min-width: 250px;
+        height: 100%;
+
+    }
+
+    .inputs-container {
+      margin-top: 45px;
+    }
+
+    @media (max-width: 400px) {
+      .upload {
+        min-width: auto;
+        width: 100%;
+      }
+    }
+
+  }
+
+  .right-side {
+    flex: 1 1 auto;
+  }
+}
+
+.register-buttons .normal-register button {
+  background-color: $secondaryColor;
+  width: 228.25px;
+  border: 1px solid $secondaryColor;
+  color: #fff;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+
+}
+
+input:focus {
+  border: 1px solid $secondaryColor;
+  box-shadow: none;
+  outline: none;
+}
+
+.label {
+  color: #2F3334;
+}
+
+.mb-30px {
+  margin-bottom: 30px;
+}
+
+.upload {
+  // width: calc(60% - 10px);
+  width:80%;
+  min-width: 250px;
+  height: 100%;
+}
+
+.emirates-id-input {
+  position: relative;
+
+  input {
+    padding-inline-start: 50px !important;
+  }
+
+  span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.input-with-eye {
+  position: relative;
+
+  input {
+    padding-inline-end: 40px !important;
+  }
+
+  button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+
+    svg {
+      color: #003764;
+    }
+  }
+}
+
+.margin-top-sm{
+  margin-top: 0px ;
+  @media (max-width:767px){
+      margin-top: 20px !important;
+  }
+}
+

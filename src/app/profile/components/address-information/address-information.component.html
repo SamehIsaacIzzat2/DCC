@@ -1,0 +1,73 @@
+<div class="information-section address-information-section ">
+    <div class="row">
+        <!--  title And Edit Button -->
+        <div class="header col-12">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6 col-sm-12">
+                    <div class="title">
+                        <h4>{{'profileModule.AddressInfo.addressInformation' |translate}}</h4>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="edit-btn">
+                        <div class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end">
+                            <div class="normal-information">
+                                <button class="btn" [routerLink]="['/profile','address','edit']" *ngIf="getViewAndEditState()">{{'profileModule.AddressInfo.editAddressInfo' |translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+         <!-- address address-information-feilds -->
+
+         <div class="items-container my-5 " >
+            <div class="row">
+                <div class="col-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.address' |translate }} </div>
+                        <div *ngIf="model.addressData?.address" class="data my-4 ">{{model.addressData?.address}}</div>
+                        <p *ngIf="!model.addressData?.address" class="Dummy-data">{{'shared.generalWord.noValue' |translate }}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.country' |translate }}  </div>
+                        <div *ngIf="model.getLookup(model.allCountries,model.addressData?.countryId)" class="data my-4 ">{{model.getLookup(model.allCountries,model.addressData?.countryId)}}</div>
+                        <p *ngIf="!model.getLookup(model.allCountries,model.addressData?.countryId)" class="Dummy-data">{{'shared.generalWord.noValue' |translate }}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.city' |translate }}  </div>
+                        <div *ngIf="model.cityName" class="data my-4 ">{{model.cityName}}</div>
+                        <p *ngIf="!model.cityName" class="Dummy-data">{{'shared.generalWord.noValue' |translate }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.provinceAndState' |translate }}</div>
+                        <div *ngIf="model.addressData?.provinceState" class="data my-4 ">{{model.addressData?.provinceState}}</div>
+                        <p *ngIf="!model.addressData?.provinceState" class="Dummy-data">{{'shared.generalWord.noValue' |translate }}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.zipCode' |translate }}</div>
+                        <div *ngIf="model.addressData?.zipCode" class="data my-4 ">{{model.addressData?.zipCode}}</div>
+                        <p *ngIf="!model.addressData?.zipCode" class="Dummy-data">{{'shared.generalWord.noValue' |translate }}</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

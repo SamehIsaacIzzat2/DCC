@@ -1,0 +1,107 @@
+<div class="information-section general-information-section">
+  <div class="row">
+    <!--  title And Edit Button -->
+    <div class="header col-12">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="title">
+            <h4>{{"companyModule.contact.title" | translate}}</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="edit-btn">
+            <div
+              class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end"
+            >
+              <div class="normal-information">
+                <button
+                  [routerLink]="['edit']"
+                  class="btn"
+                  *ngIf="getViewAndEditState()"
+                >
+                  {{"shared.actions.editInformation" | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact-information-feilds -->
+  <div class="General-information-content" *ngIf="contactData">
+    <div class="row my-5">
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.address" | translate}}</div>
+          <div class="data my-4 no-value">{{ contactData.address }}</div>
+        </div>
+      </div>
+     
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.country" | translate}}</div>
+          <div class="data my-4 no-value">{{lookupSer.getLookupNameById(countries, contactData.countryId)}}</div>
+          
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.city" | translate}}</div>
+          <div
+            class="data my-4 "
+            *ngIf="cityName !=''"
+          >
+            {{cityName}}
+          </div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="cityName ==''"
+          ></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.provinceAndState" | translate}}</div>
+          <div class="data my-4 no-value">{{ contactData.provinceState }}</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.zipCode" | translate}}</div>
+          <div class="data my-4 no-value">{{ contactData.zipCode }}</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.email" | translate}}</div>
+          <div class="data my-4 no-value">{{ contactData.email }}</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.phoneNumber" | translate}}</div>
+          <div class="data my-4 input-content mobileFeild inputHasSuffixOrPrefix no-value" [formGroup]="phoneForm">
+            <ngx-intl-tel-input
+                  id="mobileInput"
+                  [preferredCountries]="model.preferredCountries"
+                  [selectFirstCountry]="true"
+                  [separateDialCode]="true"
+                  [enablePlaceholder]="false"
+                  formControlName="phone"
+                  name="phone"
+                  [phoneValidation]="true"
+                  [searchCountryFlag]="true"
+                  [searchCountryField]="[
+                    model.searchCountryField.Iso2,
+                    model.searchCountryField.Name
+                  ]"
+                >
+            </ngx-intl-tel-input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

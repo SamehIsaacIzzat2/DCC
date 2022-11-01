@@ -1,0 +1,14 @@
+// NavItems Style
+.navItems {
+  ul {
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 40px;
+    // li {
+    //     float: left;
+    //     margin: 0 20px;
+    // }
+  }
+}

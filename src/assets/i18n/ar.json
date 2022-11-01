@@ -1,0 +1,923 @@
+{
+  "layout": {
+    "navItems": {
+      "services": "الخدمات",
+      "resources": "الموارد",
+      "mediaCenter": "المركز الإعلامي",
+      "aboutUs": "عن Dcc",
+      "events": "الفعاليات",
+      "contactUs": "تواصل معنا",
+      "hi": "اهلا"
+    },
+    "footer": {
+      "ToilFree": "رقم مجاني",
+      "800CHAMBER": "800 غرفة ( 800 242 6237)",
+      "QuickLinks": {
+        "text": "روابط سريعة",
+        "contact": "التواصل",
+        "privacyPolicy": "سياسة الخصوصية",
+        "FAQ": "الأسئلة الشائعة",
+        "Complaints": "الشكاوي",
+        "Terms&Conditions": "الشروط والأحكام",
+        "Sitemap": "خريطة الموقع"
+      },
+      "websiteUpdatedOn": "تم تحديث الموقع بتاريخ",
+      "GETCONNECTED": "تواصل معنا",
+      "SUBSCRIBE NEWSLETTER": "اشترك في النشرة الإخبارية",
+      "Copyright2022DubaiChamberOfCommerce&Industry": "كل الحقوق محفوظة 2022 غرفة دبي للتجارة والصناعة"
+    }
+  },
+  "shared": {
+    "actions": {
+      "login": "تسجيل الدخول",
+      "register": "تسجيل",
+      "confirm": "تأكيد",
+      "save": "حفظ",
+      "draft": "حفظ",
+      "accept": "قبول",
+      "reject": "رفض",
+      "yes": "نعم",
+      "no": "لا",
+      "startService": "ابدأ الخدمة",
+      "send": "إرسال",
+      "create": "إنشاء",
+      "alreadyHaveAccountLogin": "اذا كان لديك حساب بالفعل، رجاء قم بتسجيل الدخول",
+      "editInformation": "تعديل المعلومات",
+      "next": "التالي",
+      "saveAsDraft": "حفظ كمسودة",
+      "previous": "السابق",
+      "submit": "إرسال",
+      "editPhoto": "تعديل الصورة",
+      "back": "الرجوع",
+      "payNow": "ادفع الان",
+      "cancle": "الغاء"
+    },
+    "Placeholders": {
+      "enterYourEmailAddress": "أدخل بريدك الإلكتروني",
+      "email": "user@company.com",
+      "idNumber": "ادخل الرقم",
+      "SearchByName": "ابحث بالأسم",
+      "userName": "قم بإدخال أسم او رقم المستخدم",
+      "writeMessageHere": "اكتب هنا",
+      "companyLinkedIn": "الشركة علي لينكدان",
+      "companyInstagram": "الشركة علي انستجرام",
+      "companyFacebook": "الشركة علي الفيس بوك",
+      "companyTwitter": "الشركة علي تويتر",
+      "companyWebsite": "موقع ويب الشركة",
+      "companyOtherLinks": "روابط تواصل اخري",
+      "enterFirstName": "ادخل اسمك الاول",
+      "enterLastName": "ادخل اسمك الاخير",
+      "enterEmail": "ادخل البريد الالكتروني الخاص بك"
+    },
+    "filterData": {
+      "filterBy": "مصنف بواسطة",
+      "searchBy": "بحث بواسطه",
+      "requestStatus": "حاله الطلب",
+      "serviceType": "نوع الخدمة",
+      "sortingBy": "الترتيب بواسطة",
+      "applyFilter": "تطبيق",
+      "quickFind": "بحث سريع",
+      "clear": "مسح"
+    },
+    "generalWord": {
+      "all": "الجميع",
+      "closed": "مغلق",
+      "close": "أغلق",
+      "draft": "مسودة",
+      "open": "مفتوح",
+      "submitted": "مُرسل",
+      "note": "ملاحظه",
+      "notes": "ملاحظات",
+      "noValue": "لا توجد بيانات ",
+      "selectCountry": "قم بإختيار دولة",
+      "selectCity": "قم بإختيار مدينة",
+      "optional": "إختياري",
+      "preview": "عرض نهائي",
+      "opportuinities": "عميل",
+      "match": "نسبة التوافق",
+      "selected": "تم الإختيار",
+      "searchByName": "ابحث بالأسم",
+      "noCountryFound": "لا توجد دول ",
+      "or": "او",
+      "number": "رقم",
+      "successful": "ناجح",
+      "unsuccessful": "غير ناجح",
+      "select": "إختر",
+      "draftnumber": "الطلب رقم",
+      "hasBeenUpdated": "تم حفظه بنجاح",
+      "hasBeenSubmitted": "تم إرساله بنجاح",
+      "submittedsuccessfully": "تم الارسال بنجاح",
+      "referenceID": "الرقم المرجعي",
+      "no": "لا توجد",
+      "yet": "مطلقا",
+      "AddYourFirst": "أضف أول",
+      "senetance-cont": "لتبدأ أول خطوة نحو النجاح",
+      "company": "شركة",
+      "selectCompany": "إختر شركه",
+      "event": "فعاليات",
+      "interaction": "تفاعلات",
+      "lead": "عميل محتمل",
+      "message": "رسالة",
+      "referral": "احالات",
+      "opportunity": "عميل",
+      "request": "طلب",
+      "requiredData": "  من فضلك قم بادخال جميع الحقول !",
+      "wrongSomeThing": "حدث خطأ",
+      "updatedInfo": " تم تحديث البيانات",
+      "special": "خاص",
+      "results": "النتائج",
+      "requestInfo": "معلومات الطلب",
+      "cancel": "إلغاء",
+      "add": "إضافة",
+      "verifyFirst": "الرجاء التحقق أولا",
+      "continue": "استكمال",
+      "AED":"درهم إماراتي"
+    },
+    "generalFeilds": {
+      "title": "العنوان",
+      "name": "الأسم",
+      "firstName": "الأسم الاول",
+      "lastName": "الأسم الأخير",
+      "nationality": "الجنسية",
+      "email": "البريد الألكتروني",
+      "phoneNumber": "رقم الهاتف",
+      "emiratesID": "رقم الهوية",
+      "passportNumber": "رقم جواز السفر",
+      "unifiedID": "رقم الهوية المؤقتة",
+      "address": "عنوان المكان",
+      "country": "الدولة",
+      "city": "المدينة",
+      "type": "النوع",
+      "provinceAndState": "قطاع",
+      "zipCode": "رقم القطاع",
+      "workEmail": "البريد الخاص بالعمل",
+      "personalEmail": "البريد الخاص",
+      "officeNumber": "رقم المكتب",
+      "workNumber": "رقم العمل",
+      "mobileNumber": "رقم الهاتف",
+      "website": "الموقع الألكتروني",
+      "linkedin": "لينكد ان",
+      "facebook": "فيسبوك",
+      "instagram": "انستجرام",
+      "twitter": "تويتر",
+      "otherLinks": "مواقع اخري",
+      "product": "المنتج",
+      "industry": "الصناعة",
+      "activity": "النشاط",
+      "location": "الموقع",
+      "date": "التاريخ",
+      "activities": "الانشطه",
+      "products": "المنتجات",
+      "industries": "الصناعات",
+      "locations": "المواقع",
+      "status": "الحاله",
+      "days": "ايام",
+      "description": "الوصف",
+      "writeDescription": "اكتب الوصف هنا",
+      "specifyinteraction": "حدد التفاعل",
+      "proposedDateTime": "التاريخ والوقت المقترحان",
+      "department": "القسم",
+      "entityName": "أسم الشركة",
+      "sector": "القطاع",
+      "entityType": "نوع الشركة",
+      "exteranlType": "نوع الشركه",
+      "results": "النتائج",
+      "input": "ادخل"
+    },
+    "generalValidationErrorMessage": {
+      "titleRequired": "العنوان مطلوب",
+      "nameRequired": "الأسم مطلوب",
+      "firstNameRequired": "الأسم الاول مطلوب",
+      "lastNameRequired": " الأسم الاخير مطلوب",
+      "nationalityRequired": "الجنسية مطلوبة",
+      "emailRequired": "البريد الألكتروني مطلوب",
+      "emailNotValid": "البريد الألكتروني غير صحيح",
+      "phoneNumberRequired": "رقم الهاتف مطلوب",
+      "phoneNumberNotValid": "رقم الهاتف غير صحيح",
+      "emiratesIDRequired": "رقم الهويه مطلوب",
+      "emiratesIDNotValid": "رقم الهوية غير صحيح",
+      "descriptionRequired": "الوصف مطلوب",
+      "requestNumberRequired": "رقم الطلب مطلوب",
+      "requestNumberNotValid": "رقم الطلب غير صحيح",
+      "eventRequired": "الفعالية مطلوبة",
+      "interactionRequired": "التفاعل مطلوب",
+      "interactionTypeRequired": "نوع التفاعل مطلوب",
+      "eventNotValid": "الفعالية غير صحيحة",
+      "proposedDateTimeRequired": "التاريخ والوقت المقترحان مطلوبين",
+      "outcomeRequired": "الناتج مطلوب",
+      "emiratesIDNotReachRequirdLength": "يجب ان يحتوي رقم الهويه على 15 رقما",
+      "passportNumberRequired": "رقم جواز السفر مطلوب",
+      "unifiedIDRequired": "رقم الهوية المؤقته مطلوب",
+      "requiredAddress": "عنوان المكان مطلوب",
+      "requiredCountry": "الدولة مطلوبه",
+      "requiredZIP": "رقم القطاع مطلوب",
+      "requiredState": "المنطقة مطلوبة",
+      "requiredCity": "المدينه مطلوبة",
+      "requiredWorkEmail": "رقم هاتف العمل مطلوب",
+      "requiredPersonalEmail": "البريد الالكتروني مطلوب",
+      "invalidOfficeNumber": "رقم هاتف المكتب مطلوب",
+      "invalidWorkNumber": "رقم الهاتف غير صحيح",
+      "requiredMobileNumber": "رقم الهاتف مطلوب",
+      "invaidMobileNumber": "رقم الهاتف غير صحيح",
+      "invalidWebsite": "خطأ في الرابط",
+      "invalidLinkedIn": "خطأ في الرابط",
+      "invalidFacebook": "خطأ في الرابط",
+      "invalidInstagram": "خطأ في الرابط",
+      "invalidTwitter": "خطأ في الرابط",
+      "invalidLink": "خطأ في الرابط",
+      "invalidIBAN": "خطأ في IBAN",
+      "invalidAccountNumber": "خطأ في رقم الحساب",
+      "productValidation": "يجب إختيار منتج واحد على الأقل",
+      "industryValidation": "يحب إختيار صناعة واحده على الأقل",
+      "activityValidation": "يجب إختيار نشاط واحد على الأقل",
+      "countryValidation": "يجب إختيار دولة واحدة على الأقل",
+      "cityValidation": "يجب إختيار مدينة واحده على الأقل",
+      "descriptionValidation": "الوصف مطلوب",
+      "interestValidation": "الإهتمام مطلوب",
+      "entityNameIsRequired": "أسم الشركة مطلوب",
+      "sectorIsRequired": "القطاع مطلوب",
+      "entityTypeIsRequired": "نوع الشركة مطلوب",
+      "companySizeIsRequired": "حجم الشركة مطلوب",
+      "complaintRequired": "الشكوى مطلوبه",
+      "contactCreatorRequired": "منشئ الاتصال مطلوب",
+      "jobTitleRequired": "المسمى الوظيفي مطلوب"
+    },
+    "comapnyInfo": {
+      "comapnyInfo": "معلومات الشركة",
+      "comapnySize": "حجم الشركة",
+      "companyName": "أسم الشركة",
+      "products": "المنتجات",
+      "activities": "الأنشطة",
+      "industries": "الصناعات",
+      "locations": "الأماكن",
+      "entityNameIsRequired": "أسم الشركة مطلوب",
+      "sectorIsRequired": "القطاع مطلوب",
+      "entityTypeIsRequired": "نوع الشركة مطلوب",
+      "companySizeIsRequired": "حجم الشركة مطلوب"
+    }
+  },
+  "bannerData": {
+    "breadCrump": {
+      "home": "الصفحه الرئيسية",
+      "requests": "الطلبات",
+      "registration": "تسجيل حساب جديد",
+      "newAccount": "إنشاء حساب جديد",
+      "editProfile": "تعديل الحساب الشخصي",
+      "dashBoard": "لوحة التحكم",
+      "newRequest": "إنشاء طلب جديد",
+      "createRequest": "إنشاء طلب جديد",
+      "opportunitiesList": "قائمه العملاء",
+      "companies": "الشركات",
+      "addCompany": "إضافة شركة",
+      "newMemberShip": "عضوية جديدة",
+      "renewMemberShip":"تجديد العضوية",
+      "newCoo": "إصدار شهادة منشأ",
+      "memberships": "العضويات",
+      "createCoo": "إنشاء COO"
+    },
+    "mainTitle": {},
+    "bannerNavigationLinks": {
+      "requests": "الطلبات",
+      "leads": "العملاء المحتملين",
+      "leadDetails": "تفاصيل العميل",
+      "opportunites": "العملاء",
+      "companies": "الشركات",
+      "payment": "الدفع",
+      "services": "الخدمات",
+      "servicesDirectory": "قائمة الخدمات",
+      "Interactions": "التفاعلات",
+      "createInteraction": "إنشاء تفاعل"
+    },
+    "dropDown": {
+      "profile": "الصفحه الشخصية",
+      "logout": "تسجيل الخروج"
+    },
+    "search": "اكتب كلمة أساسية للبحث"
+  },
+  "registration": {
+    "registrationForm": {
+      "registrationForm": "إستمارة تسجيل",
+      "personalInfo": "المعلومات الشخصية",
+      "personalInfoNote": "هذه الحقول مطلوبة لتسهيل عملية التسحيل",
+      "identificationInfo": "معلومات الهوية الشخصية",
+      "identificationInfoNote": "يجب على الأقل ادخال حقل واحد من الحقول التالية",
+      "registerationFailed": "فشل التسجيل"
+    },
+    "success": {
+      "youHaveSuccessfullyRegistered": "تم التسجيل بنجاح",
+      "viewRequests": "عرض الطلبات",
+      "yourPasswordChangedSuccessfuly": "تم تغيير كلة السر بنجاح",
+      "backtoLogin": "العودة لتسجيل الدخول"
+    },
+    "registrationVerification": {
+      "verificationCard": {
+        "Verification": "التحقق من المستخدم",
+        "title": "تم ارسال رمز التحقيق الي البريد الألكتروني الخاص بك",
+        "title2": "تم إرسال رابط التحقق لبريدك الإلكتروني",
+        "btnTxt2": "أدخل كلمة سر جديدة",
+        "btnText": "ادخال رمز التحقيق"
+      }
+    },
+    "compeletRegistration": {
+      "lastStep": "الخطوة الأخيره",
+      "info": "من فضلك قم بادخال رمز التحقيق المرسل اليك عبر البريد الألكتروني",
+      "otp": "رمز التحقيق",
+      "requiredOtp": "رمز التحقيق مطلوب",
+      "invalidOtp": "رمز التحقيق غير صحيح",
+      "compeletRegistration": " اكمال التسجيل"
+    },
+    "createPassword": {
+      "createPassword": "إنشاء كلمة سر",
+      "message": "من فضلك قم بادخال كلمة السر الخاصه بك",
+      "password": "كلمة السر",
+      "requiredPassword": "كلمة السر مطلوبة",
+      "invalidPassword": "كلمة السر غير صحيحة",
+      "confirmPassword": "تأكيد كلمة السر",
+      "requiredConfirmPassword": "يحب ادخال كلمة السر مرة اخري للتاكيد",
+      "passwordMust": "يجب أن تحتوي كلمة السر على",
+      "passwordValidationRule": {
+        "characterNumber": "على الأقل ثمانيه احرف",
+        "digitNumber": "على الأقل رقم صحيح",
+        "letterNumber": "على الأقل حرف في حالة capital",
+        "noSpace": "المسافات  الفارغة غير مسموحة"
+      }
+    }
+  },
+  "Login": {
+    "userName": "أسم المستخدم",
+    "requiredUserName": "أسم المستخدم مطلوب",
+    "invalidUserName": "أسم المستخدم غير صحيح",
+    "forgetpassword": "هل نسيت كلمة السر؟",
+    "createNewAccount": "إنشاء حساب جديد",
+    "UEAPathWaitingMessage": " ........من فضلك انتظر ",
+    "forgetPass": "هل نسيت كلمة السر",
+    "changePassVerification": "تم ارسال الرابط الي البريد الألكتروني الخاص بك",
+    "resetPassword": "اعادة تعين كلمة السر"
+  },
+  "reqestModule": {
+    "bannerTitle": {
+      "mainTitle": "طلباتي"
+    },
+    "requestChart": {
+      "requestsStatus": "حالات الطلبات",
+      "total": "جميع الطلبات"
+    },
+    "requestList": {
+      "myRequests": "طلباتي",
+      "newRequest": "طلب جديد"
+    },
+    "requestWidget": {
+      "requestNumber": "رقم الطلب",
+      "status": "حالة الطلب",
+      "createdOn": "تاريج التقديم "
+    },
+    "requestDetails": {
+      "banner": {
+        "title": "طلب مطابقة الأعمال"
+      },
+      "data": {
+        "hSProducts": "المنتجات",
+        "industry": "الصناعات",
+        "activity": "الأنشطة",
+        "lookingFor": "أتطلع لان اكون",
+        "location": "المواقع",
+        "description": "الوصف",
+        "companySize": "حجم الشركة",
+        "country": "الدول",
+        "city": "المدن"
+      },
+      "sideNav": {
+        "bussinessMatchRequest": "معلومات الطلب",
+        "bussinessMatchResults": "نتيجه الطلب"
+      },
+      "requestInfo": {
+        "requestStatus": "حالة الطلب",
+        "requestDetails": "تفاصيل الطلب"
+      },
+      "requestActionResult": {
+        "companyId": "رقم الشركة",
+        "closeReqest": "انهاء الطلب",
+        "InitateLead": "بدء التعامل"
+      }
+    },
+    "createRequest": {
+      "title": "إنشاء طلب جديد",
+      "productNote": "المنتجات التي يتم إختيارها مرتبطه بالانشطه والصناعات التي  تم إختيارها",
+      "fillingInfo": "ملئ البيانات",
+      "previewInfo": "عرض البيانات",
+      "requestSendSucessfully": "تم ارسال الطلب بنجاح",
+      "viewRequests": "عرض جميع الطلبات",
+      "requestNumber": "رقم الطلب هو",
+      "doYouFindContentHelpful": "هل تجد هذا المحتوى مفيد؟",
+      "print": "طباعة",
+      "share": "مشاركة",
+      "favoriteService": "أضف هذه الخدمة إلى المفضلة",
+      "bookmarkPage": "ضع علامة على هذه الصفحة",
+      "serviceRating": "تقييم الخدمة",
+      "ratings": "تقييمات",
+      "serviceAccomplishTime": "وقت إنجاز الخدمة",
+      "twoMinutesDubaiChamerWebsite": "دقيقتان من خلال موقع غرفة دبي",
+      "sixMinutesDubaiChamperCustomerHappiness": "6 دقائق من خلال زيارة مركز إسعاد المتعاملين التابع لغرفة دبي",
+      "usersUsedService": "المستخدمون الذين استخدموا هذه الخدمة",
+      "serviceChannles": "قنوات الخدمة",
+      "submitDesc": "تقديم الطلب من خلال موقع غرفة دبي أو التطبيق الذكي وفي حال واجهتك أي مشاكل أثناء التقديم يمكنك المتابعة إلى مركز سعادة المتعاملين",
+      "membershipServiceChannels":"مراكز إسعاد العملاء<br/> الموقع الإلكتروني<br/> تطبيق الهاتف المحمول",
+      "aboutTheService": "عن الخدمة",
+      "aboutTxt": "تبسط غرفة دبي إجراءات ممارسة الأعمال التجارية من خلال المصادقة على المستندات والمراسلات والعقود لأعضائها وتسهيل قبول هذه الوثائق من قبل الجهات المعنية.",
+      "aboutMembershipTxt":"تختص خدمة العضوية بتسجيل شركات البر الرئيسي والمناطق الحرة المرخص لها بمزاولة جميع الأنشطة التجارية والصناعية والمهنية. تساعد الخدمة العملاء على ممارسة أنشطتهم الاقتصادية والاستمتاع بأرقام الخدمات والبرامج الأخرى التي تقدمها غرفة دبي والتي تهدف إلى دعم نمو قطاع الأعمال.",
+      "targetedCustomers":"العملاء المستهدفون",
+      "mainland":"الشركات المرخصة في البر الرئيسي",
+      "freeZoneLicensed":"الشركات المرخصة في المنطقة الحرة",
+      "subServiceTransactional":"الخدمة الفرعية - المعاملات",
+      "serviceProcedure": "إجراءات الخدمة",
+      "Procedure1": "تقديم جميع المستندات اللازمة عن طريق زيارة مراكز السعادة بغرفة دبي أو الموقع الإلكتروني لغرفة دبي أو التطبيق الذكي",
+      "Procedure2": "الموافقة على الطلب",
+      "Procedure3": "دفع رسوم الخدمة",
+      "Procedure4": "تصديق الوثائق",
+      "serviceRequirements": "متطلبات الخدمة",
+      "signatureBusinessMatchingRequest": "طلب مطابقة التوقيع الأعمال",
+      "signature1": "يجب أن تكون المستندات التي تتطلب تصديق موقعة من قبل المفوض بالتوقيع",
+      "signatureCard": "بطاقة التوقيع",
+      "signature2": "  موقعة ومختومة من قبل المدير أو المحامي",
+      "authenticateCertificate": "تصديق الشهادة",
+      "DocumentsRequireAttestation": "المستندات تتطلب تصديق (مصدقة من جهة الإصدار / الجهة)",
+      "trueCopy": "نسخة طبق الأصل",
+      "TrueCopyDocumentsRequireAttestation": "المستندات تتطلب تصديق",
+      "WatchVideo": "شاهد الفيديو لمساعدتك في التقديم على الخدمة",
+      "havingTrouble": "واقع في مشكلة؟",
+      "call": "اتصل",
+      "paymentChannel": "قناة الدفع",
+      "ePayment": "الدفع الإلكتروني",
+      "eDirham": "الدرهم الإلكتروني",
+      "bankTransfer": "حوالة بنكية",
+      "chequeDeposite": "إيداع الشيكات",
+      "serviceFees": "رسوم الخدمة",
+      "serviceFees1": "تصديق صحة التوقيع: 100 درهم",
+      "serviceFees2": "تصديق الوثيقة: 100 درهم",
+      "serviceFees3": "نسخة طبق الأصل: 100 درهم",
+      "serviceFees4": "ملاحظة: سيتم تحصيل 10 دراهم لكل نسخة إضافية بعد 5 نسخ من نفس المعاملة لجميع الأنواع السابقة",
+      "sideNav": {
+        "bussinessMatchRequest": "معلومات الطلب",
+        "bussinessMatchResults": "نتيجه الطلب"
+      },
+      "requestInfo": {
+        "requestStatus": "حالة الطلب",
+        "requestDetails": "تفاصيل الطلب"
+      }
+    }
+  },
+  "serviceCatlogueModule": {
+    "serviceDirectory": {
+      "mostUsedServices": "الخدمات الأكثر إستخداماً"
+    }
+  },
+  "profileModule": {
+    "myProfile": "الصفحة الشخصية",
+    "sideLinks": {
+      "generalInfo": "المعلومات العامة",
+      "addressInfo": " معلومات العناوين  ",
+      "contactInfo": "معلومات التواصل",
+      "socialInfo": "معلومات التواصل الأجتماعي"
+    },
+    "generalInfo": {
+      "personalInformation": "المعلومات الشخصية",
+      "editPersonalInfo": "تعديل",
+      "requiredImage": "الصورة الشخصية مطلوبة",
+      "selectJob": "قم بإختيار عنوانا",
+      "selectNationality": "قم بإختيار جنسية"
+    },
+    "AddressInfo": {
+      "addressInformation": " معلومات العناوين  ",
+      "editAddressInfo": "تعديل"
+    },
+    "contactInfo": {
+      "contactInformation": "معلومات التواصل",
+      "editContactInfo": "تعديل"
+    },
+    "socialInfo": {
+      "socailInformation": "معلومات التواصل الجماعي",
+      "editSocialInfo": "تعديل"
+    },
+    "stepper": {
+      "generalInfo": "المعلومات العامة",
+      "addressInfo": " معلومات العناوين  ",
+      "contactInfo": "معلومات التواصل",
+      "socialInfo": "معلومات التواصل الأجتماعي"
+    }
+  },
+  "opportunitiesModule": {
+    "bannerTitle": {
+      "mainTitle": "قائمه العملاء"
+    },
+    "opportunitiesList": "قائمه العملاء",
+    "opportunityStatus": "حاله العميل",
+    "opportunity": "العميل",
+    "opportunitiesInfo": {
+      "leadNo": "رقم العميل المحتمل",
+      "opportunityNo": "رقم العميل",
+      "companyName": "أسم الشركه",
+      "listInterests": "قائمه الإهتمامات",
+      "opportunityInformation": "معلومات العميل",
+      "referralsList": "قائمه الاحالات",
+      "referral": "الاحالة",
+      "messagesList": "قائمه الرسائل",
+      "interactionsList": "قائمه التفاعلات",
+      "noOpportunity": "لا يوجد عملاء",
+      "enterNote": "من فضلك ادخل الملاحظة",
+      "successfull": " تم التعامل بنجاح",
+      "unsuccessfull": "لم ينجح التعامل"
+    },
+    "interactions": {
+      "interactionRequestSentSuccessfully": "تم إرسال طلب التفاعل بنجاح",
+      "backToInteractions": "الرجوع للتفاعلات"
+    }
+  },
+  "eventsModule": {
+    "bannerTitle": {
+      "mainTitle": "قائمه الفعاليات"
+    },
+    "eventsList": "قائمه الفعاليات",
+    "events": "الفعاليات",
+    "eventsDirectory": "قائمة الفعاليات",
+    "event": "الفعالية",
+    "registerEvent": "التسجيل للفعالية",
+    "eventsInfo": {
+      "type": "نوع الفعالية",
+      "listInterests": "قائمه الإهتمامات",
+      "opportunityInformation": "معلومات العميل",
+      "referralsList": "قائمه الاحالات",
+      "messagesList": "قائمه الرسائل",
+      "rejected": "مرفوض",
+      "registered": "مسجل"
+    },
+    "eventAction": {
+      "Accepted": "تم التسجيل في الفعالية",
+      "rejected": "تم رفض الفاعلية"
+    }
+  },
+  "complaintsModule": {
+    "bannerTitle": {
+      "mainTitle": "قائمه الشكاوى"
+    },
+    "complaintsList": "قائمه الشكاوى",
+    "complaints": "الشكاوى",
+    "sendComplaints": "إرسال شكوي",
+    "complaintsInfo": {
+      "type": "نوع الشكوى",
+      "listInterests": "قائمه الإهتمامات",
+      "opportunityInformation": "معلومات العميل",
+      "referralsList": "قائمه الاحالات",
+      "messagesList": "قائمه الرسائل",
+      "rejected": "مرفوض",
+      "registered": "مسجل"
+    }
+  },
+  "leadsModule": {
+    "bannerTitle": {
+      "mainTitle": "قائمه العملاء المحتملين"
+    },
+    "leadsList": "قائمه العملاء المحتملين",
+    "leads": "العملاء المحتملين",
+    "leadsInfo": {
+      "leadInformation": "معلومات العميل المحتمل",
+      "leadStatus": "حالة العميل المحتمل"
+    },
+    "interactions": {
+      "type": "نوع التفاعل",
+      "interactionOutcome": "نتيجة التفاعل",
+      "noDeal": "لا أتفاق",
+      "newInteraction": "إنشاء تفاعل جديد"
+    },
+    "messages": {
+      "createdBy": "انشأ بوساطه",
+      "messages": "الرسائل",
+      "newMessage": "رسالة جديدة",
+      "yourMessageSentSuccessfully": "تم الإرسال بنجاح",
+      "backToMessages": "العودة للرسائل"
+    }
+  },
+  "companyModule": {
+    "widget": {
+      "parentEntity": "الشركة الأم",
+      "entityType": "نوع الشركة",
+      "No.Employees": "عدد الموظفين",
+      "address": "العنوان"
+    },
+    "filter": {
+      "companyType": "تصنيف الشركة"
+    },
+    "list": {
+      "myCompaniesList": "قائمة شركاتي",
+      "addCompany": "إضافة شركة",
+      "companiesList": "قائمة الشركات"
+    },
+    "profile": {
+      "generalInfo": "المعلومات العامة",
+      "address&ContactInformation": "العنوان & معلومات التواصل",
+      "social&OtherInformation": "التواصل الاجتماعي & معلومات اخري",
+      "communicationSettings": "تفاصيل التواصل"
+    },
+    "communicationInformation": {
+      "title": "معلومات التواصل",
+      "emailReceiver": "مستلم او مستلمون البريد الالكتروني",
+      "SMSReceiver": "مستلم او مستلمون الرسائل النصية",
+      "emailReceiverValidationError": "يجب ادخال على الأقل ايميل واحد",
+      "SMSReceiverValidationError": "  يجب ادخال على الأقل  وسيلة واحده للتواصل"
+    },
+    "contact": {
+      "title": "العنوان & معلومات التواصل",
+      "stepTitle": "معلومات العنوان"
+    },
+    "general": {
+      "title": "المعلومات العامة",
+      "anuualTurnover": "العائد السنوي بالدولار الامريكي",
+      "selectSector": "اختار القطاع",
+      "selectEntityType": "اختار نوع الشركة",
+      "selectAnnualTurnover": "اختار العائد السنوي",
+      "SelectNoOfEmployees": "اختار عدد الموظفين",
+      "selectParentEntity": "اختار الشركة الام",
+      "companySize": "حجم الشركة",
+      "noEmployees": "عدد الموظفين",
+      "DEDMembershipNumber": "رقم عضوية DED",
+      "DCCIMembershipNumber": "رقم عضوية DCCI",
+      "parentEntity": "الشركة الام",
+      "subsidiaryEntity": "الشركة او الشركات الفرعية",
+      "industry": "الصناعة او الصناعات",
+      "selectCompany":"اختار الشركة"
+    },
+    "socail": {
+      "title": "التواصل الاجتماعي ومعلومات اخري",
+      "otherSocialMedia": "مواقع تواصل اجتماعي اخري",
+      "contactOwner": "صاحب الاتصال",
+      "contactCreator": "منشئ الاتصال",
+      "jobTitle": "المسمى الوظيفي / الوظيفة"
+    },
+    "success": {
+      "btnTxt": "عرض الشركات"
+    }
+  },
+  "memberShipsModule": {
+    "steeper":{
+      "licenseInformation":"معلومات الترخيص",
+      "companyInformation":"معلومات الشركة",
+      "attachments":"المرفقات"
+    },
+    "companyInformation":{
+      "legalStatus":"الوضع القانوني",
+      "firmType":"نوع الشركة",
+      "branch":"فرع",
+      "parentCompany":"الشركة الام",
+      "licenseNumber":"رقم الرخصة",
+      "arabic":"عربي",
+      "english":"إنجليزي",
+      "commercialRegistrationType":"نوع السجل التجاري",
+      "licenseType":"نوع الرخصة",
+      "licenseCategory":"فئة الترخيص",
+      "licenseIssueDate":"تاريخ اصدار الرخصة",
+      "licenseExpiryDate":"تاريخ انتهاء الترخيص",
+      "licenseNationality":"جنسية الرخصة",
+      "faxNumber":"رقم الفاكس",
+      "POBOX":"صندوق بريد",
+      "makaniNumber":"رقم مكاني",
+      "buildingNumber":"رقم المبنى",
+      "streetAddress":"عنوان الشارع",
+      "issuingAuthority":"سلطة الإصدار",
+      "licenceIssuer":"جهة إصدار الترخيص",
+      "commercialRegistrationNumber":"رقم السجل التجاري",
+      "partnerInformation":"معلومات الشريك (الشركاء)",
+      "newPartner":"شريك جديد",
+      "partnerName" : "أسم الشريك",
+      "partnerNameArabic" : "أسم الشريك بالعربي",
+      "typeRelationShip" : "نوع العلاقة",
+      "ownershipPercent" : "نسبة الملكية",
+      "percent": "النسية",
+      "partnerId": "رقم هوية الشريك",
+      "residenceNumber": "رقم الاقامة",
+      "nationalityCode": "كود الجنسية",
+      "verifiedSuccessfully": "تم التحقق بنجاح!",
+      "licenceNumber":"رقم الرخصة",
+      "companyNameArabic":"اسم الشركة باللغة العربية",
+      "comapyNameInEnglish":" اسم الشركه  باللغه الانجليزية",
+      "partnersPercentageError":"نسبة الشركاء يجب أن تساوي 100٪",
+      "partnersNumberError":"مطلوب شركاء"
+    },
+    "license": {
+      "issuingAuthority": "جهة الإصدار",
+      "licenseNumber": "رقم الرخصة",
+      "selectCompany": "إختر الشركة",
+      "addNewCompany":"إضافة شركة جديدة",
+      "input": "ادخل الرقم",
+      "requiredField": "هذا الحقل اجباري",
+      "pleaseMakeSure": "يرجى التأكد من أسم الشركة قبل المتابعة",
+      "verify": "تحقق",
+      "companyNameEnglish": "أسم الشركة بالانجليزية",
+      "englishCompanyName": "أسم الشركة بالانجليزية",
+      "companyNameArabic": "أسم الشركة بالعربية",
+      "licenseExpirtyDate": "تاريخ انتهاء الترخيص",
+      "inputExpiryDate": "تاريخ الانتهاء",
+      "membershipDuration": "مدة العضوية",
+      "selectMembershipDuration": "إختر مدة العضوية",
+      "sameAsLicenseValidity": "نفس صلاحية الترخيص",
+      "yearly": "سنوي"
+    },
+    "wallet":{
+      "wallets": "المحافظ",
+      "myWallet" : "محفظتي",
+      "inTransaction" : "عملية داخله",
+      "outTransaction" : "عملية خارجه",
+      "walletDetails":"تفاصيل المحفظة",
+      "transactionType":"نوع التعامل",
+      "currentBalance":"الرصيد الحالي",
+      "refundWallet":"استرداد المحفظه",
+      "chargeWallet":"شحن المحفظه",
+      "transactionList":"قائمة المعاملات",
+      "transactionNumber":"رقم المعاملة",
+      "transactionAmount":"قيمة التحويل",
+      "transactionTransferDate":"تاريخ التحويل",
+      "rechargeWallet":"اعادة شحن المحفظة",
+      "rechargeAmount":"مبلغ الشحن",
+      "selectPaymentMethod":"إختر طريقة الدفع",
+      "Recharge":"اعادة الشحن",
+      "refund":"استرداد المحفظة",
+      "transaction" : "معاملات",
+      "rechargeWalletDone":"تم شحن المحفظة بنجاح",
+      "procceedPay":"يرجى المضي قدما في دفع",
+      "refundWalletDone":"تم تحويل قيمة المحفظة بنجاح"
+    },
+    "memberShiprequestDetails": {
+      "cardTitle": "تم ارسال الطلب بنجاح وسيتم مراجعة الطلب من قبل العميل لدينا",
+      "cardButton": "الذهاب الي تفاصيل الطلب",
+      "requestInfo": "معلومات الطلب",
+      "result&Action": "النتائج والتفاعلات",
+      "message": "الرسائل",
+      "lastUpdates": "اخر التحديثات"
+    },
+    "documents": {
+      "documents": "مستندات",
+      "serviceName": "اسم الخدمة",
+      "relatedRequest": "الطلب المتعلق ب",
+      "issuedDate": "التاريخ",
+      "companyRegistration": "تسجيل الشركة",
+      "attachmentName":"أسم المرفق",
+      "extensionsError":"يرجى تحميل الملف مع الامتدادات المتاحة",
+      "maxSizeError":"يرجى تحميل ملف باقصى حجم"
+    },
+    "bankTransfere": {
+      "generalInformation": "معلومات عامة",
+      "bankName": "اسم البنك ",
+      "IBAN": "IBAN رقم",
+      "attentionMessage": "رسالة تنبية",
+      "attentionMessageMsg": "1- يجب أن يكون المبلغ المحول مساوياً للرسوم المطلوبة ويجب إرساله إلى المعلومات البنكية المعروضة في النموذج.<br/>2- سيتم إيداع أي مبلغ إضافي يتم تحويله في محفظتك ولن يتم رده إلى حسابك المصرفي.<br/>3- إذا كان التحويل المصرفي الخاص بك يسمح بذلك ، يرجى إدخال الرقم المرجعي الموضح في معلومات الرسوم في ملاحظاتك الخاصة بعملية التحويل.",
+      "InsertInformation": "أدخل المعلومات",
+      "AccountNumber": "رقم حساب",
+      "IBANNumber": "IBAN رقم",
+      "uploadReceipt": "تحميل الإيصال"
+    },
+    "cancleMembership":{
+      "noteMessage":"من فضلك تاكد من اسم الشركة قبل اتمام عملية انهاء الخدمة",
+      "expirtyDate":"تاريخ الإنتهاء",
+      "refundWallet":"استراد المال",
+      "refundQestion":"هل تريد استرداد رصيد المحفظة؟",
+      "cancleMembership":"إنهاء العضوية",
+      "bankInformation":"المعلومات البنكية"
+
+    },
+    "payment" :{
+      "request":"رقم الطلب",
+      "transaction":"رقم العملية",
+      "amount":"القيمة",
+      "transferred":"تاريخ العملية",
+      "status":"حالة الطلب",
+      "method":"طريقة الدفع",
+      "companyName":"اسم الشركة",
+      "filters":{
+        "pending":"منتظر",
+        "inactive":"غير نشط",
+        "approved":"مقبول",
+        "rejected" :"مرفوض",
+        "dubaiPay":"دبي باي",
+        "Offline":"نقدي",
+        "Wallet":"المحفظة",
+        "visaMastercard":"البطاقة البنكية",
+        "bankTransfer":"التحويل البنكي"
+      }
+    }
+  },
+  "cooModule": {
+    "createCoo": "إنشاء COO",
+    "cooInfo": "معلومات COO",
+    "stepper": {
+      "exporterInfo": "معلومات المرسل",
+      "consigneeInfo": "معلومات المرسل إليه",
+      "shipmentInfo": "معلومات الشحن",
+      "invoiceInfo": "معلومات الفاتورة",
+      "attachments": "مرفقات",
+      "preview": "عرض نهائي"
+    },
+    "invoiceInfo": {
+      "invoiceDetails": "تفاصيل الفاتورة",
+      "productDetails": "تفاصيل المنتج",
+      "invoiceNumber": "رقم الفاتورة",
+      "invoiceDate": "تاريخ الفاتورة",
+      "invoiceAmount": "قيمة الفاتورة",
+      "selectProduct": "حدد المنتج / رمز النظام المنسق",
+      "hSCode": " رمز النظام المنسق",
+      "selectHSCode": "حدد رمز النظام المنسق",
+      "productNameAr": "أسم المنتج (انجليزي)",
+      "productNameEn": "أسم المنتج (عربي)",
+      "searchProduct": "البحث عن طريق اسم المنتج / رمز النظام المنسق",
+      "quantity": "كمية",
+      "unitPrice": "سعر الوحدة",
+      "country": "بلد المنشأ",
+      "processType": "نوع العملية",
+      "selectProcessType": "حدد نوع العملية",
+      "comments": "تعليقات",
+      "select": "إختر",
+      "currency": "العملة",
+      "aed": "درهم اماراتي",
+      "usd": "دولار أمريكي",
+      "unit": "وحدة قياس",
+      "requiredField": "هذا الحقل مطلوبه",
+      "olderThan180": "يجب الا يكون التاريخ اقدم من 180 يوما ",
+      "future": "يجب الا يكون التاريخ في المستقبل ",
+      "add": "اضافة",
+      "ownershipPercentInvalidValue": "%يحب ان تترواح القيمه من 1  إلي100 ",
+      "addProduct": "اضافة منتج",
+      "productType": "Package Type",
+      "size": "الحجم",
+      "packageWeight": "Package Weight",
+      "count": "العدد"
+    },
+    "invoiceList": {
+      "alert": "يساعدك على تحميل الجزء الأكبر من المنتجات بدلاً من واحدة تلو الأخرى",
+      "uploadBulk": "تحميل المنتجات بالجملة",
+      "productList": "قائمة المنتجات",
+      "package": "حزمة",
+      "totalQuantity": "يجب أن تكون الكمية الإجمالية",
+      "addPackage": "أضف الحزمة"
+    },
+    "detailsData": {
+      "exporterDetails": "تفاصيل المورد",
+      "exporterName": "أسم المورد",
+      "english": "بالانجليزي",
+      "arabic": "بالعربي",
+      "pOBOX": "رقم صندوق البريد",
+      "fax": "رقم الفاكس",
+      "consigneeDetails": "تفاصيل المستورد",
+      "consigneeName": "أسم المستورد",
+      "addConsignee": "اضافة مستورد جديد",
+      "consigneeType": "نوع المستورد",
+      "addressLine1": "العنوان الاول",
+      "addressLine2": "العنوان الثاني",
+      "phoneNumber": "رقم الهاتف",
+      "shipmentInformation": "تفاصيل الشحن",
+      "transportationMode": "نوع الشحن",
+      "exitPoint": "نقطة الخروج",
+      "expectedDeparture": "الموعد المتواقع للمغادرة",
+      "additionalDetails": "تفاصيل اضافية",
+      "exporterType": "نوع المورد",
+      "portofDischarge": "نقطة التفريغ",
+      "finalDestination": "الوجة النهائية",
+      "dragDrop": "يمكنك سحب الملف وتركه هنا ,او قم بالضغط هنا لتحميل الملف",
+      "companyName": "أسم الشركة",
+      "newConsigneeInfo": "معلومات مستورد جديد",
+      "requestSubmitted": "تم ارسال طلبك بنجاح",
+      "cooInfo": "معلومات الطلب",
+      "resultAction": "النتائج والتفاعلات",
+      "hSCode": "رقم المنتج",
+      "originCountry": "بلد المنشئ",
+      "country": "البلد ",
+      "city": "المدينة",
+      "processType": "نوع العمليةوالبلد",
+      "unitPrice": "سعر الوحدة",
+      "quantity": "الكمية",
+      "totalprice": "السعر الكلي"
+    },
+    "exporterInfo": {
+      "exporterType": "نوع المورد",
+      "selectExporterType": "حدد نوع المورد",
+      "selectCompanyName": "اختر اسم الشركه"
+    },
+    "consigneeInfo": {
+    },
+    "shipmentInfo": {
+      "printProductsInCOO": "هل تريد طباعه المنتجات في الطلب؟",
+      "selectTransportationMode": "حدد نوع الشحن",
+      "selectExitPoint": "حدد نقطة الخروج",
+      "selectPortofDischarge": "حدد نقطة التفريغ",
+      "selectFinalDestination": "حدد الوجة النهائية",
+      "yes":"نعم",
+      "no":"لا",
+      "shipmentInfo": "معلومات الشحن"
+    },
+    "documents": {
+      "documents": "مستندات",
+      "serviceName": "اسم الخدمة",
+      "relatedRequest": "الطلب المتعلق ب",
+      "issuedDate": "التاريخ",
+      "attachmentName":"أسم المرفق",
+      "extensionsError":"يرجى تحميل الملف مع الامتدادات المتاحة",
+      "maxSizeError":"يرجى تحميل ملف باقصى حجم"
+    }
+  }
+}

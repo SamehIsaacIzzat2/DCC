@@ -1,0 +1,102 @@
+//mixins
+@import "../../../../assets/styles/helpers/mixins";
+.page-title{
+    color: #1D4861;
+    font-size: 28px;
+    font-weight: 700;
+  }
+.company-datails {
+  .title {
+    font-size: 18px;
+    color: #1d4861;
+    margin-top: 20px;
+    font-weight: 600;
+  }
+
+  .first-row {
+    @media (max-width: 992.1px) {
+      flex-wrap: wrap !important;
+    }
+  }
+
+  .company-name,
+  .company-size {
+    @media (min-width: 992.1px) {
+      width: 50% !important;
+    }
+
+    @media (max-width: 992px) {
+      width: 100% !important;
+    }
+  }
+
+  & > div {
+    margin: 30px auto;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: $secondaryColor;
+    font-weight: 600;
+    @include rtl_value("border-left", 3px solid $secondaryColor, unset);
+    @include rtl_value("border-right", unset, 3px solid $secondaryColor);
+
+    @include rtl_value("padding-left", 10px, unset);
+    @include rtl_value("padding-right", unset, 10px);
+  }
+
+  p {
+    color: #2f3334;
+    font-size: 18px;
+    font-weight: 400;
+    @include rtl_value("margin-left", 10px, unset);
+    @include rtl_value("margin-right", unset, 10px);
+  }
+
+  .codes > div {
+    p {
+      background-color: #fbfbfb;
+      padding: 10px;
+    }
+  }
+}
+
+p {
+  background-color: #fbfbfb !important;
+  padding: 10px;
+}
+
+.page-content {
+  margin-top: 30px;
+  // @media (min-width:992.11px){
+  //     width:80%;
+
+  // }
+}
+
+.Dummy-data {
+  color: #94a3b8 !important;
+  font-size: 16px;
+  font-weight: 400;
+
+  // margin-left:20px !important;
+  @media (max-width: 992px) {
+    width: 100% !important;
+  }
+
+  @media (min-width: 992.1px) {
+    width: 50% !important;
+  }
+}
+
+// .custom-w {
+//     @media (max-width:992px) {
+//         width: 100% !important;
+
+//     }
+
+//     @media (min-width:992.1px) {
+//         width: 50% !important;
+
+//     }
+// }

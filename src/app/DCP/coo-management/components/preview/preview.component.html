@@ -1,0 +1,53 @@
+<div class="preview">
+  <div class="container">
+    <!-- exporter Details -->
+    <accordion-preview-item
+      itemId="Exp"
+      [title]="'cooModule.stepper.exporterInfo' | translate"
+      [DetailsItems]="model.previewData?.exporterInfo"
+      [expandFlag]="true"
+    >
+    </accordion-preview-item>
+
+    <!-- consignee Details -->
+    <accordion-preview-item
+      itemId="Con"
+      [title]="'cooModule.stepper.consigneeInfo' | translate"
+      [DetailsItems]="model.previewData?.consigneeInfo"
+    >
+    </accordion-preview-item>
+
+    <!-- shipment-details -->
+    <accordion-preview-item
+      itemId="Chi"
+      [title]="'cooModule.stepper.shipmentInfo' | translate"
+      [DetailsItems]="model.previewData?.shipmentInfo"
+    >
+    </accordion-preview-item>
+
+    <!-- Invoices-details -->
+    <accordion-preview-item
+      itemId="Inv"
+      [title]="'cooModule.stepper.invoiceInfo' | translate"
+      [DetailsItems]="model.previewData?.invoiceInfo?.previewDetails"
+    >
+      <app-tree-table
+        [previewMode]="true"
+        [data]="model.previewData?.invoiceInfo?.products"
+      ></app-tree-table>
+
+      <!-- <product-details-widget
+        *ngFor="let productItem of model.previewData?.invoiceInfo?.products"
+        [item]="productItem"
+      ></product-details-widget> -->
+    </accordion-preview-item>
+
+    <!-- Attachments-details -->
+    <accordion-preview-item
+      itemId="Att"
+      [title]="'cooModule.stepper.attachments' | translate"
+      [hasAttachmentBody]="true"
+    >
+    </accordion-preview-item>
+  </div>
+</div>

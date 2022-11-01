@@ -1,0 +1,168 @@
+<form-modal
+  [title]="'memberShipsModule.bankTransfere.generalInformation' | translate"
+  [id]="'bankTransfer'"
+>
+  <div class="display-contents" modal-content>
+    <div class="modal-body">
+      <!-- alert -->
+      <generic-display-details
+        [items]="exporterDetails"
+      ></generic-display-details>
+
+      <div class="formAlertMsg">
+        <h2 class="title">
+          <i class="icon fa-solid fa-circle-info"></i>
+          <span>
+            {{ "memberShipsModule.bankTransfere.attentionMessage" | translate }}
+          </span>
+        </h2>
+        <p class="info" [innerHTML]="'memberShipsModule.bankTransfere.attentionMessageMsg' | translate"></p>
+      </div>
+
+      <h1 class="middelTitle">
+        {{ "memberShipsModule.bankTransfere.InsertInformation" | translate }}
+      </h1>
+      <form [formGroup]="paymentForm">
+        <div class="row">
+          <!-- Acount number -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.bankTransfere.AccountNumber" | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="accountNumber"
+                  id="accountNumber"
+                  [placeholder]="'shared.generalFeilds.input' | translate"
+                />
+              </div>
+              <div *ngIf="(submitted||f['accountNumber'].touched) && f['accountNumber'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="f['accountNumber'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+                <span
+                  class="form-error"
+                  *ngIf="f['accountNumber'].errors['incorrect']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "shared.generalValidationErrorMessage.invalidAccountNumber" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- bank Name -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{ "memberShipsModule.bankTransfere.bankName" | translate }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="bankName"
+                  id="bankName"
+                  [placeholder]="'shared.generalFeilds.input' | translate"
+                />
+              </div>
+              <div *ngIf="(submitted||f['bankName'].touched) && f['bankName'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="f['bankName'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- iBanNumber -->
+          <div class="col-md-6 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{ "memberShipsModule.bankTransfere.IBANNumber" | translate }}
+                  <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="iBanNumber"
+                  id="iBanNumber"
+                  [placeholder]="'shared.generalFeilds.input' | translate"
+                />
+              </div>
+              <div *ngIf="(submitted||f['iBanNumber'].touched) && f['iBanNumber'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="f['iBanNumber'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+                <span
+                  class="form-error"
+                  *ngIf="f['iBanNumber'].errors['ibanInvalid']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "shared.generalValidationErrorMessage.invalidIBAN" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- upload reciepe -->
+          <div class="col-12 col-sm-12 my-3">
+            <div class="input mb-30px">
+              <div class="input-content">
+                <label class="form-label" for="">
+                  {{
+                    "memberShipsModule.bankTransfere.uploadReceipt" | translate
+                  }}
+                  <span class="required-star">*</span>
+                </label>
+                <div class="attachment-container">
+                  <app-file-upload
+                    [description]="'cooModule.detailsData.dragDrop' | translate"
+                    extensions="PDF; DOC; PNG;JPG"
+                    (filesToSend)="uploadedImgs($event)"
+                  ></app-file-upload>
+                </div>
+              </div>
+              <div *ngIf="(submitted||f['iBanNumber'].touched) && f['iBanNumber'].errors">
+                <span
+                  class="form-error"
+                  *ngIf="f['iBanNumber'].errors['required']"
+                >
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--start modal footer -->
+    <div class="modal-footer">
+      <button class="btn btn-outline-success w-25" data-bs-dismiss="modal" id="bankTranfer" >
+        {{ "shared.generalWord.cancel" | translate }}
+      </button>
+
+      <button class="btn btn-success w-25"  (click)="onSubmit('bankTranfer')" >
+        {{ "shared.generalWord.continue" | translate }}
+      </button>
+    </div>
+  </div>
+</form-modal>

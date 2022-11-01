@@ -1,0 +1,147 @@
+<div class="container px-0">
+    <div class="information-section">
+
+        <form [formGroup]="model.contactInformationForm">
+            <div class="formContainer">
+                <div class="row  mb-10px">
+
+                    <div class="items-container col-sm-12  ">
+                        <div class="row">
+                            <!-- work Email -->
+                            <div class="col-md-6 col-sm-12 my-3">
+                                <div class="input mb-30px">
+                                    <div class="input-content">
+                                        <label class="form-label" for="">{{'shared.generalFeilds.workEmail' |translate}} </label>
+                                        <input formControlName="workEmail" />
+                                    </div>
+                                    <div *ngIf="model.submitted && model.f['workEmail'].errors">
+                                        <span class="form-error mb-2" *ngIf="model.f['workEmail'].errors['required']">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.requiredWorkEmail' |translate}}
+                                        </span>
+                                        <span class="form-error" *ngIf="model.f['workEmail'].errors['pattern']">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.emailNotValid' |translate}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Personal Email -->
+                            <div class="col-md-6 col-sm-12 my-3">
+                                <div class="input mb-30px">
+                                    <div class="input-content">
+                                        <label class="form-label" for="">{{'shared.generalFeilds.personalEmail' |translate}} </label>
+                                        <input formControlName="personalEmail" />
+                                    </div>
+                                    <div *ngIf="model.submitted && model.f['personalEmail'].errors">
+                                        <span class="form-error mb-2"
+                                            *ngIf="model.f['personalEmail'].errors['required']">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.requiredPersonalEmail' |translate}}
+                                        </span>
+                                        <span class="form-error" *ngIf="model.f['personalEmail'].errors['pattern']">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.emailNotValid' |translate}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Office Number  -->
+                            <div class="col-sm-12 col-md-6 my-3 ">
+                                <div class="input mb-30px">
+                                    <label for="mobile">
+                                        <label class="form-label" for="">{{'shared.generalFeilds.officeNumber' |translate}}  <span class="disabled">( {{'shared.generalWord.optional' |translate}})</span></label>
+                                    </label>
+
+                                    <div dir="ltr" class="input-content mobileFeild inputHasSuffixOrPrefix">
+                                        <ngx-intl-tel-input id="mobileInput"
+                                            [preferredCountries]="model.preferredCountries" [selectFirstCountry]="true"
+                                            [separateDialCode]="true" [enablePlaceholder]="false"
+                                            formControlName="officeNumber" [phoneValidation]="true"
+                                            [searchCountryFlag]="true"
+                                            [searchCountryField]="[model.searchCountryField.Iso2,model.searchCountryField.Name]">
+                                        </ngx-intl-tel-input>
+                                    </div>
+                                    <div *ngIf="model.submitted && model.f['officeNumber'].errors">
+                                        <span class="form-error" *ngIf="model.f['officeNumber'].status =='INVALID' && !model.f['officeNumber'].errors['required'] ">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.invalidOfficeNumber' |translate}}
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Work Number   -->
+                            <div class="col-sm-12 col-md-6 my-3">
+                                <div class="input mb-30px">
+                                    <label for="mobile">
+                                        <label class="form-label" for="">{{'shared.generalFeilds.workNumber' |translate}}  <span class="disabled">( {{'shared.generalWord.optional' |translate}})</span></label>
+                                    </label>
+
+                                    <div dir="ltr" class="input-content mobileFeild inputHasSuffixOrPrefix">
+                                        <ngx-intl-tel-input id="mobileInput"
+                                            [preferredCountries]="model.preferredCountries" [selectFirstCountry]="true"
+                                            [separateDialCode]="true" [enablePlaceholder]="false"
+                                            formControlName="workNumber" [phoneValidation]="true"
+                                            [searchCountryFlag]="true"
+                                            [searchCountryField]="[model.searchCountryField.Iso2,model.searchCountryField.Name]">
+                                        </ngx-intl-tel-input>
+                                    </div>
+                                    <div *ngIf="model.submitted && model.f['workNumber'].errors">
+                                        <span class="form-error" *ngIf="model.f['workNumber'].status =='INVALID' && !model.f['workNumber'].errors['required'] ">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.invalidWorkNumber' |translate}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- mobile Number  -->
+                             <div class="col-sm-12 col-md-6 my-3 ">
+                                <div class="input mb-30px">
+                                    <label for="mobile">
+                                        <label class="form-label" for="">{{'shared.generalFeilds.mobileNumber' |translate}}</label>
+                                    </label>
+
+                                    <div dir="ltr" class="input-content mobileFeild inputHasSuffixOrPrefix">
+                                        <ngx-intl-tel-input id="mobileInput"
+                                            [preferredCountries]="model.preferredCountries" [selectFirstCountry]="true"
+                                            [separateDialCode]="true" [enablePlaceholder]="false"
+                                            formControlName="mobileNumber" [phoneValidation]="true"
+                                            [searchCountryFlag]="true"
+                                            [searchCountryField]="[model.searchCountryField.Iso2,model.searchCountryField.Name]">
+                                        </ngx-intl-tel-input>
+                                    </div>
+
+
+                                    <div *ngIf="model.submitted && model.f['mobileNumber'].errors">
+                                        <span class="form-error mb-2" *ngIf="model.f['mobileNumber'].errors['required'] ">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.requiredMobileNumber' |translate}}
+                                        </span>
+                                        <span class="form-error"
+                                            *ngIf="model.f['mobileNumber'].status =='INVALID' && !model.f['mobileNumber'].errors['required'] ">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                            {{'shared.generalValidationErrorMessage.invaidMobileNumber' |translate}}
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="register-buttons mt-5 d-flex flex-column justify-content-end align-items-end" *ngIf="!getSteeperState()">
+                <div class="normal-register">
+                    <button class="btn" (click)="model.saveUpdate()">{{'shared.actions.save' |translate}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

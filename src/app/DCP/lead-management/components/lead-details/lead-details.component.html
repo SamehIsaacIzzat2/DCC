@@ -1,0 +1,123 @@
+<ng-container *ngIf="!model.loading">
+  <div class="status-cards my-3">
+    <div class="cards d-flex align-items-center justify-content-between flex-block-mobile" *ngIf="model.item">
+      <div *ngFor="let card of model.LeadsStatus; let i = index" class="col-lg-2 col-md-4 col-sm-4 my-3">
+        <request-status-card [requestStatus]="model.LeadStatus" [item]="card"
+          [isLast]="i + 1 == model.LeadsStatus.length" [leadStatusStyleFlag]="true">
+        </request-status-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="model.item">
+    <div class="request-datails">
+      <div class="company">
+        <div class="line"></div>
+        <h3>
+          {{ "opportunitiesModule.opportunitiesInfo.companyName" | translate }}
+        </h3>
+        <p *ngIf="model.item.leadName" class="clickable" (click)="model.goToCompanyInfo()">
+          {{ model.item.leadName }}
+        </p>
+        <p *ngIf="!model.item.leadName" class="Dummy-data">
+          {{ "shared.generalWord.noValue" | translate }}
+        </p>
+      </div>
+      <div class="interest">
+        <div class="line"></div>
+        <h3>
+          {{
+          "opportunitiesModule.opportunitiesInfo.listInterests" | translate
+          }}
+        </h3>
+        <ng-container *ngIf="model.item.interestId?.length > 0" class="d-flex justify-content-between">
+          <div *ngFor="let term of model.item.interestId" class="custom-W">
+            <p>{{ term }}</p>
+          </div>
+        </ng-container>
+
+        <p *ngIf="model.item.interestId?.length == 0" class="Dummy-data">
+          {{ "shared.generalWord.noValue" | translate }}
+        </p>
+      </div>
+
+      
+        <div class="activities">
+          <h3>{{ "shared.generalFeilds.activities" | translate }}</h3>
+          <div *ngIf="model.item.activitiesIds">
+            <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+            <ng-container *ngIf="model.item.activitiesIds?.length > 0" class="d-flex justify-content-between">
+              <div *ngFor="let term of model.item.activitiesIds" class="custom-W">
+                <p>{{ term }}</p>
+              </div>
+            </ng-container>
+            <p *ngIf="model.item.activitiesIds?.length == 0" class="Dummy-data">
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+
+        <div class="product">
+          <h3>{{ "shared.generalFeilds.products" | translate }}</h3>
+          <div>
+            <!-- <div class="col-md-6"><p>344343- HS CODE Title will be shown here and  take a full ,,</p> </div> -->
+            <ng-container *ngIf="model.item.productsIds?.length > 0" class="d-flex justify-content-between">
+              <div *ngFor="let term of model.item.productsIds" class="custom-W">
+                <p>{{ term }}</p>
+              </div>
+            </ng-container>
+            <p *ngIf="model.item.productsIds?.length == 0" class="Dummy-data">
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="industries">
+          <h3>{{ "shared.generalFeilds.industries" | translate }}</h3>
+
+          <div>
+            <!-- <div class="col-md-6"><p>344343- Title will be shown here and  take a full ,, </p> </div> -->
+            <ng-container *ngIf="model.item.industriesIds?.length > 0" class="d-flex justify-content-between">
+              <div *ngFor="let term of model.item.industriesIds" class="custom-W">
+                <p>{{ term }}</p>
+              </div>
+            </ng-container>
+            <p *ngIf="model.item.industriesIds?.length == 0" class="Dummy-data">
+              {{ "shared.generalWord.noValue" | translate }}
+            </p>
+          </div>
+        </div>
+
+        <!-- <div class="interest d-flex justify-content-between">
+            <h3 class="col-md-12 ">Countries </h3>
+            <div *ngFor="let term of item.countriesIds" class="col-md-6 ">
+                <p>{{term}} </p>
+            </div>
+        </div> -->
+
+        <div class="locations">
+          <h3>{{ "shared.generalFeilds.locations" | translate }}</h3>
+          <ng-container *ngIf="model.item.locations?.length > 0" class="d-flex justify-content-between">
+            <div *ngFor="let term of model.item.locations" class="custom-W">
+              <p>{{ term }}</p>
+            </div>
+          </ng-container>
+          <p *ngIf="model.item.locations?.length == 0" class="Dummy-data">
+            {{ "shared.generalWord.noValue" | translate }}
+          </p>
+
+          <!-- </div>
+      </ng-container>
+      <p *ngIf="model.item.locations?.length == 0" class="Dummy-data">
+        No value
+      </p> -->
+        </div>
+      </div>
+    </div>
+  
+</ng-container>
+
+<div class="row" *ngIf="model.loading">
+  <div class="col-12" *ngFor="let x of [1, 2, 3, 4, 5]">
+    <card-loader [height]="60"></card-loader>
+  </div>
+</div>

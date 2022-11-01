@@ -1,0 +1,86 @@
+<div class="information-section social-information-section">
+    <div class="row">
+        <!--  title And Edit Button -->
+        <div class="header col-12">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6 col-sm-12">
+                    <div class="title">
+                        <h4>{{'profileModule.socialInfo.socailInformation' |translate}}</h4>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="edit-btn">
+                        <div class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end">
+                            <div class="normal-information">
+                                <button [routerLink]="['/profile','social','edit']" class="btn" *ngIf="getViewAndEditState()">{{'profileModule.socialInfo.editSocialInfo' | translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- address address-information-feilds -->
+
+        <div class="items-container my-5 ">
+            <div class="row">
+                <!-- *ngIf="socialData?.website" -->
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.website' |translate}}</div>
+                        <div *ngIf="socialData?.website" class="data my-4 ">{{socialData?.website}}</div>
+                        <p *ngIf="!socialData?.website" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.linkedin' |translate}}</div>
+                        <div *ngIf="socialData?.linkedIn" class="data my-4 ">{{socialData?.linkedIn}}</div>
+                        <p *ngIf="!socialData?.linkedIn" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.facebook' |translate}}</div>
+                        <div *ngIf="socialData?.faceBook" class="data my-4 ">{{socialData?.faceBook}}</div>
+                        <p *ngIf="!socialData?.faceBook" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.instagram' |translate}}</div>
+                        <div *ngIf="socialData?.insta" class="data my-4 ">{{socialData?.insta}}</div>
+                        <p *ngIf="!socialData?.insta" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                        
+                        
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.twitter' |translate}}</div>
+                        <div *ngIf="socialData?.twitter" class="data my-4 ">{{socialData?.twitter}}</div>
+                        <p *ngIf="!socialData?.twitter" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12" >
+                    <div class="item" >
+                        <div class="title mb-4">{{'shared.generalFeilds.otherLinks' |translate}}</div>
+                        <div *ngIf="socialData?.others" class="data my-4 ">{{socialData?.others}}</div>
+                        <p *ngIf="!socialData?.others" class="Dummy-data">{{'shared.generalWord.noValue' |translate}}</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

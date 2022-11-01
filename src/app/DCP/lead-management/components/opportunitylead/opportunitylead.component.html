@@ -1,0 +1,109 @@
+<ng-container *ngIf="!model.loading">
+  <div class="apportunity-section my-3">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 g-0">
+        <div class="request-type d-flex align-items-center">
+          <div class="icon">
+            <img src="../../../../assets/images/Requests.svg" />
+          </div>
+          <div class="request-title mx-4">
+            <span
+              >{{ "opportunitiesModule.opportunity" | translate }}
+              {{ "shared.generalWord.number" | translate }} #</span
+            >
+            <h4>{{ model.item?.OpportuniyNumber }}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 g-0">
+        <div class="request-date d-flex align-items-center">
+          <div class="request-date mx-4">
+            <span>{{
+              "reqestModule.requestWidget.createdOn" | translate
+            }}</span>
+            <h4>{{ model.item?.createdOn | customDate: "dd-MM-yyyy" }}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 g-0">
+        <div class="request-status d-flex align-items-center">
+          <div class="request-status mx-4">
+            <span>{{ "shared.generalFeilds.status" | translate }}</span>
+            <h4>{{ model.item?.statusName }}</h4>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-12 col-sm-12">
+        <!-- interaction-outcome  Area box-->
+        <div class="col-md-12 col-sm-12 my-3">
+          <div class="content">
+            <div class="title">
+              <h4>{{ "shared.generalWord.notes" | translate }}</h4>
+            </div>
+            <div class="data" *ngIf="model.item?.status == 2">
+              <form [formGroup]="model.leadApportunityForm">
+                <div class="input my-3">
+                  <div class="input-content">
+                    <textarea
+                      class="w-100 form-textarea"
+                      formControlName="note"
+                      id="desc"
+                      style="resize: none"
+                    ></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="note" *ngIf="model.item?.status != 2">
+              <h4 class="note-data">{{ model.item?.notes }}</h4>
+            </div>
+          </div>
+    
+    
+          <div class="col-md-12 col-sm-12 g-0" *ngIf="model.item?.status == 2">
+          
+    
+    
+            <div class="col-md-12 col-sm-12 g-0" *ngIf="model.item?.status == 2">
+              <div class="btn-actions d-flex justify-content-end">
+                <button
+                  (click)="
+                    model.closeOpportunity(
+                      model.item?.id,
+                      false,
+                      model.f['note'].value
+                    )
+                  "
+                  class="custom-btn"
+                >
+                {{'opportunitiesModule.opportunitiesInfo.unsuccessfull' |translate}}
+                </button>
+                <button
+                  (click)="
+                    model.closeOpportunity(
+                      model.item?.id,
+                      true,
+                      model.f['note'].value
+                    )
+                  "
+                >
+                {{'opportunitiesModule.opportunitiesInfo.successfull' |translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+
+<!-- skelton loader -->
+<div class="row mt-3" *ngIf="model.loading">
+  <div class="col-12" *ngFor="let x of [1, 2, 3, 4, 5]">
+    <card-loader [height]="60"></card-loader>
+  </div>
+</div>

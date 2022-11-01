@@ -1,0 +1,17 @@
+@import "../../../../../assets/styles/helpers/variables";
+.general-comlaint {
+  &-wrapper {
+    .save-buttons {
+      .send {
+        button {
+          background-color: $secondaryColor;
+          width: 228.25px;
+          border: 1px solid $secondaryColor;
+          color: #fff;
+          border-radius: 0px;
+          padding: 0.6rem 0.75rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.wallet-recharge{
+    .header{
+        .title{
+            h4{
+                color:#1D4861;
+                font-size: 28px;
+                font-weight: 700;
+                margin:30px 0px;
+            }
+        }
+    }
+    .recharge-amount-input{
+        .input-content{
+            label{
+                font-size: 16px;
+                font-weight: 400;
+                color:#2F3334;
+                span{
+             color:#F87171
+                }
+            }
+        }
+    }
+
+    .payment-method{
+        .title{
+            p{
+                color:#1D4861;
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+        }
+        .item{
+            border:1px solid #DDDCEA;
+            margin:10px 0px;
+            min-height:125px;
+            max-height:125px;
+            cursor: pointer;
+            &.selected{
+                border:2px solid #003764;
+            }
+            img{
+                &.custom-style{
+                    height:30px;
+                }
+                p{
+                    color:#003764;
+                    font-size: 17px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+    }
+}

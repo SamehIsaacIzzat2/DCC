@@ -1,0 +1,84 @@
+<div class="serDetails">
+  <div class="serDetails-wrapper">
+    <div class="header">
+      <h3>
+        {{ serviceDetails.serName }}
+      </h3>
+      <a (click)="checkUserAuthetication()">
+        <span>{{'shared.actions.startService'|translate}}</span>
+        <mat-icon>power_settings_new</mat-icon>
+      </a>
+    </div>
+    <div class="line"></div>
+    <div class="content">
+      <div class="details">
+        <div class="item">
+          <div class="icon">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <div>
+            <h6>{{"reqestModule.createRequest.serviceAccomplishTime"|translate}}</h6>
+            <div [innerHTML]="serviceDetails.accTime"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div>
+            <h6>{{"reqestModule.createRequest.usersUsedService"|translate}}</h6>
+            <p>{{ serviceDetails.user }}</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <i class="fa-regular fa-sun"></i>
+          </div>
+          <div>
+            <h6>{{"reqestModule.createRequest.serviceChannles"|translate}}</h6>
+            <p>{{ serviceDetails.serviceChannels }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="rating-wrap">
+        <div class="actions">
+          <div class="fav">
+            <i class="fa-regular fa-heart fa-lg"></i>
+            <span> {{"reqestModule.createRequest.favoriteService"|translate}} </span>
+          </div>
+          <div class="boockmark">
+            <i class="fa-regular fa-bookmark fa-lg"></i>
+            <span> {{"reqestModule.createRequest.bookmarkPage"|translate}} </span>
+          </div>
+        </div>
+        <div class="rating-box">
+          <h6>{{"reqestModule.createRequest.serviceRating"|translate}}</h6>
+          <fieldset class="rating">
+            <input type="checkbox" id="star5" name="rating" value="5" /><label class="full" for="star5"
+              title="Awesome - 5 stars"></label>
+            <input type="checkbox" checked id="star4half" name="rating" value="4 and a half" /><label class="half"
+              for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="checkbox" checked id="star4" name="rating" value="4" /><label class="full" for="star4"
+              title="Pretty good - 4 stars"></label>
+            <input type="checkbox" checked id="star3half" name="rating" value="3 and a half" /><label class="half"
+              for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="checkbox" checked id="star3" name="rating" value="3" /><label class="full" for="star3"
+              title="Meh - 3 stars"></label>
+            <input type="checkbox" checked id="star2half" name="rating" value="2 and a half" /><label class="half"
+              for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="checkbox" checked id="star2" name="rating" value="2" /><label class="full" for="star2"
+              title="Kinda bad - 2 stars"></label>
+            <input type="checkbox" checked id="star1half" name="rating" value="1 and a half" /><label class="half"
+              for="star1half" title="Meh - 1.5 stars"></label>
+            <!-- <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
+              title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf"
+              title="Sucks big time - 0.5 stars"></label> -->
+          </fieldset>
+          <div class="clear"></div>
+          <p class="rat-num">{{ serviceDetails.ratingNum }} {{"reqestModule.createRequest.ratings"|translate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

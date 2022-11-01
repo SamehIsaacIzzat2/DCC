@@ -1,0 +1,192 @@
+<div class="information-section general-information-section">
+  <div class="row">
+    <!--  title And Edit Button -->
+    <div class="header col-12">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="title">
+            <h4 >{{"companyModule.general.title" | translate}}</h4>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="edit-btn">
+            <div
+              class="Edit-btn my-2 d-flex flex-column justify-content-end align-items-end"
+            >
+              <div class="normal-information">
+                <button
+                  [routerLink]="['edit']"
+                  class="btn"
+                  *ngIf="getViewAndEditState()"
+                >
+                  {{"shared.actions.editInformation" | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- General-information-feilds -->
+  <div class="General-information-content" *ngIf="GeneralData">
+    <div class="row my-5">
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.entityName" | translate}}</div>
+          <div class="data my-4 no-value">{{ GeneralData.entityName }}</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.sector" | translate}}</div>
+          <div class="data my-4 no-value">
+            {{ lookupSer.getLookupNameById(sectors, GeneralData.sectorId) }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"shared.generalFeilds.entityType" | translate}}</div>
+          <div class="data my-4 no-value">
+            {{
+              lookupSer.getLookupNameById(entityTypes, GeneralData.entityTypeId)
+            }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.anuualTurnover" | translate}}</div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="
+              lookupSer.getLookupNameById(
+                annualTurnover,
+                GeneralData.annualTurnoverId
+              )
+            "
+          >
+            {{
+              lookupSer.getLookupNameById(
+                annualTurnover,
+                GeneralData.annualTurnoverId
+              )
+            }}
+          </div>
+          <div
+            class="data no-value"
+            *ngIf="
+              !lookupSer.getLookupNameById(
+                annualTurnover,
+                GeneralData.annualTurnoverId
+              )
+            "
+          ></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.companySize" | translate}}</div>
+          <div class="data my-4 no-value">
+            {{
+              lookupSer.getLookupNameById(
+                cmopnaySizes,
+                GeneralData.companySizeId
+              )
+            }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.noEmployees" | translate}}</div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="
+              lookupSer.getLookupNameById(
+                noOfEmplyees,
+                GeneralData.numberofEmployeesId
+              )
+            "
+          >
+            {{
+              lookupSer.getLookupNameById(
+                noOfEmplyees,
+                GeneralData.numberofEmployeesId
+              )
+            }}
+          </div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="
+              !lookupSer.getLookupNameById(
+                noOfEmplyees,
+                GeneralData.numberofEmployeesId
+              )
+            "
+          ></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12" *ngIf="getViewAndEditState()">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.DEDMembershipNumber" | translate}}</div>
+          <div class="data my-4 no-value">
+            <span *ngIf="GeneralData.dedMembershipNumber">{{
+              GeneralData.dedMembershipNumber
+            }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12" *ngIf="getViewAndEditState()">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.DCCIMembershipNumber" | translate}}</div>
+          <div class="data my-4 no-value">
+            <span *ngIf="GeneralData.dcciMembershipNumber">{{
+              GeneralData.dcciMembershipNumber
+            }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.parentEntity" | translate}}</div>
+          <div class="data my-4 no-value" *ngIf="getcomapnyNameById(companies, GeneralData.parentEntityId)">
+            {{ getcomapnyNameById(companies, GeneralData.parentEntityId) }}
+          </div>
+          <div class="data my-4 no-value" *ngIf="!getcomapnyNameById(companies, GeneralData.parentEntityId)"></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.subsidiaryEntity" | translate}}</div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="GeneralData.subsiderys && GeneralData.subsiderys.length > 0"
+          >
+            {{ commeSeperatedNames(GeneralData.subsiderys) }}
+          </div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="GeneralData.subsiderys && GeneralData.subsiderys.length == 0"
+          ></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="item">
+          <div class="title mb-4">{{"companyModule.general.industry" | translate}}</div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="GeneralData.industrys && GeneralData.industrys.length > 0"
+          >
+            {{ commeSeperatedNames(GeneralData.industrys) }}
+          </div>
+          <div
+            class="data my-4 no-value"
+            *ngIf="GeneralData.industrys && GeneralData.industrys.length === 0"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

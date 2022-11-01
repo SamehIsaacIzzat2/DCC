@@ -1,0 +1,186 @@
+<div class="cancle-pages">
+
+    <!-- page banner -->
+    <div class="banner mb-4">
+        <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true">
+        </banner>
+
+    </div>
+  <div class="container">
+    <div class="details" *ngIf="!model.submitted">
+        <div class="title mb-4">
+            <h4>{{'bannerData.breadCrump.cancleMembership' |translate}}</h4>
+        </div>
+
+        <!-- select comapny  for cancllation process -->
+        <div class="row">
+            <form [formGroup]="model.comapnyDataForm">
+                <div class="col-md-6 col-sm-12">
+                    <div class="input mb-30px">
+                        <div class="input-content">
+                            <label class="form-label" for="">
+                                {{
+                                "memberShipsModule.license.selectCompany" | translate
+                                }}</label>
+                            <select formControlName="company" class="form-select"
+                                (change)="model.selectCompany($event)">
+                                <option [value]="null" disabled selected>
+                                    {{
+                                    "memberShipsModule.license.selectCompany" | translate
+                                    }}
+                                </option>
+                                <option *ngFor="let company of model.myCompanies"  [value]="company.id">
+                                    {{langSer.getLangFromLocalStorage()=="en"? company.companyNameEnglish:company.companyNameArabic}}
+                                </option>
+                            </select>
+                        </div>
+                        <!-- <div
+                    *ngIf="
+                      (model.model.submitted || model.model.f['issueAuthority'].touched) &&
+                      model.model.f['issueAuthority'].errors
+                    "
+                  >
+                    <span
+                      class="form-error"
+                      *ngIf="model.model.f['issueAuthority'].errors['required']"
+                    >
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                      {{ "memberShipsModule.license.requiredField" | translate }}
+                    </span>
+                  </div> -->
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <!-- Display comapny Data-->
+        <div class="comapny-details" *ngIf="model.ShowDetails">
+            <div class="note">
+                <p>{{'memberShipsModule.cancleMembership.noteMessage' |translate}} </p>
+            </div>
+            <generic-display-details [items]="model.items" class="mb-5"> </generic-display-details>
+            <!-- Ask Your to Enter its Bank Account Data if he deserves refund-->
+            <div class="note">
+                <p>{{"memberShipsModule.cancleMembership.bankInformation" |translate}}
+                </p>
+            </div>
+            <div class="refund-section">
+                <form [formGroup]="model.banckAccountDataForm">
+                    <div class="row">
+                        <!-- bank Name -->
+                        <div class="col-md-6 col-sm-12 my-3">
+                            <div class="input mb-30px">
+                                <div class="input-content">
+                                    <label class="form-label" for="">
+                                        {{ "memberShipsModule.bankTransfere.bankName" | translate }}
+                                        <span class="required-star">*</span>
+                                    </label>
+                                    <input type="text" formControlName="bankName" id="bankName"
+                                        [placeholder]="'shared.generalFeilds.input' | translate" />
+                                </div>
+                                <div
+                                    *ngIf="(model.submitted||model.f['bankName'].touched) && model.f['bankName'].errors">
+                                    <span class="form-error" *ngIf="model.f['bankName'].errors['required']">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- iBanNumber -->
+                        <div class="col-md-6 col-sm-12 my-3">
+                            <div class="input mb-30px">
+                                <div class="input-content">
+                                    <label class="form-label" for="">
+                                        {{ "memberShipsModule.bankTransfere.IBANNumber" | translate }}
+                                        <span class="required-star">*</span>
+                                    </label>
+                                    <input type="text" formControlName="iBanNumber" id="iBanNumber"
+                                        [placeholder]="'shared.generalFeilds.input' | translate" />
+                                </div>
+                                <div
+                                    *ngIf="(model.submitted||model.f['iBanNumber'].touched) && model.f['iBanNumber'].errors">
+                                    <span class="form-error" *ngIf="model.f['iBanNumber'].errors['required']">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                                    </span>
+                                    <span class="form-error" *ngIf="model.f['iBanNumber'].errors['ibanInvalid']">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ "shared.generalValidationErrorMessage.invalidIBAN" | translate }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Acount number -->
+                        <div class="col-md-6 col-sm-12 my-3">
+                            <div class="input mb-30px">
+                                <div class="input-content">
+                                    <label class="form-label" for="">
+                                        {{
+                                        "memberShipsModule.bankTransfere.AccountNumber" | translate
+                                        }}
+                                        <span class="required-star">*</span>
+                                    </label>
+                                    <input type="text" formControlName="accountNumber" id="accountNumber"
+                                        [placeholder]="'shared.generalFeilds.input' | translate" />
+                                </div>
+                                <div
+                                    *ngIf="(model.submitted||model.f['accountNumber'].touched) && model.f['accountNumber'].errors">
+                                    <span class="form-error" *ngIf="model.f['accountNumber'].errors['required']">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ "cooModule.invoiceInfo.requiredField" | translate }}
+                                    </span>
+                                    <span class="form-error" *ngIf="model.f['accountNumber'].errors['incorrect']">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        {{ "shared.generalValidationErrorMessage.invalidAccountNumber" |
+                                        translate }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- refund wallet -->
+                        <div class="col-12">
+                            <div class="note">
+                                <p>{{'memberShipsModule.cancleMembership.refundWallet' |translate}}</p>
+                                <span>{{'memberShipsModule.cancleMembership.refundQestion' |translate}}</span>
+                            </div>
+                            <div class="wallet-option d-flex">
+                                <div>
+                                    <input type="radio" [value]="true" formControlName="refundWalletBallance" />
+                                    <label>{{'shared.actions.yes' |translate}}</label>
+                                </div>
+                                <div>
+                                    <input type="radio" [value]="false" formControlName="refundWalletBallance" />
+                                    <label>{{'shared.actions.no' |translate}}</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+        <!-- Send Cancllation Request Data-->
+        <div class="footer d-flex justify-content-end my-4">
+            <div class="normal-button">
+                <button class="btn" (click)="model.CancleMembership()">
+                  {{"memberShipsModule.cancleMembership.cancleMembership" |translate}}
+                </button>
+            </div>
+        </div>
+
+    </div>
+  </div>
+  
+
+    <!-- request-result -->
+    <result-card *ngIf="model.submitted" [showRate]="true" [item]="model.item" [requestId]="'111'" >
+    </result-card>
+</div>

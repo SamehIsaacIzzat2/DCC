@@ -1,0 +1,44 @@
+<div class="result-card w-50 m-auto text-center my-5">
+  <div class="Card d-flex align-items-center justify-content-center">
+    <div class="content">
+      <div class="icon-wrapper d-flex justify-content-center mb-4">
+        <div class="icon d-flex justify-content-center align-content-center">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
+      </div>
+      <div class="title mb-2">
+        <h4>{{ item.title }}</h4>
+        <p  [routerLink]="['/requests/requestDetails',requestId]" class="muted" *ngIf="id && type!='membership'">
+          {{'reqestModule.createRequest.requestNumber' |translate}} : <span class="clickable">{{ id }}</span>
+        </p>
+        <p  [routerLink]="['/memberships/request-details',requestId]" class="muted" *ngIf="id && type=='membership'">
+          {{'reqestModule.createRequest.requestNumber' |translate}} : <span class="clickable">{{ id }}</span>
+        </p>
+        <p *ngIf="showPay">
+          {{'memberShipsModule.wallet.procceedPay' |translate}} 10 {{'shared.generalWord.AED' |translate}}
+        </p>
+      </div>
+
+      <div
+        *ngIf="showRate"
+        class="stars d-flex justify-content-center"
+      >
+        <start
+          (Onclick)="setRate($event)"
+          [clickFlag]="flags[i]"
+          [Index]="i"
+          *ngFor="let in of counter(5); let i = index"
+        ></start>
+      </div>
+
+      <button
+        (click)="btnClick()"
+        *ngIf="item.btnConfig"
+        class="cta-btn outline my-3"
+        [routerLink]="item.btnConfig.url"
+      >
+        {{ item.btnConfig.text }}
+      </button>
+    </div>
+  </div>
+</div>

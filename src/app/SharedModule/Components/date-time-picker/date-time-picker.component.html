@@ -1,0 +1,29 @@
+<div class="input-group position-relative">
+  <input
+    class="form-control"
+    (dateTimeChange)="onChange($event)"
+    [owlDateTime]="Picker"
+    [owlDateTimeTrigger]="Picker"
+    [(ngModel)]="dpValue"
+    placeholder="{{ placeholder }}"
+    [readOnly]="true"
+  />
+  <div class="input-group-append" [ngClass]="{ rightCalender: lang === 'ar' }">
+    <button
+      type="button"
+      class="btn btn-outline-secondary calendar trigger"
+      [owlDateTimeTrigger]="Picker"
+    >
+      <!-- <img src="assets/icons/datePickerIcon.png" alt="" /> -->
+      <i class="icon fa-regular fa-calendar"></i>
+    </button>
+  </div>
+
+  <owl-date-time
+    #Picker
+    [pickerType]="pickerType"
+    startView="month"
+    [hour12Timer]="H12Timer"
+  >
+  </owl-date-time>
+</div>

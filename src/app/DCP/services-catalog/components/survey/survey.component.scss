@@ -1,0 +1,51 @@
+//colors
+@import "../../../../../assets/styles/helpers/variables";
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+.survey {
+  display: flex;
+  @media (max-width: 420px) {
+    display: block;
+  }
+  justify-content: space-between;
+  align-items: center;
+  .helpful {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    div {
+      display: flex;
+      gap: 12px;
+      button {
+        background-color: transparent;
+        margin: 0;
+        padding: 4px 11px;
+        font-size: 14px;
+      }
+      .yes-btn {
+        border: 1px solid $secondaryColor;
+        color: $secondaryColor;
+      }
+      .no-btn {
+        border: 1px solid $mutedColor;
+        color: $mutedColor;
+      }
+    }
+  }
+  .share {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    button {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background-color: transparent;
+      border: 1px solid $secondaryColor;
+      @include bRadius(4px);
+      color: $secondaryColor;
+      padding: 6px 25px;
+    }
+  }
+}

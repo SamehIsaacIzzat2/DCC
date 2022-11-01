@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="avatar-upload">
+    <label class="hoverable" for="fileInput">
+      <img
+        *ngIf="
+          (model.uploadedFile?.src && model.uploadedFile?.type === 'image') ||
+          (model.mediaLink && model.mediaType === 'image')
+        "
+        [src]="model.uploadedFile?.src || model.mediaLink"
+      />
+
+      <video
+        *ngIf="
+          (model.uploadedFile?.src && model.uploadedFile?.type === 'video') ||
+          (model.mediaLink && model.mediaType === 'video')
+        "
+        controls
+      >
+        <source [src]="model.uploadedFile?.src || model.mediaLink" />
+      </video>
+
+      <div
+        *ngIf="model.uploadedFile?.src || model.mediaLink"
+        class="hover-text"
+      >
+        Choose file
+      </div>
+
+      <div
+        *ngIf="!model.uploadedFile?.src && !model.mediaLink"
+        class="initial-title"
+      >
+        Upload your file
+      </div>
+
+      <div class="background"></div>
+    </label>
+    <input id="fileInput" type="file" (change)="model.uploadFile($event)" />
+  </div>
+</div>

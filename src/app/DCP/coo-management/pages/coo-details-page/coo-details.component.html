@@ -1,0 +1,49 @@
+<div class="request-details">
+
+    <!-- banner section -->
+    <div class="banner mb-4">
+      <banner [bannerData]="model.banner" [bannerMode]="3" [EditFlag]="true" [paddingFlag]="true"> </banner>
+    </div>
+  
+    <div class="details-page">
+      <div class="container">
+        <div class="page-title mb-4">{{'cooModule.cooInfo' |translate}}</div>
+        <div class="row">
+          <!-- sideNav contain all links to navigate around request details -->
+          <div class="col-md-3 col-sm-12">
+            <div class="side-nav information-nav-links">
+              <ul type="none d-flex align-items-center">
+                <div class="row">
+                  <div class="col-md-12 col-6" *ngFor="let link of model.allInformationLinks; let i = index">
+                    <li class="my-3" [routerLink]="link.url" routerLinkActive="active" ngClass="i == 0">
+                      {{ link.title }}
+                    <span  *ngIf="i !=0 " class="notifications-numbers">1</span>
+                    </li>
+                  </div>
+                </div>
+              </ul>
+            </div>
+  
+          </div>
+  
+          <div class="col-md-9 col-sm-12">
+           
+            <div class="content info-container">
+              <!-- request widget to display request status -->
+              <request-widget [item]="model.item" [status]="2"></request-widget>
+  
+              <!-- router-Content -->
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+      </div>
+    </div>
+  
+  
+  
+  </div>

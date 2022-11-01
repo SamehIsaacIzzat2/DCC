@@ -1,0 +1,9 @@
+
+<div class="banner">
+    <banner [bannerData]="completeRegistrationBannerData" [bannerMode]="1"> </banner>
+  </div>
+
+   <!-- OTP-component -->
+   <app-set-otp *ngIf="!model.createPasswordFlag" ></app-set-otp>
+
+   

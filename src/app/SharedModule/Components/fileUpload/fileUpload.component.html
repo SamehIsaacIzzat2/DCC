@@ -1,0 +1,28 @@
+<div class="container px-0">
+  <div class="attachment-title">
+    <p>{{document}}</p>
+  </div>
+  <label class="label-component">{{ extensions }}</label>
+  <div class="w-100 container-upload" [ngClass]="{active:files.length > 0}" appDrag (files)="addFile($event)">
+    <div class="d-flex flex-wrap px-2 pt-2">
+      <div
+        class="file-uploaded px-3 py-2 mx-2 my-2 d-flex align-items-center"
+        *ngFor="let file of files"
+      >
+        {{ file.name }}
+        <mat-icon (click)="removeFile(file)">close</mat-icon>
+      </div>
+    </div>
+
+    <div class="avatar-upload" >
+      <label class="intial-title" [for]="uniqueId || 'fileInput'">
+        {{ description }}
+      </label>
+      <input
+        [id]="uniqueId || 'fileInput'"
+        type="file"
+        (change)="uploadFile($event)"
+      />
+    </div>
+  </div>
+</div>

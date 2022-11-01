@@ -1,0 +1,41 @@
+<div class="events-list">
+  <div class="header">
+    <h4>{{'eventsModule.events' | translate}}</h4>
+  </div>
+  <ng-container *ngIf="!loading">
+    <div class="row">
+      <div
+        class="col-lg-4 col-md-6 col-sm-12 g-0 cutom-grid"
+        *ngFor="
+          let event of items
+            | paginate: { itemsPerPage: 6, currentPage: model.p }
+        "
+      >
+        <event-card
+          [item]="event"
+          (changeState)="changesState($event)"
+        ></event-card>
+      </div>
+    </div>
+
+    <no-data [item]="'shared.generalWord.event' |translate" *ngIf="items &&  items.length == 0"></no-data>
+    <div
+      class="pagination-section d-flex justify-content-center align-items-center"
+      *ngIf="items && items.length != 0"
+    >
+      <app-paginator (pageChange)="model.changePage($event)"></app-paginator>
+    </div>
+  </ng-container>
+
+  <!-- skelton loader -->
+  <div class="row" *ngIf="loading">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12"
+      *ngFor="let x of [1, 2, 3, 4, 5, 6]"
+    >
+      <card-loader></card-loader>
+    </div>
+  </div>
+
+  <!-- <no-data item="event" *ngIf="!loading && items.length == 0"></no-data> -->
+</div>

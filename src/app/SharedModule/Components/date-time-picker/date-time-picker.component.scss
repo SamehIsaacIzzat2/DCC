@@ -1,0 +1,58 @@
+@import "../../../../assets/styles/helpers/variables";
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #fff;
+  cursor: pointer;
+  &:focus,
+  &:active {
+    border: 1px solid $secondaryColor;
+    box-shadow: none;
+  }
+}
+.input-group-append {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+  button {
+    border: 0;
+    padding: 0;
+    &:hover {
+      background: transparent;
+    }
+    .icon {
+      font-size: 22px;
+      color: #374957;
+    }
+  }
+}
+
+.form-group,
+.input-group {
+  width: 100%;
+}
+
+input {
+  border-radius: 4px !important;
+}
+
+.input-group-append {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+  button {
+    border: 0;
+    padding: 0;
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.rightCalender {
+  right: auto;
+  left: 15px !important;
+}

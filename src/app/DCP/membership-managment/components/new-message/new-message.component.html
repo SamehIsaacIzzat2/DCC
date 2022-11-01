@@ -1,0 +1,46 @@
+  <!-- <p class="page-title">{{model.banner.title}}</p> -->
+  <div *ngIf="!model.showResult" class="container my-4">
+    <form [formGroup]="model.form">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="input my-3">
+            <div class="input-content">
+              <label class="form-label">{{'shared.generalFeilds.title' | translate}} *</label>
+              <input
+                type="text"
+                class="w-100 form-control custom-input"
+                placeholder=""
+                formControlName="title"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12">
+          <div class="input my-3">
+            <div class="input-content">
+              <label class="form-label">{{'shared.generalFeilds.description' | translate}} *</label>
+              <textarea
+                class="w-100 form-textarea"
+                formControlName="description"
+                style="resize: none"
+              ></textarea>
+              <div *ngIf="model.isSubmitted && !model.form.value.description">
+                <span class="form-error">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{'shared.generalValidationErrorMessage.descriptionRequired' | translate}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  
+    <button (click)="model.send()">{{'shared.actions.send' | translate}}</button>
+  </div>
+  
+  <div class="confirmation-result" *ngIf="model.showResult">
+    <result-card [item]="model.item" [id]="false"></result-card>  </div>

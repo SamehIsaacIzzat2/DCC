@@ -1,0 +1,90 @@
+//colors
+@import "../../../../../assets/styles/helpers/variables";
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+
+.aside {
+  &-wrapper {
+    >div {
+      margin: 15px 0;
+    }
+
+    .video {
+      border: 1px solid #ddd;
+
+      video {
+
+        width: 100%;
+        height: 190px;
+
+      }
+
+      p {
+        margin: auto;
+        width: 85%;
+        font-size: 14px;
+        padding: 10px 0;
+        text-align: center;
+      }
+    }
+
+    .call-btn {
+      color: #fff;
+      background-color: $secondaryColor;
+      padding: 18px;
+      @include bRadius(5px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .txt {
+        p {
+          color: $mutedColor;
+          opacity: 0.5;
+          font-size: 13px;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  background-color: #fff;
+  max-width: 280px;
+  border: 1px solid #ddd;
+  @media (max-width: 420px) {
+    max-width: initial;
+  }
+  .header {
+    margin: 0 22px 22px;
+    display: flex;
+    padding: 20px 0px;
+    grid-gap: 10px;
+    gap: 10px;
+    border-bottom: 1px solid #ddd;
+
+    .title-icon {
+      color: $secondaryColor;
+    }
+
+    .title {
+      color: #476e83;
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+
+  .body {
+    padding: 0 48px;
+
+    ul {
+      list-style: disc;
+
+      li {
+        margin-bottom: 16px;
+        color: #616465;
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.avatar-upload {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  img,
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-fit: center;
+  }
+
+  .initial-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+  }
+  .hoverable {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    height: 170px;
+    width: 100%;
+    max-width: 300px;
+    background: #f8f8f8;
+    border: 3px dashed #e9e9e9;
+    border-radius: 5px;
+  }
+  .hoverable .hover-text {
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .hoverable .background {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 5px;
+  }
+  .hoverable:hover .hover-text {
+    display: block;
+  }
+  .hoverable:hover .background {
+    display: block;
+  }
+
+  #fileInput {
+    display: none;
+  }
+
+  input {
+    display: none;
+  }
+}

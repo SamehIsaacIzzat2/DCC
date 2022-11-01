@@ -1,0 +1,42 @@
+@import "../../../../../assets/styles/helpers/variables";
+
+.invoice-info {
+  margin: 70px 0;
+}
+
+.section-title {
+  p {
+    color: #1d4861;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 18px;
+  }
+}
+
+.radioParnt {
+  &:first-of-type {
+    margin-inline-end: 50px;
+  }
+  input[type="radio"] {
+    width: 23px;
+    margin-inline-end: 7px;
+  }
+  label {
+    cursor: pointer;
+  }
+}
+
+.invoice-details {
+  margin-bottom: 70px;
+}
+.form-group.currencies{
+  margin-top: 2.3rem;
+}
+.btn-next {
+  background-color: $secondaryColor;
+  color: #fff;
+  width: 228.25px;
+  border-radius: 0px;
+  padding: 0.6rem 0.75rem;
+  text-transform: capitalize;
+}

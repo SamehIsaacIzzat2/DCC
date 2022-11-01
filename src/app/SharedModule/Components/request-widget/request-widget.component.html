@@ -1,0 +1,125 @@
+<div class="request-widget" (click)="goToDetails()" *ngIf="status == 1" style="cursor: pointer">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="../../../../assets/images/Requests.svg" />
+        </div>
+        <div class="request-title mx-4">
+          <span>{{'reqestModule.requestWidget.requestNumber' |translate }} {{":" + item.requestNumber }}</span>
+          <!-- <h4>{{item.requestTitle}}</h4> -->
+          <h4>{{ item.serviceTypeName }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row justify-content-between">
+        <div class="col-md-4">
+          <div class="request-status">
+            <span>{{'reqestModule.requestWidget.status' |translate }}</span>
+            <h4>
+              <!-- {'submitStyle':item.requestStatus=='Submitted'},
+                        { 'responseStyle':item.requestStatus=='No Response'},
+                        {'progressStyle':item.requestStatus=='In Progress'} -->
+              <span
+                [ngClass]="{
+                  DraftStyle:
+                    item.statusName == 'Draft' || item.statusName == 'Closed',
+                  submitStyle: item.statusName == 'Submitted',
+                  responseStyle: item.statusName == 'No Response',
+                  progressStyle:
+                    item.statusName == 'In Progress' ||
+                    item.statusName == 'Open'
+                }"
+              >
+                {{ item.statusName }}
+              </span>
+            </h4>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
+                   <div class="request-date">
+                    <span>Created </span>
+                    <h4>{{item.created | date:"dd-MM-yyyy"}}
+                    <span [ngClass]="{'DraftStyle':item.statusName=='Draft' || item.statusName=='Closed',
+                                          'submitStyle':item.statusName=='Submitted',
+                                          'responseStyle':item.statusName=='No Response',
+                                          'progressStyle':item.statusName=='In Progress'
+                                        }">
+
+                        {{item.statusName}}
+                    </span>
+                    </h4>
+                   </div>
+                </div> -->
+        <div class="col-md-4">
+          <div class="request-date">
+            <span>{{'reqestModule.requestWidget.createdOn' | translate }}</span>
+            <h4>{{ item.created | customDate: "dd-MM-yyyy" }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="request-widget indetails" *ngIf="item && showIndetails">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="request-type d-flex align-items-center">
+        <div class="icon">
+          <img src="../../../../assets/images/whiteFile.svg" />
+        </div>
+        <div class="request-title mx-4" *ngIf="item.requestNumber">
+          <span>{{'reqestModule.requestWidget.requestNumber' |translate }} {{":"}} {{ item.requestNumber }}</span>
+          <h4>{{ item.serviceTypeName }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row justify-content-between">
+        <div class="col-md-4">
+          <div class="request-status">
+            <span>{{'reqestModule.requestWidget.status' |translate }}</span>
+            <h4>
+              <!-- {'submitStyle':item.requestStatus=='Submitted'},
+                        { 'responseStyle':item.requestStatus=='No Response'},
+                        {'progressStyle':item.requestStatus=='In Progress'} -->
+              <span
+                [ngClass]="{
+                  DraftStyle:
+                    item.statusName == 'Draft' || item.statusName == 'Closed',
+                  custsubmitStyle: item.statusName == 'Submitted',
+                  responseStyle: item.statusName == 'No Response',
+                  progressStyle: item.statusName == 'In Progress'
+                }"
+              >
+                {{ item.statusName }}
+              </span>
+            </h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="request-date">
+            <span>{{'reqestModule.requestWidget.createdOn' | translate }}</span>
+            <h4>{{ item.created | date: "dd-MM-yyyy" }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="request-widget">
+    <div class="title">{{item.title}}</div>
+    <div class="actions">
+        <div class="info">
+            <mat-icon>info</mat-icon>
+            {{item.info}}
+        </div>
+        <div class="setting">
+            <mat-icon>power_settings_new</mat-icon>
+            Start Service
+        </div>
+    </div>
+</div> -->

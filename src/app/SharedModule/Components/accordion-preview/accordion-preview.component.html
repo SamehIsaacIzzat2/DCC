@@ -1,0 +1,44 @@
+<div class="accordion" [id]="itemId">
+  <div class="accordion-item my-4">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button"
+        [ngClass]="{'activeAccordion':expandFlag || active }"
+        type="button"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#data' + itemId"
+        aria-expanded="false"
+        aria-controls="collapseOne"
+        (click)="fun()"
+      >
+        {{ title }}
+      </button>
+    </h2>
+    <div
+    *ngIf="active"
+      [id]="'data' + itemId"
+      [ngClass]="{ show: expandFlag }"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingOne"
+      [attr.data-bs-parent]="'#' + itemId"
+    >
+      <div class="accordion-body">
+        <!-- i use this normal body in all accordion details except attachment  -->
+        <div class="normal-body" *ngIf="!hasAttachmentBody">
+          <generic-display-details
+            [items]="DetailsItems"
+          ></generic-display-details>
+
+          <div class="product-details-widget my-3">
+            <ng-content></ng-content>
+          </div>
+        </div>
+
+        <!-- use that body only with attachment-Details -->
+        <div class="attachment-body" *ngIf="hasAttachmentBody">
+          <preview-attachments></preview-attachments>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

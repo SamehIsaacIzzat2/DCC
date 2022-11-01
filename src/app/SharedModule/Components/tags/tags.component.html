@@ -1,0 +1,10 @@
+<div class="tags-container">
+    <p *ngIf="translateSer.currentLang === 'en'">Selected {{itemName }}(s)</p>
+    <p *ngIf="translateSer.currentLang === 'ar'">{{itemNameAr}} المختارة</p>
+    <span class="tag" *ngFor="let tag of SelectedItems">
+        {{tag.name ?? tag.entityName}}
+        <button (click)="removeTag(tag)">
+            <i class="fa-solid fa-circle-xmark" ></i>
+        </button>
+    </span>
+</div>

@@ -1,0 +1,42 @@
+<div class="documnet-widget"  style="cursor: pointer">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12 d-flex align-items-center ">
+        <div class="document-type d-flex align-items-center ">
+          <div class="icon">
+            <img src="../../../../assets/images/PaymentIcon.svg"  alt='in-teraction'/>
+          </div>
+          <div class="document-title mx-4">
+            <span>{{'memberShipsModule.payment.request'|translate}} {{":"}} {{item.requestNo}}</span>
+            <h4>{{paymentMethodName}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="row justify-content-between">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="sevice-name">
+              <span>{{'memberShipsModule.payment.transaction'|translate}}</span>
+              <h4>
+                {{item.transactionNo}}
+              </h4>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="Related-request">
+              <span>{{'memberShipsModule.payment.amount'|translate}}</span>
+              <h4>{{item.amount}}</h4>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="transaction-date">
+              <span>{{'memberShipsModule.payment.transferred'|translate}}</span>
+              <h4>{{item.createdon |customDate:"dd-MM-yyyy"}}</h4>
+            </div>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  

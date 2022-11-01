@@ -1,0 +1,76 @@
+<div class="banner mb-4">
+  <banner [bannerData]="banner" [bannerMode]="3" [paddingFlag]="true"> </banner>
+</div>
+<div class="container">
+  <p class="page-title">{{ banner.title }}</p>
+  <div class="main-container row">
+    <div class="left-side col-md-3 col-sm-12">
+      <app-company-filter
+        (filter)="model.filterData($event, true)"
+        (removeFilter)="model.filterData($event, false)"
+      ></app-company-filter>
+      <!-- <request-filter (filter)="model.filterData($event)" (removeFilter)="model.removefilterData($event)"></request-filter> -->
+    </div>
+
+    <div class="right-side px-0 col-md-9 col-sm-12">
+      <div
+        class="company-header mb-4 mb-2 px-0 d-flex justify-content-between align-items-center"
+      >
+        <p>{{ "companyModule.list.myCompaniesList" | translate }}</p>
+        <button
+          *ngIf="model.rowData && model.rowData.length != 0"
+          routerLink="add-company/register"
+        >
+          <span>{{ "companyModule.list.addCompany" | translate }}</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <ng-container *ngIf="!model.loading">
+        <div class="all-company my-4">
+          <div class="items row">
+            <div
+              class="col-lg-6 col-md-12 col-sm-12"
+              *ngFor="
+                let widget of model.rowData
+                  | paginate: { itemsPerPage: 5, currentPage: p }
+              "
+            >
+              <app-company-widget [item]="widget"></app-company-widget>
+            </div>
+
+            <no-data
+              [item]="'shared.generalWord.company' | translate"
+              *ngIf="model.rowData && model.rowData.length == 0"
+            ></no-data>
+            <div
+              class="company-header mb-4 mb-2 center px-0 d-flex justify-content-between align-items-center"
+              *ngIf="model.rowData && model.rowData.length == 0"
+            >
+              <button routerLink="add-company/register">
+                <span>{{ "companyModule.list.addCompany" | translate }}</span>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12" *ngIf="model.rowData.length != 0">
+          <div
+            class="pagination-section d-flex justify-content-center align-items-center"
+          >
+            <app-paginator (pageChange)="changePage($event)"></app-paginator>
+          </div>
+        </div>
+      </ng-container>
+      <!-- skelton loader -->
+      <div class="row" *ngIf="model.loading">
+        <div
+          class="col-lg-6 col-md-12 col-sm-12"
+          *ngFor="let x of [1, 2, 3, 4, 5, 6]"
+        >
+          <card-loader [height]="220"></card-loader>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

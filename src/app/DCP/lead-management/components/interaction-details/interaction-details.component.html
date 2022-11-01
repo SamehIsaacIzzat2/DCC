@@ -1,0 +1,80 @@
+
+<div class="interaction-details">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Lead Data diaplayed in widget -->
+            <!-- <div class="col-md-12 col-sm-12 my-3">
+                <app-lead-widget [item]="model.item" [status]="1"></app-lead-widget>
+            </div> -->
+
+
+            <!-- Interaction Data diaplayed in widget -->
+            <div class="col-md-12 col-sm-12 mt-3">
+                <app-lead-widget [status]="2" [noArrow]="false"  [itemInteraction]="model.item" [showIndetails]="false"></app-lead-widget>
+            </div>
+
+
+            <!-- description -->
+            <div class="col-md-12 col-sm-12 "></div>
+            <div class="content">
+                <div class="title">
+                    <h4>{{'shared.generalFeilds.description' | translate}}</h4>
+                </div>
+                <div class="data">
+                    {{model.item?.description}}
+                </div>
+            </div>
+
+
+            <!-- interaction-outcome  Area box-->
+            <div  class="col-md-12 col-sm-12 my-3">
+                <div class="content">
+                <div class="title">
+                    <h4>{{'leadsModule.interactions.interactionOutcome' | translate}}</h4>
+                </div>
+                <div *ngIf="model.item?.status ==1 "class="data">
+                    <form [formGroup]="model.interactionResultForm">
+                        <div class="input my-3">
+                            <div class="input-content ">
+                                <textarea class="w-100 form-textarea" formControlName="outcome" id="outcome"
+                                    style="resize: none;"></textarea>
+                                <div *ngIf=" model.submitted && model.f['outcome'].errors ">
+                                    <span class="form-error" *ngIf="model.f['outcome'].errors['required']">
+                                        <i class="fa-solid fa-circle-exclamation"></i> {{'shared.generalValidationErrorMessage.outcomeRequired' | translate}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div *ngIf="model.item?.status !=1 && model.item?.outCome != ' ' " class="data">
+                    {{model.item?.outCome}}
+                </div>
+            </div>
+            </div>
+
+            <!-- actions buttons -->
+            <div *ngIf="model.item?.status ==1" class="btns my-3">
+                <div class="act_left ">
+                    <button  class="btn-save  custom-outline my-2" (click)="model.saveopportunity('save',model.f['outcome'].value)">{{'shared.actions.save' | translate}}</button>
+                </div>
+                <div class="act_right">
+                    <div class="btn-group">
+                        <button  class="custom-outline my-2" (click)="model.saveopportunity('nodeal',model.f['outcome'].value)">{{'leadsModule.interactions.noDeal' | translate}}</button>
+                        <button  class=" my-2 cp" (click)="model.saveopportunity('create',model.f['outcome'].value)">{{'shared.actions.create' | translate}} {{'opportunitiesModule.opportunity' | translate}}</button>
+                    </div>
+                   
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</div>

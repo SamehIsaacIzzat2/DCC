@@ -1,0 +1,65 @@
+//mixins
+@import "../../../../../assets/styles/helpers/mixins";
+//colors
+@import "../../../../../assets/styles/helpers/variables";
+//line comp
+@import "../../../../../assets/styles/components/line";
+
+.ser-dir {
+  &-wapper {
+    .main-content {
+      padding: 50px 0;
+      .page-title {
+        color: #1d4861;
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .used-sers {
+        .side {
+          @media (max-width: 767px) {
+            @include rtl_value("margin-left", 15px, unset);
+            @include rtl_value("margin-right", unset, 15px);
+          }
+          h5 {
+            color: $secondaryColor;
+            font-weight: 600;
+          }
+        }
+        .sers {
+          @media (max-width: 767px) {
+            justify-content: center;
+          }
+          div {
+            margin: 25px 0;
+          }
+        }
+      }
+      .other {
+        .main-con {
+          div {
+            margin: 15px 0;
+          }
+        }
+        button {
+          background-color: $secondaryColor;
+          padding: 8px 30px;
+          @include bRadius(5px);
+          border: none;
+          color: #fff;
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+.line.custom-line {
+  margin: 50px 0 !important;
+}
+
+.filter-title {
+  font-size: 32px;
+  font-weight: 500;
+  @include rtl_value("margin-left", 15px, unset);
+  @include rtl_value("margin-right", unset, 15px);
+}

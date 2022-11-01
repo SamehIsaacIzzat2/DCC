@@ -1,0 +1,18 @@
+<div class="request-details">
+    <accordion-preview-item itemId="Exp" [title]="'cooModule.stepper.exporterInfo' |translate" [DetailsItems]="model.exporterDetails" [expandFlag]="true"> </accordion-preview-item>
+
+    <!-- consignee Details -->
+    <accordion-preview-item itemId="Con" [title]="'cooModule.stepper.consigneeInfo' |translate" [DetailsItems]="model.exporterDetails" > </accordion-preview-item>
+
+    <!-- chipment-details -->
+    <accordion-preview-item itemId="Chi"  [title]="'cooModule.stepper.shipmentInfo' |translate" [DetailsItems]="model.exporterDetails" > </accordion-preview-item>
+
+    <!-- Invoices-details -->
+    <accordion-preview-item itemId="Inv" [title]="'cooModule.stepper.invoiceInfo' |translate" [DetailsItems]="model.exporterDetails" > 
+        <product-details-widget *ngFor="let productItem of model.productsData "  [item]="productItem"></product-details-widget>
+    </accordion-preview-item>
+
+    <!-- Attachments-details -->
+    <accordion-preview-item itemId="Att" [title]="'cooModule.stepper.attachments' |translate" [hasAttachmentBody]="true" > </accordion-preview-item>
+
+</div>

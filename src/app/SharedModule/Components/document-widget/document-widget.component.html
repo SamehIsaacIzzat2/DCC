@@ -1,0 +1,46 @@
+<div class="documnet-widget"  style="cursor: pointer">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12 d-flex align-items-center ">
+        <div class="document-type d-flex align-items-center ">
+          <div class="icon">
+            <img src="../../../../../../../assets/images/Requests.svg"  alt='in-teraction'/>
+          </div>
+          <div class="document-title mx-4">
+            <h4>{{item.documentName}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="row justify-content-between">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="sevice-name">
+              <span>{{'memberShipsModule.documents.serviceName'|translate}}</span>
+              <h4>
+                {{item.serviceName}}
+              </h4>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="Related-request">
+              <span>{{'memberShipsModule.documents.relatedRequest'|translate}}</span>
+              <h4>{{item.requestNo}}</h4>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="transaction-date">
+              <span>{{'memberShipsModule.documents.issuedDate'|translate}}</span>
+              <h4>{{item.createdOn |customDate:"dd-MM-yyyy"}}</h4>
+            </div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 col-sm-12 d-flex align-items-center">
+            <div class="download-icon" (click)="downloadFile()">
+              <img src="assets/images/downloadicon.svg" alt="download-icon"/>
+              <a #download [href]="_sanitizer.bypassSecurityTrustResourceUrl(item.content)" download="{{item.fileName}}"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

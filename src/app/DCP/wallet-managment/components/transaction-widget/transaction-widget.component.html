@@ -1,0 +1,38 @@
+<div class="transaction-widget"  style="cursor: pointer">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="transaction-type d-flex align-items-center">
+          <div class="icon">
+            <img *ngIf="item.amount > 0" src="../../../../../../../assets/images/inTransaction.svg"  alt='in-teraction'/>
+            <img *ngIf="item.amount < 0" src="../../../../../../../assets/images/outTransaction.svg" alt='out-teraction'/>
+          </div>
+          <div class="transaction-title mx-4">
+            <span>{{'memberShipsModule.wallet.transactionNumber' |translate }} {{":" + item.transactionNumber }}</span>
+            <!-- <h4>{{item.requestTitle}}</h4> -->
+            <h4  *ngIf="item.amount > 0">{{"memberShipsModule.wallet.inTransaction" |translate}}</h4>
+            <h4  *ngIf="item.amount < 0" >{{"memberShipsModule.wallet.outTransaction"| translate}} </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row justify-content-between">
+          <div class="col-md-4">
+            <div class="transaction-amount">
+              <span>{{'memberShipsModule.wallet.transactionAmount' |translate }}</span>
+              <h4>
+                AED {{item.amount }}
+              </h4>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="transaction-date">
+              <span>{{'memberShipsModule.wallet.transactionTransferDate' | translate }}</span>
+              <h4>{{ item.transferedDate| customDate: "dd-MM-yyyy" }}</h4>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

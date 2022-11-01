@@ -1,0 +1,200 @@
+<div class="navbar navbar-expand-lg">
+  <div class="container flex-wrap py-3">
+    <div class="navbar-container">
+      <div class="col-2">
+        <a class="navbar-brand mx-0 no-mobile" routerLink="/">
+          <img [src]="'assets/images/' + langSer.toggleVal('logo-en-','logo-ar-')+platformSer.getPlatform()+'.png'" />
+        </a>
+      </div>
+      <div class="col-10">
+        <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="rotate()"
+      [ngStyle]="{ transform: 'rotate('+angel+'deg)' }"
+    >
+    <img src="../../../../assets/images/menu-mobile.svg" />
+    </button>
+
+    <ul>
+      <li class="nav-item mobile">
+        <a class="nav-link" aria-current="page" href="#">
+          عربي
+        </a>
+      </li>
+  
+      <li class="nav-item mobile">
+        <a class="nav-link d-flex" aria-current="page" href="#">
+          <img src="../../../../assets/images/disability-mobile.png" />
+        </a>
+      </li>
+  
+      <li class="nav-item mobile">
+        <a class="nav-link d-flex" aria-current="page" href="#">
+          <img src="../../../../assets/images/search-mobile.png" />
+        </a>
+      </li>
+
+      <li class="nav-item mobile">
+        <a class="nav-link d-flex" aria-current="page" href="#">
+          <img src="../../../../assets/images/notification-mobile.png" />
+        </a>
+      </li>
+      
+  
+      <li class="Login nav-item mobile" *ngIf="!(authSer.isAuthenticated | async)">
+        <div class="login" (click)="login()">
+          <img src="assets/images/user-mobile.png" />
+          <span class="no-mobile">Login</span>
+        </div>
+      </li>
+
+
+      <li class="nav-item mobile" *ngIf="(authSer.isAuthenticated | async)">
+          <a
+          class="three-lines d-flex justify-content-center align-items-center"
+          routerLink="/dcc/requests">
+            <img src="assets/images/user-mobile.png" />
+          </a>
+      </li>
+
+
+    </ul>
+
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav middle-links mb-2 mb-lg-0">
+        <li class="nav-item no-mobile" routerLink="/dcc/services">
+          <a class="nav-link active d-flex" aria-current="page">
+            <img src="assets/images/Icon.svg" />
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dcc/services"  routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}>{{"layout.navItems.services" | translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" >{{"layout.navItems.resources" | translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{"layout.navItems.mediaCenter" | translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="'/'+platformSer.getPlatform()+'/events'"  routerLinkActive="active"  >{{"layout.navItems.events" | translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{"layout.navItems.contactUs" | translate}}</a>
+        </li>
+        <hr class="mobile">
+        <li class="nav-item mobile"
+        >
+          <a class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          (click)="rotate()"
+          routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}
+          routerLink="/dcc/requests">Requests</a>
+        </li>
+        <li class="nav-item mobile">
+          <a class="nav-link"  
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          (click)="rotate()"
+          routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}
+          routerLink="/dic/leads">Leads</a>
+        </li>
+        <li class="nav-item mobile">
+          <a class="nav-link" 
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          (click)="rotate()"
+          routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}
+           routerLink="/dcc/opportunities">Opportunites</a>
+        </li>
+        <li class="nav-item mobile">
+          <a class="nav-link" 
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          (click)="rotate()"
+          routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}
+           routerLink="/dcc/companys">Companies</a>
+        </li>
+        <li class="nav-item mobile mb-20px">
+          <a class="nav-link"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          (click)="rotate()"
+          routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}
+          >Payment</a>
+        </li>
+      </ul>
+      <div class="Extra-links d-flex">
+        <ul class="navbar-nav me-auto mb-2 w-100 mb-lg-0 no-mobile">
+          <li class="ms-1 nav-item">
+            <a class="nav-link" aria-current="page" (click)="model.toggleLang()"> 
+              <img src="assets/images/language.svg" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active d-flex" aria-current="page" href="#">
+              <img class="splitter" src="assets/images/disability.svg" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex" aria-current="page" href="#">
+              <img src="assets/images/search.svg" />
+            </a>
+          </li>
+          <!-- <li class="nav-item" *ngIf="(authSer.isAuthenticated | async)">
+            <a class="nav-link d-flex" aria-current="page" href="#">
+              <img src="../../../../assets/images/notification.svg" />
+            </a>
+          </li> -->
+          <!-- <li class="nav-item" *ngIf="(authSer.isAuthenticated | async)">
+            <a class="nav-link d-flex" aria-current="page" href="#">
+              <img src="../../../../assets/images/rang.svg" />
+              <span class="notification-numbers">3</span>
+            </a>
+          </li> -->
+          <li class="Login nav-item" *ngIf="!(authSer.isAuthenticated | async)">
+            <div class="login" (click)="login()">
+              <img src="assets/images/user.svg" />
+              <span>{{"shared.actions.login" | translate}}</span>
+            </div>
+          </li>
+          <!-- id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false" -->
+
+          <li class="Login nav-item" *ngIf="(authSer.isAuthenticated | async)">
+            <div class="dropdown"
+            type="button"
+            (click)="toggle()"
+            >
+
+              <div class="login">
+                <img src="assets/images/user.svg" />
+                <span>{{ (authSer.user | async)?.firstName }} </span>
+              </div>
+
+            </div>
+            <ul [ngStyle]="{ display: state ? 'block' : 'none' }" class="dropdown-menu" aria-labelledby="dropdownBasic1">
+              <li><a class="dropdown-item" routerLink="/dcc/profile">{{"bannerData.dropDown.profile" |translate}}</a></li>
+              <li><a class="dropdown-item" (click)="logout()">{{"bannerData.dropDown.logout" |translate}}</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+          
+      </div>
+    </div>
+      </div> 
+    </div>
+  </div>
+</div>

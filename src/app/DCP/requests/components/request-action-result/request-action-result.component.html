@@ -1,0 +1,120 @@
+
+ <div class="action-result my-3" [ngClass]="{'selected':item.selected}" >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="company-data"  >
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-sm-12 d-flex">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <img src="../../../../../assets/images/Requests.svg" />
+                        </div>
+                        <div class="title" (click)="goToCompanyInfo()">
+                            <!-- (click)="routetocompany(item.id)" -->
+                            <a><span>{{'reqestModule.requestDetails.requestActionResult.companyId' | translate}} : {{item.id}}</span></a>
+                            <a><h4>{{item.name}}</h4></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 d-flex justify-content-end">
+                        <div class="action-button mx-3">
+                           <button class="lead-created">
+                                    {{item.opportunities}} {{'shared.generalWord.opportuinities' |translate}}
+                                 </button>
+                                 <button class="lead-created">
+                                    {{item.match}} %  {{'shared.generalWord.match' |translate}}
+                                 </button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12  my-1">
+            <div class="details">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12" >
+                        <span>{{'reqestModule.requestDetails.data.hSProducts' |translate}}</span>
+                        <ng-container *ngIf="item.productsNames && item.productsNames.length>0">
+                            <div class="item d-flex" *ngFor="let product of item.productsNames">
+                                <div class="line"> </div>
+                                <p>{{product}}</p>
+                            </div>
+                        </ng-container>
+                        
+                        <div class="item d-flex" *ngIf="item.productsNames?.length == 0">
+                            <!-- <div class="line"> </div> -->
+                            <p class="dummy-value">{{'shared.generalWord.noValue' |translate}}</p>
+                        </div>
+                    
+                    </div>
+                    <div class="col-md-6 col-sm-12" >
+                        <span >{{'reqestModule.requestDetails.data.activity' |translate}}</span>
+                        <ng-container *ngIf="item.activitiesNames  && item.activitiesNames.length>0">
+                            <div class="item d-flex " *ngFor="let activity of item.activitiesNames">
+                                <div class="line"> </div>
+                                <p>{{activity}}</p>
+                            </div>
+                        </ng-container>
+                        <div class="item d-flex" *ngIf="item.activitiesNames?.length ==0">
+                            <!-- <div class="line"> </div> -->
+                            <p class="dummy-value">{{'shared.generalWord.noValue' |translate}}</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="location">
+                            <span>{{'reqestModule.requestDetails.data.location' |translate}}</span>
+                            <ng-container *ngIf="item.locations && item.locations.length>0 ">
+                                <div class="item d-flex" *ngFor="let country of item.locations">
+                                    <div class="line"> </div>
+                                    <p>{{country}}</p>
+                                </div>
+                            </ng-container>
+                            <div class="item d-flex" *ngIf="item.locations?.length ==0">
+                                <!-- <div class="line"> </div> -->
+                                <p class="dummy-value">{{'shared.generalWord.noValue' |translate}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="location">
+                            <span>{{'reqestModule.requestDetails.data.industry' |translate}}</span>
+                            <ng-container *ngIf="item.industries&&item.industries.length>0">
+                                <div class="item d-flex " *ngFor="let industry of item.industries">
+                                    <div class="line"> </div>
+                                    <p>{{industry}}</p>
+                                </div>
+                            </ng-container>
+                            <div class="item d-flex" *ngIf="item.industries?.length ==0">
+                                <!-- <div class="line"> </div> -->
+                                <p class="dummy-value">{{'shared.generalWord.noValue' |translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 my-3" >
+                        <div *ngIf="item.size" class="description">
+                            <span>{{'reqestModule.requestDetails.data.companySize' |translate}}</span>
+                            <p>{{item.size}}</p>
+                        </div>
+                        <div class="item d-flex" *ngIf="!item.size">
+                            <!-- <div class="line"> </div> -->
+                            <p class="dummy-value">{{'shared.generalWord.noValue' |translate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" *ngIf="requestState != 5">
+               <div class="actions-button  row justify-content-end">
+                <button  *ngIf="!item.selected" class="select mx-3" (click)="selectCompany()">{{'shared.generalWord.select' |translate}}</button>
+                <button  *ngIf="item.selected" class="unselect mx-3" (click)="unSelectCompany()">{{'shared.generalWord.selected' |translate}}</button>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
